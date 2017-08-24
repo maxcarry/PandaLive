@@ -13,6 +13,7 @@ import com.example.dell.pandalive.base.BaseFragment;
 
 public class VideoFragment extends BaseFragment {
 
+    //贾成昆
     private View view;
 
     @Override
