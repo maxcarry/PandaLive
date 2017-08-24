@@ -12,6 +12,9 @@ import com.example.dell.pandalive.base.BaseFragment;
  */
 
 public class EyeFragment extends BaseFragment {
+
+    private View view;
+
     @Override
     protected void restartdata() {
 
@@ -24,7 +27,10 @@ public class EyeFragment extends BaseFragment {
 
     @Override
     protected View initlayout() {
-        return LayoutInflater.from(Myapp.activity).inflate(R.layout.eye_fragment,null);
+
+        view = LayoutInflater.from(Myapp.activity).inflate(R.layout.eye_fragment, null);
+
+        return view;
     }
 
     @Override

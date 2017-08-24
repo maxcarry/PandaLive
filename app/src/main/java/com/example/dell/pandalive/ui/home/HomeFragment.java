@@ -12,6 +12,9 @@ import com.example.dell.pandalive.base.BaseFragment;
  */
 
 public class HomeFragment extends BaseFragment {
+
+    private View view;
+
     @Override
     protected void restartdata() {
 
@@ -24,7 +27,8 @@ public class HomeFragment extends BaseFragment {
 
     @Override
     protected View initlayout() {
-        return LayoutInflater.from(Myapp.activity).inflate(R.layout.home_fragment,null);
+        view = LayoutInflater.from(Myapp.activity).inflate(R.layout.home_fragment, null);
+        return view;
     }
 
     @Override
