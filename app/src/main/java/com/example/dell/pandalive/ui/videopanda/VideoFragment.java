@@ -28,8 +28,6 @@ public class VideoFragment extends BaseFragment {
 
     @Override
     protected View initlayout() {
-
-        view = LayoutInflater.from(Myapp.activity).inflate(R.layout.video_fragment, null);
         
         return view;
     }
@@ -37,5 +35,6 @@ public class VideoFragment extends BaseFragment {
     @Override
     protected void initview() {
 
+        view = LayoutInflater.from(Myapp.activity).inflate(R.layout.video_fragment, null);
     }
 }

@@ -28,13 +28,12 @@ public class LiveFragment extends BaseFragment {
     @Override
     protected View initlayout() {
 
-        view = LayoutInflater.from(Myapp.activity).inflate(R.layout.live_fragment, null);
-
         return view;
     }
 
     @Override
     protected void initview() {
 
+        view = LayoutInflater.from(Myapp.activity).inflate(R.layout.live_fragment, null);
     }
 }

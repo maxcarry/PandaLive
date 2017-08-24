@@ -28,7 +28,6 @@ public class EyeFragment extends BaseFragment {
     @Override
     protected View initlayout() {
 
-        view = LayoutInflater.from(Myapp.activity).inflate(R.layout.eye_fragment, null);
 
         return view;
     }
@@ -36,5 +35,6 @@ public class EyeFragment extends BaseFragment {
     @Override
     protected void initview() {
 
+        view = LayoutInflater.from(Myapp.activity).inflate(R.layout.eye_fragment, null);
     }
 }

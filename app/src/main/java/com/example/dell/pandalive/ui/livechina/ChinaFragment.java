@@ -28,13 +28,12 @@ public class ChinaFragment extends BaseFragment {
     @Override
     protected View initlayout() {
 
-        view = LayoutInflater.from(Myapp.activity).inflate(R.layout.china_fragment, null);
-
         return view;
     }
 
     @Override
     protected void initview() {
 
+        view = LayoutInflater.from(Myapp.activity).inflate(R.layout.china_fragment, null);
     }
 }

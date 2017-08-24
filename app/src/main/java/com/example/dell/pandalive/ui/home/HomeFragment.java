@@ -44,9 +44,8 @@ public class HomeFragment extends BaseFragment implements Ihomeview{
     @Override
     protected void initview() {
 
-        homePresenter = new HomePresenter(this);
         view = LayoutInflater.from(Myapp.activity).inflate(R.layout.home_fragment, null);
-
+        homePresenter = new HomePresenter(this);
         home_showtimer_listview = (ListView) view.findViewById(R.id.home_showtimer_listview);
     }
 
