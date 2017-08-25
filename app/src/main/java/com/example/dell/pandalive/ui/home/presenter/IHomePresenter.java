@@ -9,5 +9,5 @@ import java.util.ArrayList;
 public interface IHomePresenter {
 
     void ShowBanner();
-    void SendBanner(ArrayList<String> imalist);
+    void SendBanner(ArrayList<String> imalist, ArrayList<String> titlelist);
 }

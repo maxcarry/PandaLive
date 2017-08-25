@@ -1,9 +1,14 @@
 package com.example.dell.pandalive.utils;
 
 import com.example.dell.pandalive.apimanage.RetrofitApi;
+import com.example.dell.pandalive.entity.BannerBean;
 
 import java.util.concurrent.TimeUnit;
 
+import io.reactivex.Observable;
+import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
@@ -19,7 +24,7 @@ public class RetrofitUtil {
     private static final int MAXTIME = 50;
     private final RetrofitApi api;
 
-    private RetrofitUtil() {
+    private RetrofitUtil(String baseurl) {
 
         OkHttpClient client = new OkHttpClient.Builder()
                 .connectTimeout(MAXTIME, TimeUnit.SECONDS)
@@ -29,19 +34,19 @@ public class RetrofitUtil {
 
         api = new Retrofit.Builder()
                 .client(client)
-                .baseUrl("http://m.yunifang.com/yunifang/")
+                .baseUrl(baseurl)
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
                 .create(RetrofitApi.class);
     }
 
-    public static RetrofitUtil instance(){
+    public static RetrofitUtil instance(String baseurl){
 
         if (retrofitUtil == null) {
             synchronized (RetrofitUtil.class) {
                 if (retrofitUtil == null) {
-                    retrofitUtil = new RetrofitUtil();
+                    retrofitUtil = new RetrofitUtil(baseurl);
                 }
             }
         }
@@ -49,4 +54,11 @@ public class RetrofitUtil {
         return retrofitUtil;
     }
 
+    public void Webbanner(Observer observer) {
+
+        Observable<BannerBean> getbanner = api.getbanner();
+        getbanner.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(observer);
+    }
 }

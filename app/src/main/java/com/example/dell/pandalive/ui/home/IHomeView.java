@@ -8,5 +8,5 @@ import java.util.ArrayList;
 
 public interface IHomeView {
 
-    void Showbanner(ArrayList<String> imalist);
+    void ShowBanner(ArrayList<String> imalist,ArrayList<String> titlelist);
 }

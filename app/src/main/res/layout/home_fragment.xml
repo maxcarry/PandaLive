@@ -3,16 +3,55 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.v7.widget.Toolbar
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/home_toolbar"
+        android:layout_height="180px"
         android:background="@color/colorPrimary"
-        ></android.support.v7.widget.Toolbar>
+        >
 
-    <com.youth.banner.Banner
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/panda_sign"
+            android:layout_centerVertical="true"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/person_sign"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="50px"
+            android:id="@+id/home_person"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/hudong_sign"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/home_person"
+            android:layout_marginRight="50px"
+            />
+    </RelativeLayout>
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/home_banner"
-        ></com.youth.banner.Banner>
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+
+            <com.youth.banner.Banner
+                android:layout_width="match_parent"
+                android:layout_height="600px"
+                android:id="@+id/home_banner"
+                ></com.youth.banner.Banner>
+
+        </LinearLayout>
+    </ScrollView>
+
 </LinearLayout>
