@@ -8,5 +8,9 @@ import com.example.dell.pandalive.ui.home.presenter.IHomePresenter;
 
 public interface IHomeModel {
 
-    void GainBanner(IHomePresenter iHomePresenter);
+    void GainHome(IHomePresenter iHomePresenter);
+
+    void GainTv(IHomePresenter iHomePresenter);
+
+    void GainVideo(IHomePresenter iHomePresenter);
 }

@@ -1,9 +1,13 @@
 package com.example.dell.pandalive.ui.home.presenter;
 
+import com.example.dell.pandalive.entity.HomeBean;
+import com.example.dell.pandalive.entity.TvBean;
+import com.example.dell.pandalive.entity.VideoBean;
 import com.example.dell.pandalive.ui.home.IHomeView;
 import com.example.dell.pandalive.ui.home.model.HomeModel;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by dell on 2017/8/25.
@@ -21,14 +25,71 @@ public class HomePresenter implements IHomePresenter {
     }
 
     @Override
-    public void ShowBanner() {
+    public void ShowView() {
 
-        homeModel.GainBanner(this);
+        homeModel.GainHome(this);
     }
 
     @Override
-    public void SendBanner(ArrayList<String> imalist, ArrayList<String> titlelist) {
+    public void SendView(HomeBean homeBean) {
 
-        iHomeView.ShowBanner(imalist,titlelist);
+        Showbanner(homeBean);
+
+        Showeye(homeBean);
+
+        Showlive(homeBean);
+    }
+
+    @Override
+    public void ShowTv() {
+
+        homeModel.GainTv(this);
+    }
+
+    @Override
+    public void SendTv(List<TvBean.ListBean> tvlist) {
+
+        iHomeView.ShowTv(tvlist);
+    }
+
+    @Override
+    public void ShowVideo() {
+
+        homeModel.GainVideo(this);
+    }
+
+    @Override
+    public void SendVideo(List<VideoBean.ListBean> videolist) {
+
+        iHomeView.ShowVideo(videolist);
+    }
+
+    private void Showlive(HomeBean homeBean) {
+
+        List<HomeBean.DataBean.PandaliveBean.ListBean> livelist = homeBean.getData().getPandalive().getList();
+
+        iHomeView.ShowLive(livelist);
+    }
+
+    private void Showeye(HomeBean homeBean) {
+
+        HomeBean.DataBean.PandaeyeBean pandaeye = homeBean.getData().getPandaeye();
+        iHomeView.ShowEye(pandaeye);
+    }
+
+    private void Showbanner(HomeBean homeBean) {
+
+        List<HomeBean.DataBean.BigImgBean> bigImg = homeBean.getData().getBigImg();
+        ArrayList<String> imalist = new ArrayList<String>();
+        ArrayList<String> titlelist = new ArrayList<String>();
+        ArrayList<String> pathlist = new ArrayList<String>();
+
+        for (HomeBean.DataBean.BigImgBean bigImgBean : bigImg) {
+            imalist.add(bigImgBean.getImage());
+            titlelist.add(bigImgBean.getTitle());
+            pathlist.add(bigImgBean.getUrl());
+        }
+
+        iHomeView.ShowBanner(imalist,titlelist,pathlist);
     }
 }

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="400px"
+        android:layout_height="300px"
+        android:layout_margin="30px"
+        android:id="@+id/h_video_ima_item"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/h_video_te_item"
+        android:layout_toRightOf="@id/h_video_ima_item"
+        android:layout_alignTop="@id/h_video_ima_item"
+        android:textSize="45px"
+        android:layout_marginTop="50px"
+        android:minLines="2"
+        android:layout_below="@id/h_tv_ima_item"
+        />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="70px"
+        android:background="@drawable/lpanda_bottom_gra"
+        android:layout_alignBottom="@id/h_video_ima_item"
+        android:layout_alignLeft="@id/h_video_ima_item"
+        >
+        <ImageView
+            android:layout_width="30px"
+            android:layout_height="30px"
+            android:background="@drawable/play"
+            android:layout_centerVertical="true"
+            android:id="@+id/dian_video"
+            android:layout_marginLeft="15px"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorWhite"
+            android:layout_marginLeft="10px"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/dian_video"
+            android:textSize="38px"
+            android:id="@+id/h_video_time_item"
+            />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30px"
+        android:layout_marginTop="130px"
+        android:layout_toRightOf="@id/h_video_ima_item"
+        android:layout_alignBottom="@id/h_video_ima_item"
+        android:id="@+id/h_video_date"
+        />
+
+</RelativeLayout>

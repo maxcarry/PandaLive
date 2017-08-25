@@ -1,11 +1,11 @@
 package com.example.dell.pandalive.ui.home.model;
 
-import com.example.dell.pandalive.entity.BannerBean;
+
+import com.example.dell.pandalive.entity.HomeBean;
+import com.example.dell.pandalive.entity.TvBean;
+import com.example.dell.pandalive.entity.VideoBean;
 import com.example.dell.pandalive.ui.home.presenter.IHomePresenter;
 import com.example.dell.pandalive.utils.RetrofitUtil;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
@@ -17,9 +17,8 @@ import io.reactivex.disposables.Disposable;
 public class HomeModel implements IHomeModel {
 
     @Override
-    public void GainBanner(final IHomePresenter iHomePresenter) {
-
-        RetrofitUtil.instance("http://www.ipanda.com/").Webbanner(new Observer() {
+    public void GainHome(final IHomePresenter iHomePresenter) {
+        RetrofitUtil.instance("http://www.ipanda.com/").Webhome(new Observer() {
             @Override
             public void onSubscribe(Disposable d) {
 
@@ -28,18 +27,67 @@ public class HomeModel implements IHomeModel {
             @Override
             public void onNext(Object value) {
 
-                BannerBean bean = (BannerBean) value;
-                List<BannerBean.DataBean.BigImgBean> bigImg = bean.getData().getBigImg();
-                ArrayList<String> imalist = new ArrayList<String>();
-                ArrayList<String> titlelist = new ArrayList<String>();
+                HomeBean bean = (HomeBean) value;
 
-                for (BannerBean.DataBean.BigImgBean bigImgBean : bigImg) {
-                    imalist.add(bigImgBean.getImage());
-                    titlelist.add(bigImgBean.getTitle());
-                }
+                iHomePresenter.SendView(bean);
 
-                iHomePresenter.SendBanner(imalist,titlelist);
+            }
 
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onComplete() {
+
+            }
+        });
+    }
+
+    @Override
+    public void GainTv(final IHomePresenter iHomePresenter) {
+
+        RetrofitUtil.instance("http://www.ipanda.com/").Webtv(new Observer() {
+            @Override
+            public void onSubscribe(Disposable d) {
+
+            }
+
+            @Override
+            public void onNext(Object value) {
+
+                TvBean bean = (TvBean) value;
+
+                iHomePresenter.SendTv(bean.getList());
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onComplete() {
+
+            }
+        });
+    }
+
+    @Override
+    public void GainVideo(final IHomePresenter iHomePresenter) {
+
+        RetrofitUtil.instance("http://www.ipanda.com/").Webvideo(new Observer() {
+            @Override
+            public void onSubscribe(Disposable d) {
+
+            }
+
+            @Override
+            public void onNext(Object value) {
+
+                VideoBean bean = (VideoBean) value;
+                iHomePresenter.SendVideo(bean.getList());
             }
 
             @Override

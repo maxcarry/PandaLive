@@ -25,8 +25,9 @@ import io.vov.vitamio.widget.VideoView;
  */
 public class PlayActivityUtil extends AppCompatActivity implements MediaPlayer.OnInfoListener, MediaPlayer.OnBufferingUpdateListener{
     //视频地址
-    private String path = "http://devimages.apple.com/iphone/samples/bipbop/bipbopall.m3u8";
+    private String path = "";
     private Uri uri;
+    private String title;
     private ProgressBar pb;
     private TextView downloadRateView, loadRateView;
     private CustomMediaController mCustomMediaController;
@@ -38,9 +39,11 @@ public class PlayActivityUtil extends AppCompatActivity implements MediaPlayer.O
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        title = getIntent().getStringExtra("title");
+        path = getIntent().getStringExtra("path");
+
         getnetwoke();
 
-        String getnetwoke = Netwoke.getnetwoke(this);
         //定义全屏参数
         int flag = WindowManager.LayoutParams.FLAG_FULLSCREEN;
         //获得当前窗体对象
@@ -59,7 +62,7 @@ public class PlayActivityUtil extends AppCompatActivity implements MediaPlayer.O
     private void initView() {
         mVideoView = (VideoView) findViewById(R.id.buffer);
         mCustomMediaController=new CustomMediaController(this,mVideoView,this);
-        mCustomMediaController.setVideoName("白火锅 x 红火锅");
+        mCustomMediaController.setVideoName(title);
         pb = (ProgressBar) findViewById(R.id.probar);
         downloadRateView = (TextView) findViewById(R.id.download_rate);
         loadRateView = (TextView) findViewById(R.id.load_rate);

@@ -1,7 +1,9 @@
 package com.example.dell.pandalive.utils;
 
 import com.example.dell.pandalive.apimanage.RetrofitApi;
-import com.example.dell.pandalive.entity.BannerBean;
+import com.example.dell.pandalive.entity.HomeBean;
+import com.example.dell.pandalive.entity.TvBean;
+import com.example.dell.pandalive.entity.VideoBean;
 
 import java.util.concurrent.TimeUnit;
 
@@ -54,10 +56,27 @@ public class RetrofitUtil {
         return retrofitUtil;
     }
 
-    public void Webbanner(Observer observer) {
+    public void Webhome(Observer observer) {
 
-        Observable<BannerBean> getbanner = api.getbanner();
+        Observable<HomeBean> getbanner = api.gethome();
         getbanner.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(observer);
+    }
+
+    public void Webtv(Observer observer){
+
+        Observable<TvBean> gettv = api.gettv();
+
+        gettv.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(observer);
+    }
+
+    public void Webvideo(Observer observer){
+
+        Observable<VideoBean> getvideo = api.getvideo();
+        getvideo.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(observer);
     }

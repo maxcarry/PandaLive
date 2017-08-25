@@ -6,7 +6,7 @@ import java.util.List;
  * Created by dell on 2017/8/25.
  */
 
-public class BannerBean {
+public class HomeBean {
 
 
     /**
