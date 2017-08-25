@@ -1,15 +1,9 @@
 package com.example.dell.pandalive.utils;
 
 import com.example.dell.pandalive.apimanage.RetrofitApi;
-import com.example.dell.pandalive.entity.HomeBean;
 
-import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
-import io.reactivex.Observable;
-import io.reactivex.Observer;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.schedulers.Schedulers;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
@@ -55,12 +49,4 @@ public class RetrofitUtil {
         return retrofitUtil;
     }
 
-    public void gethome(Map<String, String> map, Observer observer) {
-
-        Observable<HomeBean> observable = api.gethome(map);
-        observable.subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(observer);
-
-    }
 }
