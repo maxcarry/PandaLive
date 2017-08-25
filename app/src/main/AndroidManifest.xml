@@ -38,6 +38,7 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".utils.PlayActivityUtil" />
         //vitamio
         <activity
             android:name="io.vov.vitamio.activity.InitActivity"
