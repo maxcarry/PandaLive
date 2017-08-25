@@ -32,6 +32,7 @@ public class HomeFragment extends BaseFragment implements Ihomeview{
     protected void initdata() {
 
         homePresenter.getlist();
+
     }
 
     @Override
