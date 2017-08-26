@@ -280,7 +280,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/home_video"
+                    android:text="@string/home_china"
                     android:textSize="45px"
                     android:textColor="@color/colorBlue"
                     android:layout_marginLeft="20px"
