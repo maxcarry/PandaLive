@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">"熊猫频道"</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="home_eye">"熊猫播报"</string>
     <string name="home_live">"直播秀场"</string>
     <string name="home_tv">"精彩一刻"</string>
