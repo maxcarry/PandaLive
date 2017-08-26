@@ -18,4 +18,5 @@ public interface IHomeView {
     void ShowLive(List<HomeBean.DataBean.PandaliveBean.ListBean> livelist);
     void ShowTv(List<TvBean.ListBean> tvlist);
     void ShowVideo(List<VideoBean.ListBean> videolist);
+    void ShowChina(List<HomeBean.DataBean.ChinaliveBean.ListBeanX> chinalist);
 }

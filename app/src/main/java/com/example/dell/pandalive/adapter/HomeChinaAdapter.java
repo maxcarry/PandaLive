@@ -18,11 +18,12 @@ import java.util.List;
  * Created by dell on 2017/8/25.
  */
 
-public class HomeLiveAdapter extends BaseAdapter{
-    private Context context;
-    private List<HomeBean.DataBean.PandaliveBean.ListBean> list;
+public class HomeChinaAdapter extends BaseAdapter{
 
-    public HomeLiveAdapter(Context context, List<HomeBean.DataBean.PandaliveBean.ListBean> list) {
+    private Context context;
+    private List<HomeBean.DataBean.ChinaliveBean.ListBeanX> list;
+
+    public HomeChinaAdapter(Context context, List<HomeBean.DataBean.ChinaliveBean.ListBeanX> list) {
         this.context = context;
         this.list = list;
     }
@@ -46,29 +47,26 @@ public class HomeLiveAdapter extends BaseAdapter{
     public View getView(int position, View convertView, ViewGroup parent) {
 
         Myholder ho;
-
         if (convertView == null) {
-
             ho = new Myholder();
-
-            convertView = LayoutInflater.from(context).inflate(R.layout.home_live_item, null);
-            ho.h_live_ima_item = (ImageView) convertView.findViewById(R.id.h_live_ima_item);
-            ho.h_live_te_item = (TextView) convertView.findViewById(R.id.h_live_te_item);
-
+            convertView = LayoutInflater.from(context).inflate(R.layout.home_china_item, null);
+            ho.h_china_ima_item = (ImageView) convertView.findViewById(R.id.h_china_ima_item);
+            ho.h_china_te_item = (TextView) convertView.findViewById(R.id.h_china_te_item);
             convertView.setTag(ho);
         } else {
             ho = (Myholder) convertView.getTag();
         }
 
-        Glide.with(context).load(list.get(position).getImage()).into(ho.h_live_ima_item);
-        ho.h_live_ima_item.setScaleType(ImageView.ScaleType.FIT_XY);
-        ho.h_live_te_item.setText(list.get(position).getTitle());
+        Glide.with(context).load(list.get(position).getImage()).into(ho.h_china_ima_item);
+        ho.h_china_ima_item.setScaleType(ImageView.ScaleType.FIT_XY);
+        ho.h_china_te_item.setText(list.get(position).getTitle());
+
 
         return convertView;
     }
 
     private class Myholder{
-        ImageView h_live_ima_item;
-        TextView h_live_te_item;
+        ImageView h_china_ima_item;
+        TextView h_china_te_item;
     }
 }

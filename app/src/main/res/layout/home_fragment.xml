@@ -3,6 +3,13 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/_tw"
+        android:id="@+id/home_bg"
+        />
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="180px"
@@ -259,6 +266,38 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/home_video_list"
                 ></com.example.dell.pandalive.custom_view.CustomListview>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorWhite"
+                android:layout_marginRight="10px"
+                android:layout_marginLeft="10px"
+                android:layout_marginTop="10px"
+                android:layout_marginBottom="1px"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/home_video"
+                    android:textSize="45px"
+                    android:textColor="@color/colorBlue"
+                    android:layout_marginLeft="20px"
+                    android:layout_marginTop="40px"
+                    android:layout_marginBottom="40px"
+                    />
+            </LinearLayout>
+
+            <com.example.dell.pandalive.custom_view.CustomGridview
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:id="@+id/home_china_grid"
+                android:layout_marginRight="10px"
+                android:layout_marginLeft="10px"
+                android:numColumns="3"
+                ></com.example.dell.pandalive.custom_view.CustomGridview>
         </LinearLayout>
     </ScrollView>
 

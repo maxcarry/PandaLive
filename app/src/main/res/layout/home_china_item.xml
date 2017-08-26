@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:gravity="center"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="330px"
+        android:layout_height="220px"
+        android:id="@+id/h_china_ima_item"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/h_china_te_item"
+        android:textSize="45px"
+        android:layout_marginTop="20px"
+        android:minLines="2"
+        android:layout_below="@id/h_china_ima_item"
+        />
+
+    <RelativeLayout
+        android:layout_width="180px"
+        android:layout_height="70px"
+        android:background="@drawable/lpanda_bottom_gra"
+        android:layout_alignBottom="@id/h_china_ima_item"
+        android:layout_alignLeft="@id/h_china_ima_item"
+        >
+        <ImageView
+            android:layout_width="30px"
+            android:layout_height="30px"
+            android:background="@drawable/lpanda_live_layer"
+            android:layout_centerVertical="true"
+            android:id="@+id/dian_china"
+            android:layout_marginLeft="15px"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Live"
+            android:textColor="@color/colorWhite"
+            android:layout_marginLeft="10px"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/dian_china"
+            android:textSize="38px"
+            />
+    </RelativeLayout>
+</RelativeLayout>

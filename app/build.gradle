@@ -71,4 +71,7 @@ dependencies {
 
     //vitamio
     compile project(':vitamio')
+
+    //xrecyclerview
+    compile 'com.jcodecraeer:xrecyclerview:1.3.2'
 }
