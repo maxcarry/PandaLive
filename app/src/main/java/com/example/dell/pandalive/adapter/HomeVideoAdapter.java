@@ -61,6 +61,7 @@ public class HomeVideoAdapter extends BaseAdapter{
         }
 
         Glide.with(context).load(list.get(position).getImage()).into(ho.h_video_ima_item);
+        ho.h_video_ima_item.setScaleType(ImageView.ScaleType.FIT_XY);
         ho.h_video_time_item.setText(list.get(position).getVideoLength());
         ho.h_video_te_item.setText(list.get(position).getTitle());
         ho.h_video_date.setText(list.get(position).getDaytime());

@@ -38,6 +38,13 @@ public class HomePresenter implements IHomePresenter {
         Showeye(homeBean);
 
         Showlive(homeBean);
+
+        Showchina(homeBean);
+    }
+
+    private void Showchina(HomeBean homeBean) {
+
+        iHomeView.ShowChina(homeBean.getData().getChinalive().getList());
     }
 
     @Override

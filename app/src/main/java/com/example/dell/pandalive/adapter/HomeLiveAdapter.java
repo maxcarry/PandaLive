@@ -61,6 +61,7 @@ public class HomeLiveAdapter extends BaseAdapter{
         }
 
         Glide.with(context).load(list.get(position).getImage()).into(ho.h_live_ima_item);
+        ho.h_live_ima_item.setScaleType(ImageView.ScaleType.FIT_XY);
         ho.h_live_te_item.setText(list.get(position).getTitle());
 
         return convertView;

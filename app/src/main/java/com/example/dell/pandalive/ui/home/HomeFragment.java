@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.dell.pandalive.R;
+import com.example.dell.pandalive.adapter.HomeChinaAdapter;
 import com.example.dell.pandalive.adapter.HomeLiveAdapter;
 import com.example.dell.pandalive.adapter.HomeTvAdapter;
 import com.example.dell.pandalive.adapter.HomeVideoAdapter;
@@ -53,6 +54,8 @@ public class HomeFragment extends BaseFragment implements IHomeView {
     private HomeLiveAdapter homeLiveAdapter;
     private CustomGridview home_tv_grid;
     private CustomListview home_video_list;
+    private CustomGridview home_china_grid;
+    private ImageView home_bg;
 
 
     @Override
@@ -68,7 +71,6 @@ public class HomeFragment extends BaseFragment implements IHomeView {
         homePresenter.ShowView();
         homePresenter.ShowTv();
         homePresenter.ShowVideo();
-        DialogUtil.instance().Hidedialog();
     }
 
     @Override
@@ -94,6 +96,8 @@ public class HomeFragment extends BaseFragment implements IHomeView {
         home_live_grid = (CustomGridview) view.findViewById(R.id.home_live_grid);
         home_tv_grid = (CustomGridview) view.findViewById(R.id.home_tv_grid);
         home_video_list = (CustomListview) view.findViewById(R.id.home_video_list);
+        home_china_grid = (CustomGridview) view.findViewById(R.id.home_china_grid);
+        home_bg = (ImageView) view.findViewById(R.id.home_bg);
 
     }
 
@@ -128,6 +132,7 @@ public class HomeFragment extends BaseFragment implements IHomeView {
         //banner设置方法全部调用完毕时最后调用
         home_banner.start();
 
+        home_bg.setVisibility(View.GONE);
     }
 
     @Override
@@ -196,6 +201,25 @@ public class HomeFragment extends BaseFragment implements IHomeView {
                 startActivity(play);
             }
         });
+    }
+
+    @Override
+    public void ShowChina(final List<HomeBean.DataBean.ChinaliveBean.ListBeanX> chinalist) {
+
+        home_china_grid.setSelector(new ColorDrawable(Color.TRANSPARENT));
+        HomeChinaAdapter homeChinaAdapter = new HomeChinaAdapter(Myapp.activity,chinalist);
+        home_china_grid.setAdapter(homeChinaAdapter);
+        home_china_grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                play.putExtra("title", chinalist.get(position).getTitle());
+                play.putExtra("path", chinalist.get(position).getUrl());
+                startActivity(play);
+            }
+        });
+
+        DialogUtil.instance().Hidedialog();
     }
 
 }

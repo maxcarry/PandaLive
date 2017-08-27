@@ -125,7 +125,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     }
 
     private void setNetwork() {
-
+        
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
         builder.setIcon(R.mipmap.ic_launcher);
@@ -176,13 +176,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
         });
 
-        builder.setNegativeButton("我是穷逼", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
 
             @Override
 
             public void onClick(DialogInterface dialog, int which) {
 
-                Toast.makeText(MainActivity.this, "兄弟,没网怎么玩,搞不懂你", Toast.LENGTH_SHORT).show();
 
             }
 
