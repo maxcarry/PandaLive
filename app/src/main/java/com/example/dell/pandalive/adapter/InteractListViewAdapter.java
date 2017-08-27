@@ -16,7 +16,7 @@ import java.util.List;
 /**
  * Created by 张凯雅 on 2017/8/25.
  */
-
+////////
 public class InteractListViewAdapter extends BaseAdapter {
     private Context context;
     private List<InteractListViewBean.InteractiveBean> listViewBeen;

@@ -25,6 +25,7 @@ public class Interact_Activity extends BaseActivity implements View.OnClickListe
     private List<InteractListViewBean.InteractiveBean> listViewBeen=new ArrayList<>();
     @Override
     protected void initdata() {
+
         InteractListViewAdapter adapter=new InteractListViewAdapter(this,listViewBeen);
         interact_listview.setAdapter(adapter);
     }
@@ -53,7 +54,9 @@ public class Interact_Activity extends BaseActivity implements View.OnClickListe
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Intent intent=new Intent(Interact_Activity.this,Interact_WebView_Activity.class);
-        startActivity(intent);
+        Intent interactintent=new Intent(Interact_Activity.this,Interact_WebView_Activity.class);
+        interactintent.putExtra("url",listViewBeen.get(position).getUrl());
+        interactintent.putExtra("title",listViewBeen.get(position).getTitle());
+        startActivity(interactintent);
     }
 }

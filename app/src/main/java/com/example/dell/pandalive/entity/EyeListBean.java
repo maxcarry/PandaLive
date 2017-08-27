@@ -6,7 +6,7 @@ import java.util.List;
  * Created by 张凯雅 on 2017/8/26.
  */
 
-public class EyeRecyclerBean {
+public class EyeListBean {
 
 
     /**

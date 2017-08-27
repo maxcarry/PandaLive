@@ -7,5 +7,10 @@ import com.example.dell.pandalive.ui.eyepanda.presenter.IEyePresenter;
  */
 
 public interface IEyeModel {
+
     void GainBigImg(IEyePresenter iEyePresenter);
+
+    void GainEyeList(IEyePresenter iEyePresenter);
+
+//    void GainInteract(IEyePresenter iEyePresenter);
 }

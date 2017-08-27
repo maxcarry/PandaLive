@@ -7,26 +7,30 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal">
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="400px"
+        android:layout_height="300px"
+        android:layout_margin="30px"
         android:src="@mipmap/ic_launcher"
-        android:id="@+id/eyerecycler_picture_imageview"/>
+        android:id="@+id/eyelist_picture_imageview"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_gravity="center_vertical">
         <TextView
+            android:textColor="@color/colorBlack"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="11111111"
             android:textSize="50px"
-            android:id="@+id/eyerecycler_title_textview"/>
+            android:id="@+id/eyelist_title_textview"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="2222222"
-            android:id="@+id/eyerecycler_time_textview"/>
+            android:layout_marginTop="100px"
+            android:textSize="40px"
+            android:id="@+id/eyelist_time_textview"/>
     </LinearLayout>
 </LinearLayout>
 </LinearLayout>

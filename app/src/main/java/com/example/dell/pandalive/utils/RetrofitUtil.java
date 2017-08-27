@@ -1,7 +1,10 @@
 package com.example.dell.pandalive.utils;
 
 import com.example.dell.pandalive.apimanage.RetrofitApi;
+import com.example.dell.pandalive.entity.BigImageBean;
+import com.example.dell.pandalive.entity.EyeListBean;
 import com.example.dell.pandalive.entity.HomeBean;
+import com.example.dell.pandalive.entity.InteractListViewBean;
 import com.example.dell.pandalive.entity.TvBean;
 import com.example.dell.pandalive.entity.VideoBean;
 
@@ -77,6 +80,30 @@ public class RetrofitUtil {
 
         Observable<VideoBean> getvideo = api.getvideo();
         getvideo.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(observer);
+    }
+
+    public void Webbigimage(Observer observer){
+
+        Observable<BigImageBean> getbigimage=api.getbigimage();
+        getbigimage.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(observer);
+    }
+
+    public void Webeyelist(Observer observer){
+
+        Observable<EyeListBean> getrecycler=api.geteyelist();
+        getrecycler.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(observer);
+    }
+
+    public void Webinteract(Observer observer){
+
+        Observable<InteractListViewBean> getinteract=api.getinteract();
+        getinteract.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(observer);
     }

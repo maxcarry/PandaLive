@@ -1,7 +1,8 @@
 package com.example.dell.pandalive.ui.eyepanda;
 
-import com.example.dell.pandalive.entity.BigImageBean;
+import com.example.dell.pandalive.entity.EyeListBean;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -9,5 +10,10 @@ import java.util.List;
  */
 
 public interface IEyeView {
-    void ShowBigImg(List<BigImageBean.DataBean.BigImgBean> bigImgBeanList);
+
+    void ShowEyeBanner(ArrayList<String> imalist, ArrayList<String> titlelist, ArrayList<String> pathlist);
+
+    void ShowEyeList(List<EyeListBean.ListBean> eyelist);
+
+//    void ShowInteract(List<InteractListViewBean.InteractiveBean> interactBeen);
 }

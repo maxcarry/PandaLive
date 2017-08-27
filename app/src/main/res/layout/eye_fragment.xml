@@ -1,37 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
-<RelativeLayout
     android:layout_width="match_parent"
-    android:layout_height="150px"
-    android:orientation="horizontal"
-    android:background="@color/colorPrimary">
-    <TextView
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="180px"
+        android:background="@color/colorPrimary"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:gravity="center"
+            android:text="熊猫播报"
+            android:textColor="@color/colorWhite"
+            android:textSize="60px" />
+
+        <ImageView
+            android:id="@+id/eyepanda_personal_imageview"
+            android:layout_width="120px"
+            android:layout_height="120px"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20px"
+            android:layout_marginTop="15px"
+            android:src="@drawable/person_sign" />
+    </RelativeLayout>
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="熊猫播报"
-        android:gravity="center"
-        android:textColor="@color/colorWhite"
-        android:textSize="60px"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-    <ImageView
-        android:layout_marginTop="15px"
-        android:layout_marginRight="20px"
-        android:layout_alignParentRight="true"
-        android:id="@+id/eyepanda_personal_imageview"
-        android:layout_width="120px"
-        android:layout_height="120px"
-        android:src="@drawable/person_sign"
-        />
-</RelativeLayout>
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/eyepanda_listview"></ListView>
+        android:fillViewport="true"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.youth.banner.Banner
+                android:id="@+id/eyepanda_banner"
+                android:layout_width="match_parent"
+                android:layout_height="600px"></com.youth.banner.Banner>
 
 
+            <ListView
+                android:id="@+id/eyepanda_listview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"></ListView>
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>
