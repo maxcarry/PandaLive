@@ -12,6 +12,7 @@ import com.example.dell.pandalive.base.BaseFragment;
 
 public class EmilsRegistFragment extends BaseFragment {
 
+
     private View view;
 
     @Override
@@ -26,9 +27,7 @@ public class EmilsRegistFragment extends BaseFragment {
 
     @Override
     protected View initlayout() {
-
         view = LayoutInflater.from(getActivity()).inflate(R.layout.fragment_emilsregist,null);
-
         return view;
     }
 

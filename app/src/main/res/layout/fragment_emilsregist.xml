@@ -1,58 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:background="@color/colorGray"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/colorGray"
+    android:orientation="vertical">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="邮箱注册需要激活后才能登陆"
-        android:textColor="@color/colorPrimaryDark"
-        android:layout_marginTop="30px"
         android:layout_marginLeft="80px"
-        />
+        android:layout_marginTop="30px"
+        android:text="邮箱注册需要激活后才能登陆"
+        android:textColor="@color/colorPrimaryDark" />
 
     <EditText
+        android:id="@+id/emils_username"
         android:layout_width="900px"
-        android:layout_height="100px"
-        android:layout_marginTop="20px"
+        android:layout_height="120px"
         android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30px"
         android:background="@color/colorWhite"
-        android:hint="账号:  请输入邮箱"
-        />
+        android:hint="  账号:  请输入邮箱" />
+
     <EditText
+        android:id="@+id/emils_pwd"
         android:layout_width="900px"
-        android:layout_height="100px"
-        android:layout_marginTop="15px"
+        android:layout_height="120px"
         android:layout_gravity="center_horizontal"
+        android:layout_marginTop="90px"
         android:background="@color/colorWhite"
-        android:hint="请输入密码"
-        />
+        android:hint="  请输入密码"
+        android:password="true"/>
+
     <EditText
+        android:id="@+id/emils_comfirm_pwd"
         android:layout_width="900px"
-        android:layout_height="100px"
-        android:layout_marginTop="15px"
+        android:layout_height="120px"
         android:layout_gravity="center_horizontal"
+        android:layout_marginTop="90px"
         android:background="@color/colorWhite"
-        android:hint="请确认密码"
-        />
+        android:hint="  请确认密码" />
+
     <RelativeLayout
         android:layout_width="900px"
+        android:layout_height="120px"
         android:layout_gravity="center_horizontal"
-        android:layout_height="wrap_content">
+        android:layout_marginTop="90px">
+
         <EditText
+            android:id="@+id/emils_image_code"
             android:layout_width="600px"
-            android:layout_height="100px"
-            android:layout_marginTop="15px"
+            android:layout_height="120px"
             android:layout_gravity="center_horizontal"
             android:background="@color/colorWhite"
-            android:hint="请输入图片验证码"
-            />
+            android:hint="  请输入图片验证码" />
 
+        <com.example.dell.pandalive.custom_view.CustomCode
+            android:id="@+id/emils_image_custcode"
+            android:layout_width="270px"
+            android:layout_height="120px"
+            android:layout_alignParentRight="true"
+            app:my_text="4692"
+            app:text_color="@color/colorAccent"
+            app:text_size="50px" />
 
     </RelativeLayout>
+
+    <CheckBox
+        android:id="@+id/emils_check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="80px"
+        android:layout_marginTop="100px"
+        android:button="@null"
+        android:drawableLeft="@drawable/check_selecter"
+        android:text="我已阅读并同意《央视网网络服务使用协议》"
+        android:textColor="@color/colorBlue"
+        android:textSize="40px" />
+
+    <Button
+        android:id="@+id/emils_regist"
+        android:layout_width="900px"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="70px"
+        android:background="@color/colorPrimaryDark"
+        android:text="注册"
+        android:textColor="@color/colorWhite" />
 
 
 </LinearLayout>
