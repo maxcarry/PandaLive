@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
      android:orientation="vertical"
     android:background="#E6EBEF"
-    tools:context="com.example.dell.pandalive.ui.DebarkActivity">
+    tools:context="com.example.dell.pandalive.ui.personal.DebarkActivity">
 
 
     <RelativeLayout
@@ -43,7 +43,7 @@
 
 
 <TextView
- android:id="@+id/debark_enroll"
+    android:id="@+id/debark_enroll"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:text="注册"

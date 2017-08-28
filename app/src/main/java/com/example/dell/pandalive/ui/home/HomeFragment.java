@@ -23,6 +23,7 @@ import com.example.dell.pandalive.entity.HomeBean;
 import com.example.dell.pandalive.entity.TvBean;
 import com.example.dell.pandalive.entity.VideoBean;
 import com.example.dell.pandalive.loaderutils.BannerGlideImageLoader;
+import com.example.dell.pandalive.ui.personal.Eye_Personal_Activity;
 import com.example.dell.pandalive.ui.home.presenter.HomePresenter;
 import com.example.dell.pandalive.utils.DialogUtil;
 import com.example.dell.pandalive.utils.PlayActivityUtil;
@@ -38,7 +39,7 @@ import java.util.List;
  * Created by dell on 2017/8/23.
  */
 
-public class HomeFragment extends BaseFragment implements IHomeView {
+public class HomeFragment extends BaseFragment implements IHomeView, View.OnClickListener {
 
     private View view;
     private Banner home_banner;
@@ -98,6 +99,8 @@ public class HomeFragment extends BaseFragment implements IHomeView {
         home_video_list = (CustomListview) view.findViewById(R.id.home_video_list);
         home_china_grid = (CustomGridview) view.findViewById(R.id.home_china_grid);
         home_bg = (ImageView) view.findViewById(R.id.home_bg);
+
+        home_person.setOnClickListener(this);
 
     }
 
@@ -220,5 +223,15 @@ public class HomeFragment extends BaseFragment implements IHomeView {
         });
 
         DialogUtil.instance().Hidedialog();
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.home_person:
+
+                startActivity(new Intent(Myapp.activity, Eye_Personal_Activity.class));
+                break;
+        }
     }
 }

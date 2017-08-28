@@ -1,109 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_margin="60px"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="海外用户暂不支持手机号注册,您可以使用邮箱注册"
-        android:textColor="@color/colorBlue"
-        android:textSize="43px"
-        />
-
-    <EditText
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="150px"
-        android:background="@drawable/edit_shape"
-        android:layout_marginTop="20px"
-        android:hint="  账号:请输入手机账号"
-        android:id="@+id/username_phone"
-        />
-    
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="150px"
-        android:orientation="horizontal"
-        android:layout_marginTop="80px"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="60px"
         >
-
-        <EditText
-            android:layout_width="600px"
-            android:layout_height="match_parent"
-            android:background="@drawable/edit_shape"
-            android:hint="  请输入图片验证码"
-            android:id="@+id/code_image"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="海外用户暂不支持手机号注册,您可以使用邮箱注册"
+            android:textColor="@color/colorBlue"
+            android:textSize="43px"
             />
 
-        <com.example.dell.pandalive.custom_view.CustomCode
-            android:layout_width="300px"
-            android:layout_height="match_parent"
-            android:layout_alignParentRight="true"
-            app:my_text="4692"
-            app:text_color="@color/colorAccent"
-            app:text_size="50px"
-            android:id="@+id/getcode_view"
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="150px"
+            android:background="@drawable/edit_shape"
+            android:layout_marginTop="20px"
+            android:hint="  账号:请输入手机账号"
+            android:id="@+id/username_phone"
             />
-    </RelativeLayout>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="150px"
-        android:orientation="horizontal"
-        android:layout_marginTop="80px"
-        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="150px"
+            android:orientation="horizontal"
+            android:layout_marginTop="80px"
+            >
+
+            <EditText
+                android:layout_width="600px"
+                android:layout_height="match_parent"
+                android:background="@drawable/edit_shape"
+                android:hint="  请输入图片验证码"
+                android:id="@+id/code_image"
+                />
+
+            <com.example.dell.pandalive.custom_view.CustomCode
+                android:layout_width="300px"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                app:my_text="4692"
+                app:text_color="@color/colorAccent"
+                app:text_size="50px"
+                android:id="@+id/getcode_view"
+                />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="150px"
+            android:orientation="horizontal"
+            android:layout_marginTop="80px"
+            >
+
+            <EditText
+                android:layout_width="600px"
+                android:layout_height="match_parent"
+                android:background="@drawable/edit_shape"
+                android:hint="  请输入图片验证码"
+                android:id="@+id/code_phone"
+                />
+
+            <Button
+                android:layout_width="300px"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:background="@color/colorPrimary"
+                android:textColor="@color/colorWhite"
+                android:text="获取验证码"
+                android:id="@+id/getcode_bt"
+                />
+
+
+        </RelativeLayout>
 
         <EditText
-            android:layout_width="600px"
-            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_height="150px"
             android:background="@drawable/edit_shape"
-            android:hint="  请输入图片验证码"
-            android:id="@+id/code_phone"
+            android:layout_marginTop="80px"
+            android:hint="  请输入密码"
+            android:id="@+id/password_phone"
+            />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:drawableLeft="@drawable/check_selecter"
+            android:text="我已阅读并同意《央视网网络服务使用协议》"
+            android:textColor="@color/colorBlue"
+            android:textSize="40px"
+            android:id="@+id/protocol_check"
+            android:layout_marginTop="100px"
             />
 
         <Button
-            android:layout_width="300px"
-            android:layout_height="match_parent"
-            android:layout_alignParentRight="true"
-            android:background="@color/colorPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="150px"
+            android:background="@drawable/reg_bt_shape"
+            android:text="注册"
             android:textColor="@color/colorWhite"
-            android:text="获取验证码"
-            android:id="@+id/getcode_bt"
+            android:layout_marginTop="50px"
+            android:id="@+id/register_phone"
             />
+    </LinearLayout>
 
-
-    </RelativeLayout>
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="150px"
-        android:background="@drawable/edit_shape"
-        android:layout_marginTop="80px"
-        android:hint="  请输入密码"
-        android:id="@+id/password_phone"
-        />
-
-    <CheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:button="@null"
-        android:drawableLeft="@drawable/check_selecter"
-        android:text="我已阅读并同意《央视网网络服务使用协议》"
-        android:textColor="@color/colorBlue"
-        android:textSize="40px"
-        android:id="@+id/protocol_check"
-        android:layout_marginTop="100px"
-        />
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="150px"
-        android:background="@drawable/reg_bt_shape"
-        android:text="注册"
-        android:textColor="@color/colorWhite"
-        android:layout_marginTop="50px"
-        android:id="@+id/register_phone"
-        />
 </LinearLayout>
