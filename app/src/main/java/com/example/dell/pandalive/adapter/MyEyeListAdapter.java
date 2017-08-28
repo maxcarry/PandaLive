@@ -18,6 +18,9 @@ import java.util.List;
  * Created by 张凯雅 on 2017/8/26.
  */
 
+/**
+ * 下面ListView列表
+ */
 public class MyEyeListAdapter extends BaseAdapter {
     private Context context;
     private List<EyeListBean.ListBean> listBean;

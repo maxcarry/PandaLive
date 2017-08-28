@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
+    //
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="180px"
@@ -26,7 +27,119 @@
             android:text="个人中心"
             android:textColor="@color/colorWhite"
             android:textSize="60px" />
-
-
     </RelativeLayout>
+<View
+    android:layout_width="match_parent"
+    android:layout_height="50px"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="230px"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@color/colorWhite">
+        <ImageView
+            android:layout_marginLeft="50px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/personal_login_head"/>
+        <TextView
+            android:layout_marginLeft="50px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="点击登录"
+            android:textSize="50px"/>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10px"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="200px"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@color/colorWhite">
+        <ImageView
+            android:layout_marginLeft="50px"
+            android:layout_width="130px"
+            android:layout_height="130px"
+            android:src="@drawable/personal_history_img"/>
+    <TextView
+        android:layout_marginLeft="50px"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="观看历史"
+        android:textSize="50px"/>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_marginRight="50px"
+                android:layout_width="130px"
+                android:layout_height="130px"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/personal_enter_img"/>
+        </RelativeLayout>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10px"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="200px"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@color/colorWhite">
+        <ImageView
+            android:layout_marginLeft="50px"
+            android:layout_width="130px"
+            android:layout_height="130px"
+            android:src="@drawable/personal_shoucang_img"/>
+        <TextView
+            android:layout_marginLeft="50px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="我的收藏"
+            android:textSize="50px"/>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_marginRight="50px"
+                android:layout_width="130px"
+                android:layout_height="130px"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/personal_enter_img"/>
+        </RelativeLayout>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10px"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="200px"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@color/colorWhite">
+        <ImageView
+            android:layout_marginLeft="50px"
+            android:layout_width="130px"
+            android:layout_height="130px"
+            android:src="@drawable/personal_set_img"/>
+        <TextView
+            android:layout_marginLeft="50px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="设置"
+            android:textSize="50px"/>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_marginRight="50px"
+                android:layout_width="130px"
+                android:layout_height="130px"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/personal_enter_img"/>
+        </RelativeLayout>
+    </LinearLayout>
 </LinearLayout>

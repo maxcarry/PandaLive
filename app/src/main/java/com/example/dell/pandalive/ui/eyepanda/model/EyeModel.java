@@ -2,7 +2,6 @@ package com.example.dell.pandalive.ui.eyepanda.model;
 
 import com.example.dell.pandalive.entity.BigImageBean;
 import com.example.dell.pandalive.entity.EyeListBean;
-import com.example.dell.pandalive.entity.InteractListViewBean;
 import com.example.dell.pandalive.ui.eyepanda.presenter.IEyePresenter;
 import com.example.dell.pandalive.utils.RetrofitUtil;
 
@@ -12,7 +11,7 @@ import io.reactivex.disposables.Disposable;
 /**
  * Created by 张凯雅 on 2017/8/25.
  */
-
+//
 public class EyeModel implements IEyeModel {
     //http://www.ipanda.com/kehuduan/news/index.json
     @Override

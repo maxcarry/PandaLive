@@ -84,6 +84,11 @@ public class RetrofitUtil {
                 .subscribe(observer);
     }
 
+
+    /**
+     * 熊猫播报
+     * @param observer
+     */
     public void Webbigimage(Observer observer){
 
         Observable<BigImageBean> getbigimage=api.getbigimage();

@@ -28,6 +28,10 @@ public interface RetrofitApi {
     @GET("kehuduan/shipinliebieye/video/index.json")
     Observable<VideoBean> getvideo();
 
+    /**
+     * 熊猫播报
+     * @return
+     */
 //http://www.ipanda.com/kehuduan/news/index.json
     @GET("kehuduan/news/index.json")
     Observable<BigImageBean> getbigimage();

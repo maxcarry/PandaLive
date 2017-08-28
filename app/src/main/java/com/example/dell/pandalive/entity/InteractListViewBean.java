@@ -5,8 +5,12 @@ import java.util.List;
 /**
  * Created by 张凯雅 on 2017/8/25.
  */
+
+/**
+ * 原创互动
+ */
 public class InteractListViewBean {
-/////////
+
     private List<InteractiveBean> interactive;
 
     public List<InteractiveBean> getInteractive() {

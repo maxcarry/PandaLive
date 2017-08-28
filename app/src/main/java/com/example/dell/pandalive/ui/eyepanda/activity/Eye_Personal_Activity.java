@@ -9,7 +9,7 @@ import com.example.dell.pandalive.base.BaseActivity;
 /**
  * Created by 张凯雅 on 2017/8/27.
  */
-
+//
 public class Eye_Personal_Activity extends BaseActivity {
 
     private ImageView personal_back_imageview;

@@ -28,7 +28,7 @@ import java.util.List;
 /**
  * Created by dell on 2017/8/23.
  */
-
+//
 public class EyeFragment extends BaseFragment implements IEyeView, View.OnClickListener {
 
     private View view;
