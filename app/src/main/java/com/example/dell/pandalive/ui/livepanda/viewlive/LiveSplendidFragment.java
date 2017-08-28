@@ -1,7 +1,6 @@
 package com.example.dell.pandalive.ui.livepanda.viewlive;
 
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -25,6 +24,8 @@ public class LiveSplendidFragment extends BaseFragment {
     private TextView tvContent;
     private XRecyclerView live_xrecyclerview;
 
+//    List<> liveBeanList=new ArrayList<>();
+
     @Override
     protected void restartdata() {
 
@@ -34,15 +35,15 @@ public class LiveSplendidFragment extends BaseFragment {
     protected void initdata() {
         tvContent = (TextView) view.findViewById(R.id.tv_content);
         String string = getArguments().getString(KEY);
-        tvContent.setText(string);
-        tvContent.setTextColor(Color.BLUE);
-        tvContent.setTextSize(30);
+//        tvContent.setText(string);
+//        tvContent.setTextColor(Color.BLUE);
+//        tvContent.setTextSize(30);
 //LiveXRecyclerViewAdapter
 
         live_xrecyclerview = (XRecyclerView) view.findViewById(R.id.live_xrecyclerview);
 
 
-
+//        LiveXRecyclerViewAdapter liveXRecyclerViewAdapter=new LiveXRecyclerViewAdapter(Myapp.activity,)
 
 
 

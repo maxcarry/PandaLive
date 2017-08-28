@@ -8,22 +8,22 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.dell.pandalive.R;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by Administrator on 2017/8/28.
  */
 
-public class LiveXRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class LiveXRecyclerViewAdapter extends RecyclerView.Adapter {
     private Jiekou jiekou;
-    private List<LiveBean> list = new ArrayList<>();
+    private List<LiveBean> live_list ;
     private Context context;
 
     public LiveXRecyclerViewAdapter(Context context, List<LiveBean> list) {
-        this.list = list;
+        this.live_list = list;
         this.context = context;
     }
 
@@ -49,8 +49,12 @@ public class LiveXRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.
         //position为Adapter的位置，数据从list里面可以拿出来。
 //        String s = list.get(position);
             HoldView holdView= (HoldView) holder;
-//        holdView.live_adapter_time
-//        ((HoldView)holder).textView.setText(s);
+        Glide.with(context).load(live_list.get(position).getVideo().get(position).getUrl()).into(holdView.live_adapter_img);
+        holdView.live_adapter_time.setText(live_list.get(position).getVideo().get(position).getLen());
+        holdView.live_adapter_name.setText(live_list.get(position).getVideo().get(position).getT());
+        holdView.live_adapter_date.setText(live_list.get(position).getVideo().get(position).getPtime());
+
+
         //setOnClickListener
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,7 +67,7 @@ public class LiveXRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.
 
     @Override
     public int getItemCount() {
-        return list.size();
+        return live_list.size();
     }
 
     private class HoldView extends RecyclerView.ViewHolder {

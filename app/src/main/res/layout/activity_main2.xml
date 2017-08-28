@@ -11,7 +11,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="100px"
+        android:layout_height="150px"
         android:background="#1F539E"
         android:id="@+id/relativeLayout"
         android:layout_alignParentTop="true"
@@ -48,7 +48,6 @@
     android:layout_height="wrap_content"
     android:text="注册"
     android:textColor="#FFF"
-    android:textSize="15sp"
     android:layout_centerVertical="true"
     android:layout_alignParentRight="true"
     android:layout_alignParentEnd="true"
@@ -65,13 +64,13 @@
 
 
     <LinearLayout
-        android:layout_margin="50px"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/linearLayout2"
+        android:layout_marginTop="27dp"
         android:layout_below="@+id/relativeLayout"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignLeft="@+id/relativeLayout2"
+        android:layout_alignStart="@+id/relativeLayout2">
 
 
         <TextView
@@ -89,48 +88,95 @@
 
 
 <RelativeLayout
+    android:layout_margin="50px"
     android:layout_width="match_parent"
     android:background="#FFF"
-    android:layout_height="150px"
+    android:layout_height="200px"
     android:id="@+id/relativeLayout2"
-    android:layout_margin="50px"
-    android:layout_marginTop="16dp"
-    android:layout_alignTop="@+id/linearLayout2"
+    android:layout_below="@+id/linearLayout2"
     android:layout_alignParentLeft="true"
     android:layout_alignParentStart="true">
 
-
-    <ImageView
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/login_weixin"
-        android:id="@+id/debark_thirdly_weixin"
+        android:orientation="vertical"
+        android:id="@+id/linearLayout5"
+        android:layout_alignTop="@+id/linearLayout8"
+        android:layout_centerHorizontal="true">
 
-        android:layout_alignTop="@+id/debark_thirdly_qq"
-        android:layout_toLeftOf="@+id/debark_thirdly_qq"
-        android:layout_toStartOf="@+id/debark_thirdly_qq"
-        android:layout_marginRight="100px"
-        android:layout_marginEnd="100px" />
-<ImageView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:src="@drawable/login_qq"
-    android:id="@+id/debark_thirdly_qq"
-    android:layout_centerVertical="true"
-    android:layout_centerHorizontal="true" />
+        <ImageView
+            android:id="@+id/debark_thirdly_qq"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/login_qq" />
 
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="QQ"/>
 
-    <ImageView
-        android:id="@+id/debark_thirdly_weibo"
+    </LinearLayout>
+
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/login_sina"
-        android:layout_alignTop="@+id/debark_thirdly_qq"
-        android:layout_toRightOf="@+id/debark_thirdly_qq"
-        android:layout_toEndOf="@+id/debark_thirdly_qq"
+         android:orientation="vertical"
+        android:id="@+id/linearLayout8"
         android:layout_marginLeft="100px"
-        android:layout_marginStart="100px" />
+        android:layout_marginStart="100px"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <ImageView
+            android:id="@+id/debark_thirdly_weixin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/login_weixin" />
+
+        <TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:text="微信"/>
+
+    </LinearLayout>
+
+
+
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+         android:orientation="vertical"
+        android:layout_alignTop="@+id/linearLayout5"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="100px"
+        android:layout_marginEnd="100px">
+
+
+        <ImageView
+            android:id="@+id/debark_thirdly_weibo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/login_sina"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="微博"/>
+    </LinearLayout>
+
+
 
 </RelativeLayout>
 
@@ -160,19 +206,19 @@
     <LinearLayout
         android:layout_margin="50px"
         android:layout_width="match_parent"
-        android:layout_height="200px"
+        android:layout_height="300px"
         android:orientation="vertical"
-        android:layout_alignTop="@+id/linearLayout3"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="18dp"
-        android:id="@+id/linearLayout4">
+        android:id="@+id/linearLayout4"
+        android:layout_below="@+id/linearLayout3"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true">
 
         <EditText
             android:singleLine="true"
             android:background="#FFF"
             android:id="@+id/debark_input_name"
             android:layout_weight="1"
+            android:textSize="20sp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="账号：请输入邮箱或手机号"
@@ -187,6 +233,7 @@
         <EditText
             android:singleLine="true"
             android:background="#FFF"
+            android:textSize="20sp"
             android:id="@+id/debark_input_pwd"
             android:layout_weight="1"
             android:layout_width="match_parent"
