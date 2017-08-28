@@ -38,7 +38,6 @@ public class Interact_Activity extends BaseActivity implements View.OnClickListe
         interact_back_imageview.setOnClickListener(this);
         interact_listview.setOnItemClickListener(this);
 
-
     }
 
     @Override

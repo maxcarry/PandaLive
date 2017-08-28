@@ -2,7 +2,6 @@ package com.example.dell.pandalive.ui.videopanda;
 
 import com.example.dell.pandalive.entity.VideoRVBean;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -10,6 +9,7 @@ import java.util.List;
  */
 
 public interface IVideoView {
+
 
 
     void ShowRecycler(List<VideoRVBean.ListBean> arrayList);

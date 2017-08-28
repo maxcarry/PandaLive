@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="@color/colorGray"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="邮箱注册需要激活后才能登陆"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_marginTop="30px"
+        android:layout_marginLeft="80px"
+        />
+
+    <EditText
+        android:layout_width="900px"
+        android:layout_height="100px"
+        android:layout_marginTop="20px"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/colorWhite"
+        android:hint="账号:  请输入邮箱"
+        />
+    <EditText
+        android:layout_width="900px"
+        android:layout_height="100px"
+        android:layout_marginTop="15px"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/colorWhite"
+        android:hint="请输入密码"
+        />
+    <EditText
+        android:layout_width="900px"
+        android:layout_height="100px"
+        android:layout_marginTop="15px"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/colorWhite"
+        android:hint="请确认密码"
+        />
+    <RelativeLayout
+        android:layout_width="900px"
+        android:layout_gravity="center_horizontal"
+        android:layout_height="wrap_content">
+        <EditText
+            android:layout_width="600px"
+            android:layout_height="100px"
+            android:layout_marginTop="15px"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/colorWhite"
+            android:hint="请输入图片验证码"
+            />
+
+
+    </RelativeLayout>
+
+
+</LinearLayout>

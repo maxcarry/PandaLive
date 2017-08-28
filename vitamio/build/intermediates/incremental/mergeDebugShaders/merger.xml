@@ -1,2 +1,3 @@
 <?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="F:\aaa\Gittests-master\PandaLive\vitamio\src\main\shaders"/></dataSet><dataSet config="debug"><source path="F:\aaa\Gittests-master\PandaLive\vitamio\src\debug\shaders"/></dataSet></merger>
 <merger version="3"><dataSet config="main"><source path="D:\Studiofive\PandaLive\vitamio\src\main\shaders"/></dataSet><dataSet config="debug"><source path="D:\Studiofive\PandaLive\vitamio\src\debug\shaders"/></dataSet></merger>

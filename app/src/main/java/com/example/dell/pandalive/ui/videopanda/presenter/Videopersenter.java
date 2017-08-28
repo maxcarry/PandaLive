@@ -20,8 +20,6 @@ public class Videopersenter implements IVideopersenter{
         videoModel=new VideoModel();
     }
 
-
-
     @Override
     public void videoshowrecycler() {
             videoModel.videorecycler(this);
