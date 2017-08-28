@@ -64,6 +64,8 @@
 
         <activity android:name=".ui.eyepanda.activity.Interact_Activity" />
         <activity android:name=".ui.eyepanda.activity.Eye_WebView_Activity"/>
+        <activity android:name=".ui.eyepanda.activity.Eye_Personal_Activity"/>
+        <activity android:name=".ui.eyepanda.activity.Interact_WebView_Activity"/>
         <activity android:name=".ui.videopanda.VideoDetailsActivity"/>
     </application>
 

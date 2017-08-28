@@ -9,6 +9,7 @@ import java.util.List;
 /**
  * 原创互动
  */
+//
 public class InteractListViewBean {
 
     private List<InteractiveBean> interactive;

@@ -9,6 +9,7 @@ import java.util.List;
 /**
  * 上面大图
  */
+//
 public class BigImageBean {
 
     /**

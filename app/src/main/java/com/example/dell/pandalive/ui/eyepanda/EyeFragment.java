@@ -13,9 +13,10 @@ import com.example.dell.pandalive.app.Myapp;
 import com.example.dell.pandalive.base.BaseFragment;
 import com.example.dell.pandalive.entity.EyeListBean;
 import com.example.dell.pandalive.loaderutils.BannerGlideImageLoader;
+import com.example.dell.pandalive.ui.eyepanda.activity.Eye_Personal_Activity;
 import com.example.dell.pandalive.ui.eyepanda.activity.Eye_WebView_Activity;
-import com.example.dell.pandalive.ui.eyepanda.activity.Interact_Activity;
 import com.example.dell.pandalive.ui.eyepanda.presenter.EyePresenter;
+import com.example.dell.pandalive.utils.DialogUtil;
 import com.example.dell.pandalive.utils.PlayActivityUtil;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
@@ -28,7 +29,7 @@ import java.util.List;
 /**
  * Created by dell on 2017/8/23.
  */
-//
+////
 public class EyeFragment extends BaseFragment implements IEyeView, View.OnClickListener {
 
     private View view;
@@ -46,6 +47,7 @@ public class EyeFragment extends BaseFragment implements IEyeView, View.OnClickL
 
     @Override
     protected void initdata() {
+        DialogUtil.instance().Showdialog(Myapp.activity);
 
         eyePresenter.ShowBigImg();
 
@@ -72,7 +74,7 @@ public class EyeFragment extends BaseFragment implements IEyeView, View.OnClickL
 
     @Override
     public void onClick(View v) {
-        Intent intent=new Intent(getActivity(), Interact_Activity.class);
+        Intent intent=new Intent(getActivity(), Eye_Personal_Activity.class);
         startActivity(intent);
     }
 
@@ -123,6 +125,7 @@ public class EyeFragment extends BaseFragment implements IEyeView, View.OnClickL
                 startActivity(webintent);
             }
         });
+        DialogUtil.instance().Hidedialog();
     }
 
 //    @Override
