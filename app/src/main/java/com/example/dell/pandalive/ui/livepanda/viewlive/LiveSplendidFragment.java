@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.example.dell.pandalive.R;
 import com.example.dell.pandalive.app.Myapp;
 import com.example.dell.pandalive.base.BaseFragment;
+import com.jcodecraeer.xrecyclerview.XRecyclerView;
 
 import static android.provider.Contacts.SettingsColumns.KEY;
 
@@ -22,6 +23,7 @@ public class LiveSplendidFragment extends BaseFragment {
 
     private View view;
     private TextView tvContent;
+    private XRecyclerView live_xrecyclerview;
 
     @Override
     protected void restartdata() {
@@ -35,6 +37,15 @@ public class LiveSplendidFragment extends BaseFragment {
         tvContent.setText(string);
         tvContent.setTextColor(Color.BLUE);
         tvContent.setTextSize(30);
+//LiveXRecyclerViewAdapter
+
+        live_xrecyclerview = (XRecyclerView) view.findViewById(R.id.live_xrecyclerview);
+
+
+
+
+
+
     }
 
     @Override
@@ -53,7 +64,6 @@ public class LiveSplendidFragment extends BaseFragment {
         Bundle bundle = new Bundle();
         bundle.putString(KEY, str);
         fragment.setArguments(bundle);
-
         return fragment;
 
     }

@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+     android:orientation="vertical"
+    android:background="#E6EBEF"
+    tools:context="com.example.dell.pandalive.ui.DebarkActivity">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100px"
+        android:background="#1F539E"
+        android:id="@+id/relativeLayout"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+<ImageView
+    android:id="@+id/debark_return_img"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:src="@drawable/personal_back_img"
+    android:layout_centerVertical="true"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentStart="true"
+    android:layout_marginLeft="15dp"
+    android:layout_marginStart="15dp" />
+
+<TextView
+    android:id="@+id/debark_text"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="登陆"
+    android:textColor="#FFF"
+    android:textSize="20sp"
+    android:layout_centerVertical="true"
+    android:layout_centerHorizontal="true" />
+
+
+
+
+<TextView
+ android:id="@+id/debark_enroll"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="注册"
+    android:textColor="#FFF"
+    android:textSize="15sp"
+    android:layout_centerVertical="true"
+    android:layout_alignParentRight="true"
+    android:layout_alignParentEnd="true"
+    android:layout_marginRight="11dp"
+    android:layout_marginEnd="11dp" />
+
+
+
+
+
+    </RelativeLayout>
+
+
+
+
+    <LinearLayout
+        android:layout_margin="50px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout2"
+        android:layout_below="@+id/relativeLayout"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+
+        <TextView
+            android:textColor="#4F78B2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="使用社交账号登陆到熊猫频道"/>
+
+
+
+
+
+
+    </LinearLayout>
+
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:background="#FFF"
+    android:layout_height="150px"
+    android:id="@+id/relativeLayout2"
+    android:layout_margin="50px"
+    android:layout_marginTop="16dp"
+    android:layout_alignTop="@+id/linearLayout2"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentStart="true">
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/login_weixin"
+        android:id="@+id/debark_thirdly_weixin"
+
+        android:layout_alignTop="@+id/debark_thirdly_qq"
+        android:layout_toLeftOf="@+id/debark_thirdly_qq"
+        android:layout_toStartOf="@+id/debark_thirdly_qq"
+        android:layout_marginRight="100px"
+        android:layout_marginEnd="100px" />
+<ImageView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:src="@drawable/login_qq"
+    android:id="@+id/debark_thirdly_qq"
+    android:layout_centerVertical="true"
+    android:layout_centerHorizontal="true" />
+
+
+
+    <ImageView
+        android:id="@+id/debark_thirdly_weibo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/login_sina"
+        android:layout_alignTop="@+id/debark_thirdly_qq"
+        android:layout_toRightOf="@+id/debark_thirdly_qq"
+        android:layout_toEndOf="@+id/debark_thirdly_qq"
+        android:layout_marginLeft="100px"
+        android:layout_marginStart="100px" />
+
+</RelativeLayout>
+
+
+
+
+    <LinearLayout
+        android:layout_margin="50px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout3"
+        android:layout_below="@+id/relativeLayout2"
+       >
+
+
+        <TextView
+            android:textColor="#4F78B2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="CNTV通行证"/>
+
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_margin="50px"
+        android:layout_width="match_parent"
+        android:layout_height="200px"
+        android:orientation="vertical"
+        android:layout_alignTop="@+id/linearLayout3"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="18dp"
+        android:id="@+id/linearLayout4">
+
+        <EditText
+            android:singleLine="true"
+            android:background="#FFF"
+            android:id="@+id/debark_input_name"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="账号：请输入邮箱或手机号"
+            android:digits="0123456789abcdefghigklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@."
+            />
+<TextView
+    android:id="@+id/debark_ped_sky"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textColor="#FA3031"/>
+
+        <EditText
+            android:singleLine="true"
+            android:background="#FFF"
+            android:id="@+id/debark_input_pwd"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="textPassword"
+            android:hint="请输入密码"
+            />
+
+
+
+
+    </LinearLayout>
+
+
+
+
+<RelativeLayout
+    android:layout_margin="50px"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/linearLayout4"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentStart="true"
+    android:id="@+id/relativeLayout3">
+    <TextView
+        android:id="@+id/debark_forget_pwd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="忘记密码？"
+        android:textColor="#3A68AA"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        />
+
+</RelativeLayout>
+
+    <Button
+        android:id="@+id/debark_landing"
+        android:text="登陆"
+        android:layout_width="600px"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape"
+        android:layout_below="@+id/relativeLayout3"
+        android:layout_centerHorizontal="true"
+        android:textColor="#FFF"
+     />
+
+</RelativeLayout>
