@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        >
+
+        <RelativeLayout
+            android:id="@+id/relat"
+            android:layout_width="400px"
+            android:layout_height="290px"
+            android:layout_margin="20px">
+
+            <ImageView
+                android:id="@+id/video_iv_imageview"
+                android:layout_width="400px"
+                android:layout_height="290px"
+                android:scaleType="fitXY"
+                />
+            <TextView
+                android:id="@+id/video_tv_length"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/default_time_view"
+                android:drawableLeft="@drawable/play"
+                android:drawablePadding="3dp"
+                android:text="02:42"
+                android:layout_marginLeft="10px"
+                android:textSize="50px"
+                android:textColor="@color/colorWhite"
+                />
+        </RelativeLayout>
+
+
+        <TextView
+            android:id="@+id/video_tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="熊猫TOP榜"
+            android:textColor="@color/color_black"
+            android:layout_alignTop="@+id/relat"
+            android:layout_toRightOf="@+id/relat"
+            android:layout_marginLeft="40px"
+
+            />
+        <TextView
+            android:id="@+id/video_tv_brief"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="你是煞笔不"
+            android:layout_marginTop="20px"
+            android:layout_toRightOf="@+id/relat"
+            android:layout_below="@+id/video_tv_title"
+            android:layout_marginLeft="40px"
+            android:maxEms="12"
+            android:maxLines="2"
+
+            />
+    </RelativeLayout>
+</LinearLayout>

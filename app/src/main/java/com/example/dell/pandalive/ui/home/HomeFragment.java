@@ -221,5 +221,4 @@ public class HomeFragment extends BaseFragment implements IHomeView {
 
         DialogUtil.instance().Hidedialog();
     }
-
 }

@@ -4,6 +4,7 @@ import com.example.dell.pandalive.apimanage.RetrofitApi;
 import com.example.dell.pandalive.entity.HomeBean;
 import com.example.dell.pandalive.entity.TvBean;
 import com.example.dell.pandalive.entity.VideoBean;
+import com.example.dell.pandalive.entity.VideoRVBean;
 
 import java.util.concurrent.TimeUnit;
 
@@ -77,6 +78,21 @@ public class RetrofitUtil {
 
         Observable<VideoBean> getvideo = api.getvideo();
         getvideo.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(observer);
+    }
+
+    public void videoBanner(Observer observer){
+        Observable<VideoRVBean> videobanner=api.getbanner();
+        videobanner.subscribeOn(Schedulers.io())
+                .subscribeOn(AndroidSchedulers.mainThread())
+                .subscribe(observer);
+
+    }
+
+    public void videorecycler(Observer observer){
+        Observable<VideoRVBean> videoshowrecy=api.getvideoshowrecycler();
+        videoshowrecy.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(observer);
     }
