@@ -32,112 +32,124 @@
     android:layout_width="match_parent"
     android:layout_height="30px"/>
     <LinearLayout
-        android:layout_width="match_parent"
+        android:id="@+id/personal_one_linearlayout"
+        android:layout_gravity="center"
+        android:layout_width="1020px"
         android:layout_height="230px"
         android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:background="@color/colorWhite">
+        android:background="@drawable/eye_personal">
         <ImageView
-            android:layout_marginLeft="50px"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_marginLeft="30px"
+            android:layout_width="160px"
+            android:layout_height="160px"
             android:src="@drawable/personal_login_head"/>
         <TextView
-            android:layout_marginLeft="50px"
+            android:layout_marginLeft="35px"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="点击登录"
-            android:textSize="50px"/>
+            android:textSize="45px"
+            android:textColor="@color/colorblack"/>
     </LinearLayout>
     <View
         android:layout_width="match_parent"
-        android:layout_height="10px"/>
+        android:layout_height="15px"/>
     <LinearLayout
-        android:layout_width="match_parent"
+        android:id="@+id/personal_two_linearlayout"
+        android:layout_gravity="center"
+        android:layout_width="1020px"
         android:layout_height="200px"
         android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:background="@color/colorWhite">
+        android:background="@drawable/eye_personal">
         <ImageView
-            android:layout_marginLeft="50px"
-            android:layout_width="130px"
-            android:layout_height="130px"
+            android:layout_marginLeft="30px"
+            android:layout_width="100px"
+            android:layout_height="100px"
             android:src="@drawable/personal_history_img"/>
     <TextView
-        android:layout_marginLeft="50px"
+        android:layout_marginLeft="40px"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="观看历史"
-        android:textSize="50px"/>
+        android:textColor="@color/colorblack"
+        android:textSize="45px"/>
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
             <ImageView
                 android:layout_marginRight="50px"
-                android:layout_width="130px"
-                android:layout_height="130px"
+                android:layout_width="100px"
+                android:layout_height="100px"
                 android:layout_alignParentRight="true"
                 android:src="@drawable/personal_enter_img"/>
         </RelativeLayout>
     </LinearLayout>
     <View
         android:layout_width="match_parent"
-        android:layout_height="10px"/>
+        android:layout_height="15px"/>
     <LinearLayout
-        android:layout_width="match_parent"
+        android:id="@+id/personal_three_linearlayout"
+        android:layout_gravity="center"
+        android:layout_width="1020px"
         android:layout_height="200px"
         android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:background="@color/colorWhite">
+        android:background="@drawable/eye_personal">
         <ImageView
-            android:layout_marginLeft="50px"
-            android:layout_width="130px"
-            android:layout_height="130px"
+            android:layout_marginLeft="30px"
+            android:layout_width="100px"
+            android:layout_height="100px"
             android:src="@drawable/personal_shoucang_img"/>
         <TextView
-            android:layout_marginLeft="50px"
+            android:layout_marginLeft="40px"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="我的收藏"
-            android:textSize="50px"/>
+            android:textColor="@color/colorblack"
+            android:textSize="45px"/>
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
             <ImageView
                 android:layout_marginRight="50px"
-                android:layout_width="130px"
-                android:layout_height="130px"
+                android:layout_width="100px"
+                android:layout_height="100px"
                 android:layout_alignParentRight="true"
                 android:src="@drawable/personal_enter_img"/>
         </RelativeLayout>
     </LinearLayout>
     <View
         android:layout_width="match_parent"
-        android:layout_height="10px"/>
+        android:layout_height="15px"/>
     <LinearLayout
-        android:layout_width="match_parent"
+        android:id="@+id/personal_four_linearlayout"
+        android:layout_gravity="center"
+        android:layout_width="1020px"
         android:layout_height="200px"
         android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:background="@color/colorWhite">
+        android:background="@drawable/eye_personal">
         <ImageView
-            android:layout_marginLeft="50px"
-            android:layout_width="130px"
-            android:layout_height="130px"
+            android:layout_marginLeft="30px"
+            android:layout_width="100px"
+            android:layout_height="100px"
             android:src="@drawable/personal_set_img"/>
         <TextView
-            android:layout_marginLeft="50px"
+            android:layout_marginLeft="40px"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="设置"
-            android:textSize="50px"/>
+            android:textSize="45px"
+            android:textColor="@color/colorblack"/>
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
             <ImageView
                 android:layout_marginRight="50px"
-                android:layout_width="130px"
-                android:layout_height="130px"
+                android:layout_width="100px"
+                android:layout_height="100px"
                 android:layout_alignParentRight="true"
                 android:src="@drawable/personal_enter_img"/>
         </RelativeLayout>

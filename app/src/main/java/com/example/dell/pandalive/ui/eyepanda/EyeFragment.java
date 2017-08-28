@@ -13,7 +13,7 @@ import com.example.dell.pandalive.app.Myapp;
 import com.example.dell.pandalive.base.BaseFragment;
 import com.example.dell.pandalive.entity.EyeListBean;
 import com.example.dell.pandalive.loaderutils.BannerGlideImageLoader;
-import com.example.dell.pandalive.ui.eyepanda.activity.Eye_Personal_Activity;
+import com.example.dell.pandalive.ui.Eye_Personal_Activity;
 import com.example.dell.pandalive.ui.eyepanda.activity.Eye_WebView_Activity;
 import com.example.dell.pandalive.ui.eyepanda.presenter.EyePresenter;
 import com.example.dell.pandalive.utils.DialogUtil;
