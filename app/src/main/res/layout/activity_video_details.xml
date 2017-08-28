@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_video_details"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.dell.pandalive.ui.videopanda.VideoDetailsActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="125px"
+        android:background="@color/colorPrimary">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="30px"
+            android:src="@drawable/ic_chevron_left_white_36dp" />
+
+        <TextView
+            android:id="@+id/videodetails_tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="标题"
+            android:textColor="@color/colorWhite"
+            android:textSize="50px" />
+    </RelativeLayout>
+
+    <io.vov.vitamio.widget.VideoView
+        android:layout_width="match_parent"
+        android:layout_height="500px" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="130px"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30px"
+            android:padding="8px"
+            android:text="首播时间:"
+            android:textSize="45px" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30px"
+                android:padding="5px"
+                android:text="栏目介绍" />
+
+            <ImageView
+                android:id="@+id/video_details_downimage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/lpanda_show" />
+        </RelativeLayout>
+
+
+    </LinearLayout>
+</LinearLayout>
