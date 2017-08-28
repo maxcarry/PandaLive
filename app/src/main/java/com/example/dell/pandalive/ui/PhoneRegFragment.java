@@ -1,7 +1,10 @@
 package com.example.dell.pandalive.ui;
 
+import android.view.LayoutInflater;
 import android.view.View;
 
+import com.example.dell.pandalive.R;
+import com.example.dell.pandalive.app.Myapp;
 import com.example.dell.pandalive.base.BaseFragment;
 
 /**
@@ -9,6 +12,9 @@ import com.example.dell.pandalive.base.BaseFragment;
  */
 
 public class PhoneRegFragment extends BaseFragment {
+    private View view;
+    private View view1;
+
     @Override
     protected void restartdata() {
 
@@ -21,12 +27,13 @@ public class PhoneRegFragment extends BaseFragment {
 
     @Override
     protected View initlayout() {
-        return null;
+        return view;
     }
 
     @Override
     protected void initview() {
 
+        view1 = LayoutInflater.from(Myapp.activity).inflate(R.layout.phone_register, null);
 
     }
 }

@@ -67,6 +67,7 @@
         <activity android:name=".ui.eyepanda.activity.Eye_Personal_Activity"/>
         <activity android:name=".ui.eyepanda.activity.Interact_WebView_Activity"/>
         <activity android:name=".ui.videopanda.VideoDetailsActivity"/>
+        <activity android:name=".ui.RegisterActivity" />
     </application>
 
 </manifest>
