@@ -159,4 +159,23 @@ public class RetrofitUtil {
     }
 
 
+
+
+
+
+
+    //熊猫档案
+    public void livearchives(Observer observer){
+        Observable<LivePerformBean> livePerformBeanObservable=api.getarchives();
+        livePerformBeanObservable.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(observer);
+    }
+
+
+
+
+
+
+
 }

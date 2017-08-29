@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.example.dell.pandalive.R;
 import com.example.dell.pandalive.app.Myapp;
 import com.example.dell.pandalive.base.BaseFragment;
+import com.example.dell.pandalive.ui.livepanda.archives.LiveArchivesFragment;
 import com.example.dell.pandalive.ui.livepanda.perform.LivePerformFragment;
 import com.example.dell.pandalive.ui.livepanda.splendid.LiveSplendidFragment;
 import com.example.dell.pandalive.ui.livepanda.viewlive.LiveDirectFragment;
@@ -82,16 +83,16 @@ public class LiveFragment extends BaseFragment {
         //当熊不让
         LiveYieldFragment liveYieldFragment=new LiveYieldFragment();
         fragments.add(2,liveYieldFragment);
-
+        //超萌滚滚秀
         LivePerformFragment livePerformFragment=new LivePerformFragment();
         fragments.add(3,livePerformFragment);
-
-
-
+        //熊猫档案
+        LiveArchivesFragment liveArchivesFragment=new LiveArchivesFragment();
+        fragments.add(4,liveArchivesFragment);
 
 
         live_tablayout.setTabMode(TabLayout.MODE_SCROLLABLE);
-        for (int i = 4; i < listTitles.size(); i++) {
+        for (int i = 5; i < listTitles.size(); i++) {
             com.example.dell.pandalive.ui.livepanda.viewlive.LiveSplendidFragment fragment = com.example.dell.pandalive.ui.livepanda.viewlive.LiveSplendidFragment.newInstance(listTitles.get(i));
             fragments.add(fragment);
         }

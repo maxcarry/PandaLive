@@ -34,12 +34,14 @@ public interface RetrofitApi {
     //http://www.ipanda.com/kehuduan/shipinliebieye/video/index.json
     @GET("kehuduan/shipinliebieye/video/index.json")
     Observable<VideoRVBean> getbanner();
+
     //    http://www.ipanda.com/kehuduan/shipinliebieye/video/index.json
     @GET("kehuduan/shipinliebieye/video/index.json")
     Observable<VideoBean> getvideo();
 
     /**
      * 熊猫播报
+     *
      * @return
      */
     //
@@ -47,11 +49,11 @@ public interface RetrofitApi {
     @GET("kehuduan/news/index.json")
     Observable<BigImageBean> getbigimage();
 
-//http://api.cntv.cn/apicommon/index?path=iphoneInterface/general/getArticleAndVideoListInfo.json&primary_id=PAGE1422435191506336&serviceId=panda
+    //http://api.cntv.cn/apicommon/index?path=iphoneInterface/general/getArticleAndVideoListInfo.json&primary_id=PAGE1422435191506336&serviceId=panda
     @GET("http://api.cntv.cn/apicommon/index?path=iphoneInterface/general/getArticleAndVideoListInfo.json&primary_id=PAGE1422435191506336&serviceId=panda")
     Observable<EyeListBean> geteyelist();
 
-//http://www.ipanda.com/kehuduan/PAGE14501767715521482/index.json
+    //http://www.ipanda.com/kehuduan/PAGE14501767715521482/index.json
     @GET("kehuduan/PAGE14501767715521482/index.json")
     Observable<InteractListViewBean> getinteract();
 
@@ -60,15 +62,19 @@ public interface RetrofitApi {
     * */
 
 
-
-//   精彩一刻 "http://api.cntv.cn/video/videolistById?vsid=VSET100167216881&n=7&serviceId=panda&o=desc&of=time&p=1";
-@GET("http://api.cntv.cn/video/videolistById?vsid=VSET100167216881&n=7&serviceId=panda&o=desc&of=time&p=1")
+    //   精彩一刻 "http://api.cntv.cn/video/videolistById?vsid=VSET100167216881&n=7&serviceId=panda&o=desc&of=time&p=1";
+    @GET("http://api.cntv.cn/video/videolistById?vsid=VSET100167216881&n=7&serviceId=panda&o=desc&of=time&p=1")
     Observable<LiveSplendidBean> getsplendid();
 
     //熊猫滚滚秀http://api.cntv.cn/video/videolistById?vsid=VSET100272959126&n=7&serviceId=panda&o=desc&of=time&p=1
-@GET("http://api.cntv.cn/video/videolistById?vsid=VSET100272959126&n=7&serviceId=panda&o=desc&of=time&p=1")
-Observable<LivePerformBean> getperform();
+    @GET("http://api.cntv.cn/video/videolistById?vsid=VSET100272959126&n=7&serviceId=panda&o=desc&of=time&p=1")
+    Observable<LivePerformBean> getperform();
+
+    //熊猫档案"http://api.cntv.cn/video/videolistById?vsid=VSET100340574858&n=7&serviceId=panda&o=desc&of=time&p=1";
+    @GET("http://api.cntv.cn/video/videolistById?vsid=VSET100340574858&n=7&serviceId=panda&o=desc&of=time&p=1")
+    Observable<LivePerformBean> getarchives();
 
 
 }
+
 
