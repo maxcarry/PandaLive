@@ -16,6 +16,7 @@ import com.example.dell.pandalive.base.BaseFragment;
 import com.example.dell.pandalive.ui.livepanda.archives.LiveArchivesFragment;
 import com.example.dell.pandalive.ui.livepanda.perform.LivePerformFragment;
 import com.example.dell.pandalive.ui.livepanda.splendid.LiveSplendidFragment;
+import com.example.dell.pandalive.ui.livepanda.top.LiveTOPFragment;
 import com.example.dell.pandalive.ui.livepanda.viewlive.LiveDirectFragment;
 import com.example.dell.pandalive.ui.livepanda.yield.LiveYieldFragment;
 
@@ -90,9 +91,12 @@ public class LiveFragment extends BaseFragment {
         LiveArchivesFragment liveArchivesFragment=new LiveArchivesFragment();
         fragments.add(4,liveArchivesFragment);
 
+        //熊猫top榜
+        LiveTOPFragment liveTOPFragment=new LiveTOPFragment();
+        fragments.add(5,liveTOPFragment);
 
         live_tablayout.setTabMode(TabLayout.MODE_SCROLLABLE);
-        for (int i = 5; i < listTitles.size(); i++) {
+        for (int i = 6; i < listTitles.size(); i++) {
             com.example.dell.pandalive.ui.livepanda.viewlive.LiveSplendidFragment fragment = com.example.dell.pandalive.ui.livepanda.viewlive.LiveSplendidFragment.newInstance(listTitles.get(i));
             fragments.add(fragment);
         }

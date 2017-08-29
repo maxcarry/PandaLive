@@ -159,23 +159,22 @@ public class RetrofitUtil {
     }
 
 
-
-
-
-
-
     //熊猫档案
-    public void livearchives(Observer observer){
-        Observable<LivePerformBean> livePerformBeanObservable=api.getarchives();
+    public void livearchives(Observer observer) {
+        Observable<LivePerformBean> livePerformBeanObservable = api.getarchives();
         livePerformBeanObservable.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(observer);
     }
 
 
-
-
-
+    //熊猫TOP榜
+    public void livetop(Observer observer) {
+        Observable<LivePerformBean> livePerformBeanObservable = api.gettops();
+        livePerformBeanObservable.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(observer);
+    }
 
 
 }

@@ -75,6 +75,11 @@ public interface RetrofitApi {
     Observable<LivePerformBean> getarchives();
 
 
+    //熊猫TOP榜"http://api.cntv.cn/video/videolistById?vsid=VSET100284428835&n=7&serviceId=panda&o=desc&of=time&p=1";
+    @GET("http://api.cntv.cn/video/videolistById?vsid=VSET100284428835&n=7&serviceId=panda&o=desc&of=time&p=1")
+    Observable<LivePerformBean> gettops();
+
+
 }
 
 

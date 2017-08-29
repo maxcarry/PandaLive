@@ -1,4 +1,4 @@
-package com.example.dell.pandalive.ui.livepanda.archives;
+package com.example.dell.pandalive.ui.livepanda.top;
 
 import android.widget.Toast;
 
@@ -15,15 +15,15 @@ import io.reactivex.disposables.Disposable;
 
 /**
  * Created by Administrator on 2017/8/29.
- * LiveTOPModel
  */
 
-public class LiveArchivesModel implements ILivePerformPresenter{
+public class LiveTOPModel implements ILivePerformPresenter{
     @Override
     public void GainLivePerform(final ILivePerformview iLivePerformview) {
-        //熊猫档案"http://api.cntv.cn/video/videolistById?vsid=VSET100340574858&n=7&serviceId=panda&o=desc&of=time&p=1";
 
-        RetrofitUtil.instance("http://api.cntv.cn/").livearchives(new Observer() {
+        //熊猫TOP榜"http://api.cntv.cn/video/videolistById?vsid=VSET100284428835&n=7&serviceId=panda&o=desc&of=time&p=1";
+
+        RetrofitUtil.instance("http://api.cntv.cn/").livetop(new Observer() {
             @Override
             public void onSubscribe(Disposable d) {
 
@@ -46,5 +46,8 @@ public class LiveArchivesModel implements ILivePerformPresenter{
                 Toast.makeText(Myapp.activity, "请求成功", Toast.LENGTH_LONG).show();
             }
         });
+
+
+
     }
 }

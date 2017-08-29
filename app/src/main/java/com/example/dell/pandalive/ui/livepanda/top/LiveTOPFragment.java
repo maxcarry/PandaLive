@@ -1,4 +1,4 @@
-package com.example.dell.pandalive.ui.livepanda.archives;
+package com.example.dell.pandalive.ui.livepanda.top;
 
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
@@ -20,18 +20,18 @@ import java.util.List;
  * Created by Administrator on 2017/8/29.
  */
 
-public class LiveArchivesFragment extends BaseFragment implements ILivePerformFragment {
+public class LiveTOPFragment extends BaseFragment implements ILivePerformFragment {
 
     private View view;
     private XRecyclerView live_splendid_xrecycler;
-    LiveArchivesPresenter liveArchivesPresenter;
+    private LiveTOPresenter liveTOPresenter;
     private LivePerformAdapter livePerformAdapter;
+
 
     @Override
     protected void restartdata() {
-
         DialogUtil.instance().Showdialog(Myapp.activity);
-        liveArchivesPresenter.ShowPerform();
+        liveTOPresenter.ShowPerform();
         DialogUtil.instance().Hidedialog();
     }
 
@@ -48,14 +48,14 @@ public class LiveArchivesFragment extends BaseFragment implements ILivePerformFr
     @Override
     protected void initview() {
         view = LayoutInflater.from(Myapp.activity).inflate(R.layout.fragment_jingcai, null);
-        liveArchivesPresenter = new LiveArchivesPresenter(this);
+        liveTOPresenter = new LiveTOPresenter(this);
         live_splendid_xrecycler = (XRecyclerView) view.findViewById(R.id.live_splendid_xrecycler);
 
     }
 
     @Override
     public void liveperformBean(List<LivePerformBean.VideoBean> performBeen) {
-        //瀑布流
+//        //瀑布流
         live_splendid_xrecycler.setLayoutManager(new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL));
         livePerformAdapter = new LivePerformAdapter(getActivity(), performBeen);
         live_splendid_xrecycler.setAdapter(livePerformAdapter);
