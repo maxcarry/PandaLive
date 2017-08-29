@@ -13,7 +13,10 @@ import android.widget.TextView;
 import com.example.dell.pandalive.R;
 import com.example.dell.pandalive.app.Myapp;
 import com.example.dell.pandalive.base.BaseFragment;
-import com.example.dell.pandalive.ui.livepanda.viewlive.LiveSplendidFragment;
+import com.example.dell.pandalive.ui.livepanda.perform.LivePerformFragment;
+import com.example.dell.pandalive.ui.livepanda.splendid.LiveSplendidFragment;
+import com.example.dell.pandalive.ui.livepanda.viewlive.LiveDirectFragment;
+import com.example.dell.pandalive.ui.livepanda.yield.LiveYieldFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -70,14 +73,33 @@ public class LiveFragment extends BaseFragment {
         listTitles.add("熊猫那些事");
         listTitles.add("特别节目");
         listTitles.add("原创新闻");
+        //直播
+        LiveDirectFragment liveDirectFragment=new LiveDirectFragment();
+        fragments.add(0,liveDirectFragment);
+        //精彩一刻
+        LiveSplendidFragment jingcaiFragment=new LiveSplendidFragment();
+        fragments.add(1,jingcaiFragment);
+        //当熊不让
+        LiveYieldFragment liveYieldFragment=new LiveYieldFragment();
+        fragments.add(2,liveYieldFragment);
+
+        LivePerformFragment livePerformFragment=new LivePerformFragment();
+        fragments.add(3,livePerformFragment);
+
+
+
+
+
         live_tablayout.setTabMode(TabLayout.MODE_SCROLLABLE);
-        for (int i = 0; i < listTitles.size(); i++) {
-            LiveSplendidFragment fragment = LiveSplendidFragment.newInstance(listTitles.get(i));
+        for (int i = 4; i < listTitles.size(); i++) {
+            com.example.dell.pandalive.ui.livepanda.viewlive.LiveSplendidFragment fragment = com.example.dell.pandalive.ui.livepanda.viewlive.LiveSplendidFragment.newInstance(listTitles.get(i));
             fragments.add(fragment);
         }
-        for (int i = 0; i < listTitles.size(); i++) {
-            live_tablayout.addTab(live_tablayout.newTab().setText(listTitles.get(i)));//添加tab选项
-        }
+
+
+//        for (int i = 0; i < listTitles.size(); i++) {
+//            live_tablayout.addTab(live_tablayout.newTab().setText(listTitles.get(i)));//添加tab选项
+//        }
 
         FragmentPagerAdapter mAdapter = new FragmentPagerAdapter(getChildFragmentManager()) {
 

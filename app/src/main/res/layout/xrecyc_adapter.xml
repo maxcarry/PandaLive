@@ -17,13 +17,13 @@
             android:layout_margin="20px">
 
             <ImageView
-                android:id="@+id/video_iv_imageview"
+                android:id="@+id/live_xrecy_adapter_img"
                 android:layout_width="400px"
                 android:layout_height="290px"
                 android:scaleType="fitXY"
                 />
             <TextView
-                android:id="@+id/video_tv_length"
+                android:id="@+id/live_xrecy_adapter_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
@@ -39,28 +39,26 @@
 
 
         <TextView
-            android:id="@+id/video_tv_title"
+            android:id="@+id/live_xrecy_adapter_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="熊猫TOP榜"
+            android:text="《精彩一刻》 20170828 乔伊：我就走慢了一步"
             android:textColor="@color/color_black"
+
             android:layout_alignTop="@+id/live_relat"
             android:layout_toRightOf="@+id/live_relat"
-            android:layout_marginLeft="40px"
-
-            />
+            android:layout_toEndOf="@+id/live_relat" />
         <TextView
-            android:id="@+id/video_tv_brief"
+            android:id="@+id/live_xrecy_adapter_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="你是煞笔不"
-            android:layout_marginTop="20px"
-            android:layout_toRightOf="@+id/live_relat"
-            android:layout_below="@+id/video_tv_title"
-            android:layout_marginLeft="40px"
+            android:text="2017-08-28 12:25:28"
             android:maxEms="12"
             android:maxLines="2"
 
-            />
+            android:layout_alignBottom="@+id/live_relat"
+            android:layout_toRightOf="@+id/live_relat"
+            android:layout_toEndOf="@+id/live_relat" />
     </RelativeLayout>
+
 </LinearLayout>
