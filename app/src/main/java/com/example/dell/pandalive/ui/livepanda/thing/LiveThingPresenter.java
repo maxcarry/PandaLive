@@ -1,4 +1,4 @@
-package com.example.dell.pandalive.ui.livepanda.top;
+package com.example.dell.pandalive.ui.livepanda.thing;
 
 import com.example.dell.pandalive.ui.livepanda.perform.ILivePerformFragment;
 import com.example.dell.pandalive.ui.livepanda.perform.ILivePerformview;
@@ -11,19 +11,20 @@ import java.util.List;
  *
  */
 
-public class LiveTOPresenter implements ILivePerformview{
+public class LiveThingPresenter implements ILivePerformview {
 
     private ILivePerformFragment iLivePerformFragment;
-    private LiveTOPModel liveTOPModel;
+    private LiveThingModel liveThingModel;
 
-    public LiveTOPresenter(ILivePerformFragment iLivePerformFragment) {
+    public LiveThingPresenter(ILivePerformFragment iLivePerformFragment) {
         this.iLivePerformFragment = iLivePerformFragment;
-        liveTOPModel=new LiveTOPModel();
+        liveThingModel=new LiveThingModel();
     }
+
 
     @Override
     public void ShowPerform() {
-        liveTOPModel.GainLivePerform(this);
+        liveThingModel.GainLivePerform(this);
     }
 
     @Override

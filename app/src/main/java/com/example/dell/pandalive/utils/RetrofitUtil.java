@@ -176,5 +176,33 @@ public class RetrofitUtil {
                 .subscribe(observer);
     }
 
+    //熊猫那些事
+    public void livething(Observer observer){
+        Observable<LivePerformBean> livePerformBeanObservable = api.getthing();
+        livePerformBeanObservable.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(observer);
+    }
+
+
+ //熊猫特别节目
+    public void liveunusual(Observer observer){
+        Observable<LivePerformBean> livePerformBeanObservable = api.getunusual();
+        livePerformBeanObservable.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(observer);
+    }
+
+
+ //原创新闻
+    public void liveoriginal(Observer observer){
+        Observable<LivePerformBean> livePerformBeanObservable = api.getoriginal();
+        livePerformBeanObservable.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(observer);
+    }
+
+
+
 
 }

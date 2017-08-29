@@ -1,4 +1,4 @@
-package com.example.dell.pandalive.ui.livepanda.top;
+package com.example.dell.pandalive.ui.livepanda.original;
 
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
@@ -18,31 +18,26 @@ import java.util.List;
 
 /**
  * Created by Administrator on 2017/8/29.
- *
- *
- * 熊猫TOP榜
- *
- *
+ * 原创新闻
  */
 
-public class LiveTOPFragment extends BaseFragment implements ILivePerformFragment {
+public class LiveOriginalFragment extends BaseFragment implements ILivePerformFragment {
 
     private View view;
     private XRecyclerView live_splendid_xrecycler;
-    private LiveTOPresenter liveTOPresenter;
+    private LiveOriginalPresenter liveOriginalPresenter;
     private LivePerformAdapter livePerformAdapter;
-
 
     @Override
     protected void restartdata() {
-        DialogUtil.instance().Showdialog(Myapp.activity);
-        liveTOPresenter.ShowPerform();
-        DialogUtil.instance().Hidedialog();
+
     }
 
     @Override
     protected void initdata() {
-
+        DialogUtil.instance().Showdialog(Myapp.activity);
+        liveOriginalPresenter.ShowPerform();
+        DialogUtil.instance().Hidedialog();
     }
 
     @Override
@@ -53,14 +48,14 @@ public class LiveTOPFragment extends BaseFragment implements ILivePerformFragmen
     @Override
     protected void initview() {
         view = LayoutInflater.from(Myapp.activity).inflate(R.layout.fragment_jingcai, null);
-        liveTOPresenter = new LiveTOPresenter(this);
+        liveOriginalPresenter = new LiveOriginalPresenter(this);
         live_splendid_xrecycler = (XRecyclerView) view.findViewById(R.id.live_splendid_xrecycler);
 
     }
 
     @Override
     public void liveperformBean(List<LivePerformBean.VideoBean> performBeen) {
-       //瀑布流
+        //瀑布流
         live_splendid_xrecycler.setLayoutManager(new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL));
         livePerformAdapter = new LivePerformAdapter(getActivity(), performBeen);
         live_splendid_xrecycler.setAdapter(livePerformAdapter);

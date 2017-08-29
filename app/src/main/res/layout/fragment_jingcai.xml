@@ -4,7 +4,6 @@
     android:layout_height="match_parent"
     tools:context="com.example.dell.pandalive.ui.livepanda.splendid.LiveSplendidFragment">
 
-
     <com.jcodecraeer.xrecyclerview.XRecyclerView
         android:id="@+id/live_splendid_xrecycler"
         android:layout_width="match_parent"

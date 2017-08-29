@@ -18,6 +18,10 @@ import java.util.List;
 
 /**
  * Created by Administrator on 2017/8/29.
+ *
+ * 熊猫档案
+ *
+ *
  */
 
 public class LiveArchivesFragment extends BaseFragment implements ILivePerformFragment {

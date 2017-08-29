@@ -1,4 +1,4 @@
-package com.example.dell.pandalive.ui.livepanda.top;
+package com.example.dell.pandalive.ui.livepanda.unusual;
 
 import android.widget.Toast;
 
@@ -15,16 +15,15 @@ import io.reactivex.disposables.Disposable;
 
 /**
  * Created by Administrator on 2017/8/29.
- * LiveThingModel
  */
 
-public class LiveTOPModel implements ILivePerformPresenter{
+public class LiveUnusualModel implements ILivePerformPresenter{
     @Override
     public void GainLivePerform(final ILivePerformview iLivePerformview) {
+        //特别节目"http://api.cntv.cn/video/videolistById?vsid=VSET100167308855&n=7&serviceId=panda&o=desc&of=time&p=1";
 
-        //熊猫TOP榜"http://api.cntv.cn/video/videolistById?vsid=VSET100284428835&n=7&serviceId=panda&o=desc&of=time&p=1";
-
-        RetrofitUtil.instance("http://api.cntv.cn/").livetop(new Observer() {
+//
+        RetrofitUtil.instance("http://api.cntv.cn/").liveunusual(new Observer() {
             @Override
             public void onSubscribe(Disposable d) {
 
@@ -47,8 +46,26 @@ public class LiveTOPModel implements ILivePerformPresenter{
                 Toast.makeText(Myapp.activity, "请求成功", Toast.LENGTH_LONG).show();
             }
         });
+        /* RetrofitUtil.instance("http://api.cntv.cn/").livething(new Observer() {
+            @Override
+            public void onSubscribe(Disposable d) {
 
+            }
 
+            @Override
+            public void onNext(Object value) {
 
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onComplete() {
+
+            }
+        });*/
     }
 }

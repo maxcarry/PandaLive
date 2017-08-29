@@ -80,6 +80,24 @@ public interface RetrofitApi {
     Observable<LivePerformBean> gettops();
 
 
+
+    //熊猫那些事"http://api.cntv.cn/video/videolistById?vsid=VSET100237714751&n=7&serviceId=panda&o=desc&of=time&p=1";
+
+    @GET("http://api.cntv.cn/video/videolistById?vsid=VSET100237714751&n=7&serviceId=panda&o=desc&of=time&p=1")
+    Observable<LivePerformBean> getthing();
+
+    //特别节目"http://api.cntv.cn/video/videolistById?vsid=VSET100167308855&n=7&serviceId=panda&o=desc&of=time&p=1";
+    @GET("http://api.cntv.cn/video/videolistById?vsid=VSET100167308855&n=7&serviceId=panda&o=desc&of=time&p=1")
+    Observable<LivePerformBean> getunusual();
+
+
+    //(9)原创新闻 "http://api.cntv.cn/video/videolistById?vsid=VSET100219009515&n=7&serviceId=panda&o=desc&of=time&p=1";
+
+    @GET("http://api.cntv.cn/video/videolistById?vsid=VSET100219009515&n=7&serviceId=panda&o=desc&of=time&p=1")
+    Observable<LivePerformBean> getoriginal();
+
+
+
 }
 
 
