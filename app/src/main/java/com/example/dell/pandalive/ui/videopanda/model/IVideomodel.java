@@ -8,6 +8,7 @@ import com.example.dell.pandalive.ui.videopanda.presenter.IVideopersenter;
 
 public interface IVideomodel {
 
+    void videobannershow(IVideopersenter iVideopersenter);
 
     void videorecycler(IVideopersenter iVideopersenter);
 }

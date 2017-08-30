@@ -3,6 +3,7 @@ package com.example.dell.pandalive.ui.videopanda.model;
 import android.widget.Toast;
 
 import com.example.dell.pandalive.app.Myapp;
+import com.example.dell.pandalive.entity.VideoBanner;
 import com.example.dell.pandalive.entity.VideoRVBean;
 import com.example.dell.pandalive.ui.videopanda.presenter.IVideopersenter;
 import com.example.dell.pandalive.utils.RetrofitUtil;
@@ -19,6 +20,32 @@ import io.reactivex.disposables.Disposable;
 public class VideoModel implements IVideomodel {
 
 
+    @Override
+    public void videobannershow(final IVideopersenter iVideopersenter) {
+        RetrofitUtil.instance("http://www.ipanda.com").videobanner(new Observer() {
+            @Override
+            public void onSubscribe(Disposable d) {
+
+            }
+
+            @Override
+            public void onNext(Object value) {
+                VideoBanner banner= (VideoBanner) value;
+
+                iVideopersenter.videoshowbanner(banner);
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onComplete() {
+
+            }
+        });
+    }
 
     @Override
     public void videorecycler(final IVideopersenter iVideopersenter) {

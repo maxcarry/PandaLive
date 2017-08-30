@@ -4,10 +4,12 @@ import com.example.dell.pandalive.entity.BigImageBean;
 import com.example.dell.pandalive.entity.EyeListBean;
 import com.example.dell.pandalive.entity.HomeBean;
 import com.example.dell.pandalive.entity.InteractListViewBean;
-import com.example.dell.pandalive.entity.TvBean;
-import com.example.dell.pandalive.entity.VideoBean;
-import com.example.dell.pandalive.entity.VideoRVBean;
 import com.example.dell.pandalive.entity.LiveSplendidBean;
+import com.example.dell.pandalive.entity.TvBean;
+import com.example.dell.pandalive.entity.VideoBanner;
+import com.example.dell.pandalive.entity.VideoBean;
+import com.example.dell.pandalive.entity.VideoDetailsHDBean;
+import com.example.dell.pandalive.entity.VideoRVBean;
 import com.example.dell.pandalive.ui.livepanda.perform.LivePerformBean;
 
 import io.reactivex.Observable;
@@ -23,9 +25,14 @@ public interface RetrofitApi {
     @GET("kehuduan/shouye/index.json")
     Observable<HomeBean> gethome();
 
+    //滚滚视频
+    @GET("kehuduan/video/index.json")
+    Observable<VideoBanner> getvideobanner();
+
     //    http://www.ipanda.com/kehuduan/video/index.json
     @GET("kehuduan/video/index.json")
     Observable<VideoRVBean> getvideoshowrecycler();
+
 
     //    kehuduan/shipinliebieye/jingcaiyike/index.json
     @GET("kehuduan/shipinliebieye/jingcaiyike/index.json")
@@ -100,7 +107,12 @@ public interface RetrofitApi {
 
     @GET("http://api.cntv.cn/video/videolistById?vsid=VSET100219009515&n=7&serviceId=panda&o=desc&of=time&p=1")
     Observable<LivePerformBean> getoriginal();
+    // http://api.cntv.cn/video/videolistById?p=1&serviceId=panda&n=150&vsid=VSET100284428835
 
+    //滚滚视频详情
+
+    @GET("http://api.cntv.cn/video/videolistById?p=1&serviceId=panda&n=150&vsid=VSET100284428835")
+    Observable<VideoDetailsHDBean> getvideodetailsrecycler();
 
 
 }

@@ -1,5 +1,6 @@
 package com.example.dell.pandalive.ui.videopanda.presenter;
 
+import com.example.dell.pandalive.entity.VideoBanner;
 import com.example.dell.pandalive.entity.VideoRVBean;
 
 import java.util.List;
@@ -9,6 +10,9 @@ import java.util.List;
  */
 
 public interface IVideopersenter {
+
+    void videogetbanner();
+    void videoshowbanner(VideoBanner videoBanner);
 
     void videoshowrecycler();
     void videoperrecycler(List<VideoRVBean.ListBean> arrayList);

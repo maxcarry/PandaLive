@@ -7,7 +7,9 @@ import com.example.dell.pandalive.entity.HomeBean;
 import com.example.dell.pandalive.entity.InteractListViewBean;
 import com.example.dell.pandalive.entity.LiveSplendidBean;
 import com.example.dell.pandalive.entity.TvBean;
+import com.example.dell.pandalive.entity.VideoBanner;
 import com.example.dell.pandalive.entity.VideoBean;
+import com.example.dell.pandalive.entity.VideoDetailsHDBean;
 import com.example.dell.pandalive.entity.VideoRVBean;
 import com.example.dell.pandalive.ui.livepanda.perform.LivePerformBean;
 
@@ -129,6 +131,13 @@ public class RetrofitUtil {
                 .subscribe(observer);
 
     }
+    //滚滚视频
+    public void videobanner(Observer observer){
+        Observable<VideoBanner> videoshowrecy=api.getvideobanner();
+        videoshowrecy.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(observer);
+    }
 
     public void videorecycler(Observer observer) {
         Observable<VideoRVBean> videoshowrecy = api.getvideoshowrecycler();
@@ -206,7 +215,13 @@ public class RetrofitUtil {
                 .subscribe(observer);
     }
 
-
-
+//    http://36.102.235.55/vod.cntv.lxdns.com/flash/mp4video61/TMS/2017/08/28/32a08c5f6c3f4f34becaf960d5a47538_h264418000nero_aac32.mp4?wshc_tag=0&wsts_tag=59a62116&wsid_tag=73ab217c&wsiphost=ipdbm
+    //滚滚视频详情
+    public void videodetailsrecycler(Observer observer){
+        Observable<VideoDetailsHDBean> videoshowrecy=api.getvideodetailsrecycler();
+        videoshowrecy.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(observer);
+    }
 
 }
