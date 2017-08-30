@@ -23,7 +23,7 @@ public class LiveSplendidModel implements ILiveSplendidPresenter {
     public void GainLiveSplendid(final ILiveSplendidview iLiveSplendidPresenter) {
 //
 //        http://api.cntv.cn/video/videolistById?vsid=VSET100167216881&n=7&serviceId=panda&o=desc&of=time&p=1
-        RetrofitUtil.instance("http://api.cntv.cn/")
+        RetrofitUtil.instance("http://api.cntv.cn/video/videolistById?vsid=VSET100167216881&n=7&serviceId=panda&o=desc&of=time&p=1")
                 .Livesplendid(new Observer() {
             @Override
             public void onSubscribe(Disposable d) {

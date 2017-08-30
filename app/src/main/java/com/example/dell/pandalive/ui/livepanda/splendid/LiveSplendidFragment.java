@@ -1,11 +1,11 @@
 package com.example.dell.pandalive.ui.livepanda.splendid;
 
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Toast;
 
 import com.example.dell.pandalive.R;
 import com.example.dell.pandalive.adapter.LiveSplendidAdapter;
@@ -13,6 +13,7 @@ import com.example.dell.pandalive.app.Myapp;
 import com.example.dell.pandalive.base.BaseFragment;
 import com.example.dell.pandalive.entity.LiveSplendidBean;
 import com.example.dell.pandalive.utils.DialogUtil;
+import com.example.dell.pandalive.utils.PlayActivityUtil;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
 
 import java.util.List;
@@ -24,6 +25,7 @@ import java.util.List;
  *
  */
 public class LiveSplendidFragment extends BaseFragment implements ILiveSplendidFragment {
+
 
     private View view;
 
@@ -57,20 +59,7 @@ public class LiveSplendidFragment extends BaseFragment implements ILiveSplendidF
 
         //瀑布流
         live_splendid_xrecycler.setLayoutManager(new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL));
-        live_splendid_xrecycler.setLoadingListener(new XRecyclerView.LoadingListener() {
-            @Override
-            public void onRefresh() {
 
-
-
-                live_splendid_xrecycler.refreshComplete();
-            }
-
-            @Override
-            public void onLoadMore() {
-                live_splendid_xrecycler.refreshComplete();
-            }
-        });
 
     }
 
@@ -85,20 +74,43 @@ public class LiveSplendidFragment extends BaseFragment implements ILiveSplendidF
         liveSplendidAdapter.setonclick(new LiveSplendidAdapter.Jiekou() {
             @Override
             public void onclick(int position) {
-                Toast.makeText(Myapp.activity, "点击了第" + position + "条数据，目前不能跳转", Toast.LENGTH_LONG).show();
+
+                String livet = videoBeen.get(position).getT();
+                String liveurl = videoBeen.get(position).getUrl();
+
+                Intent intent = new Intent(getActivity(), PlayActivityUtil.class);
+                intent.putExtra("title",livet);
+                intent.putExtra("path",liveurl);
+                startActivity(intent);
+        }
+        });
+
+        live_splendid_xrecycler.setLoadingListener(new XRecyclerView.LoadingListener() {
+            @Override
+            public void onRefresh() {
+            //上啦刷新
+//                videoBeen.clear();
+
+
+//                liveSplendidAdapter = new LiveSplendidAdapter(getActivity(), videoBeen);
+//                live_splendid_xrecycler.setAdapter(liveSplendidAdapter);
+//                liveSplendidAdapter.notifyDataSetChanged();
+//                Log.e("11111",videoBeen.get(1).getT());
+
+//                videoBeen.clear();
+                live_splendid_xrecycler.refreshComplete();
+            }
+
+            @Override
+            public void onLoadMore() {
+            //下啦加载
+//                iLiveSplendidFragment.liveBean(videoBeen);
+//                liveSplendidAdapter.notifyDataSetChanged();
+//
+                live_splendid_xrecycler.refreshComplete();
             }
         });
+
     }
 
-//    @Override
-//    public void geturl() {
-//        String strurl="\thttp://api.cntv.cn/video/videolistById?vsid=VSET100167216881&n=7&serviceId=panda&o=desc&of=time&p=1";
-//
-//    }
-
-//    @Override
-//    public void geturl(String url) {
-//        String strurl="\thttp://api.cntv.cn/video/videolistById?vsid=VSET100167216881&n=7&serviceId=panda&o=desc&of=time&p=1";
-//
-//    }
 }

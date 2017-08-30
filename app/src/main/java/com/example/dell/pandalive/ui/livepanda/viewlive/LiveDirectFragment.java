@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.dell.pandalive.R;
@@ -23,6 +24,7 @@ public class LiveDirectFragment extends BaseFragment {
     private View view;
     private ImageView live_play_img;
     private TextView live_plau_introduce;
+    private RelativeLayout live_play_relative;
 
     @Override
     protected void restartdata() {
@@ -43,16 +45,11 @@ public class LiveDirectFragment extends BaseFragment {
     protected void initview() {
 
         view = LayoutInflater.from(Myapp.activity).inflate(R.layout.fragment_live_direct, null);
-        //介绍小三角图标
-        live_play_img = (ImageView) view.findViewById(R.id.live_play_img);
-        //介绍（文字）
-        live_plau_introduce = (TextView) view.findViewById(R.id.live_plau_introduce);
-        live_play_img.setOnClickListener(new View.OnClickListener() {
+        getid();
+        live_play_relative.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//lpanda_show
-                if (v == live_play_img) {
-
+                if (v == live_play_relative) {
 
                     if (isChanged) {
 
@@ -66,20 +63,22 @@ public class LiveDirectFragment extends BaseFragment {
                         live_plau_introduce.setVisibility(View.VISIBLE);
                     }
                     isChanged = !isChanged;
+
+
                 }
 
-            }
+                }
         });
 
-/*
+    }
 
-可见（visible)
-XML文件：Android:visibility="visible"
-Java代码：view.setVisibility(View.VISIBLE);
-隐藏（GONE）
-XML文件：android:visibility="gone"
-Java代码：view.setVisibility(View.GONE);
-                    */
+    private void getid() {
+        //介绍小三角图标
+        live_play_img = (ImageView) view.findViewById(R.id.live_play_img);
+        //介绍（文字）
+        live_plau_introduce = (TextView) view.findViewById(R.id.live_plau_introduce);
+        live_play_relative = (RelativeLayout) view.findViewById(R.id.live_play_relative);
+
 
     }
 }
