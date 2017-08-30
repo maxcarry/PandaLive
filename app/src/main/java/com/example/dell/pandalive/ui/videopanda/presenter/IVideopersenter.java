@@ -10,8 +10,6 @@ import java.util.List;
 
 public interface IVideopersenter {
 
-
-
     void videoshowrecycler();
     void videoperrecycler(List<VideoRVBean.ListBean> arrayList);
 }

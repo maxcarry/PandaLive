@@ -17,6 +17,7 @@ import static android.provider.Contacts.SettingsColumns.KEY;
 /**
  * A simple {@link Fragment} subclass.
  * 精彩一刻
+ * LiveYieldFragment
  */
 public class LiveSplendidFragment extends BaseFragment {
 

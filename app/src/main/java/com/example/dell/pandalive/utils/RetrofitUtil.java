@@ -5,9 +5,11 @@ import com.example.dell.pandalive.entity.BigImageBean;
 import com.example.dell.pandalive.entity.EyeListBean;
 import com.example.dell.pandalive.entity.HomeBean;
 import com.example.dell.pandalive.entity.InteractListViewBean;
+import com.example.dell.pandalive.entity.LiveSplendidBean;
 import com.example.dell.pandalive.entity.TvBean;
 import com.example.dell.pandalive.entity.VideoBean;
 import com.example.dell.pandalive.entity.VideoRVBean;
+import com.example.dell.pandalive.ui.livepanda.perform.LivePerformBean;
 
 import java.util.concurrent.TimeUnit;
 
@@ -47,7 +49,7 @@ public class RetrofitUtil {
                 .create(RetrofitApi.class);
     }
 
-    public static RetrofitUtil instance(String baseurl){
+    public static RetrofitUtil instance(String baseurl) {
 
         if (retrofitUtil == null) {
             synchronized (RetrofitUtil.class) {
@@ -68,7 +70,7 @@ public class RetrofitUtil {
                 .subscribe(observer);
     }
 
-    public void Webtv(Observer observer){
+    public void Webtv(Observer observer) {
 
         Observable<TvBean> gettv = api.gettv();
 
@@ -77,7 +79,7 @@ public class RetrofitUtil {
                 .subscribe(observer);
     }
 
-    public void Webvideo(Observer observer){
+    public void Webvideo(Observer observer) {
 
         Observable<VideoBean> getvideo = api.getvideo();
         getvideo.subscribeOn(Schedulers.io())
@@ -88,45 +90,119 @@ public class RetrofitUtil {
 
     /**
      * 熊猫播报
+     *
      * @param observer
      */
     //
-    public void Webbigimage(Observer observer){
+    public void Webbigimage(Observer observer) {
 
-        Observable<BigImageBean> getbigimage=api.getbigimage();
+        Observable<BigImageBean> getbigimage = api.getbigimage();
         getbigimage.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(observer);
     }
 
-    public void Webeyelist(Observer observer){
+    public void Webeyelist(Observer observer) {
 
-        Observable<EyeListBean> getrecycler=api.geteyelist();
+        Observable<EyeListBean> getrecycler = api.geteyelist();
         getrecycler.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(observer);
     }
 
-    public void Webinteract(Observer observer){
+    public void Webinteract(Observer observer) {
 
-        Observable<InteractListViewBean> getinteract=api.getinteract();
+        Observable<InteractListViewBean> getinteract = api.getinteract();
         getinteract.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(observer);
     }
 
-    public void videoBanner(Observer observer){
-        Observable<VideoRVBean> videobanner=api.getbanner();
+    public void videoBanner(Observer observer) {
+        Observable<VideoRVBean> videobanner = api.getbanner();
         videobanner.subscribeOn(Schedulers.io())
                 .subscribeOn(AndroidSchedulers.mainThread())
                 .subscribe(observer);
 
     }
 
-    public void videorecycler(Observer observer){
-        Observable<VideoRVBean> videoshowrecy=api.getvideoshowrecycler();
+    public void videorecycler(Observer observer) {
+        Observable<VideoRVBean> videoshowrecy = api.getvideoshowrecycler();
         videoshowrecy.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(observer);
     }
+
+    /*
+    * 熊猫直播
+    * 卢晓昭
+    * */
+
+
+    //精彩一刻
+    public void Livesplendid(Observer observer) {
+
+        Observable<LiveSplendidBean> liveSplendidBeanObservable = api.getsplendid();
+        liveSplendidBeanObservable.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(observer);
+    }
+
+    //熊猫滚滚秀
+    public void Liveperform(Observer observer) {
+//        getperform
+        Observable<LivePerformBean> livePerformBeanObservable = api.getperform();
+        livePerformBeanObservable.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(observer);
+
+    }
+
+
+    //熊猫档案
+    public void livearchives(Observer observer) {
+        Observable<LivePerformBean> livePerformBeanObservable = api.getarchives();
+        livePerformBeanObservable.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(observer);
+    }
+
+
+    //熊猫TOP榜
+    public void livetop(Observer observer) {
+        Observable<LivePerformBean> livePerformBeanObservable = api.gettops();
+        livePerformBeanObservable.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(observer);
+    }
+
+    //熊猫那些事
+    public void livething(Observer observer){
+        Observable<LivePerformBean> livePerformBeanObservable = api.getthing();
+        livePerformBeanObservable.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(observer);
+    }
+
+
+ //熊猫特别节目
+    public void liveunusual(Observer observer){
+        Observable<LivePerformBean> livePerformBeanObservable = api.getunusual();
+        livePerformBeanObservable.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(observer);
+    }
+
+
+ //原创新闻
+    public void liveoriginal(Observer observer){
+        Observable<LivePerformBean> livePerformBeanObservable = api.getoriginal();
+        livePerformBeanObservable.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(observer);
+    }
+
+
+
+
 }

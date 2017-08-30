@@ -2,7 +2,6 @@ package com.example.dell.pandalive.ui.livepanda;
 
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
@@ -13,7 +12,15 @@ import android.widget.TextView;
 import com.example.dell.pandalive.R;
 import com.example.dell.pandalive.app.Myapp;
 import com.example.dell.pandalive.base.BaseFragment;
-import com.example.dell.pandalive.ui.livepanda.viewlive.LiveSplendidFragment;
+import com.example.dell.pandalive.ui.livepanda.archives.LiveArchivesFragment;
+import com.example.dell.pandalive.ui.livepanda.original.LiveOriginalFragment;
+import com.example.dell.pandalive.ui.livepanda.perform.LivePerformFragment;
+import com.example.dell.pandalive.ui.livepanda.splendid.LiveSplendidFragment;
+import com.example.dell.pandalive.ui.livepanda.thing.LiveThingFragment;
+import com.example.dell.pandalive.ui.livepanda.top.LiveTOPFragment;
+import com.example.dell.pandalive.ui.livepanda.unusual.LiveUnusualFragment;
+import com.example.dell.pandalive.ui.livepanda.viewlive.LiveDirectFragment;
+import com.example.dell.pandalive.ui.livepanda.yield.LiveYieldFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,22 +34,10 @@ public class LiveFragment extends BaseFragment {
     private View view;
     private ViewPager live_viewpaget;
     private TabLayout live_tablayout;
-
-//    private List<Fragment> list_fragment;  //定义要装fragment的列表
-//    private List<String> list_title;
-//    private LiveDirectFragment liveDirectFragment;
-//    private LiveSplendidFragment liveSplendidFragment;
-
-/////////////////
-
-    //    private LayoutInflater mInflater;
-//    private List<String> mTitleList = new ArrayList<>();//页卡标题集合
-//    private View view1, view2, view3, view4, view5;//页卡视图
-//    private List<View> mViewList = new ArrayList<>();//页卡视图集合
     private List<String> listTitles;
     private List<Fragment> fragments;
     private List<TextView> listTextViews;
-    private FragmentManager supportFragmentManager;
+//    private FragmentManager supportFragmentManager;
 
     //不用管
     @Override
@@ -70,14 +65,47 @@ public class LiveFragment extends BaseFragment {
         listTitles.add("熊猫那些事");
         listTitles.add("特别节目");
         listTitles.add("原创新闻");
+        //直播
+        LiveDirectFragment liveDirectFragment=new LiveDirectFragment();
+        fragments.add(0,liveDirectFragment);
+        //精彩一刻
+        LiveSplendidFragment jingcaiFragment=new LiveSplendidFragment();
+        fragments.add(1,jingcaiFragment);
+        //当熊不让
+        LiveYieldFragment liveYieldFragment=new LiveYieldFragment();
+        fragments.add(2,liveYieldFragment);
+        //超萌滚滚秀
+        LivePerformFragment livePerformFragment=new LivePerformFragment();
+        fragments.add(3,livePerformFragment);
+        //熊猫档案
+        LiveArchivesFragment liveArchivesFragment=new LiveArchivesFragment();
+        fragments.add(4,liveArchivesFragment);
+
+        //熊猫top榜
+        LiveTOPFragment liveTOPFragment=new LiveTOPFragment();
+        fragments.add(5,liveTOPFragment);
+
+        //熊猫那些事
+        LiveThingFragment liveThingFragment=new LiveThingFragment();
+        fragments.add(6,liveThingFragment);
+        //特别节目
+        LiveUnusualFragment liveUnusualFragment=new LiveUnusualFragment();
+        fragments.add(7,liveUnusualFragment);
+
+        //原创新闻
+        LiveOriginalFragment liveOriginalFragment=new LiveOriginalFragment();
+        fragments.add(8,liveOriginalFragment);
+
         live_tablayout.setTabMode(TabLayout.MODE_SCROLLABLE);
-        for (int i = 0; i < listTitles.size(); i++) {
-            LiveSplendidFragment fragment = LiveSplendidFragment.newInstance(listTitles.get(i));
-            fragments.add(fragment);
-        }
-        for (int i = 0; i < listTitles.size(); i++) {
-            live_tablayout.addTab(live_tablayout.newTab().setText(listTitles.get(i)));//添加tab选项
-        }
+//        for (int i = 9; i < listTitles.size(); i++) {
+//            com.example.dell.pandalive.ui.livepanda.viewlive.LiveSplendidFragment fragment = com.example.dell.pandalive.ui.livepanda.viewlive.LiveSplendidFragment.newInstance(listTitles.get(i));
+//            fragments.add(fragment);
+//        }
+
+
+//        for (int i = 0; i < listTitles.size(); i++) {
+//            live_tablayout.addTab(live_tablayout.newTab().setText(listTitles.get(i)));//添加tab选项
+//        }
 
         FragmentPagerAdapter mAdapter = new FragmentPagerAdapter(getChildFragmentManager()) {
 
@@ -111,10 +139,7 @@ public class LiveFragment extends BaseFragment {
             }
 
         });
-
     }
-
-
 
     @Override
     protected View initlayout() {
@@ -125,106 +150,7 @@ public class LiveFragment extends BaseFragment {
     //找布局
     @Override
     protected void initview() {
-
         view = LayoutInflater.from(Myapp.activity).inflate(R.layout.live_fragment, null);
 
-
     }
-
-
 }
-
-
-/*   live_tablayout = (TabLayout) view.findViewById(R.id.live_tablayout);
-
-        live_viewpaget = (ViewPager) view.findViewById(R.id.live_viewpaget);
-        //熊猫直播
-        liveDirectFragment = new LiveDirectFragment();
-        //精彩一刻
-        liveSplendidFragment = new LiveSplendidFragment();
-
-
-        //将fragment装进列表中
-        list_fragment = new ArrayList<>();
-        list_fragment.add(liveDirectFragment);
-        list_fragment.add(liveSplendidFragment);
-
-        //将名称加载tab名字列表，正常情况下，我们应该在values/arrays.xml中进行定义然后调用
-
-        list_title = new ArrayList<>();
-        list_title.add("直播");
-        list_title.add("精彩一刻");
-
-
-        //设置TabLayout的模式
-        live_tablayout.setTabMode(TabLayout.MODE_SCROLLABLE);
-        //为TabLayout添加tab名称
-
-        for (int i = 0; i < list_title.size(); i++) {
-            live_tablayout.addTab(live_tablayout.newTab().setText(list_title.get(i)));
-        }
-
-
-        //设置不能滑动
-        live_viewpaget.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                return true;  //修改为true
-            }
-
-        });
-        LiveDirectAdapter fAdapter = new LiveDirectAdapter(getActivity().getSupportFragmentManager(), list_fragment, list_title);
-
-
-        //viewpager加载adapter
-        live_viewpaget.setAdapter(fAdapter);
-
-        //TabLayout加载viewpager
-        live_tablayout.setupWithViewPager(live_viewpaget);
-*/
-
-
-   /* //初始化各fragment
-        //原创新闻
-        yuanchuang = new YuanChuangFragment();
-        //特别节目
-        tiebie =new  TieBieFragment();
-        //熊猫那些事
-        naxieshi = new NaXieShiFragment();
-        //熊猫TOP榜
-        topbang = new TOPBangFragment();
-        //熊猫档案
-        dangan = new DangAnFragment();
-        //超萌滚滚秀
-        chaoMengFragmen = new ChaoMengFragmen();
-        //当熊不让
-        dangxiong = new DangXiongFragmen();
-        //精彩一刻
-        jingcai = new JingCaiFragmen();
-        //直播
-        zhibo = new ZhiBoFragmen();
-
-
-
-
-  //将fragment装进列表中
-
-        list_fragment.add(naxieshi);
-        list_fragment.add(topbang);
-        list_fragment.add(dangan);
-        list_fragment.add(chaoMengFragmen);
-        list_fragment.add(dangxiong);
-        list_fragment.add(jingcai);
-        list_fragment.add(zhibo);
-
-        //将名称加载tab名字列表，正常情况下，我们应该在values/arrays.xml中进行定义然后调用
-
-        list_title.add("当熊不让");
-        list_title.add("超萌滚滚秀");
-        list_title.add("熊猫档案");
-        list_title.add("熊猫TOP榜");
-        list_title.add("熊猫那些事");
-        list_title.add("特别节目");
-        list_title.add("原创新闻");
-
-      */

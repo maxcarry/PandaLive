@@ -34,8 +34,6 @@ public class VideoModel implements IVideomodel {
 
                 VideoRVBean videoRVBean= (VideoRVBean) value;
                List<VideoRVBean.ListBean> rvBeen=videoRVBean.getList();
-
-
                 iVideopersenter.videoperrecycler(rvBeen);
 
             }
