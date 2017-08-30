@@ -1,6 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:id="@+id/china_re"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="180px"
+            android:background="@color/colorPrimary">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="直播中国"
+                android:layout_centerInParent="true"
+                android:textColor="@color/colorWhite"
+                android:textSize="60px"
+                />
+
+            <ImageView
+                android:id="@+id/china_person"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="50px"
+                android:background="@drawable/person_sign" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="150px"
+            android:orientation="horizontal"
+            >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/live_china_add"
+                android:id="@+id/china_add_ima"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                />
+
+            <android.support.design.widget.TabLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/china_tab"
+                app:tabMode="scrollable"
+                app:tabGravity="center"
+                android:layout_toLeftOf="@id/china_add_ima"
+                ></android.support.design.widget.TabLayout>
+
+        </RelativeLayout>
+
+        <com.example.dell.pandalive.custom_view.NoScrollViewPager
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/china_viewpager"
+            ></com.example.dell.pandalive.custom_view.NoScrollViewPager>
+    </LinearLayout>
+
+    </RelativeLayout>

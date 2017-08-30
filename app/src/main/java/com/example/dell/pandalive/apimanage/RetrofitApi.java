@@ -1,17 +1,20 @@
 package com.example.dell.pandalive.apimanage;
 
 import com.example.dell.pandalive.entity.BigImageBean;
+import com.example.dell.pandalive.entity.ChinaBean;
+import com.example.dell.pandalive.entity.ColumnBean;
 import com.example.dell.pandalive.entity.EyeListBean;
 import com.example.dell.pandalive.entity.HomeBean;
 import com.example.dell.pandalive.entity.InteractListViewBean;
+import com.example.dell.pandalive.entity.LiveSplendidBean;
 import com.example.dell.pandalive.entity.TvBean;
 import com.example.dell.pandalive.entity.VideoBean;
 import com.example.dell.pandalive.entity.VideoRVBean;
-import com.example.dell.pandalive.entity.LiveSplendidBean;
 import com.example.dell.pandalive.ui.livepanda.perform.LivePerformBean;
 
 import io.reactivex.Observable;
 import retrofit2.http.GET;
+import retrofit2.http.Url;
 
 /**
  * Created by dell on 2017/8/22.
@@ -80,7 +83,6 @@ public interface RetrofitApi {
     Observable<LivePerformBean> gettops();
 
 
-
     //熊猫那些事"http://api.cntv.cn/video/videolistById?vsid=VSET100237714751&n=7&serviceId=panda&o=desc&of=time&p=1";
 
     @GET("http://api.cntv.cn/video/videolistById?vsid=VSET100237714751&n=7&serviceId=panda&o=desc&of=time&p=1")
@@ -96,8 +98,13 @@ public interface RetrofitApi {
     @GET("http://api.cntv.cn/video/videolistById?vsid=VSET100219009515&n=7&serviceId=panda&o=desc&of=time&p=1")
     Observable<LivePerformBean> getoriginal();
 
+    //直播中国
+//    http://www.ipanda.com/kehuduan/PAGE14501775094142282/index.json
+    @GET("kehuduan/PAGE14501775094142282/index.json")
+    Observable<ChinaBean> getchinalive();
 
+    //栏目页面
+    @GET
+    Observable<ColumnBean> getcolumn(@Url String url);
 
 }
-
-

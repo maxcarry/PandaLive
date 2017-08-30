@@ -2,6 +2,8 @@ package com.example.dell.pandalive.utils;
 
 import com.example.dell.pandalive.apimanage.RetrofitApi;
 import com.example.dell.pandalive.entity.BigImageBean;
+import com.example.dell.pandalive.entity.ChinaBean;
+import com.example.dell.pandalive.entity.ColumnBean;
 import com.example.dell.pandalive.entity.EyeListBean;
 import com.example.dell.pandalive.entity.HomeBean;
 import com.example.dell.pandalive.entity.InteractListViewBean;
@@ -27,7 +29,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 
 public class RetrofitUtil {
-
     private static RetrofitUtil retrofitUtil;
     private static final int MAXTIME = 50;
     private final RetrofitApi api;
@@ -185,7 +186,7 @@ public class RetrofitUtil {
     }
 
 
- //熊猫特别节目
+    //熊猫特别节目
     public void liveunusual(Observer observer){
         Observable<LivePerformBean> livePerformBeanObservable = api.getunusual();
         livePerformBeanObservable.subscribeOn(Schedulers.io())
@@ -194,7 +195,7 @@ public class RetrofitUtil {
     }
 
 
- //原创新闻
+    //原创新闻
     public void liveoriginal(Observer observer){
         Observable<LivePerformBean> livePerformBeanObservable = api.getoriginal();
         livePerformBeanObservable.subscribeOn(Schedulers.io())
@@ -203,6 +204,19 @@ public class RetrofitUtil {
     }
 
 
+    public void WebChina(Observer observer) {
 
+        Observable<ChinaBean> getchinalive = api.getchinalive();
+        getchinalive.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(observer);
+    }
 
+    public void Webcolumn(Observer observer, String url) {
+
+        Observable<ColumnBean> getcolumn = api.getcolumn(url);
+        getcolumn.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(observer);
+    }
 }

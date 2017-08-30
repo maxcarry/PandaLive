@@ -31,6 +31,8 @@ import com.example.dell.pandalive.utils.Netwoke;
 import java.util.ArrayList;
 import java.util.List;
 
+import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
+
 public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     //网络状态工具类
@@ -265,5 +267,18 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         }else{
 
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (JCVideoPlayer.backPress()) {
+            return;
+        }
+        super.onBackPressed();
+    }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        JCVideoPlayer.releaseAllVideos();
     }
 }

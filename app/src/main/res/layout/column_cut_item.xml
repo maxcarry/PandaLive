@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:gravity="center"
+    android:background="@color/color_black"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="260px"
+        android:layout_height="120px"
+        android:text="八达岭"
+        android:gravity="center"
+        android:background="@color/colorWhite"
+        android:id="@+id/cut_te_item"
+        />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/delete_gray"
+        android:layout_alignRight="@id/cut_te_item"
+        android:id="@+id/cut_ima_item"
+        android:visibility="gone"
+        />
+</RelativeLayout>

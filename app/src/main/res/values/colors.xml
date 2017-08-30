@@ -12,5 +12,6 @@
     <color name="colorBlue">#4672AD</color>
     <color name="colorBlack">#000000</color>
     <color name="colorblack">#000000</color>
+    <color name="transparent_background">#554672AD</color>
 
 </resources>

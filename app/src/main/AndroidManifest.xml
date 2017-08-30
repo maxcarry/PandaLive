@@ -29,7 +29,10 @@
         android:roundIcon="@mipmap/logo_ipnda"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.MainActivity">
+        <activity android:name=".ui.MainActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -64,7 +67,6 @@
 
         <activity android:name=".ui.eyepanda.activity.Interact_Activity" />
         <activity android:name=".ui.eyepanda.activity.Eye_WebView_Activity" />
-        <activity android:name=".ui.eyepanda.activity.Eye_Personal_Activity" />
         <activity android:name=".ui.eyepanda.activity.Interact_WebView_Activity" />
         <activity android:name=".ui.videopanda.VideoDetailsActivity" />
         <activity android:name=".ui.personal.DebarkActivity"></activity>
@@ -73,6 +75,8 @@
         <activity android:name=".ui.eyepanda.activity.Interact_WebView_Activity"/>
         <activity android:name=".ui.videopanda.VideoDetailsActivity"/>
         <activity android:name=".ui.personal.RegisterActivity" />
+        <activity android:name=".ui.livechina.tabfragment.ColumnActivity"
+            />
     </application>
 
 </manifest>
