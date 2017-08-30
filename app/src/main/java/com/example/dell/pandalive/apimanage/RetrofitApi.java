@@ -4,10 +4,10 @@ import com.example.dell.pandalive.entity.BigImageBean;
 import com.example.dell.pandalive.entity.EyeListBean;
 import com.example.dell.pandalive.entity.HomeBean;
 import com.example.dell.pandalive.entity.InteractListViewBean;
+import com.example.dell.pandalive.entity.LiveSplendidBean;
 import com.example.dell.pandalive.entity.TvBean;
 import com.example.dell.pandalive.entity.VideoBean;
 import com.example.dell.pandalive.entity.VideoRVBean;
-import com.example.dell.pandalive.entity.LiveSplendidBean;
 import com.example.dell.pandalive.ui.livepanda.perform.LivePerformBean;
 
 import io.reactivex.Observable;
@@ -83,6 +83,11 @@ public interface RetrofitApi {
     //熊猫TOP榜"http://api.cntv.cn/video/videolistById?vsid=VSET100284428835&n=7&serviceId=panda&o=desc&of=time&p=1";
     @GET("http://api.cntv.cn/video/videolistById?vsid=VSET100284428835&n=7&serviceId=panda&o=desc&of=time&p=1")
     Observable<LivePerformBean> gettops();
+
+
+//当熊不让http://api.cntv.cn/video/videolistById?vsid=VSET100332640004&n=7&serviceId=panda&o=desc&of=time&p=1
+     @GET("http://api.cntv.cn/video/videolistById?vsid=VSET100332640004&n=7&serviceId=panda&o=desc&of=time&p=1")
+    Observable<LivePerformBean> getyield();
 
 
 

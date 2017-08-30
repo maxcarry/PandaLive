@@ -7,6 +7,6 @@ package com.example.dell.pandalive.ui.livepanda.splendid;
 
 public interface ILiveSplendidPresenter {
     void GainLiveSplendid(ILiveSplendidview iLiveSplendidPresenter);
-
+void urlpresenter(String purl);
 
 }

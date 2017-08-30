@@ -21,8 +21,10 @@ import io.reactivex.disposables.Disposable;
 public class LiveSplendidModel implements ILiveSplendidPresenter {
     @Override
     public void GainLiveSplendid(final ILiveSplendidview iLiveSplendidPresenter) {
-
-        RetrofitUtil.instance("http://api.cntv.cn/").Livesplendid(new Observer() {
+//
+//        http://api.cntv.cn/video/videolistById?vsid=VSET100167216881&n=7&serviceId=panda&o=desc&of=time&p=1
+        RetrofitUtil.instance("http://api.cntv.cn/")
+                .Livesplendid(new Observer() {
             @Override
             public void onSubscribe(Disposable d) {
 
@@ -49,6 +51,11 @@ public class LiveSplendidModel implements ILiveSplendidPresenter {
                 Toast.makeText(Myapp.activity, "请求成功", Toast.LENGTH_LONG).show();
             }
         });
+
+    }
+
+    @Override
+    public void urlpresenter(String purl) {
 
     }
 }

@@ -180,6 +180,14 @@ public class RetrofitUtil {
                 .subscribe(observer);
     }
 
+    //当熊不让
+    public void liveyield(Observer observer) {
+        Observable<LivePerformBean> livePerformBeanObservable = api.getyield();
+        livePerformBeanObservable.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(observer);
+    }
+
     //熊猫那些事
     public void livething(Observer observer){
         Observable<LivePerformBean> livePerformBeanObservable = api.getthing();
