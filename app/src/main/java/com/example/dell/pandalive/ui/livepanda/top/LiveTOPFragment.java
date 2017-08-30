@@ -55,21 +55,47 @@ public class LiveTOPFragment extends BaseFragment implements ILivePerformFragmen
         view = LayoutInflater.from(Myapp.activity).inflate(R.layout.fragment_jingcai, null);
         liveTOPresenter = new LiveTOPresenter(this);
         live_splendid_xrecycler = (XRecyclerView) view.findViewById(R.id.live_splendid_xrecycler);
+        //瀑布流
+        live_splendid_xrecycler.setLayoutManager(new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL));
+        live_splendid_xrecycler.setLoadingListener(new XRecyclerView.LoadingListener() {
+            @Override
+            public void onRefresh() {
 
+
+
+                live_splendid_xrecycler.refreshComplete();
+            }
+
+            @Override
+            public void onLoadMore() {
+                live_splendid_xrecycler.refreshComplete();
+            }
+        });
     }
 
     @Override
-    public void liveperformBean(List<LivePerformBean.VideoBean> performBeen) {
-       //瀑布流
-        live_splendid_xrecycler.setLayoutManager(new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL));
-        livePerformAdapter = new LivePerformAdapter(getActivity(), performBeen);
-        live_splendid_xrecycler.setAdapter(livePerformAdapter);
+    public void liveperformBean(final List<LivePerformBean.VideoBean> performBeen) {
+
+
+        getdata(performBeen);
+
+    }
+
+    private void getdata(List<LivePerformBean.VideoBean> performBeen) {
+
+//        //调用Adapter展示数据，这个判断是为了不重复创建MyAdapter的对象
+//        if (livePerformAdapter==null){
+            livePerformAdapter = new LivePerformAdapter(getActivity(), performBeen);
+            live_splendid_xrecycler.setAdapter(livePerformAdapter);
+//        }else {
+//            livePerformAdapter.notifyDataSetChanged();
+//        }
+
         livePerformAdapter.setonclick(new LivePerformAdapter.Jiekou() {
             @Override
             public void onclick(int position) {
                 Toast.makeText(getActivity(), "点击了第" + position + "条目", Toast.LENGTH_LONG).show();
             }
         });
-
     }
 }

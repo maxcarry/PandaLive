@@ -1,6 +1,8 @@
 package com.example.dell.pandalive.ui.livepanda.yield;
 
-import com.example.dell.pandalive.entity.LiveSplendidBean;
+import com.example.dell.pandalive.ui.livepanda.perform.ILivePerformFragment;
+import com.example.dell.pandalive.ui.livepanda.perform.ILivePerformview;
+import com.example.dell.pandalive.ui.livepanda.perform.LivePerformBean;
 
 import java.util.List;
 
@@ -8,24 +10,25 @@ import java.util.List;
  * Created by Administrator on 2017/8/29.
  */
 //接口：ILiveYieldPresenter
-public class LiveYieldPresenter implements ILiveyieldview{
+public class LiveYieldPresenter implements ILivePerformview{
 
 
 
+    private ILivePerformFragment iLivePerformFragment;
     private LiveYieldModel liveYieldModel;
-    private ILiveYieldFragment iLiveYieldFragment;
-    public LiveYieldPresenter(ILiveYieldFragment iLiveYieldFragment) {
-        this.iLiveYieldFragment = iLiveYieldFragment;
+
+    public LiveYieldPresenter(ILivePerformFragment iLivePerformFragment) {
+        this.iLivePerformFragment = iLivePerformFragment;
         liveYieldModel=new LiveYieldModel();
     }
     @Override
-    public void Showyield() {
-
+    public void ShowPerform() {
+        liveYieldModel.GainLivePerform(this);
     }
 
     @Override
-    public void Sendyield(List<LiveSplendidBean.VideoBean> videoBeen) {
-
+    public void SendPerform(List<LivePerformBean.VideoBean> performBeen) {
+        iLivePerformFragment.liveperformBean(performBeen);
     }
 }
 /*

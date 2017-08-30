@@ -1,13 +1,95 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.example.dell.pandalive.ui.livepanda.viewlive.LiveDirectFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="直播界面" />
 
-</FrameLayout>
+    <io.vov.vitamio.widget.VideoView
+        android:id="@+id/live_play_video"
+        android:layout_width="match_parent"
+        android:layout_height="700px" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="  [正在播放]"
+                android:textSize="20sp"
+                android:textStyle="normal" />
+
+
+            <TextView
+                android:id="@+id/live_play_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="成都基地高清精切线路"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+
+        </LinearLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="   简介" />
+
+            <!--live_lpanda_show-->
+            <ImageView
+                android:id="@+id/live_play_img"
+                android:layout_width="40px"
+                android:layout_height="40px"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:clickable="true"
+                android:src="@drawable/lpanda_show" />
+
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_margin="20px"
+                android:visibility="gone"
+                android:id="@+id/live_plau_introduce"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="翻身、吃饭、睡觉、喝奶、打闹、攀爬……这里是成都大熊猫繁育研究基地，24小时高清直播大熊猫生活实况的地方。成年园、幼年园、幼儿园、母子园、一号别墅，11路直播信号28个摄像头，让你零距离了解国宝们的日常起居。"/>
+
+        </ScrollView>
+
+
+
+
+
+
+
+
+</LinearLayout>

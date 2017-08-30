@@ -55,12 +55,28 @@ public class LiveArchivesFragment extends BaseFragment implements ILivePerformFr
         liveArchivesPresenter = new LiveArchivesPresenter(this);
         live_splendid_xrecycler = (XRecyclerView) view.findViewById(R.id.live_splendid_xrecycler);
 
+        //瀑布流
+        live_splendid_xrecycler.setLayoutManager(new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL));
+
+        live_splendid_xrecycler.setLoadingListener(new XRecyclerView.LoadingListener() {
+            @Override
+            public void onRefresh() {
+
+
+
+                live_splendid_xrecycler.refreshComplete();
+            }
+
+            @Override
+            public void onLoadMore() {
+                live_splendid_xrecycler.refreshComplete();
+            }
+        });
+
     }
 
     @Override
     public void liveperformBean(List<LivePerformBean.VideoBean> performBeen) {
-        //瀑布流
-        live_splendid_xrecycler.setLayoutManager(new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL));
         livePerformAdapter = new LivePerformAdapter(getActivity(), performBeen);
         live_splendid_xrecycler.setAdapter(livePerformAdapter);
         livePerformAdapter.setonclick(new LivePerformAdapter.Jiekou() {

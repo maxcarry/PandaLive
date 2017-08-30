@@ -9,7 +9,7 @@ import java.util.List;
  */
 
 public interface ILiveSplendidFragment {
-//ILiveYieldFragment
+
     void liveBean(List<LiveSplendidBean.VideoBean> videoBeen);
 
 }

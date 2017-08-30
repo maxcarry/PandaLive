@@ -92,6 +92,11 @@ public interface RetrofitApi {
     Observable<LivePerformBean> gettops();
 
 
+//当熊不让http://api.cntv.cn/video/videolistById?vsid=VSET100332640004&n=7&serviceId=panda&o=desc&of=time&p=1
+     @GET("http://api.cntv.cn/video/videolistById?vsid=VSET100332640004&n=7&serviceId=panda&o=desc&of=time&p=1")
+    Observable<LivePerformBean> getyield();
+
+
 
     //熊猫那些事"http://api.cntv.cn/video/videolistById?vsid=VSET100237714751&n=7&serviceId=panda&o=desc&of=time&p=1";
 
