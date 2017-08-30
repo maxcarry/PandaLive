@@ -1,6 +1,8 @@
 package com.example.dell.pandalive.apimanage;
 
 import com.example.dell.pandalive.entity.BigImageBean;
+import com.example.dell.pandalive.entity.ChinaBean;
+import com.example.dell.pandalive.entity.ColumnBean;
 import com.example.dell.pandalive.entity.EyeListBean;
 import com.example.dell.pandalive.entity.HomeBean;
 import com.example.dell.pandalive.entity.InteractListViewBean;
@@ -14,6 +16,7 @@ import com.example.dell.pandalive.ui.livepanda.perform.LivePerformBean;
 
 import io.reactivex.Observable;
 import retrofit2.http.GET;
+import retrofit2.http.Url;
 
 /**
  * Created by dell on 2017/8/22.

@@ -23,6 +23,7 @@ import com.example.dell.pandalive.entity.HomeBean;
 import com.example.dell.pandalive.entity.TvBean;
 import com.example.dell.pandalive.entity.VideoBean;
 import com.example.dell.pandalive.loaderutils.BannerGlideImageLoader;
+import com.example.dell.pandalive.ui.eyepanda.activity.Interact_Activity;
 import com.example.dell.pandalive.ui.personal.Eye_Personal_Activity;
 import com.example.dell.pandalive.ui.home.presenter.HomePresenter;
 import com.example.dell.pandalive.utils.DialogUtil;
@@ -57,6 +58,7 @@ public class HomeFragment extends BaseFragment implements IHomeView, View.OnClic
     private CustomListview home_video_list;
     private CustomGridview home_china_grid;
     private ImageView home_bg;
+    private ImageView home_interact;
 
 
     @Override
@@ -99,8 +101,10 @@ public class HomeFragment extends BaseFragment implements IHomeView, View.OnClic
         home_video_list = (CustomListview) view.findViewById(R.id.home_video_list);
         home_china_grid = (CustomGridview) view.findViewById(R.id.home_china_grid);
         home_bg = (ImageView) view.findViewById(R.id.home_bg);
+        home_interact = (ImageView) view.findViewById(R.id.home_interact);
 
         home_person.setOnClickListener(this);
+        home_interact.setOnClickListener(this);
 
     }
 
@@ -231,6 +235,11 @@ public class HomeFragment extends BaseFragment implements IHomeView, View.OnClic
             case R.id.home_person:
 
                 startActivity(new Intent(Myapp.activity, Eye_Personal_Activity.class));
+                break;
+
+            case R.id.home_interact:
+
+                startActivity(new Intent(Myapp.activity, Interact_Activity.class));
                 break;
         }
     }
