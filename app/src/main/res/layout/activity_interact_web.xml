@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:text="1111111"
             android:textColor="@color/colorWhite"
-            android:textSize="80px"
+            android:textSize="50px"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true" />
 
@@ -34,8 +34,8 @@
             android:layout_marginRight="50px"
             android:layout_alignParentRight="true"
             android:id="@+id/interact_share_imageview"
-            android:layout_width="130px"
-            android:layout_height="130px"
+            android:layout_width="110px"
+            android:layout_height="110px"
             android:src="@drawable/abc_ic_menu_share_mtrl_alpha" />
     </RelativeLayout>
 

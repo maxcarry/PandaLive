@@ -12,5 +12,5 @@ public interface IEyeModel {
 
     void GainEyeList(IEyePresenter iEyePresenter);
 
-//    void GainInteract(IEyePresenter iEyePresenter);
+    void GainInteract(IEyePresenter iEyePresenter);
 }

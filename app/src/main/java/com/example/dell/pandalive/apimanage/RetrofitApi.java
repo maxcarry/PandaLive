@@ -54,6 +54,11 @@ public interface RetrofitApi {
     Observable<EyeListBean> geteyelist();
 
     //http://www.ipanda.com/kehuduan/PAGE14501767715521482/index.json
+    /**
+     * 原创互动
+     * @return
+     */
+//http://www.ipanda.com/kehuduan/PAGE14501767715521482/index.json
     @GET("kehuduan/PAGE14501767715521482/index.json")
     Observable<InteractListViewBean> getinteract();
 

@@ -10,14 +10,14 @@
     android:background="@color/colorPrimary"
     android:id="@+id/linearLayout">
     <ImageView
-        android:id="@+id/eyepanda_back_imageview"
+        android:id="@+id/eyeweb_back_imageview"
         android:layout_gravity="center_vertical"
         android:layout_width="130px"
         android:layout_height="130px"
         android:src="@drawable/personal_back_img"/>
     </LinearLayout>
     <WebView
-        android:id="@+id/eyepanda_webview"
+        android:id="@+id/eyeweb_webview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/linearLayout"
@@ -39,10 +39,11 @@
             android:layout_height="100px"
             android:background="@color/colorWhite"
             android:src="@drawable/eyepanda_collect"
+            android:id="@+id/eyeweb_collect_imageview"
             />
 
         <ImageView
-            android:id="@+id/eyepanda_share_imageview"
+            android:id="@+id/eyeweb_share_imageview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="40px"

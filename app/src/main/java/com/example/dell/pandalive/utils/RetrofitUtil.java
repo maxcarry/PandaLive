@@ -110,6 +110,10 @@ public class RetrofitUtil {
                 .subscribe(observer);
     }
 
+    /**
+     * 原创互动
+     * @param observer
+     */
     public void Webinteract(Observer observer) {
 
         Observable<InteractListViewBean> getinteract = api.getinteract();

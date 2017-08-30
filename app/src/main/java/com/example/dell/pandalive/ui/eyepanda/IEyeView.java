@@ -1,6 +1,7 @@
 package com.example.dell.pandalive.ui.eyepanda;
 
 import com.example.dell.pandalive.entity.EyeListBean;
+import com.example.dell.pandalive.entity.InteractListViewBean;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,5 +16,5 @@ public interface IEyeView {
 
     void ShowEyeList(List<EyeListBean.ListBean> eyelist);
 
-//    void ShowInteract(List<InteractListViewBean.InteractiveBean> interactBeen);
+    void ShowInteract(List<InteractListViewBean.InteractiveBean> interactBeen);
 }
