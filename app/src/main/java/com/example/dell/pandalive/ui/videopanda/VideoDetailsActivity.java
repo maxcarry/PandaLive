@@ -43,9 +43,8 @@ public class VideoDetailsActivity extends BaseActivity implements View.OnClickLi
     private HD_completeFragment completeFragment;
     private WondfulaspectFragment wondfulaspectFragment;
     private PopupWindow pw;
-    private ImageView detailssharebtncancel;
     private WebView videodetailswebview;
-    private Button details_share_btn_cancel;
+    private Button detailssharebtncancel;
 
     @Override
     protected void initdata() {
@@ -103,7 +102,6 @@ public class VideoDetailsActivity extends BaseActivity implements View.OnClickLi
         detailstablayout.setTabMode(TabLayout.MODE_FIXED);
 
 
-
         detailstablayout.setSelectedTabIndicatorColor(ContextCompat.getColor(this,R.color.colorBlue));
         detailstablayout.setTabTextColors(ContextCompat.getColor(this,R.color.color_black),ContextCompat.getColor(this,R.color.colorBlue));
 
@@ -129,7 +127,7 @@ public class VideoDetailsActivity extends BaseActivity implements View.OnClickLi
                 break;
             case R.id.details_image_share:
                 View view= LayoutInflater.from(this).inflate(R.layout.video_details_share_layout,null);
-                details_share_btn_cancel = (Button) view.findViewById(R.id.details_share_btn_cancel);
+//                detailssharebtncancel = (Button) view.findViewById(R.id.details_share_btn_cancel);
 
                 pw = new PopupWindow(view, LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT,true);
                 pw.setOutsideTouchable(true);
@@ -138,11 +136,11 @@ public class VideoDetailsActivity extends BaseActivity implements View.OnClickLi
                 break;
 
         }
-        details_share_btn_cancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                pw.dismiss();
-            }
-        });
+//        detailssharebtncancel.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                pw.dismiss();
+//            }
+//        });
     }
 }

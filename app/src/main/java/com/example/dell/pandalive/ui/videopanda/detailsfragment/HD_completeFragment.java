@@ -70,9 +70,7 @@ public class HD_completeFragment extends BaseFragment implements IHDcomView{
             @Override
             public void onLoadMore() {
                 xRecyclerView.loadMoreComplete();
-
             }
         });
-
     }
 }
