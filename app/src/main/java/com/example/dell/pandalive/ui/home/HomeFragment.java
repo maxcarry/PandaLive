@@ -119,7 +119,7 @@ public class HomeFragment extends BaseFragment implements IHomeView, View.OnClic
         home_banner.setImages(imalist);
         //设置banner动画效果
         home_banner.setBannerAnimation(Transformer.DepthPage);
-        //设置标题集合（当banner样式有显示title时）
+        //设置标题集合（当banner样式有显示title时)
         home_banner.setBannerTitles(titlelist);
         //设置自动轮播，默认为true
         home_banner.isAutoPlay(true);
@@ -128,6 +128,7 @@ public class HomeFragment extends BaseFragment implements IHomeView, View.OnClic
         //设置指示器位置（当banner模式中有指示器时）
         home_banner.setIndicatorGravity(BannerConfig.CENTER);
         home_banner.setOnBannerListener(new OnBannerListener() {
+
             @Override
             public void OnBannerClick(int position) {
 

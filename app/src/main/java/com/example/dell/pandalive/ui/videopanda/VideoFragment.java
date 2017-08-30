@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.ScrollView;
 
 import com.example.dell.pandalive.R;
 import com.example.dell.pandalive.adapter.VideoRecyclerAdapter;
@@ -34,8 +33,6 @@ public class VideoFragment extends BaseFragment implements IVideoView {
     private View view;
     private Intent intent = new Intent(Myapp.activity, PlayActivityUtil.class);
     ListView videolistView;
-    ScrollView scrollView;
-
 
 
     Videopersenter videopersenter;
@@ -70,7 +67,6 @@ public class VideoFragment extends BaseFragment implements IVideoView {
         videobanner = (Banner) view.findViewById(R.id.video_banner);
     }
 
-
     @Override
     public void ShovideowBanner(ArrayList<String> bigImgBeen, final ArrayList<String> videotitlelist, final ArrayList<String> videopathlist) {
         //设置banner样式
@@ -81,13 +77,13 @@ public class VideoFragment extends BaseFragment implements IVideoView {
         videobanner.setImages(bigImgBeen);
         //设置banner动画效果
         videobanner.setBannerAnimation(Transformer.DepthPage);
-        //设置标题集合（当banner样式有显示title时）
+        //设置标题集合(当banner样式有显示title时)
         videobanner.setBannerTitles(videotitlelist);
         //设置自动轮播，默认为true
         videobanner.isAutoPlay(true);
         //设置轮播时间
         videobanner.setDelayTime(3000);
-        //设置指示器位置（当banner模式中有指示器时）
+        //设置指示器位置(当banner模式中有指示器时)
         videobanner.setIndicatorGravity(BannerConfig.CENTER);
         videobanner.setOnBannerListener(new OnBannerListener() {
             @Override
@@ -110,6 +106,7 @@ public class VideoFragment extends BaseFragment implements IVideoView {
         videoRecyclerAdapter = new VideoRecyclerAdapter(getActivity(), arrayList);
         videolistView.setAdapter(videoRecyclerAdapter);
         videoRecyclerAdapter.notifyDataSetChanged();
+
         videolistView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
