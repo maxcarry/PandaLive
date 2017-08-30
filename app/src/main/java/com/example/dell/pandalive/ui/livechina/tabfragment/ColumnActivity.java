@@ -2,8 +2,11 @@ package com.example.dell.pandalive.ui.livechina.tabfragment;
 
 import android.animation.Animator;
 import android.animation.ValueAnimator;
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
@@ -19,7 +22,6 @@ import com.example.dell.pandalive.R;
 import com.example.dell.pandalive.adapter.ColumnCutAdapter;
 import com.example.dell.pandalive.adapter.ColumnMoreAdapter;
 import com.example.dell.pandalive.app.Myapp;
-import com.example.dell.pandalive.base.BaseActivity;
 import com.example.dell.pandalive.entity.ChinaBean;
 import com.example.dell.pandalive.entity.Point;
 import com.example.dell.pandalive.eventbus.ChinaEvent;
@@ -35,7 +37,7 @@ import java.util.List;
  * Created by dell on 2017/8/29.
  */
 
-public class ColumnActivity extends BaseActivity implements  ColumnCutAdapter.cut_Iface, ColumnMoreAdapter.more_Iface, View.OnClickListener {
+public class ColumnActivity extends Activity implements  ColumnCutAdapter.cut_Iface, ColumnMoreAdapter.more_Iface, View.OnClickListener {
 
     private ImageView column_deleter;
     private Button edit_bt;
@@ -56,7 +58,16 @@ public class ColumnActivity extends BaseActivity implements  ColumnCutAdapter.cu
     private GridLayoutManager morelayout;
 
     @Override
-    protected void initdata() {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.column_activity);
+
+        initview();
+
+        initdata();
+    }
+
+    private void initdata() {
 
         Intent intent = getIntent();
         tablist = (List<ChinaBean.TablistBean>) intent.getExtras().getSerializable("key1");
@@ -65,6 +76,57 @@ public class ColumnActivity extends BaseActivity implements  ColumnCutAdapter.cu
         iscut();
 
         ismore();
+    }
+
+    private void initview() {
+
+
+        column_deleter = (ImageView) findViewById(R.id.column_deleter);
+        edit_bt = (Button) findViewById(R.id.edit_bt);
+        column_scroll = (ScrollView) findViewById(R.id.column_scroll);
+        cut_re = (RelativeLayout) findViewById(R.id.cut_re);
+        cut_recycler = (RecyclerView) findViewById(R.id.cut_recycler);
+        more_column = (TextView) findViewById(R.id.more_column);
+        more_recycler = (RecyclerView) findViewById(R.id.more_recycler);
+        column_ln = (RelativeLayout) findViewById(R.id.column_re);
+        column_hint = (TextView) findViewById(R.id.column_hint);
+
+        column_deleter.setOnClickListener(this);
+
+        cut_recycler.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                return cuttouch;
+            }
+        });
+
+        edit_bt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (cuttouch) {
+                    cuttouch = false;
+                    moreAdapter.moretouch = false;
+                    column_hint.setVisibility(View.VISIBLE);
+                    cutAdapter.imafly = false;
+                    edit_bt.setText("完成");
+                } else {
+                    cuttouch = true;
+                    moreAdapter.moretouch = true;
+                    column_hint.setVisibility(View.GONE);
+                    cutAdapter.imafly = true;
+                    edit_bt.setText("编辑");
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            EventBus.getDefault().post(new ChinaEvent(tablist,alllist));
+                        }
+                    });
+                }
+
+                cutAdapter.notifyDataSetChanged();
+            }
+        });
 
     }
 
@@ -175,64 +237,6 @@ public class ColumnActivity extends BaseActivity implements  ColumnCutAdapter.cu
         });
 
         mItemTouchHelper.attachToRecyclerView(cut_recycler);
-    }
-
-    @Override
-    protected void initview() {
-
-        column_deleter = (ImageView) findViewById(R.id.column_deleter);
-        edit_bt = (Button) findViewById(R.id.edit_bt);
-        column_scroll = (ScrollView) findViewById(R.id.column_scroll);
-        cut_re = (RelativeLayout) findViewById(R.id.cut_re);
-        cut_recycler = (RecyclerView) findViewById(R.id.cut_recycler);
-        more_column = (TextView) findViewById(R.id.more_column);
-        more_recycler = (RecyclerView) findViewById(R.id.more_recycler);
-        column_ln = (RelativeLayout) findViewById(R.id.column_re);
-        column_hint = (TextView) findViewById(R.id.column_hint);
-
-        column_deleter.setOnClickListener(this);
-
-        cut_recycler.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                return cuttouch;
-            }
-        });
-
-        edit_bt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                if (cuttouch) {
-                    cuttouch = false;
-                    moreAdapter.moretouch = false;
-                    column_hint.setVisibility(View.VISIBLE);
-                    cutAdapter.imafly = false;
-                    edit_bt.setText("完成");
-                } else {
-                    cuttouch = true;
-                    moreAdapter.moretouch = true;
-                    column_hint.setVisibility(View.GONE);
-                    cutAdapter.imafly = true;
-                    edit_bt.setText("编辑");
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            EventBus.getDefault().post(new ChinaEvent(tablist,alllist));
-                        }
-                    });
-                }
-
-                cutAdapter.notifyDataSetChanged();
-            }
-        });
-    }
-
-    @Override
-    protected int initlayout() {
-
-        setTheme(R.style.Transparent);
-        return R.layout.column_activity;
     }
 
     @Override

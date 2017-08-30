@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.chanven.lib.cptr.PtrClassicFrameLayout;
 import com.example.dell.pandalive.R;
 import com.example.dell.pandalive.adapter.HomeChinaAdapter;
 import com.example.dell.pandalive.adapter.HomeLiveAdapter;
@@ -59,6 +60,7 @@ public class HomeFragment extends BaseFragment implements IHomeView, View.OnClic
     private CustomGridview home_china_grid;
     private ImageView home_bg;
     private ImageView home_interact;
+    private PtrClassicFrameLayout home_refurbish;
 
 
     @Override
@@ -74,6 +76,7 @@ public class HomeFragment extends BaseFragment implements IHomeView, View.OnClic
         homePresenter.ShowView();
         homePresenter.ShowTv();
         homePresenter.ShowVideo();
+
     }
 
     @Override
@@ -90,6 +93,7 @@ public class HomeFragment extends BaseFragment implements IHomeView, View.OnClic
 
         homePresenter = new HomePresenter(this);
         home_banner = (Banner) view.findViewById(R.id.home_banner);
+        home_refurbish = (PtrClassicFrameLayout) view.findViewById(R.id.home_refurbish);
         home_person = (ImageView) view.findViewById(R.id.home_person);
         home_eye_logo = (ImageView) view.findViewById(R.id.home_eye_logo);
         home_eye_onetitle = (TextView) view.findViewById(R.id.home_eye_onetitle);

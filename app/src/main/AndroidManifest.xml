@@ -76,6 +76,7 @@
         <activity android:name=".ui.videopanda.VideoDetailsActivity"/>
         <activity android:name=".ui.personal.RegisterActivity" />
         <activity android:name=".ui.livechina.tabfragment.ColumnActivity"
+            android:theme="@style/Transparent"
             />
     </application>
 

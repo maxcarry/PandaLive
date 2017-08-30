@@ -40,263 +40,269 @@
             android:background="@drawable/hudong_sign" />
     </RelativeLayout>
 
-    <ScrollView
+    <com.chanven.lib.cptr.PtrClassicFrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scrollbars="none"
+        android:id="@+id/home_refurbish"
         >
-
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
+            android:scrollbars="none"
             >
 
-            <com.youth.banner.Banner
-                android:layout_width="match_parent"
-                android:layout_height="600px"
-                android:id="@+id/home_banner"
-                ></com.youth.banner.Banner>
-
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/colorWhite"
-                android:layout_marginRight="10px"
-                android:layout_marginLeft="10px"
-                android:layout_marginTop="10px"
-                android:layout_marginBottom="1px"
-                >
-                
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/home_eye"
-                    android:textSize="45px"
-                    android:textColor="@color/colorBlue"
-                    android:layout_marginLeft="20px"
-                    android:layout_marginTop="40px"
-                    android:layout_marginBottom="40px"
-                    />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/colorWhite"
-                android:layout_marginRight="10px"
-                android:layout_marginLeft="10px"
-                android:orientation="horizontal"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
                 >
 
-                <ImageView
-                    android:layout_width="400px"
-                    android:layout_height="400px"
-                    android:id="@+id/home_eye_logo"
-                    />
+                <com.youth.banner.Banner
+                    android:layout_width="match_parent"
+                    android:layout_height="600px"
+                    android:id="@+id/home_banner"
+                    ></com.youth.banner.Banner>
+
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:layout_marginLeft="40px"
-                    android:weightSum="2"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorWhite"
+                    android:layout_marginRight="10px"
+                    android:layout_marginLeft="10px"
+                    android:layout_marginTop="10px"
+                    android:layout_marginBottom="1px"
                     >
 
-                    <RelativeLayout
-                        android:layout_width="match_parent"
+                    <TextView
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:text="@string/home_eye"
+                        android:textSize="45px"
+                        android:textColor="@color/colorBlue"
+                        android:layout_marginLeft="20px"
+                        android:layout_marginTop="40px"
+                        android:layout_marginBottom="40px"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorWhite"
+                    android:layout_marginRight="10px"
+                    android:layout_marginLeft="10px"
+                    android:orientation="horizontal"
+                    >
+
+                    <ImageView
+                        android:layout_width="400px"
+                        android:layout_height="400px"
+                        android:id="@+id/home_eye_logo"
+                        />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="40px"
+                        android:weightSum="2"
                         >
 
-                        <TextView
-                            android:layout_width="wrap_content"
+                        <RelativeLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:background="@drawable/home_eye_shpe"
-                            android:textColor="@color/colorAccent"
-                            android:paddingTop="15px"
-                            android:paddingBottom="15px"
-                            android:paddingRight="50px"
-                            android:paddingLeft="50px"
-                            android:id="@+id/home_eye_onetitle"
-                            />
+                            android:layout_weight="1"
+                            >
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:background="@drawable/home_eye_shpe"
+                                android:textColor="@color/colorAccent"
+                                android:paddingTop="15px"
+                                android:paddingBottom="15px"
+                                android:paddingRight="50px"
+                                android:paddingLeft="50px"
+                                android:id="@+id/home_eye_onetitle"
+                                />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_toRightOf="@id/home_eye_onetitle"
+                                android:layout_alignTop="@id/home_eye_onetitle"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="20px"
+                                android:textColor="@color/colorBlack"
+                                android:maxEms="8"
+                                android:id="@+id/home_eye_onecontent"
+                                />
+                        </RelativeLayout>
 
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_toRightOf="@id/home_eye_onetitle"
-                            android:layout_alignTop="@id/home_eye_onetitle"
-                            android:layout_centerVertical="true"
-                            android:layout_marginLeft="20px"
-                            android:textColor="@color/colorBlack"
-                            android:maxEms="8"
-                            android:id="@+id/home_eye_onecontent"
+                            android:layout_width="match_parent"
+                            android:layout_height="1px"
+                            android:background="@color/colorBlack"
                             />
-                    </RelativeLayout>
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            >
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:background="@drawable/home_eye_shpe"
+                                android:textColor="@color/colorAccent"
+                                android:paddingTop="15px"
+                                android:paddingBottom="15px"
+                                android:paddingRight="50px"
+                                android:paddingLeft="50px"
+                                android:id="@+id/home_eye_twotitle"
+                                />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_toRightOf="@id/home_eye_twotitle"
+                                android:layout_alignTop="@id/home_eye_twotitle"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="20px"
+                                android:textColor="@color/colorBlack"
+                                android:maxEms="8"
+                                android:id="@+id/home_eye_twocontent"
+                                />
+                        </RelativeLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorWhite"
+                    android:layout_marginRight="10px"
+                    android:layout_marginLeft="10px"
+                    android:layout_marginTop="10px"
+                    android:layout_marginBottom="1px"
+                    >
 
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="1px"
-                        android:background="@color/colorBlack"
-                        />
-                    <RelativeLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        >
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:background="@drawable/home_eye_shpe"
-                            android:textColor="@color/colorAccent"
-                            android:paddingTop="15px"
-                            android:paddingBottom="15px"
-                            android:paddingRight="50px"
-                            android:paddingLeft="50px"
-                            android:id="@+id/home_eye_twotitle"
-                            />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_toRightOf="@id/home_eye_twotitle"
-                            android:layout_alignTop="@id/home_eye_twotitle"
-                            android:layout_centerVertical="true"
-                            android:layout_marginLeft="20px"
-                            android:textColor="@color/colorBlack"
-                            android:maxEms="8"
-                            android:id="@+id/home_eye_twocontent"
-                            />
-                    </RelativeLayout>
+                        android:text="@string/home_live"
+                        android:textSize="45px"
+                        android:textColor="@color/colorBlue"
+                        android:layout_marginLeft="20px"
+                        android:layout_marginTop="40px"
+                        android:layout_marginBottom="40px"
+                        />
                 </LinearLayout>
-            </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/colorWhite"
-                android:layout_marginRight="10px"
-                android:layout_marginLeft="10px"
-                android:layout_marginTop="10px"
-                android:layout_marginBottom="1px"
-                >
-
-                <TextView
-                    android:layout_width="wrap_content"
+                <com.example.dell.pandalive.custom_view.CustomGridview
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/home_live"
-                    android:textSize="45px"
-                    android:textColor="@color/colorBlue"
-                    android:layout_marginLeft="20px"
-                    android:layout_marginTop="40px"
-                    android:layout_marginBottom="40px"
-                    />
-            </LinearLayout>
+                    android:gravity="center"
+                    android:id="@+id/home_live_grid"
+                    android:layout_marginRight="10px"
+                    android:layout_marginLeft="10px"
+                    android:numColumns="3"
+                    ></com.example.dell.pandalive.custom_view.CustomGridview>
 
-            <com.example.dell.pandalive.custom_view.CustomGridview
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:id="@+id/home_live_grid"
-                android:layout_marginRight="10px"
-                android:layout_marginLeft="10px"
-                android:numColumns="3"
-                ></com.example.dell.pandalive.custom_view.CustomGridview>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/colorWhite"
-                android:layout_marginRight="10px"
-                android:layout_marginLeft="10px"
-                android:layout_marginTop="10px"
-                android:layout_marginBottom="1px"
-                >
-
-                <TextView
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/home_tv"
-                    android:textSize="45px"
-                    android:textColor="@color/colorBlue"
-                    android:layout_marginLeft="20px"
-                    android:layout_marginTop="40px"
-                    android:layout_marginBottom="40px"
-                    />
-            </LinearLayout>
+                    android:background="@color/colorWhite"
+                    android:layout_marginRight="10px"
+                    android:layout_marginLeft="10px"
+                    android:layout_marginTop="10px"
+                    android:layout_marginBottom="1px"
+                    >
 
-            <com.example.dell.pandalive.custom_view.CustomGridview
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:id="@+id/home_tv_grid"
-                android:layout_marginRight="10px"
-                android:layout_marginLeft="10px"
-                android:numColumns="2"
-                ></com.example.dell.pandalive.custom_view.CustomGridview>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/home_tv"
+                        android:textSize="45px"
+                        android:textColor="@color/colorBlue"
+                        android:layout_marginLeft="20px"
+                        android:layout_marginTop="40px"
+                        android:layout_marginBottom="40px"
+                        />
+                </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/colorWhite"
-                android:layout_marginRight="10px"
-                android:layout_marginLeft="10px"
-                android:layout_marginTop="10px"
-                android:layout_marginBottom="1px"
-                >
-
-                <TextView
-                    android:layout_width="wrap_content"
+                <com.example.dell.pandalive.custom_view.CustomGridview
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/home_video"
-                    android:textSize="45px"
-                    android:textColor="@color/colorBlue"
-                    android:layout_marginLeft="20px"
-                    android:layout_marginTop="40px"
-                    android:layout_marginBottom="40px"
-                    />
-            </LinearLayout>
+                    android:gravity="center"
+                    android:id="@+id/home_tv_grid"
+                    android:layout_marginRight="10px"
+                    android:layout_marginLeft="10px"
+                    android:numColumns="2"
+                    ></com.example.dell.pandalive.custom_view.CustomGridview>
 
-            <com.example.dell.pandalive.custom_view.CustomListview
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/home_video_list"
-                ></com.example.dell.pandalive.custom_view.CustomListview>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/colorWhite"
-                android:layout_marginRight="10px"
-                android:layout_marginLeft="10px"
-                android:layout_marginTop="10px"
-                android:layout_marginBottom="1px"
-                >
-
-                <TextView
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/home_china"
-                    android:textSize="45px"
-                    android:textColor="@color/colorBlue"
-                    android:layout_marginLeft="20px"
-                    android:layout_marginTop="40px"
-                    android:layout_marginBottom="40px"
-                    />
-            </LinearLayout>
+                    android:background="@color/colorWhite"
+                    android:layout_marginRight="10px"
+                    android:layout_marginLeft="10px"
+                    android:layout_marginTop="10px"
+                    android:layout_marginBottom="1px"
+                    >
 
-            <com.example.dell.pandalive.custom_view.CustomGridview
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:id="@+id/home_china_grid"
-                android:layout_marginRight="10px"
-                android:layout_marginLeft="10px"
-                android:numColumns="3"
-                ></com.example.dell.pandalive.custom_view.CustomGridview>
-        </LinearLayout>
-    </ScrollView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/home_video"
+                        android:textSize="45px"
+                        android:textColor="@color/colorBlue"
+                        android:layout_marginLeft="20px"
+                        android:layout_marginTop="40px"
+                        android:layout_marginBottom="40px"
+                        />
+                </LinearLayout>
+
+                <com.example.dell.pandalive.custom_view.CustomListview
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/home_video_list"
+                    ></com.example.dell.pandalive.custom_view.CustomListview>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorWhite"
+                    android:layout_marginRight="10px"
+                    android:layout_marginLeft="10px"
+                    android:layout_marginTop="10px"
+                    android:layout_marginBottom="1px"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/home_china"
+                        android:textSize="45px"
+                        android:textColor="@color/colorBlue"
+                        android:layout_marginLeft="20px"
+                        android:layout_marginTop="40px"
+                        android:layout_marginBottom="40px"
+                        />
+                </LinearLayout>
+
+                <com.example.dell.pandalive.custom_view.CustomGridview
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:id="@+id/home_china_grid"
+                    android:layout_marginRight="10px"
+                    android:layout_marginLeft="10px"
+                    android:numColumns="3"
+                    ></com.example.dell.pandalive.custom_view.CustomGridview>
+            </LinearLayout>
+        </ScrollView>
+    </com.chanven.lib.cptr.PtrClassicFrameLayout>
 
 </LinearLayout>
