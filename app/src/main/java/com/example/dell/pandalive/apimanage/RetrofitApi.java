@@ -1,8 +1,6 @@
 package com.example.dell.pandalive.apimanage;
 
 import com.example.dell.pandalive.entity.BigImageBean;
-import com.example.dell.pandalive.entity.ChinaBean;
-import com.example.dell.pandalive.entity.ColumnBean;
 import com.example.dell.pandalive.entity.EyeListBean;
 import com.example.dell.pandalive.entity.HomeBean;
 import com.example.dell.pandalive.entity.InteractListViewBean;
@@ -14,7 +12,6 @@ import com.example.dell.pandalive.ui.livepanda.perform.LivePerformBean;
 
 import io.reactivex.Observable;
 import retrofit2.http.GET;
-import retrofit2.http.Url;
 
 /**
  * Created by dell on 2017/8/22.
@@ -57,6 +54,11 @@ public interface RetrofitApi {
     Observable<EyeListBean> geteyelist();
 
     //http://www.ipanda.com/kehuduan/PAGE14501767715521482/index.json
+    /**
+     * 原创互动
+     * @return
+     */
+//http://www.ipanda.com/kehuduan/PAGE14501767715521482/index.json
     @GET("kehuduan/PAGE14501767715521482/index.json")
     Observable<InteractListViewBean> getinteract();
 
@@ -81,6 +83,12 @@ public interface RetrofitApi {
     //熊猫TOP榜"http://api.cntv.cn/video/videolistById?vsid=VSET100284428835&n=7&serviceId=panda&o=desc&of=time&p=1";
     @GET("http://api.cntv.cn/video/videolistById?vsid=VSET100284428835&n=7&serviceId=panda&o=desc&of=time&p=1")
     Observable<LivePerformBean> gettops();
+
+
+//当熊不让http://api.cntv.cn/video/videolistById?vsid=VSET100332640004&n=7&serviceId=panda&o=desc&of=time&p=1
+     @GET("http://api.cntv.cn/video/videolistById?vsid=VSET100332640004&n=7&serviceId=panda&o=desc&of=time&p=1")
+    Observable<LivePerformBean> getyield();
+
 
 
     //熊猫那些事"http://api.cntv.cn/video/videolistById?vsid=VSET100237714751&n=7&serviceId=panda&o=desc&of=time&p=1";

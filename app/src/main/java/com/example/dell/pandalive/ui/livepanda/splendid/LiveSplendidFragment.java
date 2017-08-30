@@ -54,14 +54,30 @@ public class LiveSplendidFragment extends BaseFragment implements ILiveSplendidF
         view = LayoutInflater.from(Myapp.activity).inflate(R.layout.fragment_jingcai, null);
         liveSplendidPresenter = new LiveSplendidPresenter(this);
         live_splendid_xrecycler = (XRecyclerView) view.findViewById(R.id.live_splendid_xrecycler);
+
+        //瀑布流
+        live_splendid_xrecycler.setLayoutManager(new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL));
+        live_splendid_xrecycler.setLoadingListener(new XRecyclerView.LoadingListener() {
+            @Override
+            public void onRefresh() {
+
+
+
+                live_splendid_xrecycler.refreshComplete();
+            }
+
+            @Override
+            public void onLoadMore() {
+                live_splendid_xrecycler.refreshComplete();
+            }
+        });
+
     }
 
 
     @Override
-    public void liveBean(List<LiveSplendidBean.VideoBean> videoBeen) {
+    public void liveBean(final List<LiveSplendidBean.VideoBean> videoBeen) {
 
-        //瀑布流
-        live_splendid_xrecycler.setLayoutManager(new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL));
 
         liveSplendidAdapter = new LiveSplendidAdapter(getActivity(), videoBeen);
         live_splendid_xrecycler.setAdapter(liveSplendidAdapter);
@@ -73,4 +89,16 @@ public class LiveSplendidFragment extends BaseFragment implements ILiveSplendidF
             }
         });
     }
+
+//    @Override
+//    public void geturl() {
+//        String strurl="\thttp://api.cntv.cn/video/videolistById?vsid=VSET100167216881&n=7&serviceId=panda&o=desc&of=time&p=1";
+//
+//    }
+
+//    @Override
+//    public void geturl(String url) {
+//        String strurl="\thttp://api.cntv.cn/video/videolistById?vsid=VSET100167216881&n=7&serviceId=panda&o=desc&of=time&p=1";
+//
+//    }
 }

@@ -4,8 +4,12 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.example.dell.pandalive.app.Myapp;
-import com.example.dell.pandalive.ui.livepanda.splendid.ILiveSplendidview;
+import com.example.dell.pandalive.ui.livepanda.perform.ILivePerformPresenter;
+import com.example.dell.pandalive.ui.livepanda.perform.ILivePerformview;
+import com.example.dell.pandalive.ui.livepanda.perform.LivePerformBean;
 import com.example.dell.pandalive.utils.RetrofitUtil;
+
+import java.util.List;
 
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
@@ -14,12 +18,13 @@ import io.reactivex.disposables.Disposable;
  * Created by Administrator on 2017/8/29.
  */
 
-public class LiveYieldModel implements ILiveYieldPresenter{
+public class LiveYieldModel implements ILivePerformPresenter{
+   //当熊不让http://api.cntv.cn/video/videolistById?vsid=VSET100332640004&n=7&serviceId=panda&o=desc&of=time&p=1
+
     @Override
-    public void GainLiveYield(ILiveSplendidview iLiveSplendidPresenter) {
+    public void GainLivePerform(final  ILivePerformview iLivePerformview) {
 
-
-        RetrofitUtil.instance("http://api.cntv.cn/").Livesplendid(new Observer() {
+        RetrofitUtil.instance("http://api.cntv.cn/").liveyield(new Observer() {
             @Override
             public void onSubscribe(Disposable d) {
 
@@ -27,7 +32,9 @@ public class LiveYieldModel implements ILiveYieldPresenter{
 
             @Override
             public void onNext(Object value) {
-
+                LivePerformBean livePerformBean= (LivePerformBean) value;
+                List<LivePerformBean.VideoBean> video = livePerformBean.getVideo();
+                iLivePerformview.SendPerform(video);
 
             }
 
@@ -44,7 +51,6 @@ public class LiveYieldModel implements ILiveYieldPresenter{
                 Toast.makeText(Myapp.activity, "请求成功", Toast.LENGTH_LONG).show();
             }
         });
-
 
 
 

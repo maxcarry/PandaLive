@@ -2,6 +2,7 @@ package com.example.dell.pandalive.ui.eyepanda.presenter;
 
 import com.example.dell.pandalive.entity.BigImageBean;
 import com.example.dell.pandalive.entity.EyeListBean;
+import com.example.dell.pandalive.entity.InteractListViewBean;
 
 import java.util.List;
 
@@ -17,6 +18,6 @@ public interface IEyePresenter {
     void ShowEyeList();
     void SendEyeList(List<EyeListBean.ListBean> eyelist);
 
-//    void ShowInteract();
-//    void SendInteract(List<InteractListViewBean.InteractiveBean> interactBeen);
+    void ShowInteract();
+    void SendInteract(List<InteractListViewBean.InteractiveBean> interactBeen);
 }

@@ -2,6 +2,7 @@ package com.example.dell.pandalive.ui.eyepanda.activity;
 
 import android.content.Intent;
 import android.view.View;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -21,11 +22,20 @@ public class Interact_WebView_Activity extends BaseActivity {
 
     @Override
     protected void initdata() {
+
         Intent intent=getIntent();
         String url = intent.getStringExtra("url");
         String title = intent.getStringExtra("title");
         interact_title_textview.setText(title);
         interact_webview.loadUrl(url);
+
+        WebSettings webSettings = interact_webview.getSettings();
+        webSettings.setSupportZoom(true);
+        webSettings.setUseWideViewPort(true);
+        webSettings.setLoadWithOverviewMode(true);
+        webSettings.setDisplayZoomControls(true);
+        webSettings.setJavaScriptEnabled(true);
+
 
     }
 
@@ -34,6 +44,9 @@ public class Interact_WebView_Activity extends BaseActivity {
         interact_back_imageview = (ImageView) findViewById(R.id.interact_back_imageview);
         interact_title_textview = (TextView)findViewById(R.id.interact_title_textview);
         interact_webview = (WebView) findViewById(R.id.interact_webview);
+        //自适应屏幕
+        interact_webview.getSettings().setUseWideViewPort(true);
+        interact_webview.getSettings().setLoadWithOverviewMode(true);
 
         interact_back_imageview.setOnClickListener(new View.OnClickListener() {
             @Override

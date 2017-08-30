@@ -2,6 +2,7 @@ package com.example.dell.pandalive.ui.eyepanda.model;
 
 import com.example.dell.pandalive.entity.BigImageBean;
 import com.example.dell.pandalive.entity.EyeListBean;
+import com.example.dell.pandalive.entity.InteractListViewBean;
 import com.example.dell.pandalive.ui.eyepanda.presenter.IEyePresenter;
 import com.example.dell.pandalive.utils.RetrofitUtil;
 
@@ -74,30 +75,30 @@ public class EyeModel implements IEyeModel {
         });
     }
 
-//    @Override
-//    public void GainInteract(final IEyePresenter iEyePresenter) {
-//
-//        RetrofitUtil.instance("http://www.ipanda.com/").Webinteract(new Observer() {
-//            @Override
-//            public void onSubscribe(Disposable d) {
-//
-//            }
-//
-//            @Override
-//            public void onNext(Object value) {
-//                InteractListViewBean interactListViewBean= (InteractListViewBean) value;
-//                iEyePresenter.SendInteract(interactListViewBean.getInteractive());
-//            }
-//
-//            @Override
-//            public void onError(Throwable e) {
-//
-//            }
-//
-//            @Override
-//            public void onComplete() {
-//
-//            }
-//        });
-//    }
+    @Override
+    public void GainInteract(final IEyePresenter iEyePresenter) {
+
+        RetrofitUtil.instance("http://www.ipanda.com/").Webinteract(new Observer() {
+            @Override
+            public void onSubscribe(Disposable d) {
+
+            }
+
+            @Override
+            public void onNext(Object value) {
+                InteractListViewBean interactListViewBean= (InteractListViewBean) value;
+                iEyePresenter.SendInteract(interactListViewBean.getInteractive());
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onComplete() {
+
+            }
+        });
+    }
 }

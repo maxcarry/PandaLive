@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-//
+<!-- 标题 -->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="180px"
@@ -31,28 +31,34 @@
             android:layout_marginTop="15px"
             android:src="@drawable/person_sign" />
     </RelativeLayout>
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true"
-        >
+    <!--<in.srain.cube.views.ptr.PtrFrameLayout-->
+        <!--android:id="@+id/eyepanda_ptr"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent">-->
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            >
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="20px"
+            android:background="@color/colorWhite"/>
 
             <com.youth.banner.Banner
                 android:id="@+id/eyepanda_banner"
                 android:layout_width="match_parent"
-                android:layout_height="600px"></com.youth.banner.Banner>
-
+                android:layout_height="600px">
+            </com.youth.banner.Banner>
 
             <ListView
                 android:id="@+id/eyepanda_listview"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"></ListView>
+                android:layout_height="match_parent">
+            </ListView>
+
         </LinearLayout>
-    </ScrollView>
+    <!--</in.srain.cube.views.ptr.PtrFrameLayout>-->
 </LinearLayout>

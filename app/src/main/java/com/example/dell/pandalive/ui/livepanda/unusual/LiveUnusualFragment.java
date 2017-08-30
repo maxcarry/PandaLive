@@ -50,14 +50,27 @@ public class LiveUnusualFragment extends BaseFragment implements ILivePerformFra
         view = LayoutInflater.from(Myapp.activity).inflate(R.layout.fragment_jingcai, null);
         liveUnusualPresenter = new LiveUnusualPresenter(this);
         live_splendid_xrecycler = (XRecyclerView) view.findViewById(R.id.live_splendid_xrecycler);
+        //瀑布流
+        live_splendid_xrecycler.setLayoutManager(new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL));
+        live_splendid_xrecycler.setLoadingListener(new XRecyclerView.LoadingListener() {
+            @Override
+            public void onRefresh() {
 
+
+
+                live_splendid_xrecycler.refreshComplete();
+            }
+
+            @Override
+            public void onLoadMore() {
+                live_splendid_xrecycler.refreshComplete();
+            }
+        });
     }
 
     @Override
     public void liveperformBean(List<LivePerformBean.VideoBean> performBeen) {
-        //瀑布流
-        live_splendid_xrecycler.setLayoutManager(new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL));
-        livePerformAdapter = new LivePerformAdapter(getActivity(), performBeen);
+       livePerformAdapter = new LivePerformAdapter(getActivity(), performBeen);
         live_splendid_xrecycler.setAdapter(livePerformAdapter);
         livePerformAdapter.setonclick(new LivePerformAdapter.Jiekou() {
             @Override

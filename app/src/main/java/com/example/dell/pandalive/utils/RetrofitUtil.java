@@ -111,6 +111,10 @@ public class RetrofitUtil {
                 .subscribe(observer);
     }
 
+    /**
+     * 原创互动
+     * @param observer
+     */
     public void Webinteract(Observer observer) {
 
         Observable<InteractListViewBean> getinteract = api.getinteract();
@@ -172,6 +176,14 @@ public class RetrofitUtil {
     //熊猫TOP榜
     public void livetop(Observer observer) {
         Observable<LivePerformBean> livePerformBeanObservable = api.gettops();
+        livePerformBeanObservable.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(observer);
+    }
+
+    //当熊不让
+    public void liveyield(Observer observer) {
+        Observable<LivePerformBean> livePerformBeanObservable = api.getyield();
         livePerformBeanObservable.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(observer);

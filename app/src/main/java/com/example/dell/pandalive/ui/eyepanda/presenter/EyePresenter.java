@@ -2,6 +2,7 @@ package com.example.dell.pandalive.ui.eyepanda.presenter;
 
 import com.example.dell.pandalive.entity.BigImageBean;
 import com.example.dell.pandalive.entity.EyeListBean;
+import com.example.dell.pandalive.entity.InteractListViewBean;
 import com.example.dell.pandalive.ui.eyepanda.IEyeView;
 import com.example.dell.pandalive.ui.eyepanda.model.EyeModel;
 
@@ -45,15 +46,15 @@ public class EyePresenter implements IEyePresenter {
         iEyeView.ShowEyeList(eyelist);
     }
 
-//    @Override
-//    public void ShowInteract() {
-//        eyeModel.GainInteract(this);
-//    }
-//
-//    @Override
-//    public void SendInteract(List<InteractListViewBean.InteractiveBean> interactBeen) {
-//        iEyeView.ShowInteract(interactBeen);
-//    }
+    @Override
+    public void ShowInteract() {
+        eyeModel.GainInteract(this);
+    }
+
+    @Override
+    public void SendInteract(List<InteractListViewBean.InteractiveBean> interactBeen) {
+        iEyeView.ShowInteract(interactBeen);
+    }
 
     private void ShowEyeBanner(BigImageBean bigImgBean) {
         List<BigImageBean.DataBean.BigImgBean> bigImg = bigImgBean.getData().getBigImg();
