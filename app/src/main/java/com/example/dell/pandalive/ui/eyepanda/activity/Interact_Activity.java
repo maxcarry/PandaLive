@@ -8,11 +8,13 @@ import android.widget.ListView;
 
 import com.example.dell.pandalive.R;
 import com.example.dell.pandalive.adapter.InteractListViewAdapter;
+import com.example.dell.pandalive.app.Myapp;
 import com.example.dell.pandalive.base.BaseActivity;
 import com.example.dell.pandalive.entity.EyeListBean;
 import com.example.dell.pandalive.entity.InteractListViewBean;
 import com.example.dell.pandalive.ui.eyepanda.IEyeView;
 import com.example.dell.pandalive.ui.eyepanda.presenter.EyePresenter;
+import com.example.dell.pandalive.utils.DialogUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +30,7 @@ public class Interact_Activity extends BaseActivity implements View.OnClickListe
     private List<InteractListViewBean.InteractiveBean> listViewBeen=new ArrayList<>();
     @Override
     protected void initdata() {
-
+        DialogUtil.instance().Showdialog(Myapp.activity);
 
     }
 
@@ -80,5 +82,6 @@ public class Interact_Activity extends BaseActivity implements View.OnClickListe
         interact_listview.setAdapter(adapter);
         interact_listview.setOnItemClickListener(this);
 
+        DialogUtil.instance().Hidedialog();
     }
 }
