@@ -8,7 +8,7 @@ import java.util.List;
 
 public class VideoBean {
 
-    private List<ListBean> list;
+     private List<ListBean> list;
 
     public List<ListBean> getList() {
         return list;

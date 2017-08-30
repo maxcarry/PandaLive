@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
 
 
    <RelativeLayout
@@ -29,20 +31,59 @@
           android:layout_marginRight="50px"
           android:id="@+id/home_person"
           />
-
    </RelativeLayout>
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_below="@+id/video_linear"
+        android:layout_height="match_parent"
+        >
 
-         <android.support.v7.widget.RecyclerView
-             android:id="@+id/video_recycler_view"
-             android:layout_width="match_parent"
-             android:layout_below="@+id/video_linear"
-             android:layout_height="match_parent">
-         </android.support.v7.widget.RecyclerView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+            <com.youth.banner.Banner
+                android:id="@+id/video_banner"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"></com.youth.banner.Banner>
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="30px"
+               android:background="@color/colorGray"
+               ></LinearLayout>
+            <ListView
+                android:id="@+id/video_list_view"
+                android:layout_width="match_parent"
+                android:layout_height="1300dp"></ListView>
+        </LinearLayout>
+    </ScrollView>
+    <!--<ScrollView-->
+        <!--android:layout_below="@id/video_linear"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--&gt;-->
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:orientation="vertical">-->
+
+            <!--<com.youth.banner.Banner-->
+                <!--android:id="@+id/video_banner"-->
+                <!--android:layout_marginTop="20px"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="500px"></com.youth.banner.Banner>-->
+
+            <!--<ListView-->
+                <!--android:id="@+id/video_list_view"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent">-->
+            <!--</ListView>-->
+        <!--</LinearLayout>-->
 
 
-
-
+    <!--</ScrollView>-->
 
 
 </RelativeLayout>
