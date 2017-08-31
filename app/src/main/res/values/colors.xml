@@ -13,5 +13,6 @@
     <color name="colorBlack">#000000</color>
     <color name="colorblack">#000000</color>
     <color name="transparent_background">#994672AD</color>
+    <color name="color_gray">#FAFAFA</color>
 
 </resources>

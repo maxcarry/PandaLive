@@ -1,13 +1,19 @@
 package com.example.dell.pandalive.ui.eyepanda.activity;
 
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.Toast;
 
 import com.example.dell.pandalive.R;
+import com.example.dell.pandalive.app.Myapp;
 import com.example.dell.pandalive.base.BaseActivity;
 
 /**
@@ -20,6 +26,8 @@ public class Eye_WebView_Activity extends BaseActivity{
     private ImageView eyeweb_back_imageview;
     private ImageView eyeweb_share_imageview;
     private ImageView eyeweb_collect_imageview;
+    private LinearLayout linearLayout;
+    private PopupWindow popup;
 
     @Override
     protected void initdata() {
@@ -31,6 +39,8 @@ public class Eye_WebView_Activity extends BaseActivity{
 
     @Override
     protected void initview() {
+        linearLayout = new LinearLayout(Myapp.activity);
+
         eyeweb_webview = (WebView) findViewById(R.id.eyeweb_webview);
         //自适应屏幕
 //        eyeweb_webview.getSettings().setUseWideViewPort(true);
@@ -65,7 +75,12 @@ public class Eye_WebView_Activity extends BaseActivity{
         eyeweb_share_imageview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                View view= LayoutInflater.from(Myapp.activity).inflate(R.layout.eyewebview_popupwindow,null);
 
+                popup = new PopupWindow(view, LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT,true);
+                popup.setOutsideTouchable(true);
+                popup.setBackgroundDrawable(new ColorDrawable());
+                popup.showAtLocation(linearLayout, Gravity.BOTTOM,100,0);
             }
         });
         //返回键
