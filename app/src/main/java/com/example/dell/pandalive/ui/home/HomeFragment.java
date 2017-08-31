@@ -10,7 +10,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.chanven.lib.cptr.PtrClassicFrameLayout;
 import com.example.dell.pandalive.R;
 import com.example.dell.pandalive.adapter.HomeChinaAdapter;
 import com.example.dell.pandalive.adapter.HomeLiveAdapter;
@@ -25,10 +24,17 @@ import com.example.dell.pandalive.entity.TvBean;
 import com.example.dell.pandalive.entity.VideoBean;
 import com.example.dell.pandalive.loaderutils.BannerGlideImageLoader;
 import com.example.dell.pandalive.ui.eyepanda.activity.Interact_Activity;
-import com.example.dell.pandalive.ui.personal.Eye_Personal_Activity;
 import com.example.dell.pandalive.ui.home.presenter.HomePresenter;
+import com.example.dell.pandalive.ui.personal.Eye_Personal_Activity;
 import com.example.dell.pandalive.utils.DialogUtil;
 import com.example.dell.pandalive.utils.PlayActivityUtil;
+import com.scwang.smartrefresh.header.FunGameHitBlockHeader;
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.constant.SpinnerStyle;
+import com.scwang.smartrefresh.layout.footer.BallPulseFooter;
+import com.scwang.smartrefresh.layout.listener.OnLoadmoreListener;
+import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.Transformer;
@@ -60,7 +66,7 @@ public class HomeFragment extends BaseFragment implements IHomeView, View.OnClic
     private CustomGridview home_china_grid;
     private ImageView home_bg;
     private ImageView home_interact;
-    private PtrClassicFrameLayout home_refurbish;
+    private SmartRefreshLayout refreshlayout;
 
 
     @Override
@@ -72,11 +78,35 @@ public class HomeFragment extends BaseFragment implements IHomeView, View.OnClic
     @Override
     protected void initdata() {
 
+        refreshview();
+
+        refreshlayout.setOnRefreshListener(new OnRefreshListener() {
+            @Override
+            public void onRefresh(RefreshLayout refreshlayout) {
+
+                refreshlayout.finishRefresh(2000);
+                refreshview();
+
+            }
+        });
+
+        refreshlayout.setOnLoadmoreListener(new OnLoadmoreListener() {
+            @Override
+            public void onLoadmore(RefreshLayout refreshlayout) {
+
+                refreshview();
+                refreshlayout.finishLoadmore();
+            }
+        });
+
+    }
+
+    private void refreshview() {
+
         DialogUtil.instance().Showdialog(Myapp.activity);
         homePresenter.ShowView();
         homePresenter.ShowTv();
         homePresenter.ShowVideo();
-
     }
 
     @Override
@@ -92,8 +122,8 @@ public class HomeFragment extends BaseFragment implements IHomeView, View.OnClic
         view = LayoutInflater.from(Myapp.activity).inflate(R.layout.home_fragment, null);
 
         homePresenter = new HomePresenter(this);
+        refreshlayout = (SmartRefreshLayout) view.findViewById(R.id.refreshlayout);
         home_banner = (Banner) view.findViewById(R.id.home_banner);
-        home_refurbish = (PtrClassicFrameLayout) view.findViewById(R.id.home_refurbish);
         home_person = (ImageView) view.findViewById(R.id.home_person);
         home_eye_logo = (ImageView) view.findViewById(R.id.home_eye_logo);
         home_eye_onetitle = (TextView) view.findViewById(R.id.home_eye_onetitle);
@@ -109,6 +139,11 @@ public class HomeFragment extends BaseFragment implements IHomeView, View.OnClic
 
         home_person.setOnClickListener(this);
         home_interact.setOnClickListener(this);
+
+        //下拉刷新
+        refreshlayout.setRefreshHeader(new FunGameHitBlockHeader(Myapp.activity));
+        //上拉加载
+        refreshlayout.setRefreshFooter(new BallPulseFooter(Myapp.activity).setSpinnerStyle(SpinnerStyle.Scale));
 
     }
 
