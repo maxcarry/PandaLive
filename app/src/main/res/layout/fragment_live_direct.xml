@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.dell.pandalive.ui.livepanda.viewlive.LiveDirectFragment">
+    tools:context="com.example.dell.pandalive.ui.livepanda.direct.LiveDirectFragment">
 
 
     <io.vov.vitamio.widget.VideoView
@@ -70,27 +70,43 @@
     </LinearLayout>
 
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-
-        <ScrollView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+             android:orientation="vertical">
 
             <TextView
-                android:layout_margin="20px"
-                android:visibility="gone"
                 android:id="@+id/live_plau_introduce"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="翻身、吃饭、睡觉、喝奶、打闹、攀爬……这里是成都大熊猫繁育研究基地，24小时高清直播大熊猫生活实况的地方。成年园、幼年园、幼儿园、母子园、一号别墅，11路直播信号28个摄像头，让你零距离了解国宝们的日常起居。"/>
-
-        </ScrollView>
-
-
+                android:layout_margin="20px"
+                android:text="翻身、吃饭、睡觉、喝奶、打闹、攀爬……这里是成都大熊猫繁育研究基地，24小时高清直播大熊猫生活实况的地方。成年园、幼年园、幼儿园、母子园、一号别墅，11路直播信号28个摄像头，让你零距离了解国宝们的日常起居。"
+                android:visibility="gone" />
 
 
+            <TableLayout
+                android:id="@+id/live_plau_tablelayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
 
 
+            <android.support.v4.view.ViewPager
+                android:id="@+id/live_plau_viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
 
 
 </LinearLayout>

@@ -59,7 +59,24 @@ public class LiveSplendidFragment extends BaseFragment implements ILiveSplendidF
 
         //瀑布流
         live_splendid_xrecycler.setLayoutManager(new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL));
+        live_splendid_xrecycler.setLoadingListener(new XRecyclerView.LoadingListener() {
+            @Override
+            public void onRefresh() {
+                //上啦刷新
 
+
+
+                live_splendid_xrecycler.refreshComplete();
+            }
+
+            @Override
+            public void onLoadMore() {
+                //下啦加载
+
+
+                live_splendid_xrecycler.refreshComplete();
+            }
+        });
 
     }
 
@@ -85,31 +102,7 @@ public class LiveSplendidFragment extends BaseFragment implements ILiveSplendidF
         }
         });
 
-        live_splendid_xrecycler.setLoadingListener(new XRecyclerView.LoadingListener() {
-            @Override
-            public void onRefresh() {
-            //上啦刷新
-//                videoBeen.clear();
 
-
-//                liveSplendidAdapter = new LiveSplendidAdapter(getActivity(), videoBeen);
-//                live_splendid_xrecycler.setAdapter(liveSplendidAdapter);
-//                liveSplendidAdapter.notifyDataSetChanged();
-//                Log.e("11111",videoBeen.get(1).getT());
-
-//                videoBeen.clear();
-                live_splendid_xrecycler.refreshComplete();
-            }
-
-            @Override
-            public void onLoadMore() {
-            //下啦加载
-//                iLiveSplendidFragment.liveBean(videoBeen);
-//                liveSplendidAdapter.notifyDataSetChanged();
-//
-                live_splendid_xrecycler.refreshComplete();
-            }
-        });
 
     }
 
