@@ -31,9 +31,6 @@ import com.example.dell.pandalive.utils.PlayActivityUtil;
 import com.scwang.smartrefresh.header.FunGameHitBlockHeader;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
-import com.scwang.smartrefresh.layout.constant.SpinnerStyle;
-import com.scwang.smartrefresh.layout.footer.BallPulseFooter;
-import com.scwang.smartrefresh.layout.listener.OnLoadmoreListener;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
@@ -89,16 +86,6 @@ public class HomeFragment extends BaseFragment implements IHomeView, View.OnClic
 
             }
         });
-
-        refreshlayout.setOnLoadmoreListener(new OnLoadmoreListener() {
-            @Override
-            public void onLoadmore(RefreshLayout refreshlayout) {
-
-                refreshview();
-                refreshlayout.finishLoadmore();
-            }
-        });
-
     }
 
     private void refreshview() {
@@ -142,9 +129,6 @@ public class HomeFragment extends BaseFragment implements IHomeView, View.OnClic
 
         //下拉刷新
         refreshlayout.setRefreshHeader(new FunGameHitBlockHeader(Myapp.activity));
-        //上拉加载
-        refreshlayout.setRefreshFooter(new BallPulseFooter(Myapp.activity).setSpinnerStyle(SpinnerStyle.Scale));
-
     }
 
     @Override
