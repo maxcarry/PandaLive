@@ -12,6 +12,10 @@ import com.example.dell.pandalive.app.Myapp;
 import com.example.dell.pandalive.base.BaseFragment;
 import com.example.dell.pandalive.entity.ColumnBean;
 import com.example.dell.pandalive.ui.livechina.tabfragment.presenter.TabPresenter;
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.header.ClassicsHeader;
+import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
 import java.util.List;
 
@@ -30,6 +34,7 @@ public class ColumnFragment extends BaseFragment implements ITabView {
     private TabPresenter tabPresenter;
     private int firstVisible = 0, visibleCount = 0, totalCount = 0;
     private ColumnAdapter columnAdapter;
+    private SmartRefreshLayout column_refreshlayout;
 
     public ColumnFragment(String url) {
         this.url = url;
@@ -44,6 +49,15 @@ public class ColumnFragment extends BaseFragment implements ITabView {
     protected void initdata() {
 
         tabPresenter.ShowTab(url);
+
+        column_refreshlayout.setOnRefreshListener(new OnRefreshListener() {
+            @Override
+            public void onRefresh(RefreshLayout refreshlayout) {
+
+                tabPresenter.ShowTab(url);
+                refreshlayout.finishRefresh();
+            }
+        });
     }
 
     @Override
@@ -58,7 +72,9 @@ public class ColumnFragment extends BaseFragment implements ITabView {
 
         tabPresenter = new TabPresenter(this);
         column_listview = (ListView) view.findViewById(R.id.column_listview);
+        column_refreshlayout = (SmartRefreshLayout) view.findViewById(R.id.column_refreshlayout);
 
+        column_refreshlayout.setRefreshHeader(new ClassicsHeader(Myapp.activity));
         setplay();
     }
 

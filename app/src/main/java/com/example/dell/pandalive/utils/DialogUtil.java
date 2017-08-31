@@ -27,7 +27,6 @@ public class DialogUtil {
                 }
             }
         }
-
         return dialogUtil;
     }
 
@@ -36,6 +35,7 @@ public class DialogUtil {
 
         dialog = new CustomDialog(context, R.style.CustomDialog);
         dialog.show();
+
     }
 
     //隐藏等待
