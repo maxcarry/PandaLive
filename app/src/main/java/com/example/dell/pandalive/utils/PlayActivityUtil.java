@@ -6,6 +6,7 @@ import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -16,7 +17,11 @@ import android.widget.Toast;
 
 import com.example.dell.pandalive.R;
 import com.example.dell.pandalive.custom_view.CustomMediaController;
+import com.example.dell.pandalive.entity.ChinaUriBean;
+import com.example.dell.pandalive.entity.VideoPlayBean;
 
+import io.reactivex.Observer;
+import io.reactivex.disposables.Disposable;
 import io.vov.vitamio.MediaPlayer;
 import io.vov.vitamio.widget.VideoView;
 
@@ -34,6 +39,7 @@ public class PlayActivityUtil extends AppCompatActivity implements MediaPlayer.O
     private VideoView mVideoView;
     private ImageView loding_bg;
     private Netwoke netwoke;
+    private String type;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,8 +47,14 @@ public class PlayActivityUtil extends AppCompatActivity implements MediaPlayer.O
 
         title = getIntent().getStringExtra("title");
         path = getIntent().getStringExtra("path");
+        type = getIntent().getStringExtra("type");
 
-        getnetwoke();
+        if (type.equals("2")) {
+
+            VideoPlay();
+        } else {
+            WebPlay();
+        }
 
         //定义全屏参数
         int flag = WindowManager.LayoutParams.FLAG_FULLSCREEN;
@@ -56,6 +68,65 @@ public class PlayActivityUtil extends AppCompatActivity implements MediaPlayer.O
 //        }
         setContentView(R.layout.videoplayview);
 
+    }
+
+    private void VideoPlay() {
+
+        Log.e("点播地址", "VideoPlay: "+ "http://vdn.apps.cntv.cn/api/getVideoInfoForCBox.do?pid=" + path);
+        RetrofitUtil.instance("").Webvideoplay("http://vdn.apps.cntv.cn/api/getVideoInfoForCBox.do?pid=" + path, new Observer() {
+            @Override
+            public void onSubscribe(Disposable d) {
+
+            }
+
+            @Override
+            public void onNext(Object value) {
+
+                VideoPlayBean bean = (VideoPlayBean) value;
+                path = bean.getHls_url();
+
+                getnetwoke();
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onComplete() {
+
+            }
+        });
+
+    }
+
+    private void WebPlay() {
+
+        RetrofitUtil.instance("").Webchinaplay(new Observer() {
+            @Override
+            public void onSubscribe(Disposable d) {
+
+            }
+
+            @Override
+            public void onNext(Object value) {
+
+                ChinaUriBean bean = (ChinaUriBean) value;
+                path = bean.getHls_url().getHls1();
+                getnetwoke();
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onComplete() {
+
+            }
+        },path);
     }
 
     //初始化控件

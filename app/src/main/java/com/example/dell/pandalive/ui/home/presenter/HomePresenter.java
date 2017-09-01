@@ -6,7 +6,6 @@ import com.example.dell.pandalive.entity.VideoBean;
 import com.example.dell.pandalive.ui.home.IHomeView;
 import com.example.dell.pandalive.ui.home.model.HomeModel;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -87,16 +86,7 @@ public class HomePresenter implements IHomePresenter {
     private void Showbanner(HomeBean homeBean) {
 
         List<HomeBean.DataBean.BigImgBean> bigImg = homeBean.getData().getBigImg();
-        ArrayList<String> imalist = new ArrayList<String>();
-        ArrayList<String> titlelist = new ArrayList<String>();
-        ArrayList<String> pathlist = new ArrayList<String>();
 
-        for (HomeBean.DataBean.BigImgBean bigImgBean : bigImg) {
-            imalist.add(bigImgBean.getImage());
-            titlelist.add(bigImgBean.getTitle());
-            pathlist.add(bigImgBean.getUrl());
-        }
-
-        iHomeView.ShowBanner(imalist,titlelist,pathlist);
+        iHomeView.ShowBanner(bigImg);
     }
 }
