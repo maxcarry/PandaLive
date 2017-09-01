@@ -37,8 +37,8 @@
         android:layout_below="@+id/relative"
         android:orientation="vertical">
 
-        <WebView
-            android:id="@+id/video_webvieww"
+        <fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard
+            android:id="@+id/video_details_jiecao"
             android:layout_width="match_parent"
             android:layout_height="500px" />
 
@@ -46,7 +46,7 @@
             android:id="@+id/details_linear"
             android:layout_width="match_parent"
             android:layout_height="130px"
-            android:layout_below="@id/video_webvieww"
+            android:layout_below="@id/video_details_jiecao"
             android:orientation="vertical">
 
             <TextView

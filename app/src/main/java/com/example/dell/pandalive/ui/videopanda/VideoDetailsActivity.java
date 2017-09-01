@@ -20,16 +20,19 @@ import android.widget.Toast;
 
 import com.example.dell.pandalive.R;
 import com.example.dell.pandalive.adapter.VideoDetailsTabAdapter;
+import com.example.dell.pandalive.app.Myapp;
 import com.example.dell.pandalive.base.BaseActivity;
 import com.example.dell.pandalive.ui.videopanda.detailsfragment.HD_completeFragment;
 import com.example.dell.pandalive.ui.videopanda.detailsfragment.WondfulaspectFragment;
 
 import java.util.ArrayList;
 
+import fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard;
+
 public class VideoDetailsActivity extends BaseActivity implements View.OnClickListener {
 
     TextView title;
-    ImageView detailsdownimage,imagebackout,detailsupimage;
+    ImageView detailsdownimage, imagebackout, detailsupimage;
     TextView textViewshow;
     TabLayout detailstablayout;
     ViewPager detailsviewpager;
@@ -38,7 +41,7 @@ public class VideoDetailsActivity extends BaseActivity implements View.OnClickLi
 
     LinearLayout linearLayout;
 
-    ArrayList<Fragment> mlist=new ArrayList<>();
+    ArrayList<Fragment> mlist = new ArrayList<>();
     private VideoDetailsTabAdapter tabAdapter;
     private HD_completeFragment completeFragment;
     private WondfulaspectFragment wondfulaspectFragment;
@@ -46,14 +49,22 @@ public class VideoDetailsActivity extends BaseActivity implements View.OnClickLi
     private WebView videodetailswebview;
     private Button detailssharebtncancel;
 
+    private JCVideoPlayerStandard  jcVideoPlayerStandard;
+    private String mytitle;
+    private String vid;
+    private String type;
+
     @Override
     protected void initdata() {
-        Intent intent=getIntent();
+        Intent intent = getIntent();
 
-        String mytitle=intent.getStringExtra("title");
-        String myurl=intent.getStringExtra("url");
+        mytitle = intent.getStringExtra("title");
+        vid = intent.getStringExtra("path");
+        type = intent.getStringExtra("type");
         title.setText(mytitle);
-        videodetailswebview.loadUrl(myurl);
+
+        jcVideoPlayerStandard.setUp("http://jzvd.nathen.cn/c6e3dc12a1154626b3476d9bf3bd7266/6b56c5f0dc31428083757a45764763b0-5287d2089db37e62345123a1be272f8b.mp4"
+                , JCVideoPlayerStandard.SCREEN_LAYOUT_NORMAL, mytitle);
 
     }
 
@@ -65,8 +76,8 @@ public class VideoDetailsActivity extends BaseActivity implements View.OnClickLi
 
     @Override
     protected void initview() {
-        linearLayout=new LinearLayout(this);
-        imagebackout= (ImageView) findViewById(R.id.image_backout);
+        linearLayout = new LinearLayout(this);
+        imagebackout = (ImageView) findViewById(R.id.image_backout);
         imagebackout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -74,20 +85,20 @@ public class VideoDetailsActivity extends BaseActivity implements View.OnClickLi
             }
         });
 
-        videodetailswebview = (WebView) findViewById(R.id.video_webvieww);
-        title= (TextView) findViewById(R.id.videodetails_tv_title);
-        detailsupimage= (ImageView) findViewById(R.id.video_details_upimage);
-        detailsdownimage= (ImageView) findViewById(R.id.video_details_downimage);
+        jcVideoPlayerStandard= (JCVideoPlayerStandard) findViewById(R.id.video_details_jiecao);
+        title = (TextView) findViewById(R.id.videodetails_tv_title);
+        detailsupimage = (ImageView) findViewById(R.id.video_details_upimage);
+        detailsdownimage = (ImageView) findViewById(R.id.video_details_downimage);
         detailsupimage.setOnClickListener(this);
         detailsdownimage.setOnClickListener(this);
-        textViewshow= (TextView) findViewById(R.id.details_content_show);
-        detailstablayout= (TabLayout) findViewById(R.id.video_details_tablayout);
-        detailsviewpager= (ViewPager) findViewById(R.id.video_details_viewpager);
+        textViewshow = (TextView) findViewById(R.id.details_content_show);
+        detailstablayout = (TabLayout) findViewById(R.id.video_details_tablayout);
+        detailsviewpager = (ViewPager) findViewById(R.id.video_details_viewpager);
 
-        imagecollection= (RadioButton)findViewById(R.id.details_image_collection);
-        imageshare= (ImageView) findViewById(R.id.details_image_share);
+        imagecollection = (RadioButton) findViewById(R.id.details_image_collection);
+        imageshare = (ImageView) findViewById(R.id.details_image_share);
         imagecollection.setOnClickListener(this);
-        imageshare.setOnClickListener(this);
+
 
         completeFragment = new HD_completeFragment();
         wondfulaspectFragment = new WondfulaspectFragment();
@@ -95,21 +106,21 @@ public class VideoDetailsActivity extends BaseActivity implements View.OnClickLi
         mlist.add(wondfulaspectFragment);
 
         detailsviewpager.setOffscreenPageLimit(2);
-        tabAdapter = new VideoDetailsTabAdapter(getSupportFragmentManager(),mlist);
+        tabAdapter = new VideoDetailsTabAdapter(getSupportFragmentManager(), mlist);
         detailsviewpager.setAdapter(tabAdapter);
 
         detailstablayout.setupWithViewPager(detailsviewpager);
         detailstablayout.setTabMode(TabLayout.MODE_FIXED);
 
 
-        detailstablayout.setSelectedTabIndicatorColor(ContextCompat.getColor(this,R.color.colorBlue));
-        detailstablayout.setTabTextColors(ContextCompat.getColor(this,R.color.color_black),ContextCompat.getColor(this,R.color.colorBlue));
+        detailstablayout.setSelectedTabIndicatorColor(ContextCompat.getColor(this, R.color.colorBlue));
+        detailstablayout.setTabTextColors(ContextCompat.getColor(this, R.color.color_black), ContextCompat.getColor(this, R.color.colorBlue));
 
     }
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.video_details_downimage:
                 detailsdownimage.setVisibility(View.GONE);
                 detailsupimage.setVisibility(View.VISIBLE);
@@ -122,25 +133,28 @@ public class VideoDetailsActivity extends BaseActivity implements View.OnClickLi
 
                 break;
             case R.id.details_image_collection:
-                Toast.makeText(this,"已收藏,请到[我的收藏]中查看",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "已收藏,请到[我的收藏]中查看", Toast.LENGTH_SHORT).show();
 //                http://api.cntv.cn/video/videolistById?p=1&serviceId=panda&n=150&vsid=VSET100284428835
-                break;
-            case R.id.details_image_share:
-                View view= LayoutInflater.from(this).inflate(R.layout.video_details_share_layout,null);
-//                detailssharebtncancel = (Button) view.findViewById(R.id.details_share_btn_cancel);
-
-                pw = new PopupWindow(view, LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT,true);
-                pw.setOutsideTouchable(true);
-                pw.setBackgroundDrawable(new ColorDrawable());
-                pw.showAtLocation(linearLayout, Gravity.BOTTOM,100,0);
                 break;
 
         }
-//        detailssharebtncancel.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                pw.dismiss();
-//            }
-//        });
+        imageshare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                View view = LayoutInflater.from(Myapp.activity).inflate(R.layout.video_details_share_layout, null);
+
+                pw = new PopupWindow(view, LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT, true);
+                pw.setOutsideTouchable(true);
+                pw.setBackgroundDrawable(new ColorDrawable());
+                pw.showAtLocation(linearLayout, Gravity.BOTTOM, 100, 0);
+                detailssharebtncancel = (Button) view.findViewById(R.id.details_share_btn_cancel);
+                detailssharebtncancel.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        pw.dismiss();
+                    }
+                });
+            }
+        });
     }
 }
