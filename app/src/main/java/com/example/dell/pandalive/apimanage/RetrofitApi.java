@@ -7,7 +7,6 @@ import com.example.dell.pandalive.entity.ColumnBean;
 import com.example.dell.pandalive.entity.EyeListBean;
 import com.example.dell.pandalive.entity.HomeBean;
 import com.example.dell.pandalive.entity.InteractListViewBean;
-import com.example.dell.pandalive.entity.LiveSplendidBean;
 import com.example.dell.pandalive.entity.TvBean;
 import com.example.dell.pandalive.entity.VideoBanner;
 import com.example.dell.pandalive.entity.VideoBean;
@@ -81,7 +80,7 @@ public interface RetrofitApi {
 
     //   精彩一刻 "http://api.cntv.cn/video/videolistById?vsid=VSET100167216881&n=7&serviceId=panda&o=desc&of=time&p=1";
     @GET("http://api.cntv.cn/video/videolistById?vsid=VSET100167216881&n=7&serviceId=panda&o=desc&of=time&p=1")
-    Observable<LiveSplendidBean> getsplendid();
+    Observable<LivePerformBean> getsplendid();
 
     //熊猫滚滚秀http://api.cntv.cn/video/videolistById?vsid=VSET100272959126&n=7&serviceId=panda&o=desc&of=time&p=1
     @GET("http://api.cntv.cn/video/videolistById?vsid=VSET100272959126&n=7&serviceId=panda&o=desc&of=time&p=1")
