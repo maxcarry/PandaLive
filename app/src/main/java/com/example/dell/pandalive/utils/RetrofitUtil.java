@@ -7,7 +7,6 @@ import com.example.dell.pandalive.entity.ColumnBean;
 import com.example.dell.pandalive.entity.EyeListBean;
 import com.example.dell.pandalive.entity.HomeBean;
 import com.example.dell.pandalive.entity.InteractListViewBean;
-import com.example.dell.pandalive.entity.LiveSplendidBean;
 import com.example.dell.pandalive.entity.TvBean;
 import com.example.dell.pandalive.entity.VideoBanner;
 import com.example.dell.pandalive.entity.VideoBean;
@@ -156,7 +155,7 @@ public class RetrofitUtil {
     //精彩一刻
     public void Livesplendid(Observer observer) {
 
-        Observable<LiveSplendidBean> liveSplendidBeanObservable = api.getsplendid();
+        Observable<LivePerformBean> liveSplendidBeanObservable = api.getsplendid();
         liveSplendidBeanObservable.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(observer);

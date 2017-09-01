@@ -1,6 +1,8 @@
 package com.example.dell.pandalive.ui.livepanda.splendid;
 
-import com.example.dell.pandalive.entity.LiveSplendidBean;
+import com.example.dell.pandalive.ui.livepanda.perform.ILivePerformFragment;
+import com.example.dell.pandalive.ui.livepanda.perform.ILivePerformview;
+import com.example.dell.pandalive.ui.livepanda.perform.LivePerformBean;
 
 import java.util.List;
 
@@ -9,23 +11,24 @@ import java.util.List;
  *
  */
 
-public class LiveSplendidPresenter implements ILiveSplendidview {
+public class LiveSplendidPresenter implements ILivePerformview {
 
     private LiveSplendidModel liveSplendidModel;
-    private ILiveSplendidFragment iLiveSplendidModel;
+    private ILivePerformFragment iLivePerformFragment;
 
-    public LiveSplendidPresenter(ILiveSplendidFragment iLiveSplendidModel) {
-        this.iLiveSplendidModel = iLiveSplendidModel;
+    public LiveSplendidPresenter(ILivePerformFragment iLivePerformFragment) {
+        this.iLivePerformFragment = iLivePerformFragment;
         liveSplendidModel=new LiveSplendidModel();
     }
 
+
     @Override
-    public void ShowSplendid() {
-        liveSplendidModel.GainLiveSplendid(this);
+    public void ShowPerform() {
+        liveSplendidModel.GainLivePerform(this);
     }
 
     @Override
-    public void SendSplendid(List<LiveSplendidBean.VideoBean> videoBeen) {
-        iLiveSplendidModel.liveBean(videoBeen);
+    public void SendPerform(List<LivePerformBean.VideoBean> performBeen) {
+        iLivePerformFragment.liveperformBean(performBeen);
     }
 }

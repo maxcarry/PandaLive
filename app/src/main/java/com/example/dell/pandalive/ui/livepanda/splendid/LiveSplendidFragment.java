@@ -2,19 +2,28 @@ package com.example.dell.pandalive.ui.livepanda.splendid;
 
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
 
 import com.example.dell.pandalive.R;
-import com.example.dell.pandalive.adapter.LiveSplendidAdapter;
 import com.example.dell.pandalive.app.Myapp;
 import com.example.dell.pandalive.base.BaseFragment;
-import com.example.dell.pandalive.entity.LiveSplendidBean;
+import com.example.dell.pandalive.ui.livepanda.LiveVideoAdapter;
+import com.example.dell.pandalive.ui.livepanda.perform.ILivePerformFragment;
+import com.example.dell.pandalive.ui.livepanda.perform.LivePerformBean;
 import com.example.dell.pandalive.utils.DialogUtil;
 import com.example.dell.pandalive.utils.PlayActivityUtil;
-import com.jcodecraeer.xrecyclerview.XRecyclerView;
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.footer.ClassicsFooter;
+import com.scwang.smartrefresh.layout.header.ClassicsHeader;
+import com.scwang.smartrefresh.layout.listener.OnLoadmoreListener;
+import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
 import java.util.List;
 
@@ -24,23 +33,43 @@ import java.util.List;
  * 精彩一刻
  *
  */
-public class LiveSplendidFragment extends BaseFragment implements ILiveSplendidFragment {
+public class LiveSplendidFragment extends BaseFragment implements ILivePerformFragment {
 
 
     private View view;
-
-    private XRecyclerView live_splendid_xrecycler;
-    LiveSplendidPresenter liveSplendidPresenter;
-    private LiveSplendidAdapter liveSplendidAdapter;
+    private LiveSplendidPresenter liveOriginalPresenter;
+    private ListView live_splendid_customlistview;
+    private SmartRefreshLayout live_smartrefreshlayout;
 
     @Override
     protected void restartdata() {
 
+        geturls();
+        //上啦刷新
+        live_smartrefreshlayout.setOnRefreshListener(new OnRefreshListener() {
+            @Override
+            public void onRefresh(RefreshLayout refreshlayout) {
+
+                refreshlayout.finishRefresh(2000);
+                geturls();
+
+            }
+        });
+        //下啦加载
+        live_smartrefreshlayout.setOnLoadmoreListener(new OnLoadmoreListener() {
+            @Override
+            public void onLoadmore(RefreshLayout refreshlayout) {
+                geturls();
+                live_smartrefreshlayout.finishLoadmore();
+            }
+        });
+
+    }
+    private void geturls() {
         DialogUtil.instance().Showdialog(Myapp.activity);
-        liveSplendidPresenter.ShowSplendid();
+        liveOriginalPresenter.ShowPerform();
         DialogUtil.instance().Hidedialog();
     }
-
     @Override
     protected void initdata() {
 
@@ -53,57 +82,37 @@ public class LiveSplendidFragment extends BaseFragment implements ILiveSplendidF
 
     @Override
     protected void initview() {
-        view = LayoutInflater.from(Myapp.activity).inflate(R.layout.fragment_jingcai, null);
-        liveSplendidPresenter = new LiveSplendidPresenter(this);
-        live_splendid_xrecycler = (XRecyclerView) view.findViewById(R.id.live_splendid_xrecycler);
 
-        //瀑布流
-        live_splendid_xrecycler.setLayoutManager(new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL));
-        live_splendid_xrecycler.setLoadingListener(new XRecyclerView.LoadingListener() {
-            @Override
-            public void onRefresh() {
-                //上啦刷新
+        view = LayoutInflater.from(Myapp.activity).inflate(R.layout.fragment_customlistview, null);
+        liveOriginalPresenter = new LiveSplendidPresenter(this);
 
+        live_splendid_customlistview = (ListView) view.findViewById(R.id.live_splendid_customlistview);
 
+        live_smartrefreshlayout = (SmartRefreshLayout) view.findViewById(R.id.live_smartrefreshlayout);
 
-                live_splendid_xrecycler.refreshComplete();
-            }
-
-            @Override
-            public void onLoadMore() {
-                //下啦加载
-
-
-                live_splendid_xrecycler.refreshComplete();
-            }
-        });
+        live_smartrefreshlayout.setRefreshHeader(new ClassicsHeader(Myapp.activity));
+        live_smartrefreshlayout.setRefreshFooter(new ClassicsFooter(Myapp.activity));
 
     }
-
 
     @Override
-    public void liveBean(final List<LiveSplendidBean.VideoBean> videoBeen) {
+    public void liveperformBean(final List<LivePerformBean.VideoBean> performBeen) {
+        live_splendid_customlistview.setSelector(new ColorDrawable(Color.TRANSPARENT));
+        //适配器
+        LiveVideoAdapter liveVideoAdapter=new LiveVideoAdapter(Myapp.activity,performBeen);
+        live_splendid_customlistview.setAdapter(liveVideoAdapter);
 
-
-        liveSplendidAdapter = new LiveSplendidAdapter(getActivity(), videoBeen);
-        live_splendid_xrecycler.setAdapter(liveSplendidAdapter);
-
-        liveSplendidAdapter.setonclick(new LiveSplendidAdapter.Jiekou() {
+        live_splendid_customlistview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onclick(int position) {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent live = new Intent(Myapp.activity, PlayActivityUtil.class);
+                live.putExtra("title", performBeen.get(position).getT());
+                live.putExtra("path", performBeen.get(position).getVsid());//type//
+                live.putExtra("type", "2");//type//
 
-                String livet = videoBeen.get(position).getT();
-                String liveurl = videoBeen.get(position).getUrl();
-
-                Intent intent = new Intent(getActivity(), PlayActivityUtil.class);
-                intent.putExtra("title",livet);
-                intent.putExtra("path",liveurl);
-                startActivity(intent);
-        }
+                startActivity(live);
+            }
         });
 
-
-
     }
-
 }

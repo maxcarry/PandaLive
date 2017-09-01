@@ -20,7 +20,7 @@ import io.reactivex.disposables.Disposable;
 public class LiveOriginalModel implements ILivePerformPresenter {
     @Override
     public void GainLivePerform(final ILivePerformview iLivePerformview) {
-//liveoriginal
+
         RetrofitUtil.instance("http://api.cntv.cn/").liveoriginal(new Observer() {
             @Override
             public void onSubscribe(Disposable d) {

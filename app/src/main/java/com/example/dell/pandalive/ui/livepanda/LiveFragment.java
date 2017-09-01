@@ -15,10 +15,10 @@ import com.example.dell.pandalive.ui.livepanda.archives.LiveArchivesFragment;
 import com.example.dell.pandalive.ui.livepanda.direct.LiveDirectFragment;
 import com.example.dell.pandalive.ui.livepanda.original.LiveOriginalFragment;
 import com.example.dell.pandalive.ui.livepanda.perform.LivePerformFragment;
+import com.example.dell.pandalive.ui.livepanda.splendid.LiveSplendidFragment;
 import com.example.dell.pandalive.ui.livepanda.thing.LiveThingFragment;
 import com.example.dell.pandalive.ui.livepanda.top.LiveTOPFragment;
 import com.example.dell.pandalive.ui.livepanda.unusual.LiveUnusualFragment;
-import com.example.dell.pandalive.ui.livepanda.viewlive.LiveSplendidFragment;
 import com.example.dell.pandalive.ui.livepanda.yield.LiveYieldFragment;
 
 import java.util.ArrayList;
@@ -99,7 +99,7 @@ public class LiveFragment extends BaseFragment {
         //添加Fragment
 //        //直播
         fragments.add(new LiveDirectFragment());
-//        //精彩一刻
+//        //精彩一刻LiveSplendidFragment
         fragments.add(new LiveSplendidFragment());
 //        //当熊不让
         fragments.add(new LiveYieldFragment());
