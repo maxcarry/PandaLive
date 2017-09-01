@@ -123,6 +123,7 @@ public class VideoFragment extends BaseFragment implements IVideoView {
                 intent.putExtra("path", bigImg.get(position).getPid());
                 intent.putExtra("type", bigImg.get(position).getType());
                 startActivity(intent);
+
             }
         });
         //banner设置方法全部调用完毕时最后调用
