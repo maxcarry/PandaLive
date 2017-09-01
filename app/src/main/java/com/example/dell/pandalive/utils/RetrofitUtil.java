@@ -104,9 +104,9 @@ public class RetrofitUtil {
                 .subscribe(observer);
     }
 
-    public void Webeyelist(Observer observer) {
+    public void Webeyelist(String url,Observer observer) {
 
-        Observable<EyeListBean> getrecycler = api.geteyelist();
+        Observable<EyeListBean> getrecycler = api.geteyelist(url);
         getrecycler.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(observer);

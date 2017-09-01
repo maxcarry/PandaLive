@@ -59,8 +59,8 @@ public interface RetrofitApi {
     Observable<BigImageBean> getbigimage();
 
     //http://api.cntv.cn/apicommon/index?path=iphoneInterface/general/getArticleAndVideoListInfo.json&primary_id=PAGE1422435191506336&serviceId=panda
-    @GET("http://api.cntv.cn/apicommon/index?path=iphoneInterface/general/getArticleAndVideoListInfo.json&primary_id=PAGE1422435191506336&serviceId=panda")
-    Observable<EyeListBean> geteyelist();
+    @GET
+    Observable<EyeListBean> geteyelist(@Url String url);
 
     //http://www.ipanda.com/kehuduan/PAGE14501767715521482/index.json
     /**

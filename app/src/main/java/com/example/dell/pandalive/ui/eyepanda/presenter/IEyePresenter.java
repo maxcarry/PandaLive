@@ -15,7 +15,7 @@ public interface IEyePresenter {
     void ShowBigImg();
     void SendBigImg(BigImageBean bigImgBean);
 
-    void ShowEyeList();
+    void ShowEyeList(String url);
     void SendEyeList(List<EyeListBean.ListBean> eyelist);
 
     void ShowInteract();
