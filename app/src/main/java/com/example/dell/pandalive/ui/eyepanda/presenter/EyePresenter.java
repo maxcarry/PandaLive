@@ -35,8 +35,8 @@ public class EyePresenter implements IEyePresenter {
     }
 
     @Override
-    public void ShowEyeList() {
-        eyeModel.GainEyeList(this);
+    public void ShowEyeList(String url) {
+        eyeModel.GainEyeList(this,url);
     }
 
     @Override

@@ -10,7 +10,7 @@ public interface IEyeModel {
 
     void GainBigImg(IEyePresenter iEyePresenter);
 
-    void GainEyeList(IEyePresenter iEyePresenter);
+    void GainEyeList(IEyePresenter iEyePresenter,String url);
 
     void GainInteract(IEyePresenter iEyePresenter);
 }

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,7 +21,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
                 <ImageView
-                    android:id="@+id/facebook"
+                    android:id="@+id/web_popup_facebook"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/fcb"/>
@@ -38,7 +39,7 @@
                 android:orientation="vertical"
                 android:layout_gravity="center">
                 <ImageView
-                    android:id="@+id/Twitter"
+                    android:id="@+id/web_popup_twitter"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/twitter"/>
@@ -56,6 +57,7 @@
                 android:orientation="vertical"
                 android:layout_gravity="center">
                 <ImageView
+                    android:id="@+id/web_popup_webo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/sinawebo"/>
@@ -78,6 +80,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
                 <ImageView
+                    android:id="@+id/web_popup_wechat"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/wechat"
@@ -100,6 +103,7 @@
                     android:layout_height="wrap_content"
                     android:src="@drawable/moments"/>
                 <TextView
+                    android:id="@+id/web_popup_friend"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="朋友圈"/>
@@ -117,7 +121,7 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/popup_return"
+            android:id="@+id/web_popup_return"
             android:layout_marginTop="50px"
             android:layout_width="match_parent"
             android:layout_height="130px"

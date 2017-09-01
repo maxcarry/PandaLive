@@ -9,4 +9,5 @@ import com.example.dell.pandalive.ui.livechina.tabfragment.presenter.ITabPresent
 public interface ITabModel {
 
     void GainColumn(ITabPresenter iTabPresenter,String url);
+
 }

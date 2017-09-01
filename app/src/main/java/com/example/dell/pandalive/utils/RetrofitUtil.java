@@ -3,6 +3,7 @@ package com.example.dell.pandalive.utils;
 import com.example.dell.pandalive.apimanage.RetrofitApi;
 import com.example.dell.pandalive.entity.BigImageBean;
 import com.example.dell.pandalive.entity.ChinaBean;
+import com.example.dell.pandalive.entity.ChinaUriBean;
 import com.example.dell.pandalive.entity.ColumnBean;
 import com.example.dell.pandalive.entity.EyeListBean;
 import com.example.dell.pandalive.entity.HomeBean;
@@ -11,6 +12,7 @@ import com.example.dell.pandalive.entity.TvBean;
 import com.example.dell.pandalive.entity.VideoBanner;
 import com.example.dell.pandalive.entity.VideoBean;
 import com.example.dell.pandalive.entity.VideoDetailsHDBean;
+import com.example.dell.pandalive.entity.VideoPlayBean;
 import com.example.dell.pandalive.entity.VideoRVBean;
 import com.example.dell.pandalive.ui.livepanda.perform.LivePerformBean;
 
@@ -104,9 +106,9 @@ public class RetrofitUtil {
                 .subscribe(observer);
     }
 
-    public void Webeyelist(Observer observer) {
+    public void Webeyelist(String url,Observer observer) {
 
-        Observable<EyeListBean> getrecycler = api.geteyelist();
+        Observable<EyeListBean> getrecycler = api.geteyelist(url);
         getrecycler.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(observer);
@@ -244,6 +246,22 @@ public class RetrofitUtil {
     public void videodetailsrecycler(Observer observer){
         Observable<VideoDetailsHDBean> videoshowrecy=api.getvideodetailsrecycler();
         videoshowrecy.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(observer);
+    }
+
+    public void Webchinaplay(Observer observer,String url){
+
+        Observable<ChinaUriBean> getchinaplay = api.getchinaplay(url);
+        getchinaplay.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(observer);
+    }
+
+    public void Webvideoplay(String url, Observer observer) {
+
+        Observable<VideoPlayBean> getvideoplay = api.getvideoplay(url);
+        getvideoplay.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(observer);
     }

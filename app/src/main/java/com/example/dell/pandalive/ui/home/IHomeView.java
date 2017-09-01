@@ -4,7 +4,6 @@ import com.example.dell.pandalive.entity.HomeBean;
 import com.example.dell.pandalive.entity.TvBean;
 import com.example.dell.pandalive.entity.VideoBean;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -13,7 +12,7 @@ import java.util.List;
 
 public interface IHomeView {
 
-    void ShowBanner(ArrayList<String> imalist,ArrayList<String> titlelist,ArrayList<String> pathlist);
+    void ShowBanner(List<HomeBean.DataBean.BigImgBean> bigImg);
     void ShowEye(HomeBean.DataBean.PandaeyeBean eyebean);
     void ShowLive(List<HomeBean.DataBean.PandaliveBean.ListBean> livelist);
     void ShowTv(List<TvBean.ListBean> tvlist);

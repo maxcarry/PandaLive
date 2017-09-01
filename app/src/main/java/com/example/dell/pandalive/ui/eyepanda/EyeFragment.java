@@ -19,10 +19,10 @@ import com.example.dell.pandalive.ui.eyepanda.presenter.EyePresenter;
 import com.example.dell.pandalive.ui.personal.Eye_Personal_Activity;
 import com.example.dell.pandalive.utils.DialogUtil;
 import com.example.dell.pandalive.utils.PlayActivityUtil;
-import com.scwang.smartrefresh.header.FunGameHitBlockHeader;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.footer.BallPulseFooter;
+import com.scwang.smartrefresh.layout.header.ClassicsHeader;
 import com.scwang.smartrefresh.layout.listener.OnLoadmoreListener;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 import com.youth.banner.Banner;
@@ -45,7 +45,7 @@ import java.util.List;
  */
 ////
 public class EyeFragment extends BaseFragment implements IEyeView, View.OnClickListener {
-String url="http://api.cntv.cn/apicommon/index?path=iphoneInterface/general/getArticleAndVideoListInfo.json&primary_id=PAGE1422435191506336&serviceId=panda";
+String url="http://api.cntv.cn/apicommon/index?path=iphoneInterface/general/getArticleAndVideoListInfo.json&primary_id=PAGE1422435191506336&serviceId=panda&page=";
     private View view;
     private ImageView eyepanda_personal_imageview;
     private EyePresenter eyePresenter;
@@ -55,6 +55,8 @@ String url="http://api.cntv.cn/apicommon/index?path=iphoneInterface/general/getA
     private Intent intent = new Intent(Myapp.activity, PlayActivityUtil.class);
     private MyEyeListAdapter listAdapter;
     private SmartRefreshLayout eye_refreshlayout;
+    private int page=1;
+    String string=url+page;
 
     @Override
     protected void restartdata() {
@@ -87,7 +89,10 @@ String url="http://api.cntv.cn/apicommon/index?path=iphoneInterface/general/getA
 
         eyePresenter.ShowBigImg();
 
-        eyePresenter.ShowEyeList();
+//        Log.e(TAG, "refreshview: "+url+page );
+        eyePresenter.ShowEyeList(url+page);
+
+        page++;
     }
 
 
@@ -112,7 +117,7 @@ String url="http://api.cntv.cn/apicommon/index?path=iphoneInterface/general/getA
         eyepanda_personal_imageview.setOnClickListener(this);
 
         //下拉刷新
-        eye_refreshlayout.setRefreshHeader(new FunGameHitBlockHeader(Myapp.activity));
+        eye_refreshlayout.setRefreshHeader(new ClassicsHeader(Myapp.activity));
         //上拉加载
         eye_refreshlayout.setRefreshFooter(new BallPulseFooter(Myapp.activity));
 
