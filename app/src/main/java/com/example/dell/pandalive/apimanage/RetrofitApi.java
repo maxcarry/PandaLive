@@ -2,6 +2,7 @@ package com.example.dell.pandalive.apimanage;
 
 import com.example.dell.pandalive.entity.BigImageBean;
 import com.example.dell.pandalive.entity.ChinaBean;
+import com.example.dell.pandalive.entity.ChinaUriBean;
 import com.example.dell.pandalive.entity.ColumnBean;
 import com.example.dell.pandalive.entity.EyeListBean;
 import com.example.dell.pandalive.entity.HomeBean;
@@ -10,6 +11,7 @@ import com.example.dell.pandalive.entity.TvBean;
 import com.example.dell.pandalive.entity.VideoBanner;
 import com.example.dell.pandalive.entity.VideoBean;
 import com.example.dell.pandalive.entity.VideoDetailsHDBean;
+import com.example.dell.pandalive.entity.VideoPlayBean;
 import com.example.dell.pandalive.entity.VideoRVBean;
 import com.example.dell.pandalive.ui.livepanda.perform.LivePerformBean;
 
@@ -128,5 +130,13 @@ public interface RetrofitApi {
     //栏目页面
     @GET
     Observable<ColumnBean> getcolumn(@Url String url);
+
+    //直播中国视频
+    @GET
+    Observable<ChinaUriBean> getchinaplay(@Url String url);
+
+    //点播视频
+    @GET
+    Observable<VideoPlayBean> getvideoplay(@Url String url);
 
 }
