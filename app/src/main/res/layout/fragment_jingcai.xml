@@ -4,10 +4,26 @@
     android:layout_height="match_parent"
     tools:context="com.example.dell.pandalive.ui.livepanda.splendid.LiveSplendidFragment">
 
-    <com.jcodecraeer.xrecyclerview.XRecyclerView
-        android:id="@+id/live_splendid_xrecycler"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"></com.jcodecraeer.xrecyclerview.XRecyclerView>
 
+   <!-- <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/live_original_smart"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+-->
+
+       <com.jcodecraeer.xrecyclerview.XRecyclerView
+            android:id="@+id/live_splendid_xrecycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></com.jcodecraeer.xrecyclerview.XRecyclerView>
+
+
+<!--
+
+    <com.example.dell.pandalive.custom_view.CustomListview
+
+        android:id="@+id/live_splendid_customlistview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+-->
 
 </LinearLayout>

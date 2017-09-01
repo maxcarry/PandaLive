@@ -1,7 +1,6 @@
 package com.example.dell.pandalive.ui.livepanda.archives;
 
 import android.content.Intent;
-import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 
@@ -54,25 +53,25 @@ public class LiveArchivesFragment extends BaseFragment implements ILivePerformFr
     protected void initview() {
         view = LayoutInflater.from(Myapp.activity).inflate(R.layout.fragment_jingcai, null);
         liveArchivesPresenter = new LiveArchivesPresenter(this);
-        live_splendid_xrecycler = (XRecyclerView) view.findViewById(R.id.live_splendid_xrecycler);
+//        live_splendid_xrecycler = (XRecyclerView) view.findViewById(R.id.live_splendid_xrecycler);
 
         //瀑布流
-        live_splendid_xrecycler.setLayoutManager(new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL));
+//        live_splendid_xrecycler.setLayoutManager(new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL));
 
-        live_splendid_xrecycler.setLoadingListener(new XRecyclerView.LoadingListener() {
-            @Override
-            public void onRefresh() {
-
-
-
-                live_splendid_xrecycler.refreshComplete();
-            }
-
-            @Override
-            public void onLoadMore() {
-                live_splendid_xrecycler.refreshComplete();
-            }
-        });
+//        live_splendid_xrecycler.setLoadingListener(new XRecyclerView.LoadingListener() {
+//            @Override
+//            public void onRefresh() {
+//
+//
+//
+//                live_splendid_xrecycler.refreshComplete();
+//            }
+//
+//            @Override
+//            public void onLoadMore() {
+//                live_splendid_xrecycler.refreshComplete();
+//            }
+//        });
 
     }
 

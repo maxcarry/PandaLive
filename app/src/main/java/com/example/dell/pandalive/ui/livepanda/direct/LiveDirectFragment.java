@@ -59,11 +59,11 @@ public class LiveDirectFragment extends BaseFragment {
     protected void initview() {
 
         view = LayoutInflater.from(Myapp.activity).inflate(R.layout.fragment_live_direct, null);
-       //找id
-        getid();
-        //箭头图标监听
-        getmonitor();
-
+//       //找id
+//        getid();
+//        //箭头图标监听
+//        getmonitor();
+//        initData();
     }
 
     private void initData() {

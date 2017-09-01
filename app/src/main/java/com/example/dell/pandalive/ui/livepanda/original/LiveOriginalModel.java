@@ -29,9 +29,7 @@ public class LiveOriginalModel implements ILivePerformPresenter {
 
             @Override
             public void onNext(Object value) {
-                LivePerformBean livePerformBean= (LivePerformBean) value;
-                List<LivePerformBean.VideoBean> video = livePerformBean.getVideo();
-                iLivePerformview.SendPerform(video);
+                getrequest((LivePerformBean) value, iLivePerformview);
             }
 
             @Override
@@ -46,5 +44,11 @@ public class LiveOriginalModel implements ILivePerformPresenter {
 
             }
         });
+    }
+
+    private void getrequest(LivePerformBean value, ILivePerformview iLivePerformview) {
+        LivePerformBean livePerformBean= value;
+        List<LivePerformBean.VideoBean> video = livePerformBean.getVideo();
+        iLivePerformview.SendPerform(video);
     }
 }

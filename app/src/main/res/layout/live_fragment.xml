@@ -38,11 +38,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
+<!--NoScrollViewPager-->
 
-    <android.support.v4.view.ViewPager
+    <com.example.dell.pandalive.custom_view.NoScrollViewPager
         android:id="@+id/live_viewpaget"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"></com.example.dell.pandalive.custom_view.NoScrollViewPager>
+
 
 
 </LinearLayout>

@@ -4,22 +4,21 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 
 import com.example.dell.pandalive.R;
 import com.example.dell.pandalive.app.Myapp;
 import com.example.dell.pandalive.base.BaseFragment;
+import com.example.dell.pandalive.custom_view.NoScrollViewPager;
 import com.example.dell.pandalive.ui.livepanda.archives.LiveArchivesFragment;
+import com.example.dell.pandalive.ui.livepanda.direct.LiveDirectFragment;
 import com.example.dell.pandalive.ui.livepanda.original.LiveOriginalFragment;
 import com.example.dell.pandalive.ui.livepanda.perform.LivePerformFragment;
-import com.example.dell.pandalive.ui.livepanda.splendid.LiveSplendidFragment;
 import com.example.dell.pandalive.ui.livepanda.thing.LiveThingFragment;
 import com.example.dell.pandalive.ui.livepanda.top.LiveTOPFragment;
 import com.example.dell.pandalive.ui.livepanda.unusual.LiveUnusualFragment;
-import com.example.dell.pandalive.ui.livepanda.direct.LiveDirectFragment;
+import com.example.dell.pandalive.ui.livepanda.viewlive.LiveSplendidFragment;
 import com.example.dell.pandalive.ui.livepanda.yield.LiveYieldFragment;
 
 import java.util.ArrayList;
@@ -30,20 +29,11 @@ import java.util.List;
  */
 
 public class LiveFragment extends BaseFragment {
-
-
-//    sa;djkfh;aslkjhdflaskjhdflashjdf
-//    asdkl;jhflaskjdhflaskjdfhasdfjkn
-
-
-
-
-
     private View view;
-    private ViewPager live_viewpaget;
+    private NoScrollViewPager live_viewpaget;
     private TabLayout live_tablayout;
-    private List<String> listTitles;
-    private List<Fragment> fragments;
+    private List<String> listTitles = new ArrayList<>();
+    private List<Fragment> fragments = new ArrayList<>();
 
     //不用管
     @Override
@@ -55,32 +45,18 @@ public class LiveFragment extends BaseFragment {
     @Override
     protected void initdata() {
         getid();
-
-        initfragment();
-
-        //设置不能滑动
-        live_viewpaget.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                return true;  //修改为true
-            }
-
-        });
-    }
-
-    private void initfragment() {
-
-
-        listTitles = new ArrayList<>();
-        fragments = new ArrayList<>();
         initData();
+        //设置不能滑动
+        live_viewpaget.setNoScroll(true);
+
 
     }
+
 
     private void getid() {
         live_tablayout = (TabLayout) view.findViewById(R.id.live_tablayout);
 
-        live_viewpaget = (ViewPager) view.findViewById(R.id.live_viewpaget);
+        live_viewpaget = (NoScrollViewPager) view.findViewById(R.id.live_viewpaget);
     }
 
     @Override
@@ -109,7 +85,6 @@ public class LiveFragment extends BaseFragment {
         listTitles.add("原创新闻");
         //添加Tablayout标题
 
-
         live_tablayout.addTab(live_tablayout.newTab().setText(listTitles.get(0)));
         live_tablayout.addTab(live_tablayout.newTab().setText(listTitles.get(1)));
         live_tablayout.addTab(live_tablayout.newTab().setText(listTitles.get(2)));
@@ -122,23 +97,23 @@ public class LiveFragment extends BaseFragment {
 
 
         //添加Fragment
-        //直播
+//        //直播
         fragments.add(new LiveDirectFragment());
-        //精彩一刻
+//        //精彩一刻
         fragments.add(new LiveSplendidFragment());
-        //当熊不让
+//        //当熊不让
         fragments.add(new LiveYieldFragment());
-        //超萌滚滚秀
+//        //超萌滚滚秀
         fragments.add(new LivePerformFragment());
         //熊猫档案
         fragments.add(new LiveArchivesFragment());
-        //熊猫top榜
+//        //熊猫top榜
         fragments.add(new LiveTOPFragment());
-        //熊猫那些事
+//        //熊猫那些事
         fragments.add(new LiveThingFragment());
-        //特别节目
+//        //特别节目
         fragments.add(new LiveUnusualFragment());
-        //原创新闻
+//        //原创新闻
         fragments.add(new LiveOriginalFragment());
 
 
