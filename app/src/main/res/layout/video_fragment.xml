@@ -32,33 +32,41 @@
           />
    </RelativeLayout>
 
-    <ScrollView
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+       android:id="@+id/refreshlayout"
         android:layout_width="match_parent"
         android:layout_below="@+id/video_linear"
-        android:layout_height="match_parent"
-        android:scrollbars="none"
-        >
-
-        <LinearLayout
+        android:layout_height="match_parent">
+        <ScrollView
             android:layout_width="match_parent"
+            android:layout_below="@+id/video_linear"
             android:layout_height="match_parent"
-            android:orientation="vertical"
+            android:scrollbars="none"
             >
-            <com.youth.banner.Banner
-                android:id="@+id/video_banner"
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="600px"></com.youth.banner.Banner>
-           <LinearLayout
-               android:layout_width="match_parent"
-               android:layout_height="30px"
-               android:background="@color/colorGray"
-               ></LinearLayout>
-            <com.example.dell.pandalive.custom_view.CustomListview
-                android:id="@+id/video_list_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"></com.example.dell.pandalive.custom_view.CustomListview>
-        </LinearLayout>
-    </ScrollView>
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                >
+                <com.youth.banner.Banner
+                    android:id="@+id/video_banner"
+                    android:layout_width="match_parent"
+                    android:layout_height="600px"></com.youth.banner.Banner>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="30px"
+                    android:background="@color/colorGray"
+                    ></LinearLayout>
+                <com.example.dell.pandalive.custom_view.CustomListview
+                    android:id="@+id/video_list_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"></com.example.dell.pandalive.custom_view.CustomListview>
+            </LinearLayout>
+        </ScrollView>
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+
     <!--<ScrollView-->
         <!--android:layout_below="@id/video_linear"-->
         <!--android:layout_width="match_parent"-->
