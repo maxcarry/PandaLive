@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
      android:orientation="vertical"
     android:background="#E6EBEF"
-    tools:context="com.example.dell.pandalive.ui.personal.DebarkActivity">
+    tools:context="com.example.dell.pandalive.ui.personal.login.DebarkActivity">
 
 
     <RelativeLayout

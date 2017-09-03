@@ -1,4 +1,4 @@
-package com.example.dell.pandalive.ui.personal;
+package com.example.dell.pandalive.ui.personal.login;
 
 import android.content.Intent;
 import android.graphics.Paint;
@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.example.dell.pandalive.R;
 import com.example.dell.pandalive.app.Myapp;
 import com.example.dell.pandalive.base.BaseActivity;
+import com.example.dell.pandalive.ui.personal.register.RegisterActivity;
 
 public class DebarkActivity extends BaseActivity implements View.OnClickListener {
 

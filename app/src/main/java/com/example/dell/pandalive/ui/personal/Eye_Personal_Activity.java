@@ -8,7 +8,7 @@ import android.widget.LinearLayout;
 import com.example.dell.pandalive.R;
 import com.example.dell.pandalive.app.Myapp;
 import com.example.dell.pandalive.base.BaseActivity;
-import com.example.dell.pandalive.ui.personal.DebarkActivity;
+import com.example.dell.pandalive.ui.personal.login.DebarkActivity;
 
 /**
  * Created by 张凯雅 on 2017/8/27.

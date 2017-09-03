@@ -1,4 +1,4 @@
-package com.example.dell.pandalive.ui.personal;
+package com.example.dell.pandalive.ui.personal.register;
 
 import android.graphics.Color;
 import android.support.v4.app.FragmentManager;
