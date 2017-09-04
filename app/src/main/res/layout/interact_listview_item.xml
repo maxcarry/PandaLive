@@ -10,7 +10,7 @@
     <LinearLayout
         android:layout_width="1020px"
         android:layout_gravity="center"
-        android:layout_height="700px"
+        android:layout_height="750px"
         android:orientation="vertical"
         android:background="@drawable/eye_personal">
 
@@ -34,6 +34,7 @@
             android:layout_height="fill_parent"
             android:background="@color/colorWhite"
             android:id="@+id/listview_image_imageview"
+            android:layout_marginBottom="20px"
             />
     </LinearLayout>
 

@@ -1,6 +1,8 @@
 package com.example.dell.pandalive.ui.eyepanda.activity;
 
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.webkit.WebSettings;
@@ -81,28 +83,28 @@ public class Eye_WebView_Activity extends BaseActivity{
             @Override
             public void onClick(View v) {
                 View view= LayoutInflater.from(Myapp.activity).inflate(R.layout.eyewebview_popupwindow,null);
-                web_popup_facebook =(ImageView)view.findViewById(R.id.web_popup_facebook);
-                web_popup_twitter =(ImageView)view.findViewById(R.id.web_popup_twitter);
-                web_popup_webo =(ImageView)view.findViewById(R.id.web_popup_webo);
-                web_popup_wechat =(ImageView)view.findViewById(R.id.web_popup_wechat);
-                web_popup_friend =(ImageView)view.findViewById(R.id.web_popup_friend);
+//                web_popup_facebook =(ImageView)view.findViewById(R.id.web_popup_facebook);
+//                web_popup_twitter =(ImageView)view.findViewById(R.id.web_popup_twitter);
+//                web_popup_webo =(ImageView)view.findViewById(R.id.web_popup_webo);
+//                web_popup_wechat =(ImageView)view.findViewById(R.id.web_popup_wechat);
+//                web_popup_friend =(ImageView)view.findViewById(R.id.web_popup_friend);
                 web_popup_return=(Button)view.findViewById(R.id.web_popup_return);
 
-//                web_popup_return.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        popup.dismiss();
-//                    }
-//                });
-//
-//                popup = new PopupWindow(view, LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT,true);
-//                popup.setOutsideTouchable(true);
-////                popup.setBackgroundDrawable(new ColorDrawable());
-//                ColorDrawable dw = new ColorDrawable(0000000000);
-//                popup.setBackgroundDrawable(dw);
+                web_popup_return.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        popup.dismiss();
+                    }
+                });
+////                ColorDrawable dw = new ColorDrawable(0000000000);
+////                popup.setBackgroundDrawable(dw);
 //                // 动画效果 从底部弹起
-////                popup.setAnimationStyle(R.style.Animations_GrowFromBottom);
-//                popup.showAtLocation(linearLayout, Gravity.BOTTOM,100,0);//parent view随意
+////                popup.setAnimationStyle(R.style.take_popup_anim);
+
+                popup = new PopupWindow(view, LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT,true);
+                popup.setOutsideTouchable(true);
+                popup.setBackgroundDrawable(new ColorDrawable());
+                popup.showAtLocation(linearLayout, Gravity.BOTTOM,0,0);//parent view随意
 
             }
         });

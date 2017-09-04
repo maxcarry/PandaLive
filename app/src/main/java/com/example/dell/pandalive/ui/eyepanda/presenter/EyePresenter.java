@@ -6,7 +6,6 @@ import com.example.dell.pandalive.entity.InteractListViewBean;
 import com.example.dell.pandalive.ui.eyepanda.IEyeView;
 import com.example.dell.pandalive.ui.eyepanda.model.EyeModel;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -57,17 +56,8 @@ public class EyePresenter implements IEyePresenter {
     }
 
     private void ShowEyeBanner(BigImageBean bigImgBean) {
-        List<BigImageBean.DataBean.BigImgBean> bigImg = bigImgBean.getData().getBigImg();
-        ArrayList<String> imalist = new ArrayList<String>();
-        ArrayList<String> titlelist = new ArrayList<String>();
-        ArrayList<String> pathlist = new ArrayList<String>();
-
-        for (BigImageBean.DataBean.BigImgBean bigimgBean : bigImg) {
-            imalist.add(bigimgBean.getImage());
-            titlelist.add(bigimgBean.getTitle());
-            pathlist.add(bigimgBean.getUrl());
-        }
-        iEyeView.ShowEyeBanner(imalist,titlelist,pathlist);
+      List<BigImageBean.DataBean.BigImgBean> bigimg=bigImgBean.getData().getBigImg();
+        iEyeView.ShowEyeBanner(bigimg);
     }
 
 

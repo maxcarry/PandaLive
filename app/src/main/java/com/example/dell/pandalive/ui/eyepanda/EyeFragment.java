@@ -11,6 +11,7 @@ import com.example.dell.pandalive.R;
 import com.example.dell.pandalive.adapter.MyEyeListAdapter;
 import com.example.dell.pandalive.app.Myapp;
 import com.example.dell.pandalive.base.BaseFragment;
+import com.example.dell.pandalive.entity.BigImageBean;
 import com.example.dell.pandalive.entity.EyeListBean;
 import com.example.dell.pandalive.entity.InteractListViewBean;
 import com.example.dell.pandalive.loaderutils.BannerGlideImageLoader;
@@ -33,12 +34,6 @@ import com.youth.banner.listener.OnBannerListener;
 import java.util.ArrayList;
 import java.util.List;
 
-//import in.srain.cube.views.ptr.PtrClassicDefaultFooter;
-//import in.srain.cube.views.ptr.PtrClassicDefaultHeader;
-//import in.srain.cube.views.ptr.PtrDefaultHandler2;
-//import in.srain.cube.views.ptr.PtrFrameLayout;
-
-//import static com.example.dell.pandalive.R.id.eyepanda_ptr;
 
 /**
  * Created by dell on 2017/8/23.
@@ -52,7 +47,6 @@ String url="http://api.cntv.cn/apicommon/index?path=iphoneInterface/general/getA
     private List<EyeListBean.ListBean> listBean = new ArrayList<>();
     private Banner eyepanda_banner;
     private ListView eyepanda_listview;
-    private Intent intent = new Intent(Myapp.activity, PlayActivityUtil.class);
     private MyEyeListAdapter listAdapter;
     private SmartRefreshLayout eye_refreshlayout;
     private int page=1;
@@ -130,7 +124,15 @@ String url="http://api.cntv.cn/apicommon/index?path=iphoneInterface/general/getA
     }
 
     @Override
-    public void ShowEyeBanner(ArrayList<String> imalist, final ArrayList<String> titlelist, final ArrayList<String> pathlist) {
+    public void ShowEyeBanner(final List<BigImageBean.DataBean.BigImgBean> bigImg) {
+
+        ArrayList<String> imalist = new ArrayList<String>();
+        final ArrayList<String> titlelist = new ArrayList<String>();
+        for (BigImageBean.DataBean.BigImgBean bigImgBean : bigImg) {
+            imalist.add(bigImgBean.getImage());
+            titlelist.add(bigImgBean.getTitle());
+        }
+
         //设置banner样式
         eyepanda_banner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR_TITLE_INSIDE);
         //设置图片加载器
@@ -150,9 +152,10 @@ String url="http://api.cntv.cn/apicommon/index?path=iphoneInterface/general/getA
         eyepanda_banner.setOnBannerListener(new OnBannerListener() {
             @Override
             public void OnBannerClick(int position) {
-
+                Intent intent = new Intent(Myapp.activity, PlayActivityUtil.class);
                 intent.putExtra("title", titlelist.get(position));
-                intent.putExtra("path", pathlist.get(position));
+                intent.putExtra("path", bigImg.get(position).getPid());
+                intent.putExtra("type",bigImg.get(position).getType());
                 startActivity(intent);
             }
         });
@@ -160,7 +163,6 @@ String url="http://api.cntv.cn/apicommon/index?path=iphoneInterface/general/getA
         eyepanda_banner.start();
 
     }
-
 
     @Override
     public void ShowEyeList(final List<EyeListBean.ListBean> eyelist) {

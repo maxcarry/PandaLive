@@ -42,6 +42,7 @@ public class Eye_Personal_Activity extends BaseActivity implements View.OnClickL
         });
 
         personal_one_linearlayout.setOnClickListener(this);
+        personal_four_linearlayout.setOnClickListener(this);
 
     }
 
@@ -57,6 +58,10 @@ public class Eye_Personal_Activity extends BaseActivity implements View.OnClickL
             case R.id.personal_one_linearlayout:
 
                 startActivity(new Intent(Myapp.activity,DebarkActivity.class));
+                break;
+            case R.id.personal_four_linearlayout:
+
+                startActivity(new Intent(Myapp.activity,Install_Activity.class));
                 break;
         }
     }
