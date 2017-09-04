@@ -95,7 +95,6 @@ public class LiveDirectFragment extends BaseFragment implements ILiveDirectFragm
         look_but1_listview.setAdapter(myMultiAdapter);
     }
 
-//    ArrayList<Fragment> fragments = new ArrayList<>();
   /*  private void initData() {
 
 //        LookTalkFragment lookTalkFragment = new
@@ -128,10 +127,6 @@ public class LiveDirectFragment extends BaseFragment implements ILiveDirectFragm
 
         for (int i = 0; i <lookTalkBeen.size() ; i++) {
             list = lookTalkBeen.get(i).getList();
-
-//            String title = list.get(i).getTitle();
-//             Toast.makeText(getActivity(),"---------->"+title,Toast.LENGTH_LONG).show();
-
             LookTalkAdapters lookTalkAdapters=new LookTalkAdapters(getActivity(),list);
 
             look_but1_gridview.setAdapter(lookTalkAdapters);
@@ -182,11 +177,6 @@ public class LiveDirectFragment extends BaseFragment implements ILiveDirectFragm
         //介绍（文字）
         live_plau_introduce = (TextView) view.findViewById(R.id.live_plau_introduce);
         live_play_relative = (RelativeLayout) view.findViewById(R.id.live_play_relative);
-//        MultiAngleFragment
-
-//        live_plau_tablelayout = (TabLayout) view.findViewById(R.id.live_plau_tablayout);
-//        live_plau_viewpager = (NoScrollViewPager) view.findViewById(R.id.live_plau_viewpager);
-
 
         look_but1 = (Button) view.findViewById(R.id.look_but1);
         look_but2 = (Button) view.findViewById(R.id.look_but2);
