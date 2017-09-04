@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 颜色渐变效果 -->
+    <gradient android:angle="0" android:paddingTop="5dp" android:endColor="#ffffff" android:startColor="#ffffff"/>
+    <!-- 按钮四个角的平滑度 -->
+    <corners android:radius="10dp"/>
+</shape>

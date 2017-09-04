@@ -37,9 +37,9 @@ class User_Activity extends BaseActivity implements View.OnClickListener {
         meet_title.setTextColor(Color.BLUE);
         //VISIBLE  显示
         meet_thread.setVisibility(View.VISIBLE);
-
         meet = new Meet_Fragment();
         common = new Common_Fragment();
+
         FragmentManager manager=getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
         transaction.add(R.id.problem_show,meet);
@@ -100,7 +100,7 @@ class User_Activity extends BaseActivity implements View.OnClickListener {
                         transaction.commitAllowingStateLoss();
                     } else {
                         transaction.hide(common);
-                        transaction.add(R.id.register_show, meet);
+                        transaction.add(R.id.problem_show, meet);
                         transaction.commitAllowingStateLoss();
                     }
                 }
@@ -121,7 +121,7 @@ class User_Activity extends BaseActivity implements View.OnClickListener {
                         transaction.commitAllowingStateLoss();
                     } else {
                         transaction.hide(meet);
-                        transaction.add(R.id.register_show, common);
+                        transaction.add(R.id.problem_show, common);
                         transaction.commitAllowingStateLoss();
                     }
                 }

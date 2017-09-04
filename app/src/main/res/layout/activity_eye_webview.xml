@@ -34,12 +34,14 @@
         android:gravity="center"
         android:orientation="horizontal">
 
-        <ImageView
+        <CheckBox
+            android:button="@null"
+            android:drawableLeft="@drawable/eyepanda_collect"
             android:layout_width="100px"
             android:layout_height="100px"
             android:background="@color/colorWhite"
             android:src="@drawable/eyepanda_collect"
-            android:id="@+id/eyeweb_collect_imageview"
+            android:id="@+id/eyeweb_collect_checkbox"
             />
 
         <ImageView

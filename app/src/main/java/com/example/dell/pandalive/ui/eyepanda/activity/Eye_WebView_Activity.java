@@ -8,6 +8,7 @@ import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
@@ -26,7 +27,7 @@ public class Eye_WebView_Activity extends BaseActivity{
     private WebView eyeweb_webview;
     private ImageView eyeweb_back_imageview;
     private ImageView eyeweb_share_imageview;
-    private ImageView eyeweb_collect_imageview;
+    private CheckBox eyeweb_collect_checkbox;
     private LinearLayout linearLayout;
     private PopupWindow popup;
     private ImageView web_popup_facebook;
@@ -35,6 +36,7 @@ public class Eye_WebView_Activity extends BaseActivity{
     private ImageView web_popup_wechat;
     private ImageView web_popup_friend;
     private Button web_popup_return;
+
 
     @Override
     protected void initdata() {
@@ -61,17 +63,15 @@ public class Eye_WebView_Activity extends BaseActivity{
 
         eyeweb_share_imageview = (ImageView) findViewById(R.id.eyeweb_share_imageview);
         eyeweb_back_imageview = (ImageView) findViewById(R.id.eyeweb_back_imageview);
-        eyeweb_collect_imageview = (ImageView) findViewById(R.id.eyeweb_collect_imageview);
+        eyeweb_collect_checkbox =(CheckBox)findViewById(R.id.eyeweb_collect_checkbox);
 
         //收藏
-        eyeweb_collect_imageview.setOnClickListener(new View.OnClickListener() {
+        eyeweb_collect_checkbox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (eyeweb_collect_imageview != null){
-                    eyeweb_collect_imageview.setImageResource(R.drawable.collect_yes);
+                if(eyeweb_collect_checkbox != null){
                     Toast.makeText(Eye_WebView_Activity.this, "已添加，请到[我的收藏]中查看", Toast.LENGTH_SHORT).show();
-                }else if (eyeweb_collect_imageview ==  null){
-                    eyeweb_collect_imageview.setImageResource(R.drawable.collect_no);
+                }else if (eyeweb_collect_checkbox == null){
                     Toast.makeText(Eye_WebView_Activity.this, "已取消收藏", Toast.LENGTH_SHORT).show();
                 }
 

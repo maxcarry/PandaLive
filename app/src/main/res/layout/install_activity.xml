@@ -50,12 +50,14 @@
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
-            <ImageView
+            <CheckBox
+                android:button="@null"
+                android:drawableLeft="@drawable/install_switch"
                 android:layout_marginRight="50px"
-                android:layout_width="120px"
+                android:layout_width="135px"
                 android:layout_height="130px"
                 android:layout_alignParentRight="true"
-                android:src="@drawable/switch_close"/>
+                />
         </RelativeLayout>
     </LinearLayout>
     <View
@@ -80,12 +82,14 @@
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
-            <ImageView
+            <CheckBox
+                android:button="@null"
+                android:drawableLeft="@drawable/install_switch"
                 android:layout_marginRight="50px"
-                android:layout_width="120px"
+                android:layout_width="135px"
                 android:layout_height="130px"
                 android:layout_alignParentRight="true"
-                android:src="@drawable/switch_close"/>
+                />
         </RelativeLayout>
     </LinearLayout>
     <View
@@ -166,6 +170,7 @@
         android:layout_height="3px"
         />
     <LinearLayout
+        android:id="@+id/install_test_linearlayout"
         android:layout_gravity="center"
         android:layout_width="1020px"
         android:layout_height="150px"
@@ -226,7 +231,7 @@
         android:layout_height="3px"
         />
     <LinearLayout
-        android:id="@+id/personal_two_linearlayout"
+        android:id="@+id/install_video_linearlayout"
         android:layout_gravity="center"
         android:layout_width="1020px"
         android:layout_height="150px"

@@ -57,11 +57,11 @@
                 android:id="@+id/meet_title"
                 />
         </RelativeLayout>
-        <TextView
-            android:layout_width="1px"
-            android:layout_height="match_parent"
-            android:background="@color/color_black"
-            />
+        <!--<TextView-->
+            <!--android:layout_width="1px"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:background="@color/color_black"-->
+            <!--/>-->
         <RelativeLayout
             android:id="@+id/common_bt"
             android:layout_weight="1"

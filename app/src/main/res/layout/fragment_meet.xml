@@ -1,13 +1,201 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.example.dell.pandalive.ui.personal.MeetFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <View
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="50px" />
+    <LinearLayout
+        android:layout_gravity="center"
+        android:layout_width="1020px"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/colorWhite">
+        <LinearLayout
+            android:layout_marginBottom="10px"
+            android:layout_marginLeft="35px"
+            android:layout_marginTop="30px"
+            android:layout_width="0px"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <CheckBox
+                android:button="@null"
+                android:drawableLeft="@drawable/check_selecter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+               />
+            <TextView
+                android:layout_marginLeft="20px"
+                android:layout_gravity="center_vertical"
+                android:textSize="45px"
+                android:textColor="@color/color_black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="功能异常"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="30px"
+            android:layout_width="0px"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <CheckBox
+                android:button="@null"
+                android:drawableLeft="@drawable/check_selecter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+            <TextView
+                android:layout_marginLeft="20px"
+                android:layout_gravity="center_vertical"
+                android:layout_centerVertical="true"
+                android:textSize="45px"
+                android:textColor="@color/color_black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="内容问题"/>
 
-</FrameLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_centerVertical="true"
+            android:layout_marginTop="30px"
+            android:layout_width="0px"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <CheckBox
+                android:button="@null"
+                android:drawableLeft="@drawable/check_selecter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+            <TextView
+                android:layout_marginLeft="20px"
+                android:layout_gravity="center_vertical"
+                android:textSize="45px"
+                android:textColor="@color/color_black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="界面优化"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_gravity="center"
+        android:layout_width="1020px"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/colorWhite">
+        <LinearLayout
+            android:layout_marginBottom="30px"
+            android:layout_marginLeft="35px"
+            android:layout_marginTop="30px"
+            android:layout_width="0px"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <CheckBox
+                android:button="@null"
+                android:drawableLeft="@drawable/check_selecter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+            <TextView
+                android:layout_marginLeft="20px"
+                android:layout_gravity="center_vertical"
+                android:textSize="45px"
+                android:textColor="@color/color_black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="视频播放"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginBottom="30px"
+            android:layout_marginTop="30px"
+            android:layout_width="0px"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <CheckBox
+                android:button="@null"
+                android:drawableLeft="@drawable/check_selecter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+               />
+            <TextView
+                android:layout_marginLeft="20px"
+                android:layout_gravity="center_vertical"
+                android:layout_centerVertical="true"
+                android:textSize="45px"
+                android:textColor="@color/color_black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="显示异常"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginBottom="30px"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="30px"
+            android:layout_width="0px"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <CheckBox
+                android:button="@null"
+                android:drawableLeft="@drawable/check_selecter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+            <TextView
+                android:layout_marginLeft="20px"
+                android:layout_gravity="center_vertical"
+                android:textSize="45px"
+                android:textColor="@color/color_black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="其他建议"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="50px"/>
+    <EditText
+        android:layout_gravity="center"
+        android:background="@color/colorWhite"
+        android:layout_width="1020px"
+        android:layout_height="500px"
+        android:hint="请留下您的宝贵意见"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="50px"/>
+    <EditText
+        android:layout_width="1020px"
+        android:layout_height="160px"
+        android:background="@color/colorWhite"
+        android:layout_gravity="center"
+        android:hint="请输入您的邮箱，方便我们及时给您回复"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="50px"/>
+    <Button
+        android:layout_width="1020px"
+        android:layout_height="wrap_content"
+        android:background="@drawable/user_button"
+        android:layout_gravity="center"
+        android:text="提交"
+        android:textColor="@color/colorWhite"
+        android:textSize="45px"/>
+
+
+</LinearLayout>

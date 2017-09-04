@@ -80,6 +80,9 @@
         <activity android:name=".ui.personal.Install_Activity"/>
         <activity android:name=".ui.personal.User_Activity"/>
       <activity android:name=".ui.eyepanda.activity.Eye_WebView_Activity"/>
+        <activity android:name=".ui.personal.Video_Activity"/>
+        <activity android:name=".ui.personal.Information_Activity"/>
+        <activity android:name=".ui.personal.Revise_Activity"/>
     </application>
 
 </manifest>
