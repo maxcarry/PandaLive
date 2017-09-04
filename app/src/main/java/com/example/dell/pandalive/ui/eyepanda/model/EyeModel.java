@@ -12,7 +12,7 @@ import io.reactivex.disposables.Disposable;
 /**
  * Created by 张凯雅 on 2017/8/25.
  */
-////
+//////
 public class EyeModel implements IEyeModel {
     //http://www.ipanda.com/kehuduan/news/index.json
     @Override
@@ -47,9 +47,9 @@ public class EyeModel implements IEyeModel {
 //http://api.cntv.cn/apicommon/index?path=iphoneInterface/general/getArticleAndVideoListInfo.json&primary_id=PAGE1422435191506336&serviceId=panda
 
     @Override
-    public void GainEyeList(final IEyePresenter iEyePresenter) {
+    public void GainEyeList(final IEyePresenter iEyePresenter,String url) {
 
-        RetrofitUtil.instance("http://api.cntv.cn/").Webeyelist(new Observer() {
+        RetrofitUtil.instance("").Webeyelist(url,new Observer() {
             @Override
             public void onSubscribe(Disposable d) {
 

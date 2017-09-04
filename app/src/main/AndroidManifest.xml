@@ -68,16 +68,18 @@
         <activity android:name=".ui.eyepanda.activity.Eye_WebView_Activity" />
         <activity android:name=".ui.eyepanda.activity.Interact_WebView_Activity" />
         <activity android:name=".ui.videopanda.VideoDetailsActivity" />
-        <activity android:name=".ui.personal.DebarkActivity"></activity>
-        <activity android:name=".ui.DebarkActivity"/>
-        <activity android:name=".ui.eyepanda.activity.Eye_WebView_Activity"/>
+        <activity android:name=".ui.personal.login.DebarkActivity"></activity>
         <activity android:name=".ui.personal.Eye_Personal_Activity"/>
         <activity android:name=".ui.eyepanda.activity.Interact_WebView_Activity"/>
         <activity android:name=".ui.videopanda.VideoDetailsActivity"/>
-        <activity android:name=".ui.personal.RegisterActivity" />
+        <activity android:name=".ui.personal.register.RegisterActivity" />
         <activity android:name=".ui.livechina.tabfragment.ColumnActivity"
             android:theme="@style/Transparent"
             />
+        <activity android:name=".ui.personal.login.DebarkActivity"/>
+        <activity android:name=".ui.personal.Install_Activity"/>
+        <activity android:name=".ui.personal.User_Activity"/>
+      <activity android:name=".ui.eyepanda.activity.Eye_WebView_Activity"/>
     </application>
 
 </manifest>

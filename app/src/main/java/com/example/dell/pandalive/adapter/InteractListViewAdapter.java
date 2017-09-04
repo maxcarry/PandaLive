@@ -58,6 +58,8 @@ public class InteractListViewAdapter extends BaseAdapter {
         }
         holder.listview_title_imageview.setText(listViewBeen.get(position).getTitle());
         Glide.with(context).load(listViewBeen.get(position).getImage()).into(holder.listview_image_imageview);
+       //全部充满
+        holder.listview_image_imageview.setScaleType(ImageView.ScaleType.FIT_XY);
         return convertView;
         }
     class ViewHolder{

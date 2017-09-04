@@ -8,7 +8,7 @@ import android.widget.LinearLayout;
 import com.example.dell.pandalive.R;
 import com.example.dell.pandalive.app.Myapp;
 import com.example.dell.pandalive.base.BaseActivity;
-import com.example.dell.pandalive.ui.personal.DebarkActivity;
+import com.example.dell.pandalive.ui.personal.login.DebarkActivity;
 
 /**
  * Created by 张凯雅 on 2017/8/27.
@@ -42,6 +42,7 @@ public class Eye_Personal_Activity extends BaseActivity implements View.OnClickL
         });
 
         personal_one_linearlayout.setOnClickListener(this);
+        personal_four_linearlayout.setOnClickListener(this);
 
     }
 
@@ -57,6 +58,10 @@ public class Eye_Personal_Activity extends BaseActivity implements View.OnClickL
             case R.id.personal_one_linearlayout:
 
                 startActivity(new Intent(Myapp.activity,DebarkActivity.class));
+                break;
+            case R.id.personal_four_linearlayout:
+
+                startActivity(new Intent(Myapp.activity,Install_Activity.class));
                 break;
         }
     }

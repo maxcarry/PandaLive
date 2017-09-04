@@ -1,8 +1,8 @@
 package com.example.dell.pandalive.ui.videopanda;
 
+import com.example.dell.pandalive.entity.VideoBanner;
 import com.example.dell.pandalive.entity.VideoRVBean;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -11,7 +11,7 @@ import java.util.List;
 
 public interface IVideoView {
 
-    void ShovideowBanner(ArrayList<String> bigImgBeen,ArrayList<String> videotitlelist,ArrayList<String> videopathlist);
+    void ShovideowBanner(List<VideoBanner.BigImgBean> bigImgBeen);
 
     void ShowRecycler(List<VideoRVBean.ListBean> arrayList);
 

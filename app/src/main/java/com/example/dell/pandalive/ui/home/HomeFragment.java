@@ -3,6 +3,7 @@ package com.example.dell.pandalive.ui.home;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
@@ -39,6 +40,8 @@ import com.youth.banner.listener.OnBannerListener;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static android.content.ContentValues.TAG;
 
 /**
  * Created by dell on 2017/8/23.
@@ -132,8 +135,15 @@ public class HomeFragment extends BaseFragment implements IHomeView, View.OnClic
     }
 
     @Override
-    public void ShowBanner(ArrayList<String> imalist, final ArrayList<String> titlelist, final ArrayList<String> pathlist) {
+    public void ShowBanner(final List<HomeBean.DataBean.BigImgBean> bigImg) {
 
+        ArrayList<String> imalist = new ArrayList<String>();
+        final ArrayList<String> titlelist = new ArrayList<String>();
+
+        for (HomeBean.DataBean.BigImgBean bigImgBean : bigImg) {
+            imalist.add(bigImgBean.getImage());
+            titlelist.add(bigImgBean.getTitle());
+        }
         //设置banner样式
         home_banner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR_TITLE_INSIDE);
         //设置图片加载器
@@ -156,7 +166,8 @@ public class HomeFragment extends BaseFragment implements IHomeView, View.OnClic
             public void OnBannerClick(int position) {
 
                 play.putExtra("title", titlelist.get(position));
-                play.putExtra("path", pathlist.get(position));
+                play.putExtra("path", bigImg.get(position).getPid());
+                play.putExtra("type", bigImg.get(position).getType());
                 startActivity(play);
             }
         });
@@ -165,6 +176,7 @@ public class HomeFragment extends BaseFragment implements IHomeView, View.OnClic
 
         home_bg.setVisibility(View.GONE);
     }
+    
 
     @Override
     public void ShowEye(final HomeBean.DataBean.PandaeyeBean eyebean) {
@@ -176,7 +188,8 @@ public class HomeFragment extends BaseFragment implements IHomeView, View.OnClic
             @Override
             public void onClick(View v) {
                 play.putExtra("title", eyebean.getItems().get(0).getTitle());
-                play.putExtra("path", eyebean.getItems().get(0).getUrl());
+                play.putExtra("path", eyebean.getItems().get(0).getPid());
+                play.putExtra("type", "2");
                 startActivity(play);
             }
         });
@@ -186,18 +199,30 @@ public class HomeFragment extends BaseFragment implements IHomeView, View.OnClic
             @Override
             public void onClick(View v) {
                 play.putExtra("title", eyebean.getItems().get(1).getTitle());
-                play.putExtra("path", eyebean.getItems().get(1).getUrl());
+                play.putExtra("path", eyebean.getItems().get(1).getPid());
+                play.putExtra("type", "2");
                 startActivity(play);
             }
         });
     }
 
     @Override
-    public void ShowLive(List<HomeBean.DataBean.PandaliveBean.ListBean> livelist) {
+    public void ShowLive(final List<HomeBean.DataBean.PandaliveBean.ListBean> livelist) {
 
         home_live_grid.setSelector(new ColorDrawable(Color.TRANSPARENT));
         homeLiveAdapter = new HomeLiveAdapter(Myapp.activity,livelist);
         home_live_grid.setAdapter(homeLiveAdapter);
+        home_live_grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                Log.e(TAG, "onClick: "+"http://vdn.live.cntv.cn/api2/live.do?channel=pa://cctv_p2p_hd"+livelist.get(position).getId()+"&client=androidapp" );
+                play.putExtra("title", livelist.get(position).getTitle());
+                play.putExtra("path", "http://vdn.live.cntv.cn/api2/live.do?channel=pa://cctv_p2p_hd" + livelist.get(position).getId() + "&client=androidapp");
+                play.putExtra("type", "1");
+                startActivity(play);
+            }
+        });
     }
 
     @Override
@@ -211,7 +236,8 @@ public class HomeFragment extends BaseFragment implements IHomeView, View.OnClic
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                 play.putExtra("title", tvlist.get(position).getTitle());
-                play.putExtra("path", tvlist.get(position).getUrl());
+                play.putExtra("path", tvlist.get(position).getPid());
+                play.putExtra("type", tvlist.get(position).getType());
                 startActivity(play);
             }
         });
@@ -228,7 +254,8 @@ public class HomeFragment extends BaseFragment implements IHomeView, View.OnClic
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                 play.putExtra("title", videolist.get(position).getTitle());
-                play.putExtra("path", videolist.get(position).getUrl());
+                play.putExtra("path", videolist.get(position).getPid());
+                play.putExtra("type", videolist.get(position).getType());
                 startActivity(play);
             }
         });
@@ -245,7 +272,8 @@ public class HomeFragment extends BaseFragment implements IHomeView, View.OnClic
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                 play.putExtra("title", chinalist.get(position).getTitle());
-                play.putExtra("path", chinalist.get(position).getUrl());
+                play.putExtra("path",  "http://vdn.live.cntv.cn/api2/live.do?channel=pa://cctv_p2p_hd"+chinalist.get(position).getId()+"&client=androidapp");
+                play.putExtra("type", "1");
                 startActivity(play);
             }
         });

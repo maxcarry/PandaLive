@@ -43,9 +43,9 @@ public class HomeLiveAdapter extends BaseAdapter{
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
 
-        Myholder ho;
+        final Myholder ho;
 
         if (convertView == null) {
 

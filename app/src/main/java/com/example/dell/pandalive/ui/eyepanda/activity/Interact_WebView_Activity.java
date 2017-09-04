@@ -13,7 +13,7 @@ import com.example.dell.pandalive.base.BaseActivity;
 /**
  * Created by 张凯雅 on 2017/8/25.
  */
-////
+//////
 public class Interact_WebView_Activity extends BaseActivity {
 
     private WebView interact_webview;

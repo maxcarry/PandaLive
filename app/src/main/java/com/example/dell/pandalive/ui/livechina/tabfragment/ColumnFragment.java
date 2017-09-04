@@ -118,13 +118,6 @@ public class ColumnFragment extends BaseFragment implements ITabView {
         });
     }
 
-    @Override
-    public void ShowTab(List<ColumnBean.LiveBean> live) {
-
-        columnAdapter = new ColumnAdapter(Myapp.activity, live);
-        column_listview.setAdapter(columnAdapter);
-    }
-
     private void autoPlayVideo(AbsListView view) {
         for (int i = 0; i < visibleCount; i++) {
             if (view != null && view.getChildAt(i) != null && view.getChildAt(i).findViewById(R.id.videoplayer_item) != null) {
@@ -147,5 +140,12 @@ public class ColumnFragment extends BaseFragment implements ITabView {
     public void onPause() {
         super.onPause();
         JCVideoPlayer.releaseAllVideos();
+    }
+
+    @Override
+    public void ShowTab(List<ColumnBean.LiveBean> live) {
+
+        columnAdapter = new ColumnAdapter(Myapp.activity, live);
+        column_listview.setAdapter(columnAdapter);
     }
 }

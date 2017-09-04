@@ -31,6 +31,7 @@ public class TabModel implements ITabModel {
                 List<ColumnBean.LiveBean> live = bean.getLive();
                 iTabPresenter.SendTab(live);
 
+
             }
 
             @Override
@@ -44,4 +45,5 @@ public class TabModel implements ITabModel {
             }
         },url);
     }
+
 }

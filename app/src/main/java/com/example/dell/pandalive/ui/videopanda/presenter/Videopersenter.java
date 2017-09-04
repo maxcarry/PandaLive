@@ -5,7 +5,6 @@ import com.example.dell.pandalive.entity.VideoRVBean;
 import com.example.dell.pandalive.ui.videopanda.IVideoView;
 import com.example.dell.pandalive.ui.videopanda.model.VideoModel;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -33,17 +32,9 @@ public class Videopersenter implements IVideopersenter {
     }
 
     private void ShowvideowBanner(VideoBanner videoBanner) {
-        ArrayList<VideoBanner.BigImgBean> bigImg = (ArrayList<VideoBanner.BigImgBean>) videoBanner.getBigImg();
-        ArrayList<String> imalist = new ArrayList<String>();
-        ArrayList<String> titlelist = new ArrayList<String>();
-        ArrayList<String> pathlist = new ArrayList<String>();
+        List<VideoBanner.BigImgBean> bigImg = videoBanner.getBigImg();
 
-        for (VideoBanner.BigImgBean bigimgBean : bigImg) {
-            imalist.add(bigimgBean.getImage());
-            titlelist.add(bigimgBean.getTitle());
-            pathlist.add(bigimgBean.getUrl());
-        }
-        videoView.ShovideowBanner(imalist, titlelist, pathlist);
+        videoView.ShovideowBanner(bigImg);
 
     }
 
