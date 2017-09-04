@@ -14,9 +14,6 @@ import com.example.dell.pandalive.ui.livepanda.perform.LivePerformBean;
 
 import java.util.List;
 
-import static com.example.dell.pandalive.R.id.h_video_te_item;
-import static com.example.dell.pandalive.R.id.look_time;
-
 /**
  * Created by Administrator on 2017/8/31.
  */
@@ -54,34 +51,34 @@ public class LiveVideoAdapter extends BaseAdapter {
         if (convertView == null) {
             ho = new Myholder();
 
-            convertView = LayoutInflater.from(context).inflate(R.layout.home_video_item, null);
-            ho.h_video_date = (TextView) convertView.findViewById(R.id.h_video_date);
-            ho.h_video_te_item = (TextView) convertView.findViewById(h_video_te_item);
-            ho.h_video_time_item = (TextView) convertView.findViewById(look_time);
-            ho.h_video_ima_item = (ImageView) convertView.findViewById(R.id.look_img);
+            convertView = LayoutInflater.from(context).inflate(R.layout.home_video_items, null);
+            ho.h_video_datess = (TextView) convertView.findViewById(R.id.h_video_datess);
+            ho.h_video_te_itemss = (TextView) convertView.findViewById(R.id.h_video_te_itemss);
+            ho.h_video_time_itemss = (TextView) convertView.findViewById(R.id.look_timess);
+            ho.h_video_ima_itemss = (ImageView) convertView.findViewById(R.id.look_imgss);
             convertView.setTag(ho);
         } else {
             ho = (Myholder) convertView.getTag();
         }
         //图片
-        Glide.with(context).load(performBeen.get(position).getImg()).into(ho.h_video_ima_item);
+        Glide.with(context).load(performBeen.get(position).getImg()).into(ho.h_video_ima_itemss);
 
-        ho.h_video_ima_item.setScaleType(ImageView.ScaleType.FIT_XY);
+        ho.h_video_ima_itemss.setScaleType(ImageView.ScaleType.FIT_XY);
         //播放时间
-        ho.h_video_time_item.setText(performBeen.get(position).getLen());
+        ho.h_video_time_itemss.setText(performBeen.get(position).getLen());
         //介绍
-        ho.h_video_te_item.setText(performBeen.get(position).getT());
+        ho.h_video_te_itemss.setText(performBeen.get(position).getT());
         //日期
-        ho.h_video_date.setText(performBeen.get(position).getPtime());
+        ho.h_video_datess.setText(performBeen.get(position).getPtime());
 
         return convertView;
     }
 
     private class Myholder{
 
-        ImageView h_video_ima_item;
-        TextView h_video_date
-                ,h_video_time_item
-                , h_video_te_item;
+        ImageView h_video_ima_itemss;
+        TextView h_video_datess
+                ,h_video_time_itemss
+                , h_video_te_itemss;
     }
 }

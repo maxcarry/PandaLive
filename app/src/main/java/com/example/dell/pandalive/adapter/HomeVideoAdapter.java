@@ -50,19 +50,19 @@ public class HomeVideoAdapter extends BaseAdapter{
         Myholder ho;
         if (convertView == null) {
             ho = new Myholder();
-            convertView = LayoutInflater.from(context).inflate(R.layout.home_video_item, null);
-            ho.h_video_date = (TextView) convertView.findViewById(R.id.h_video_date);
-            ho.h_video_te_item = (TextView) convertView.findViewById(R.id.h_video_te_item);
-            ho.h_video_time_item = (TextView) convertView.findViewById(R.id.h_video_time_item);
-            ho.h_video_ima_item = (ImageView) convertView.findViewById(R.id.h_video_ima_item);
+            convertView = LayoutInflater.from(context).inflate(R.layout.home_video_items, null);
+            ho.h_video_date = (TextView) convertView.findViewById(R.id.h_video_datess);
+            ho.h_video_te_item = (TextView) convertView.findViewById(R.id.h_video_te_itemss);
+            ho.look_timess = (TextView) convertView.findViewById(R.id.look_timess);
+            ho.look_imgss = (ImageView) convertView.findViewById(R.id.look_imgss);
             convertView.setTag(ho);
         } else {
             ho = (Myholder) convertView.getTag();
         }
 
-        Glide.with(context).load(list.get(position).getImage()).into(ho.h_video_ima_item);
-        ho.h_video_ima_item.setScaleType(ImageView.ScaleType.FIT_XY);
-        ho.h_video_time_item.setText(list.get(position).getVideoLength());
+        Glide.with(context).load(list.get(position).getImage()).into(ho.look_imgss);
+        ho.look_imgss.setScaleType(ImageView.ScaleType.FIT_XY);
+        ho.look_timess.setText(list.get(position).getVideoLength());
         ho.h_video_te_item.setText(list.get(position).getTitle());
         ho.h_video_date.setText(list.get(position).getDaytime());
 
@@ -71,7 +71,9 @@ public class HomeVideoAdapter extends BaseAdapter{
 
     private class Myholder{
 
-        ImageView h_video_ima_item;
-        TextView h_video_date,h_video_time_item, h_video_te_item;
+        ImageView look_imgss;
+        TextView h_video_date
+                ,look_timess
+                , h_video_te_item;
     }
 }

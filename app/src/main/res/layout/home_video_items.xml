@@ -1,37 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:gravity="center"
     android:layout_height="match_parent">
 
+
+
     <ImageView
-        android:layout_width="510px"
-        android:layout_height="310px"
-        android:id="@+id/h_tv_ima_itemss"
+        android:layout_width="400px"
+        android:layout_height="300px"
+        android:layout_margin="30px"
+        android:id="@+id/look_imgss"
         />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/h_tv_te_item"
+        android:id="@+id/h_video_te_itemss"
+        android:layout_toRightOf="@id/look_imgss"
+        android:layout_alignTop="@id/look_imgss"
         android:textSize="45px"
-        android:layout_marginTop="20px"
+        android:layout_marginTop="50px"
         android:minLines="2"
         android:layout_below="@id/h_tv_ima_itemss"
         />
 
     <RelativeLayout
-        android:layout_width="180px"
+        android:layout_width="wrap_content"
         android:layout_height="70px"
         android:background="@drawable/lpanda_bottom_gra"
-        android:layout_alignBottom="@id/h_tv_ima_itemss"
-        android:layout_alignLeft="@id/h_tv_ima_itemss"
+        android:layout_alignBottom="@id/look_imgss"
+        android:layout_alignLeft="@id/look_imgss"
         >
         <ImageView
             android:layout_width="30px"
             android:layout_height="30px"
             android:background="@drawable/play"
             android:layout_centerVertical="true"
-            android:id="@+id/dian_tv"
+            android:id="@+id/dian_videoss"
             android:layout_marginLeft="15px"
             />
         <TextView
@@ -40,18 +44,22 @@
             android:textColor="@color/colorWhite"
             android:layout_marginLeft="10px"
             android:layout_centerVertical="true"
-            android:layout_toRightOf="@id/dian_tv"
+            android:layout_toRightOf="@id/dian_videoss"
             android:textSize="38px"
-            android:id="@+id/h_tv_time_item"
+            android:id="@+id/look_timess"
             />
     </RelativeLayout>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/h_tv_ima_itemss"
         android:textSize="30px"
         android:layout_marginTop="130px"
-        android:id="@+id/h_tv_date"
+        android:layout_toRightOf="@id/look_imgss"
+        android:layout_alignBottom="@id/look_imgss"
+        android:id="@+id/h_video_datess"
         />
+
+
+
 </RelativeLayout>

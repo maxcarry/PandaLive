@@ -12,21 +12,21 @@
             android:layout_width="700px"
             android:layout_height="300px"
             android:layout_margin="30px"
-            android:id="@+id/look_img"
+            android:id="@+id/look_imgss"
             />
         <RelativeLayout
             android:layout_width="200px"
             android:layout_height="70px"
             android:background="@drawable/lpanda_bottom_gra"
-            android:layout_alignBottom="@id/look_img"
-            android:layout_alignLeft="@id/look_img"
+            android:layout_alignBottom="@id/look_imgss"
+            android:layout_alignLeft="@id/look_imgss"
             >
             <ImageView
                 android:layout_width="30px"
                 android:layout_height="30px"
                 android:background="@drawable/lpanda_live_layer"
                 android:layout_centerVertical="true"
-                android:id="@+id/dian_video"
+                android:id="@+id/dian_videoss"
                 android:layout_marginLeft="15px"
                 />
             <TextView
@@ -35,9 +35,9 @@
                 android:textColor="@color/colorWhite"
                 android:layout_marginLeft="10px"
                 android:layout_centerVertical="true"
-                android:layout_toRightOf="@id/dian_video"
+                android:layout_toRightOf="@id/dian_videoss"
                 android:textSize="38px"
-                android:id="@+id/look_time"
+                android:id="@+id/look_timess"
                 android:text=" Live"
                 />
         </RelativeLayout>

@@ -56,7 +56,7 @@ public class HomeTvAdapter extends BaseAdapter{
             ho.h_tv_time_item = (TextView) convertView.findViewById(R.id.h_tv_time_item);
             ho.h_tv_date = (TextView) convertView.findViewById(R.id.h_tv_date);
             ho.h_tv_te_item = (TextView) convertView.findViewById(R.id.h_tv_te_item);
-            ho.h_tv_ima_item = (ImageView) convertView.findViewById(R.id.h_tv_ima_item);
+            ho.h_tv_ima_item = (ImageView) convertView.findViewById(R.id.h_tv_ima_itemss);
 
             convertView.setTag(ho);
         } else {

@@ -50,7 +50,7 @@ public class LookTalkAdapters extends BaseAdapter {
 
             convertView=View.inflate(context, R.layout.look_adapterss,null);
             hu.look_name= (TextView) convertView.findViewById(R.id.look_name);
-            hu.look_img= (ImageView) convertView.findViewById(R.id.look_img);
+            hu.look_img= (ImageView) convertView.findViewById(R.id.look_imgss);
 
             convertView.setTag(hu);
 
