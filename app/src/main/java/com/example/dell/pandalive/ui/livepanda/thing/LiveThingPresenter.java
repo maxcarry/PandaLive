@@ -28,7 +28,7 @@ public class LiveThingPresenter implements ILivePerformview {
     }
 
     @Override
-    public void SendPerform(List<LivePerformBean.VideoBean> performBeen) {
+    public void SendPerform(List<LivePerformBean> performBeen) {
         iLivePerformFragment.liveperformBean(performBeen);
     }
 }

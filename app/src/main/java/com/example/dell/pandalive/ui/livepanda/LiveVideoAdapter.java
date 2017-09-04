@@ -15,7 +15,7 @@ import com.example.dell.pandalive.ui.livepanda.perform.LivePerformBean;
 import java.util.List;
 
 import static com.example.dell.pandalive.R.id.h_video_te_item;
-import static com.example.dell.pandalive.R.id.h_video_time_item;
+import static com.example.dell.pandalive.R.id.look_time;
 
 /**
  * Created by Administrator on 2017/8/31.
@@ -57,8 +57,8 @@ public class LiveVideoAdapter extends BaseAdapter {
             convertView = LayoutInflater.from(context).inflate(R.layout.home_video_item, null);
             ho.h_video_date = (TextView) convertView.findViewById(R.id.h_video_date);
             ho.h_video_te_item = (TextView) convertView.findViewById(h_video_te_item);
-            ho.h_video_time_item = (TextView) convertView.findViewById(h_video_time_item);
-            ho.h_video_ima_item = (ImageView) convertView.findViewById(R.id.h_video_ima_item);
+            ho.h_video_time_item = (TextView) convertView.findViewById(look_time);
+            ho.h_video_ima_item = (ImageView) convertView.findViewById(R.id.look_img);
             convertView.setTag(ho);
         } else {
             ho = (Myholder) convertView.getTag();

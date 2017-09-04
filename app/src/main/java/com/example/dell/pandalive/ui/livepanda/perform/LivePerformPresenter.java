@@ -7,13 +7,14 @@ import java.util.List;
  * LiveArchivesPresenter
  */
 
-public class LivePerformPresenter implements ILivePerformview{
+public class LivePerformPresenter implements ILivePerformview {
 
     private LivePerformdModel livePerformdModel;
-private ILivePerformFragment iLivePerformFragment;
+    private ILivePerformFragment iLivePerformFragment;
+
     public LivePerformPresenter(ILivePerformFragment iLivePerformFragment) {
         this.iLivePerformFragment = iLivePerformFragment;
-        livePerformdModel=new LivePerformdModel();
+        livePerformdModel = new LivePerformdModel();
     }
 
 
@@ -24,7 +25,7 @@ private ILivePerformFragment iLivePerformFragment;
     }
 
     @Override
-    public void SendPerform(List<LivePerformBean.VideoBean> performBeen) {
+    public void SendPerform(List<LivePerformBean> performBeen) {
         iLivePerformFragment.liveperformBean(performBeen);
     }
 }

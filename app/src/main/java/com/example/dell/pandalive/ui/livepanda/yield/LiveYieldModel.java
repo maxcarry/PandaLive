@@ -9,6 +9,7 @@ import com.example.dell.pandalive.ui.livepanda.perform.ILivePerformview;
 import com.example.dell.pandalive.ui.livepanda.perform.LivePerformBean;
 import com.example.dell.pandalive.utils.RetrofitUtil;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import io.reactivex.Observer;
@@ -33,8 +34,15 @@ public class LiveYieldModel implements ILivePerformPresenter{
             @Override
             public void onNext(Object value) {
                 LivePerformBean livePerformBean= (LivePerformBean) value;
-                List<LivePerformBean.VideoBean> video = livePerformBean.getVideo();
+                List<LivePerformBean> video = new ArrayList<LivePerformBean>();
+
+                video.add(livePerformBean);
                 iLivePerformview.SendPerform(video);
+
+
+//                LivePerformBean livePerformBean= (LivePerformBean) value;
+//                List<LivePerformBean> video = livePerformBean.getVideo();
+//                iLivePerformview.SendPerform(video);
 
             }
 

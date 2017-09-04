@@ -1,8 +1,6 @@
 package com.example.dell.pandalive.ui.livepanda.original;
 
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
@@ -23,6 +21,7 @@ import com.scwang.smartrefresh.layout.header.ClassicsHeader;
 import com.scwang.smartrefresh.layout.listener.OnLoadmoreListener;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -37,6 +36,8 @@ public class LiveOriginalFragment extends BaseFragment implements ILivePerformFr
     private LiveOriginalPresenter liveOriginalPresenter;
     private ListView live_splendid_customlistview;
     private SmartRefreshLayout live_smartrefreshlayout;
+    private List<LivePerformBean.VideoBean> performBeen=new ArrayList<>();
+    private List<LivePerformBean.VideoBean> video;
 
     @Override
     protected void restartdata() {
@@ -52,7 +53,7 @@ public class LiveOriginalFragment extends BaseFragment implements ILivePerformFr
         live_smartrefreshlayout.setOnRefreshListener(new OnRefreshListener() {
             @Override
             public void onRefresh(RefreshLayout refreshlayout) {
-
+                performBeen.clear();
                 refreshlayout.finishRefresh(2000);
                 geturls();
 
@@ -90,12 +91,34 @@ public class LiveOriginalFragment extends BaseFragment implements ILivePerformFr
         live_smartrefreshlayout.setRefreshHeader(new ClassicsHeader(Myapp.activity));
         live_smartrefreshlayout.setRefreshFooter(new ClassicsFooter(Myapp.activity));
 
-
     }
 
     @Override
-    public void liveperformBean(final List<LivePerformBean.VideoBean> performBeen) {
+    public void liveperformBean(final List<LivePerformBean> performBeen) {
+        List<LivePerformBean> livePerformBeen = performBeen;
 
+
+        for (int i = 0; i < livePerformBeen.size(); i++) {
+            video = livePerformBeen.get(i).getVideo();
+
+            //适配器
+            LiveVideoAdapter liveVideoAdapter = new LiveVideoAdapter(Myapp.activity, video);
+            live_splendid_customlistview.setAdapter(liveVideoAdapter);
+
+            live_splendid_customlistview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Intent live = new Intent(Myapp.activity, PlayActivityUtil.class);
+                    live.putExtra("title", video.get(position).getT());
+                    live.putExtra("path", video.get(position).getUrl());
+                    startActivity(live);
+                }
+            });
+
+        }
+//        VideoBean
+
+         /*   performBeen.addAll(performBeen);
         live_splendid_customlistview.setSelector(new ColorDrawable(Color.TRANSPARENT));
         //适配器
         LiveVideoAdapter liveVideoAdapter=new LiveVideoAdapter(Myapp.activity,performBeen);
@@ -109,7 +132,7 @@ public class LiveOriginalFragment extends BaseFragment implements ILivePerformFr
                 live.putExtra("path", performBeen.get(position).getUrl());
                 startActivity(live);
             }
-        });
+        });*/
 
     }
 }

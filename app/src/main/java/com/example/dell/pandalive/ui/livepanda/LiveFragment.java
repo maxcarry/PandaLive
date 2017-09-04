@@ -12,7 +12,7 @@ import com.example.dell.pandalive.app.Myapp;
 import com.example.dell.pandalive.base.BaseFragment;
 import com.example.dell.pandalive.custom_view.NoScrollViewPager;
 import com.example.dell.pandalive.ui.livepanda.archives.LiveArchivesFragment;
-import com.example.dell.pandalive.ui.livepanda.direct.LiveDirectFragment;
+import com.example.dell.pandalive.ui.livepanda.Livemain.LiveDirectFragment;
 import com.example.dell.pandalive.ui.livepanda.original.LiveOriginalFragment;
 import com.example.dell.pandalive.ui.livepanda.perform.LivePerformFragment;
 import com.example.dell.pandalive.ui.livepanda.splendid.LiveSplendidFragment;

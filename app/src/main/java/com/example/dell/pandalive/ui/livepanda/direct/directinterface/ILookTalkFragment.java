@@ -1,8 +1,6 @@
 package com.example.dell.pandalive.ui.livepanda.direct.directinterface;
 
-import com.example.dell.pandalive.ui.livepanda.direct.LiveDirectLiveBean;
-
-import java.util.List;
+import com.example.dell.pandalive.ui.livepanda.direct.many.LookTalkBean;
 
 /**
  * Created by Administrator on 2017/8/31.
@@ -11,6 +9,7 @@ import java.util.List;
 public interface ILookTalkFragment {
 
 
-   void  livedirectBean(List<LiveDirectLiveBean> liveDirectbean);
+
+   void  livedirectBean(LookTalkBean liveDirectbean);
 
 }

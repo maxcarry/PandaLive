@@ -1,8 +1,6 @@
 package com.example.dell.pandalive.ui.livepanda.thing;
 
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
@@ -37,6 +35,7 @@ public class LiveThingFragment extends BaseFragment implements ILivePerformFragm
     private LiveThingPresenter liveThingPresenter;
     private SmartRefreshLayout live_smartrefreshlayout;
     private ListView live_splendid_customlistview;
+    private List<LivePerformBean.VideoBean> video;
 
 
     @Override
@@ -119,10 +118,36 @@ public class LiveThingFragment extends BaseFragment implements ILivePerformFragm
     }
 
     @Override
-    public void liveperformBean(final List<LivePerformBean.VideoBean> performBeen) {
+    public void liveperformBean(final List<LivePerformBean> performBeen) {
+
+        List<LivePerformBean> livePerformBeen = performBeen;
+        for (int i = 0; i < livePerformBeen.size(); i++) {
+            video = livePerformBeen.get(i).getVideo();
 
 
-        live_splendid_customlistview.setSelector(new ColorDrawable(Color.TRANSPARENT));
+            //适配器
+            LiveVideoAdapter liveVideoAdapter = new LiveVideoAdapter(Myapp.activity, video);
+            live_splendid_customlistview.setAdapter(liveVideoAdapter);
+
+            live_splendid_customlistview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Intent live = new Intent(Myapp.activity, PlayActivityUtil.class);
+
+                    live.putExtra("title", video.get(position).getT());
+
+                    live.putExtra("path", video.get(position).getUrl());
+//                    live.putExtra("title", performBeen.get(position).getT());
+//                    live.putExtra("path", performBeen.get(position).getUrl());
+                    startActivity(live);
+                }
+            });
+
+
+        }
+
+
+       /* live_splendid_customlistview.setSelector(new ColorDrawable(Color.TRANSPARENT));
         //适配器
         LiveVideoAdapter liveVideoAdapter=new LiveVideoAdapter(Myapp.activity,performBeen);
         live_splendid_customlistview.setAdapter(liveVideoAdapter);
@@ -135,7 +160,7 @@ public class LiveThingFragment extends BaseFragment implements ILivePerformFragm
                 live.putExtra("path", performBeen.get(position).getUrl());
                 startActivity(live);
             }
-        });
+        });*/
 
 
 

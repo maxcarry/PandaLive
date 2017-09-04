@@ -15,6 +15,7 @@ public class LiveArchivesPresenter implements ILivePerformview{
 
     private ILivePerformFragment iLivePerformFragment;
     private LiveArchivesModel liveArchivesModel;
+    private List<LivePerformBean.VideoBean> video;
 
     public LiveArchivesPresenter(ILivePerformFragment iLivePerformFragment) {
         this.iLivePerformFragment = iLivePerformFragment;
@@ -26,7 +27,9 @@ public class LiveArchivesPresenter implements ILivePerformview{
     }
 
     @Override
-    public void SendPerform(List<LivePerformBean.VideoBean> performBeen) {
-        iLivePerformFragment.liveperformBean(performBeen);
+    public void SendPerform(List<LivePerformBean> performBeen) {
+
+            iLivePerformFragment.liveperformBean(performBeen);
+
     }
 }
