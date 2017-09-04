@@ -69,7 +69,7 @@ public class LiveOriginalFragment extends BaseFragment implements ILivePerformFr
         });
     }
 
-    private void geturls() {
+    private void  geturls() {
         DialogUtil.instance().Showdialog(Myapp.activity);
         liveOriginalPresenter.ShowPerform();
         DialogUtil.instance().Hidedialog();
@@ -108,31 +108,22 @@ public class LiveOriginalFragment extends BaseFragment implements ILivePerformFr
             live_splendid_customlistview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                                                            //PlayActivityUtil
                     Intent live = new Intent(Myapp.activity, PlayActivityUtil.class);
                     live.putExtra("title", video.get(position).getT());
-                    live.putExtra("path", video.get(position).getUrl());
+                    live.putExtra("path", video.get(position).getVsid());
+                    live.putExtra("path", "2");
                     startActivity(live);
+
+                    /*play.putExtra("title", chinalist.get(position).getTitle());
+                play.putExtra("path",  "http://vdn.live.cntv.cn/api2/live.do?channel=pa://cctv_p2p_hd"+chinalist.get(position).getId()+"&client=androidapp");
+                play.putExtra("type", "1");*/
                 }
             });
 
         }
-//        VideoBean
 
-         /*   performBeen.addAll(performBeen);
-        live_splendid_customlistview.setSelector(new ColorDrawable(Color.TRANSPARENT));
-        //适配器
-        LiveVideoAdapter liveVideoAdapter=new LiveVideoAdapter(Myapp.activity,performBeen);
-        live_splendid_customlistview.setAdapter(liveVideoAdapter);
-
-        live_splendid_customlistview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent live = new Intent(Myapp.activity, PlayActivityUtil.class);
-                live.putExtra("title", performBeen.get(position).getT());
-                live.putExtra("path", performBeen.get(position).getUrl());
-                startActivity(live);
-            }
-        });*/
 
     }
 }
