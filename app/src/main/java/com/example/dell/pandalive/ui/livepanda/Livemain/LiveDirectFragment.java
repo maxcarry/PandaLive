@@ -123,8 +123,6 @@ public class LiveDirectFragment extends BaseFragment implements ILiveDirectFragm
     public void lookBean(List<LookTalkBean> lookTalkBean) {
         //九宫格
         List<LookTalkBean> lookTalkBeen=lookTalkBean;
-
-
         for (int i = 0; i <lookTalkBeen.size() ; i++) {
             list = lookTalkBeen.get(i).getList();
             LookTalkAdapters lookTalkAdapters=new LookTalkAdapters(getActivity(),list);

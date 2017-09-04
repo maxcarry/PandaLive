@@ -45,7 +45,7 @@ public class MultiAngleFragment extends BaseFragment {
 
     @Override
     protected void initview() {
-        view = LayoutInflater.from(Myapp.activity).inflate(R.layout.live_direct_multi, null);
+        view = LayoutInflater.from(Myapp.activity).inflate(R.layout.live_direct_multis, null);
 //        live_multi_listview = (ListView) view.findViewById(R.id.live_multi_listview);
 //        live_listview_edittext = (EditText) view.findViewById(R.id.live_listview_edittext);
 //        live_listview_send = (Button) view.findViewById(R.id.live_listview_send);

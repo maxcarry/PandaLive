@@ -13,6 +13,8 @@ import com.example.dell.pandalive.entity.VideoBean;
 import com.example.dell.pandalive.entity.VideoDetailsHDBean;
 import com.example.dell.pandalive.entity.VideoPlayBean;
 import com.example.dell.pandalive.entity.VideoRVBean;
+import com.example.dell.pandalive.ui.livepanda.Livemain.LiveMainBean;
+import com.example.dell.pandalive.ui.livepanda.direct.many.LookTalkBean;
 import com.example.dell.pandalive.ui.livepanda.perform.LivePerformBean;
 
 import io.reactivex.Observable;
@@ -76,6 +78,17 @@ public interface RetrofitApi {
     /*
     * 熊猫直播
     * */
+
+    //直播 http://www.ipanda.com/kehuduan/PAGE14501769230331752/index.json
+    @GET("http://www.ipanda.com/kehuduan/PAGE14501769230331752/index.json")
+    Observable<LiveMainBean> getmain();
+
+    //多视角直播  http://www.ipanda.com/kehuduan/PAGE14501769230331752/PAGE14501787896813312/index.json
+// // 多视角直播  http://www.ipanda.com/kehuduan/PAGE14501769230331752/PAGE14501787896813312/index.json
+
+    @GET("http://www.ipanda.com/kehuduan/PAGE14501769230331752/PAGE14501787896813312/index.json")
+    Observable<LookTalkBean> getlook();
+
 
 
     //   精彩一刻 "http://api.cntv.cn/video/videolistById?vsid=VSET100167216881&n=7&serviceId=panda&o=desc&of=time&p=1";

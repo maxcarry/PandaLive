@@ -14,6 +14,8 @@ import com.example.dell.pandalive.entity.VideoBean;
 import com.example.dell.pandalive.entity.VideoDetailsHDBean;
 import com.example.dell.pandalive.entity.VideoPlayBean;
 import com.example.dell.pandalive.entity.VideoRVBean;
+import com.example.dell.pandalive.ui.livepanda.Livemain.LiveMainBean;
+import com.example.dell.pandalive.ui.livepanda.direct.many.LookTalkBean;
 import com.example.dell.pandalive.ui.livepanda.perform.LivePerformBean;
 
 import java.util.concurrent.TimeUnit;
@@ -154,6 +156,24 @@ public class RetrofitUtil {
     * */
 
 
+    //熊猫直播  getlook
+    public void Livemainform(Observer observer) {
+//        getperform
+        Observable<LiveMainBean> livePerformBeanObservable = api.getmain();
+        livePerformBeanObservable.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(observer);
+
+    }
+    //多视角直播
+    public void Lookmainform(Observer observer) {
+//        getperform
+        Observable<LookTalkBean> livePerformBeanObservable = api.getlook();
+        livePerformBeanObservable.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(observer);
+
+    }
     //精彩一刻
     public void Livesplendid(Observer observer) {
 

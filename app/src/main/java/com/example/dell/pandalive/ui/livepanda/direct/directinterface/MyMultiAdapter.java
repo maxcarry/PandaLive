@@ -48,13 +48,9 @@ public class MyMultiAdapter extends BaseAdapter {
         if (convertView == null) {
             ho = new Myholder();
 
-            convertView = LayoutInflater.from(context).inflate(R.layout.live_multi_item, null);
+            convertView = LayoutInflater.from(context).inflate(R.layout.live_multi_items, null);
             ho.live_textview = (TextView) convertView.findViewById(R.id.live_textview);
-
-
              ho.live_time = (TextView) convertView.findViewById(R.id.live_time);
-
-
              ho.live_text = (TextView) convertView.findViewById(R.id.live_text);
 
 

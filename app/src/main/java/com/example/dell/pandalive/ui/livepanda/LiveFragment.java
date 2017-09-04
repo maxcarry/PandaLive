@@ -69,7 +69,6 @@ public class LiveFragment extends BaseFragment {
     @Override
     protected void initview() {
         view = LayoutInflater.from(Myapp.activity).inflate(R.layout.live_fragment, null);
-
     }
 
     private void initData() {
@@ -118,12 +117,13 @@ public class LiveFragment extends BaseFragment {
 
 
         //viewpager适配器
+
+        live_viewpaget.setOffscreenPageLimit(9);
         MyAdapter adapter = new MyAdapter(getChildFragmentManager());
         live_viewpaget.setAdapter(adapter);
         //tablayout关联viewpager
         live_tablayout.setupWithViewPager(live_viewpaget);
-
-
+        live_tablayout.setTabMode(TabLayout.MODE_FIXED);
     }
 
     //内部类

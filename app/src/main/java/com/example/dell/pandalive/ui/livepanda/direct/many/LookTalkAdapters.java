@@ -48,7 +48,7 @@ public class LookTalkAdapters extends BaseAdapter {
         if (convertView==null){
             hu =new Hu();
 
-            convertView=View.inflate(context, R.layout.look_adapters,null);
+            convertView=View.inflate(context, R.layout.look_adapterss,null);
             hu.look_name= (TextView) convertView.findViewById(R.id.look_name);
             hu.look_img= (ImageView) convertView.findViewById(R.id.look_img);
 
@@ -67,8 +67,6 @@ public class LookTalkAdapters extends BaseAdapter {
 
         return convertView;
     }
-
-
     static class Hu{
         TextView look_name;
         ImageView look_img;
