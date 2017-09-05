@@ -10,6 +10,8 @@ import com.bumptech.glide.Glide;
 import com.example.dell.pandalive.R;
 import com.example.dell.pandalive.app.Myapp;
 import com.example.dell.pandalive.base.BaseActivity;
+import com.example.dell.pandalive.ui.personal.collection.Collection_Activity;
+import com.example.dell.pandalive.ui.personal.history.History_Activity;
 import com.example.dell.pandalive.ui.personal.login.DebarkActivity;
 import com.example.dell.pandalive.utils.SharedUtil;
 
@@ -34,11 +36,17 @@ public class Eye_Personal_Activity extends BaseActivity implements View.OnClickL
 
     @Override
     protected void initview() {
+        //返回箭头
         personal_back_imageview = (ImageView) findViewById(R.id.personal_back_imageview);
+        //点击登陆
         personal_one_linearlayout = (LinearLayout) findViewById(R.id.personal_one_linearlayout);
+       //观看历史
         personal_two_linearlayout = (LinearLayout) findViewById(R.id.personal_two_linearlayout);
+       //我的收藏
         personal_three_linearlayout = (LinearLayout) findViewById(R.id.personal_three_linearlayout);
+       //设置
         personal_four_linearlayout = (LinearLayout) findViewById(R.id.personal_four_linearlayout);
+       //返回的监听事件
         pers_user_icon = (ImageView) findViewById(R.id.pers_user_icon);
         pers_user_name = (TextView) findViewById(R.id.pers_user_name);
         personal_back_imageview.setOnClickListener(new View.OnClickListener() {
@@ -47,10 +55,14 @@ public class Eye_Personal_Activity extends BaseActivity implements View.OnClickL
                 finish();
             }
         });
-
+        //点击登陆
         personal_one_linearlayout.setOnClickListener(this);
+        //设置
         personal_four_linearlayout.setOnClickListener(this);
-
+        //观看历史
+        personal_two_linearlayout.setOnClickListener(this);
+        //我的收藏
+        personal_three_linearlayout.setOnClickListener(this);
     }
 
     @Override
@@ -70,6 +82,23 @@ public class Eye_Personal_Activity extends BaseActivity implements View.OnClickL
 
                 startActivity(new Intent(Myapp.activity,Install_Activity.class));
                 break;
+
+             case R.id.personal_two_linearlayout:
+
+                startActivity(new Intent(Myapp.activity,History_Activity.class));
+                break;
+
+             case R.id.personal_three_linearlayout:
+
+                startActivity(new Intent(Myapp.activity,Collection_Activity.class));
+                break;
+
+
+
+
+
+
+
         }
     }
 

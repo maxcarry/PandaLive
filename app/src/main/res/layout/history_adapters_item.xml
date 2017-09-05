@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+<LinearLayout
+
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical">
+
+
+
+    <CheckBox
+        android:id="@+id/history_adapters_item_ckb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_margin="6dp"
+        android:visibility="gone" />
+
+  <!--  <CheckBox
+        android:id="@+id/history_adapters_item_ckb"
+        android:focusable="false"
+        android:0="false"
+        android:clickable="false"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+-->
+
+</LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical">
+
+
+
+        <ImageView
+            android:layout_width="400px"
+            android:layout_height="300px"
+            android:layout_margin="30px"
+            android:id="@+id/history_adapters_item_img"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/h_video_te_itemss"
+            android:layout_toRightOf="@id/history_adapters_item_img"
+            android:layout_alignTop="@id/history_adapters_item_img"
+            android:textSize="45px"
+            android:layout_marginTop="50px"
+            android:minLines="2"
+            />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="70px"
+            android:background="@drawable/lpanda_bottom_gra"
+            android:layout_alignBottom="@id/history_adapters_item_img"
+            android:layout_alignLeft="@id/history_adapters_item_img"
+            >
+            <ImageView
+                android:layout_width="30px"
+                android:layout_height="30px"
+                android:background="@drawable/play"
+                android:layout_centerVertical="true"
+                android:id="@+id/dian_videoss"
+                android:layout_marginLeft="15px"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorWhite"
+                android:layout_marginLeft="10px"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/dian_videoss"
+                android:textSize="38px"
+                android:id="@+id/history_adapters_item_timess"
+                />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30px"
+            android:layout_marginTop="130px"
+            android:layout_toRightOf="@id/history_adapters_item_img"
+            android:layout_alignBottom="@id/history_adapters_item_img"
+            android:id="@+id/history_adapters_item_datess"
+            />
+
+
+    </RelativeLayout>
+
+
+
+</LinearLayout>

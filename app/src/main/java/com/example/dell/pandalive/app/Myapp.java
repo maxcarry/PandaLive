@@ -16,7 +16,6 @@ public class Myapp extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-
         Vitamio.isInitialized(this);
     }
 }

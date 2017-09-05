@@ -7,7 +7,7 @@
     <ImageView
         android:layout_width="510px"
         android:layout_height="310px"
-        android:id="@+id/h_tv_ima_itemss"
+        android:id="@+id/history_adapters_name"
         />
     <TextView
         android:layout_width="wrap_content"
@@ -16,15 +16,15 @@
         android:textSize="45px"
         android:layout_marginTop="20px"
         android:minLines="2"
-        android:layout_below="@id/h_tv_ima_itemss"
+        android:layout_below="@id/history_adapters_name"
         />
 
     <RelativeLayout
         android:layout_width="180px"
         android:layout_height="70px"
         android:background="@drawable/lpanda_bottom_gra"
-        android:layout_alignBottom="@id/h_tv_ima_itemss"
-        android:layout_alignLeft="@id/h_tv_ima_itemss"
+        android:layout_alignBottom="@id/history_adapters_name"
+        android:layout_alignLeft="@id/history_adapters_name"
         >
         <ImageView
             android:layout_width="30px"
@@ -49,7 +49,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/h_tv_ima_itemss"
+        android:layout_below="@id/history_adapters_name"
         android:textSize="30px"
         android:layout_marginTop="130px"
         android:id="@+id/h_tv_date"

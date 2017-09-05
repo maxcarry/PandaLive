@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#E6EBEF"
+    tools:context="com.example.dell.pandalive.ui.personal.history.History_Activity">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="180px"
+        android:background="@color/colorPrimary">
+
+        <ImageView
+            android:id="@+id/history_head_return"
+            android:layout_width="120px"
+            android:layout_height="120px"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="50px"
+            android:layout_marginTop="30px"
+            android:src="@drawable/personal_back_img" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:gravity="center"
+            android:text="设置"
+            android:textColor="#FFF"
+            android:textSize="60px" />
+
+
+        <TextView
+            android:id="@+id/history_head_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textView"
+            android:layout_alignBottom="@+id/textView"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp"
+            android:text="编辑"
+            android:textColor="#FFF"
+            android:textSize="50px" />
+
+
+    </RelativeLayout>
+
+
+
+    <ListView
+        android:layout_weight="1"
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></ListView>
+
+
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/history_linearlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <Button
+            android:layout_weight="1"
+            android:text="全选"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button2"/>
+
+
+        <Button
+            android:visibility="gone"
+            android:layout_weight="1"
+            android:text="取消全选"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button3"/>
+
+        <Button
+            android:layout_weight="1"
+            android:text="删除"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button5"/>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

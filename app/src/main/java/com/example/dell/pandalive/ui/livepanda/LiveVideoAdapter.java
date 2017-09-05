@@ -52,10 +52,10 @@ public class LiveVideoAdapter extends BaseAdapter {
             ho = new Myholder();
 
             convertView = LayoutInflater.from(context).inflate(R.layout.home_video_items, null);
-            ho.h_video_datess = (TextView) convertView.findViewById(R.id.h_video_datess);
+            ho.h_video_datess = (TextView) convertView.findViewById(R.id.history_adapters_item_datess);
             ho.h_video_te_itemss = (TextView) convertView.findViewById(R.id.h_video_te_itemss);
-            ho.h_video_time_itemss = (TextView) convertView.findViewById(R.id.look_timess);
-            ho.h_video_ima_itemss = (ImageView) convertView.findViewById(R.id.look_imgss);
+            ho.h_video_time_itemss = (TextView) convertView.findViewById(R.id.history_adapters_item_timess);
+            ho.h_video_ima_itemss = (ImageView) convertView.findViewById(R.id.history_adapters_item_img);
             convertView.setTag(ho);
         } else {
             ho = (Myholder) convertView.getTag();

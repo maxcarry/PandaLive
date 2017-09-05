@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     android:layout_width="match_parent"
+    android:layout_height="400px">
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/checkbox_operate_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="6dp"
+            android:visibility="gone" />
+
+
+        <RelativeLayout
+            android:layout_width="400px"
+            android:layout_height="300px">
+
+
+
+            <ImageView
+                android:id="@+id/material_item_img"
+                android:layout_width="400px"
+                android:layout_height="300px"
+                android:layout_gravity="center_vertical"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/ic_launcher" />
+
+
+
+
+
+            <!--
+
+            <TextView
+                android:id="@+id/time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="时间"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
+
+-->
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="70px"
+                android:background="@drawable/lpanda_bottom_gra"
+                android:layout_alignParentBottom="true"
+                android:layout_marginRight="43dp"
+                android:layout_marginEnd="43dp">
+                <ImageView
+                    android:layout_width="30px"
+                    android:layout_height="30px"
+                    android:background="@drawable/play"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/dian_videoss"
+                    android:layout_marginLeft="15px"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorWhite"
+                    android:layout_marginLeft="10px"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/dian_videoss"
+                    android:textSize="38px"
+                    android:id="@+id/time"
+                    />
+            </RelativeLayout>
+
+
+
+
+        </RelativeLayout>
+
+
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp">
+
+
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/text_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="标题"
+                android:textColor="#555555"
+                android:textSize="16sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/text_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:text="描述描述描述描述描述描述"
+                    android:textColor="#aaaaaa"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+</LinearLayout>

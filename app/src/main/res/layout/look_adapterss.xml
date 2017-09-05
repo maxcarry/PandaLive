@@ -12,14 +12,14 @@
             android:layout_width="700px"
             android:layout_height="300px"
             android:layout_margin="30px"
-            android:id="@+id/look_imgss"
+            android:id="@+id/history_adapters_item_img"
             />
         <RelativeLayout
             android:layout_width="200px"
             android:layout_height="70px"
             android:background="@drawable/lpanda_bottom_gra"
-            android:layout_alignBottom="@id/look_imgss"
-            android:layout_alignLeft="@id/look_imgss"
+            android:layout_alignBottom="@id/history_adapters_item_img"
+            android:layout_alignLeft="@id/history_adapters_item_img"
             >
             <ImageView
                 android:layout_width="30px"
@@ -37,7 +37,7 @@
                 android:layout_centerVertical="true"
                 android:layout_toRightOf="@id/dian_videoss"
                 android:textSize="38px"
-                android:id="@+id/look_timess"
+                android:id="@+id/history_adapters_item_timess"
                 android:text=" Live"
                 />
         </RelativeLayout>

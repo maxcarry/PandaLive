@@ -9,26 +9,26 @@
         android:layout_width="400px"
         android:layout_height="300px"
         android:layout_margin="30px"
-        android:id="@+id/look_imgss"
+        android:id="@+id/history_adapters_item_img"
         />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/h_video_te_itemss"
-        android:layout_toRightOf="@id/look_imgss"
-        android:layout_alignTop="@id/look_imgss"
+        android:layout_toRightOf="@id/history_adapters_item_img"
+        android:layout_alignTop="@id/history_adapters_item_img"
         android:textSize="45px"
         android:layout_marginTop="50px"
         android:minLines="2"
-        android:layout_below="@id/h_tv_ima_itemss"
+        android:layout_below="@id/history_adapters_name"
         />
 
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="70px"
         android:background="@drawable/lpanda_bottom_gra"
-        android:layout_alignBottom="@id/look_imgss"
-        android:layout_alignLeft="@id/look_imgss"
+        android:layout_alignBottom="@id/history_adapters_item_img"
+        android:layout_alignLeft="@id/history_adapters_item_img"
         >
         <ImageView
             android:layout_width="30px"
@@ -46,7 +46,7 @@
             android:layout_centerVertical="true"
             android:layout_toRightOf="@id/dian_videoss"
             android:textSize="38px"
-            android:id="@+id/look_timess"
+            android:id="@+id/history_adapters_item_timess"
             />
     </RelativeLayout>
 
@@ -55,9 +55,9 @@
         android:layout_height="wrap_content"
         android:textSize="30px"
         android:layout_marginTop="130px"
-        android:layout_toRightOf="@id/look_imgss"
-        android:layout_alignBottom="@id/look_imgss"
-        android:id="@+id/h_video_datess"
+        android:layout_toRightOf="@id/history_adapters_item_img"
+        android:layout_alignBottom="@id/history_adapters_item_img"
+        android:id="@+id/history_adapters_item_datess"
         />
 
 
