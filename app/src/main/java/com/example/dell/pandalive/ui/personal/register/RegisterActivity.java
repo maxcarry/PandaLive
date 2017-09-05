@@ -11,6 +11,8 @@ import android.widget.TextView;
 
 import com.example.dell.pandalive.R;
 import com.example.dell.pandalive.base.BaseActivity;
+import com.example.dell.pandalive.ui.personal.register.emilsregister.EmilsRegistFragment;
+import com.example.dell.pandalive.ui.personal.register.phoneregister.PhoneRegFragment;
 
 /**
  * Created by dell on 2017/8/28.

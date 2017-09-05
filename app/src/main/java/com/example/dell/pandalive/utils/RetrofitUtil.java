@@ -8,7 +8,10 @@ import com.example.dell.pandalive.entity.ColumnBean;
 import com.example.dell.pandalive.entity.EyeListBean;
 import com.example.dell.pandalive.entity.HomeBean;
 import com.example.dell.pandalive.entity.InteractListViewBean;
+import com.example.dell.pandalive.entity.LoginUserBean;
+import com.example.dell.pandalive.entity.SendEmilBase;
 import com.example.dell.pandalive.entity.TvBean;
+import com.example.dell.pandalive.entity.UserinfoBean;
 import com.example.dell.pandalive.entity.VideoBanner;
 import com.example.dell.pandalive.entity.VideoBean;
 import com.example.dell.pandalive.entity.VideoDetailsHDBean;
@@ -18,13 +21,19 @@ import com.example.dell.pandalive.ui.livepanda.Livemain.LiveMainBean;
 import com.example.dell.pandalive.ui.livepanda.direct.many.LookTalkBean;
 import com.example.dell.pandalive.ui.livepanda.perform.LivePerformBean;
 
+import java.io.IOException;
+import java.net.URLEncoder;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
+import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -37,6 +46,7 @@ public class RetrofitUtil {
     private static RetrofitUtil retrofitUtil;
     private static final int MAXTIME = 50;
     private final RetrofitApi api;
+    public String JSESSIONID = null;
 
     private RetrofitUtil(String baseurl) {
 
@@ -44,6 +54,19 @@ public class RetrofitUtil {
                 .connectTimeout(MAXTIME, TimeUnit.SECONDS)
                 .readTimeout(MAXTIME, TimeUnit.SECONDS)
                 .writeTimeout(MAXTIME, TimeUnit.SECONDS)
+                .addInterceptor(new Interceptor() {
+                    @Override
+                    public Response intercept(Chain chain) throws IOException {
+                        Request request = chain.request()
+                                .newBuilder()
+                                .addHeader("Referer", URLEncoder.encode("iPanda.Android", "UTF-8"))
+                                .addHeader("User-Agent", URLEncoder.encode("CNTV_APP_CLIENT_CNTV_MOBILE", "UTF-8"))
+                                .addHeader("Cookie", "JSESSIONID=" + JSESSIONID)
+                                .build();
+                        return chain.proceed(request);
+                    }
+
+                })
                 .build();
 
         api = new Retrofit.Builder()
@@ -285,5 +308,31 @@ public class RetrofitUtil {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(observer);
     }
+
+    public void Webloginuser(Map<String, String> map, Observer observer) {
+
+        Observable<LoginUserBean> getloginuser = api.getloginuser(map);
+        getloginuser.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(observer);
+    }
+
+    public void Webuserinfo(Map<String, String> map, Observer observer){
+
+        Observable<UserinfoBean> getuserinfo = api.getuserinfo(map);
+        getuserinfo.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(observer);
+
+    }
+
+    public void SendEmil(String url, Observer observer) {
+
+        Observable<SendEmilBase> sendemils = api.sendemils(url);
+        sendemils.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(observer);
+    }
+
 
 }

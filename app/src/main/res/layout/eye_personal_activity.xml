@@ -31,27 +31,34 @@
 <View
     android:layout_width="match_parent"
     android:layout_height="30px"/>
+
     <LinearLayout
         android:id="@+id/personal_one_linearlayout"
-        android:layout_gravity="center"
         android:layout_width="1020px"
         android:layout_height="230px"
-        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:background="@drawable/eye_personal"
         android:gravity="center_vertical"
-        android:background="@drawable/eye_personal">
-        <ImageView
-            android:layout_marginLeft="30px"
+        android:orientation="horizontal">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/pers_user_icon"
             android:layout_width="160px"
             android:layout_height="160px"
-            android:src="@drawable/personal_login_head"/>
+            android:layout_marginLeft="30px"
+            android:src="@drawable/personal_login_head" />
+
         <TextView
-            android:layout_marginLeft="35px"
+            android:id="@+id/pers_user_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="35px"
             android:text="点击登录"
-            android:textSize="45px"
-            android:textColor="@color/colorblack"/>
+            android:textColor="@color/colorblack"
+            android:textSize="45px" />
     </LinearLayout>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="15px"/>

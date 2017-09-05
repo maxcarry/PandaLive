@@ -56,15 +56,12 @@
             android:background="@color/colorWhite"
             android:hint="  请输入图片验证码" />
 
-        <com.example.dell.pandalive.custom_view.CustomCode
+
+        <ImageView
             android:id="@+id/emils_image_custcode"
             android:layout_width="270px"
             android:layout_height="120px"
-            android:layout_alignParentRight="true"
-            app:my_text="4692"
-            app:text_color="@color/colorAccent"
-            app:text_size="50px" />
-
+            android:layout_alignParentRight="true" />
     </RelativeLayout>
 
     <CheckBox

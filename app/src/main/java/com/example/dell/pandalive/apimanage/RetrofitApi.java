@@ -7,7 +7,10 @@ import com.example.dell.pandalive.entity.ColumnBean;
 import com.example.dell.pandalive.entity.EyeListBean;
 import com.example.dell.pandalive.entity.HomeBean;
 import com.example.dell.pandalive.entity.InteractListViewBean;
+import com.example.dell.pandalive.entity.LoginUserBean;
+import com.example.dell.pandalive.entity.SendEmilBase;
 import com.example.dell.pandalive.entity.TvBean;
+import com.example.dell.pandalive.entity.UserinfoBean;
 import com.example.dell.pandalive.entity.VideoBanner;
 import com.example.dell.pandalive.entity.VideoBean;
 import com.example.dell.pandalive.entity.VideoDetailsHDBean;
@@ -17,8 +20,11 @@ import com.example.dell.pandalive.ui.livepanda.Livemain.LiveMainBean;
 import com.example.dell.pandalive.ui.livepanda.direct.many.LookTalkBean;
 import com.example.dell.pandalive.ui.livepanda.perform.LivePerformBean;
 
+import java.util.Map;
+
 import io.reactivex.Observable;
 import retrofit2.http.GET;
+import retrofit2.http.QueryMap;
 import retrofit2.http.Url;
 
 /**
@@ -152,4 +158,15 @@ public interface RetrofitApi {
     @GET
     Observable<VideoPlayBean> getvideoplay(@Url String url);
 
+    //登录—获取用户ID
+    @GET("https://reg.cntv.cn/login/login.action")
+    Observable<LoginUserBean> getloginuser(@QueryMap Map<String,String> map);
+
+    //获取用户头像和用户名
+    @GET("http://my.cntv.cn/intf/napi/api.php")
+    Observable<UserinfoBean> getuserinfo(@QueryMap Map<String,String> map);
+
+    //发送邮箱
+    @GET
+    Observable<SendEmilBase> sendemils(@Url String url);
 }
