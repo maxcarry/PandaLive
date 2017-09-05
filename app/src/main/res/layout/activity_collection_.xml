@@ -1,9 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+     android:orientation="vertical"
     tools:context="com.example.dell.pandalive.ui.personal.collection.Collection_Activity">
 
-</android.support.constraint.ConstraintLayout>
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="180px"
+        android:background="@color/colorPrimary">
+
+        <ImageView
+            android:id="@+id/Collection_head_return"
+            android:layout_width="120px"
+            android:layout_height="120px"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="50px"
+            android:layout_marginTop="30px"
+            android:src="@drawable/personal_back_img" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:gravity="center"
+            android:text="收藏"
+            android:textColor="#FFF"
+            android:textSize="60px" />
+
+
+    </RelativeLayout>
+
+
+
+    <android.support.design.widget.TabLayout
+        app:tabMode="scrollable"
+        android:id="@+id/Collection_tablayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <!--NoScrollViewPager-->
+
+    <com.example.dell.pandalive.custom_view.NoScrollViewPager
+        android:id="@+id/Collection_viewpaget"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></com.example.dell.pandalive.custom_view.NoScrollViewPager>
+
+
+
+
+
+
+
+
+
+</LinearLayout>

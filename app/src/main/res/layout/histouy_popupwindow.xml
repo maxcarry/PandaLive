@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="提示"
+        android:gravity="center_horizontal"/>
+
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="确认删除？"
+        android:gravity="center_horizontal"/>
+
+
+
+    <LinearLayout
+        android:background="#D6D7D7"
+        android:layout_width="match_parent"
+        android:layout_height="5px">
+
+
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/popupwindow_cancel"
+            android:background="#FFF"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="取消"/>
+
+        <TextView
+            android:layout_width="5px"
+            android:layout_height="match_parent"
+            android:background="#D6D7D7"/>
+
+
+        <Button
+            android:id="@+id/popupwindow_confirm"
+            android:background="#FFF"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="确认"/>
+
+
+
+    </LinearLayout>
+
+
+
+
+</LinearLayout>

@@ -1,10 +1,13 @@
 package com.example.dell.pandalive.ui.personal.history;
 
+import android.graphics.drawable.ColorDrawable;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,6 +41,7 @@ public class History_Activity extends BaseActivity implements View.OnClickListen
     private TextView history_head_edit;
     private LinearLayout history_linearlayout;
     private HistoryDatabaseDao historyDatabaseDao;
+    private ImageView history_head_return111;
 
     @Override
     protected void initdata() {
@@ -59,28 +63,23 @@ public class History_Activity extends BaseActivity implements View.OnClickListen
         button3 = (Button) findViewById(R.id.button3);
         button5 = (Button) findViewById(R.id.button5);
         listView = (ListView) findViewById(R.id.listView);
+        history_head_return111 = (ImageView) findViewById(R.id.history_head_return111);
+        history_head_return111.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
         initView();
 
 
         mDatas = new ArrayList<>();
 
         List<HistoryDatabase> dlist = historyDatabaseDao.queryBuilder().list();
-        //list的适配器
-//                 Adapters adapters = new Adapters(ShuJuKuActivity.this, android.R.id.list);
-//
-//                 shujuku_listview.setAdapter(adapters);
-
-
-//        mDatas.addAll(dlist);
-
-
-//        DatabaseReady databaseReady=new DatabaseReady();
-
-
-
 
         for (int i = 0; i < dlist.size(); i++) {
-            HistoryBean historyBean=new HistoryBean(i+"",dlist.get(i).getDname(),dlist.get(i).getDtime(),dlist.get(i).getDtime(),dlist.get(i).getDimg());
+            HistoryBean historyBean = new HistoryBean(i + "", dlist.get(i).getDname(), dlist.get(i).getDtime(), dlist.get(i).getDtime(), dlist.get(i).getDimg());
             mDatas.add(historyBean);
         }
 
@@ -183,40 +182,70 @@ public class History_Activity extends BaseActivity implements View.OnClickListen
         List<String> ids = new ArrayList<>();
 
         if (historyAdapters.flage) {
-
             for (int i = 0; i < mDatas.size(); i++) {
                 if (mDatas.get(i).historyisCheck) {
                     ids.add(mDatas.get(i).historyid);
+                    String historytimes = mDatas.get(i).getHistorytimes();
+                    HistoryDatabase historyDatabase=new HistoryDatabase();
+                    historyDatabase.setDtime(historytimes);
+                    historyDatabaseDao.delete(historyDatabase);
+
                 }
             }
-
-//            Toast.makeText(MainActivity.this, ids.toString(), Toast.LENGTH_SHORT).show();
-//            Log.e("TAG", ids.toString());
-
         }
-
-
-        if (ids != null) {
-
-            for (int i = 0; i < ids.size(); i++) {
-                mDatas.remove(i);
-            }
-
-        }
-
-
         btnNoList(view);
         historyAdapters.notifyDataSetChanged();
 
-
-//        mAdapter.notifyDataSetChanged();
     }
 
     private void initView() {
 
         button2.setOnClickListener(this);
         button3.setOnClickListener(this);
-        button5.setOnClickListener(this);
+        //删除
+        button5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                View view1 = View.inflate(Myapp.activity, R.layout.histouy_popupwindow, null);
+
+
+               final PopupWindow popupWindow = new PopupWindow(view1, 500, 500);
+
+                popupWindow.setBackgroundDrawable(new ColorDrawable(0x00000000));
+
+                popupWindow.setOutsideTouchable(true);
+                //展示在当前条目的下方
+                popupWindow.setFocusable(true);
+
+                Button popupwindow_confirm = (Button) view1.findViewById(R.id.popupwindow_confirm);
+
+
+                Button popupwindow_cancel = (Button) view1.findViewById(R.id.popupwindow_cancel);
+
+                //确认
+                popupwindow_confirm.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        //获取选中数据
+                        btnOperateList(v);
+
+                    }
+                });
+                popupwindow_cancel.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        //关闭popupWindow
+                        popupWindow.dismiss();
+
+
+                    }
+                });
+
+            }
+        });
 
 
         history_head_edit.setOnClickListener(new View.OnClickListener() {
@@ -245,10 +274,6 @@ public class History_Activity extends BaseActivity implements View.OnClickListen
                 btnNoList(v);
                 break;
 
-            case R.id.button5:
-                //获取选中数据
-                btnOperateList(v);
-                break;
         }
     }
 

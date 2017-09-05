@@ -19,14 +19,6 @@ public class HistoryBean {
     public String historytimes;
 
 
-        public HistoryBean(String historyid, String historytitle, String historydesc, String historytimes, String historyimg) {
-            this.historyid = historyid;
-            this.historytitle = historytitle;
-            this.historydesc = historydesc;
-            this.historytimes = historytimes;
-            this.historyimg = historyimg;
-
-/*
     public String getHistoryid() {
         return historyid;
     }
@@ -73,7 +65,17 @@ public class HistoryBean {
 
     public void setHistorytimes(String historytimes) {
         this.historytimes = historytimes;
-    }*/
+    }
+
+    public HistoryBean(String historyid, String historytitle, String historydesc, String historytimes, String historyimg) {
+            this.historyid = historyid;
+            this.historytitle = historytitle;
+            this.historydesc = historydesc;
+            this.historytimes = historytimes;
+            this.historyimg = historyimg;
+
+
+
 
         }
 }
