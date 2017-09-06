@@ -1,0 +1,58 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+     android:orientation="vertical"
+    tools:context="com.example.dell.pandalive.ui.personal.user.ShouCangOneFragment">
+
+    <ListView
+        android:layout_weight="1"
+        android:id="@+id/shoucang_listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></ListView>
+
+
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/shoucang_linearlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <Button
+            android:layout_weight="1"
+            android:text="全选"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/shoucang_button2"/>
+
+
+        <Button
+            android:visibility="gone"
+            android:layout_weight="1"
+            android:text="取消全选"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/shoucang_button3"/>
+
+
+        <TextView
+            android:layout_width="10px"
+            android:layout_height="match_parent"
+            android:background="#CDCDCD"/>
+
+
+        <Button
+            android:layout_weight="1"
+            android:text="删除"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/shoucang_button5"/>
+
+
+    </LinearLayout>
+
+
+
+
+</LinearLayout>

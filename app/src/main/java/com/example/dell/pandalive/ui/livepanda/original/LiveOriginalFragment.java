@@ -89,6 +89,28 @@ public class LiveOriginalFragment extends BaseFragment implements ILivePerformFr
 
         live_smartrefreshlayout = (SmartRefreshLayout) view.findViewById(R.id.live_smartrefreshlayout);
 
+
+        live_splendid_customlistview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                DatabaseReady databaseReady=new DatabaseReady();
+
+                databaseReady.add1(video.get(position).getT(),video.get(position).getPtime(),video.get(position).getLen(),video.get(position).getImg());
+
+                databaseReady.add2(video.get(position).getT(),video.get(position).getPtime(),video.get(position).getLen(),video.get(position).getImg(),video.get(position).getVid(),"2");
+
+
+                Intent live = new Intent(Myapp.activity, PlayActivityUtil.class);
+                live.putExtra("title", video.get(position).getT());
+                live.putExtra("path", video.get(position).getVid());
+                live.putExtra("type", "2");
+                startActivity(live);
+
+            }
+        });
+
+
+        //上啦下啦
         live_smartrefreshlayout.setRefreshHeader(new ClassicsHeader(Myapp.activity));
         live_smartrefreshlayout.setRefreshFooter(new ClassicsFooter(Myapp.activity));
 
@@ -106,37 +128,7 @@ public class LiveOriginalFragment extends BaseFragment implements ILivePerformFr
             LiveVideoAdapter liveVideoAdapter = new LiveVideoAdapter(Myapp.activity, video);
             live_splendid_customlistview.setAdapter(liveVideoAdapter);
 
-            live_splendid_customlistview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    DatabaseReady databaseReady=new DatabaseReady();
 
-                    databaseReady.add1(video.get(position).getT(),video.get(position).getPtime(),video.get(position).getLen(),video.get(position).getImg());
-
-                    databaseReady.add2(video.get(position).getT(),video.get(position).getPtime(),video.get(position).getLen(),video.get(position).getImg(),video.get(position).getVid(),"2");
-
-                    Intent live = new Intent(Myapp.activity, PlayActivityUtil.class);
-                    live.putExtra("title", video.get(position).getT());
-                    live.putExtra("path", video.get(position).getVid());
-                    live.putExtra("type", "2");
-                    live.putExtra("path", video.get(position).getVsid());
-                    live.putExtra("path", "2");
-                    live.putExtra("path", video.get(position).getUrl());
-                    live.putExtra("type","2");
-                    startActivity(live);
-
-                    /*play.putExtra("title", chinalist.get(position).getTitle());
-                play.putExtra("path",  "http://vdn.live.cntv.cn/api2/live.do?channel=pa://cctv_p2p_hd"+chinalist.get(position).getId()+"&client=androidapp");
-                play.putExtra("type", "1");*/
-
-
-
-                    /*  play.putExtra("title", chinalist.get(position).getTitle());
-                play.putExtra("path",  "http://vdn.live.cntv.cn/api2/live.do?channel=pa://cctv_p2p_hd"+chinalist.get(position).getId()+"&client=androidapp");
-                play.putExtra("type", "1");
-                startActivity(play);*/
-                }
-            });
 
         }
 

@@ -28,6 +28,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
+import fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard;
+
 /**
  * A simple {@link Fragment} subclass.
  * 熊猫直播
@@ -59,6 +61,7 @@ public class LiveDirectFragment extends BaseFragment implements ILiveDirectFragm
     int a=0;
     private MyMultiAdapter myMultiAdapter;
     private List<LookTalkBean.ListBean> list;
+    private JCVideoPlayerStandard live_play_video;
 
     @Override
     protected void restartdata() {
@@ -95,26 +98,9 @@ public class LiveDirectFragment extends BaseFragment implements ILiveDirectFragm
         look_but1_listview.setAdapter(myMultiAdapter);
     }
 
-  /*  private void initData() {
 
-//        LookTalkFragment lookTalkFragment = new
-        //添加Fragment
-
-        //MultiAngleFragment 多视角直播
-        livedirectfraglist.add(new LookTalkFragment());
-        //LookTalkFragment 边看边聊
-//        livedirectfraglist.add(new MultiAngleFragment());
-
-    }
-*/
     @Override
     public void livemainBean(List<LiveMainBean> liveBeen) {
-//        List<LiveMainBean> liveBeen2 = liveBeen;
-//        List<LiveMainBean.LiveBean> live = liveBeen2.get(0).getLive();
-//
-//        //视频播放的数据
-//        List<LiveMainBean.LiveBean> liveBeen1 = live;
-
 
 
     }
@@ -132,6 +118,11 @@ public class LiveDirectFragment extends BaseFragment implements ILiveDirectFragm
                 @Override
                 public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                     Toast.makeText(getActivity(),"点击第了"+i+"个直播",Toast.LENGTH_LONG).show();
+
+
+
+
+
                 }
             });
         }
@@ -184,7 +175,7 @@ public class LiveDirectFragment extends BaseFragment implements ILiveDirectFragm
         look_but2_edittext = (EditText) view.findViewById(R.id.look_but2_edittext);
         look_but2_but2 = (Button) view.findViewById(R.id.look_but2_but2);
         look_but1_listview = (ListView) view.findViewById(R.id.look_but1_listview);
-
+        live_play_video = (JCVideoPlayerStandard) view.findViewById(R.id.live_play_video);
         getjudgment();
 
 

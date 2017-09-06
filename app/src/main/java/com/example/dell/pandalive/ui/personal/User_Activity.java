@@ -26,7 +26,7 @@ import java.util.ArrayList;
  * Created by 张凯雅 on 2017/9/3.
  */
 
-class User_Activity extends BaseActivity implements View.OnClickListener, ViewPager.OnPageChangeListener {
+public class User_Activity extends BaseActivity implements View.OnClickListener, ViewPager.OnPageChangeListener {
 
     private ImageView user_back_imageview;
     private ViewPager mViewPager;

@@ -10,9 +10,9 @@ import com.bumptech.glide.Glide;
 import com.example.dell.pandalive.R;
 import com.example.dell.pandalive.app.Myapp;
 import com.example.dell.pandalive.base.BaseActivity;
-import com.example.dell.pandalive.ui.personal.collection.Collection_Activity;
 import com.example.dell.pandalive.ui.personal.history.History_Activity;
 import com.example.dell.pandalive.ui.personal.login.DebarkActivity;
+import com.example.dell.pandalive.ui.personal.user.ShouCangActivity;
 import com.example.dell.pandalive.utils.SharedUtil;
 
 /**
@@ -90,7 +90,10 @@ public class Eye_Personal_Activity extends BaseActivity implements View.OnClickL
 
              case R.id.personal_three_linearlayout:
 
-                startActivity(new Intent(Myapp.activity,Collection_Activity.class));
+//                startActivity(new Intent(Myapp.activity,Collection_Activity.class));
+
+                 startActivity(new Intent(Myapp.activity, ShouCangActivity.class));
+
                 break;
 
 

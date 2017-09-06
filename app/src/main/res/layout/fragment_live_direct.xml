@@ -6,10 +6,10 @@
     tools:context="com.example.dell.pandalive.ui.livepanda.direct.LiveDirectFragment">
 
 
-    <io.vov.vitamio.widget.VideoView
-        android:id="@+id/live_play_video"
-        android:layout_width="match_parent"
-        android:layout_height="700px" />
+   <fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard
+       android:id="@+id/live_play_video"
+       android:layout_width="match_parent"
+       android:layout_height="700px"></fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard>
 
 
     <LinearLayout
