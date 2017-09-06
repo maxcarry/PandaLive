@@ -10,7 +10,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.dell.pandalive.R;
 import com.example.dell.pandalive.app.HistoryBean;
 import com.example.dell.pandalive.app.Myapp;
 import com.example.dell.pandalive.base.BaseActivity;
@@ -22,6 +21,8 @@ import com.example.dell.pandalive.utils.PlayActivityUtil;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.umeng.message.proguard.n.R;
 
 /*
 * 观看历史
