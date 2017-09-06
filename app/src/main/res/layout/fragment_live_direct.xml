@@ -109,7 +109,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="#FFF"
-                    android:text="按钮1" />
+                    android:text="多视角直播" />
 
 
                 <Button
@@ -118,7 +118,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="#FFF"
-                    android:text="按钮2" />
+                    android:text="边看边聊" />
             </LinearLayout>
 
 

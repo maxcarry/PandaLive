@@ -1,11 +1,13 @@
 package com.example.dell.pandalive.ui.livepanda;
 
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageView;
 
 import com.example.dell.pandalive.R;
 import com.example.dell.pandalive.app.Myapp;
@@ -20,6 +22,7 @@ import com.example.dell.pandalive.ui.livepanda.thing.LiveThingFragment;
 import com.example.dell.pandalive.ui.livepanda.top.LiveTOPFragment;
 import com.example.dell.pandalive.ui.livepanda.unusual.LiveUnusualFragment;
 import com.example.dell.pandalive.ui.livepanda.yield.LiveYieldFragment;
+import com.example.dell.pandalive.ui.personal.Eye_Personal_Activity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +37,7 @@ public class LiveFragment extends BaseFragment {
     private TabLayout live_tablayout;
     private List<String> listTitles = new ArrayList<>();
     private List<Fragment> fragments = new ArrayList<>();
+    private ImageView home_person;
 
     //不用管
     @Override
@@ -69,6 +73,18 @@ public class LiveFragment extends BaseFragment {
     @Override
     protected void initview() {
         view = LayoutInflater.from(Myapp.activity).inflate(R.layout.live_fragment, null);
+//        Eye_Personal_Activity
+        home_person = (ImageView) view.findViewById(R.id.home_person);
+
+        home_person.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), Eye_Personal_Activity.class));
+            }
+        });
+
+
+
     }
 
     private void initData() {
