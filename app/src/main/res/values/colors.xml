@@ -15,5 +15,6 @@
     <color name="transparent_background">#994672AD</color>
     <color name="color_gray">#FAFAFA</color>
     <color name="color_hui">#C1C1C1</color>
+    <color name="pe_bg_light_blue">#E6EBEF</color>
 
 </resources>

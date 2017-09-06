@@ -54,9 +54,9 @@
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
-            <CheckBox
-                android:button="@null"
-                android:drawableLeft="@drawable/install_switch"
+            <ImageView
+                android:id="@+id/install_push_imageview"
+                android:src="@drawable/switch_close"
                 android:layout_marginRight="50px"
                 android:layout_width="135px"
                 android:layout_height="130px"
@@ -86,9 +86,9 @@
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
-            <CheckBox
-                android:button="@null"
-                android:drawableLeft="@drawable/install_switch"
+            <ImageView
+                android:id="@+id/install_play_imageview"
+                android:src="@drawable/switch_close"
                 android:layout_marginRight="50px"
                 android:layout_width="135px"
                 android:layout_height="130px"
@@ -102,6 +102,7 @@
         android:layout_height="3px"
         />
     <LinearLayout
+        android:id="@+id/install_set_delete_cache_linearlayout"
         android:layout_gravity="center"
         android:layout_width="1020px"
         android:layout_height="150px"
@@ -205,6 +206,7 @@
         android:layout_height="3px"
         />
     <LinearLayout
+        android:id="@+id/install_ping_linearlayout"
         android:layout_gravity="center"
         android:layout_width="1020px"
         android:layout_height="150px"

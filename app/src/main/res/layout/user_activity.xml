@@ -27,70 +27,106 @@
             android:textColor="@color/colorWhite"
             android:textSize="60px" />
     </RelativeLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="150px"-->
+        <!--android:layout_marginTop="20px"-->
+        <!--android:weightSum="2"-->
+        <!--&gt;-->
+        <!--<RelativeLayout-->
+            <!--android:id="@+id/meet_bt"-->
+            <!--android:layout_weight="1"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="match_parent">-->
+
+            <!--<TextView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="5px"-->
+                <!--android:background="@color/colorPrimary"-->
+                <!--android:layout_alignParentBottom="true"-->
+                <!--android:id="@+id/meet_thread"-->
+                <!--android:visibility="invisible"-->
+                <!--/>-->
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="遇到的问题"-->
+                <!--android:textColor="@color/colorBlack"-->
+                <!--android:layout_centerInParent="true"-->
+                <!--android:textSize="45px"-->
+                <!--android:id="@+id/meet_title"-->
+                <!--/>-->
+        <!--</RelativeLayout>-->
+        <!--<RelativeLayout-->
+            <!--android:id="@+id/common_bt"-->
+            <!--android:layout_weight="1"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="match_parent">-->
+
+            <!--<TextView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="5px"-->
+                <!--android:background="@color/colorPrimary"-->
+                <!--android:layout_alignParentBottom="true"-->
+                <!--android:id="@+id/common_thread"-->
+                <!--android:visibility="invisible"-->
+                <!--/>-->
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="常见问题"-->
+                <!--android:textColor="@color/colorBlack"-->
+                <!--android:layout_centerInParent="true"-->
+                <!--android:textSize="45px"-->
+                <!--android:id="@+id/common_title"-->
+                <!--/>-->
+        <!--</RelativeLayout>-->
+    <!--</LinearLayout>-->
+
+    <!--<FrameLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:id="@+id/problem_show"-->
+        <!--&gt;</FrameLayout>-->
+
+    <RadioGroup
+        android:layout_width="fill_parent"
         android:layout_height="150px"
-        android:layout_marginTop="20px"
-        android:weightSum="2"
-        >
-        <RelativeLayout
-            android:id="@+id/meet_bt"
+        android:background="@color/pe_bg_light_blue"
+        android:orientation="horizontal" >
+
+        <RadioButton
+            android:id="@+id/user_rb_left"
+            android:layout_width="0px"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent">
+            android:button="@null"
+            android:checked="true"
+            android:gravity="center"
+            android:text="遇到的问题"
+            android:textSize="30px"
+            android:background="@color/white"
+            android:textColor="@color/colorPrimary"
+            />
+        <RadioButton
+            android:id="@+id/user_rb_right"
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:button="@null"
+            android:text="常见问题"
+            android:textSize="30px"
+            android:background="@color/white"
+            android:gravity="center"
+            android:layout_weight="1" />
+    </RadioGroup>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="5px"
-                android:background="@color/colorPrimary"
-                android:layout_alignParentBottom="true"
-                android:id="@+id/meet_thread"
-                android:visibility="invisible"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="遇到的问题"
-                android:textColor="@color/colorBlack"
-                android:layout_centerInParent="true"
-                android:textSize="45px"
-                android:id="@+id/meet_title"
-                />
-        </RelativeLayout>
-        <!--<TextView-->
-            <!--android:layout_width="1px"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:background="@color/color_black"-->
-            <!--/>-->
-        <RelativeLayout
-            android:id="@+id/common_bt"
-            android:layout_weight="1"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="5px"
-                android:background="@color/colorPrimary"
-                android:layout_alignParentBottom="true"
-                android:id="@+id/common_thread"
-                android:visibility="invisible"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="常见问题"
-                android:textColor="@color/colorBlack"
-                android:layout_centerInParent="true"
-                android:textSize="45px"
-                android:id="@+id/common_title"
-                />
-        </RelativeLayout>
-    </LinearLayout>
+    <android.support.v4.view.ViewPager
+        android:layout_marginTop="10px"
+        android:id="@+id/user_content_viewpager"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/problem_show"
-        ></FrameLayout>
 </LinearLayout>

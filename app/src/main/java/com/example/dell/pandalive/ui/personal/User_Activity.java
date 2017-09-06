@@ -1,49 +1,42 @@
 package com.example.dell.pandalive.ui.personal;
 
+import android.content.Context;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
+import android.os.IBinder;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.view.ViewPager;
+import android.view.MotionEvent;
 import android.view.View;
-import android.widget.FrameLayout;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
+import android.widget.RadioButton;
 
 import com.example.dell.pandalive.R;
 import com.example.dell.pandalive.base.BaseActivity;
 import com.example.dell.pandalive.ui.personal.user.Common_Fragment;
 import com.example.dell.pandalive.ui.personal.user.Meet_Fragment;
 
+import java.util.ArrayList;
+
 /**
  * Created by 张凯雅 on 2017/9/3.
  */
 
-class User_Activity extends BaseActivity implements View.OnClickListener {
+class User_Activity extends BaseActivity implements View.OnClickListener, ViewPager.OnPageChangeListener {
 
     private ImageView user_back_imageview;
-    private RelativeLayout meet_bt;
-    private TextView meet_thread;
-    private TextView meet_title;
-    private RelativeLayout common_bt;
-    private TextView common_thread;
-    private TextView common_title;
-    private FrameLayout problem_show;
-    private Meet_Fragment meet;
-    private Common_Fragment common;
+    private ViewPager mViewPager;
+    private RadioButton mRb_left;
+    private RadioButton mRb_right;
+    private ArrayList<Fragment> mListFragment;
 
 
     @Override
     protected void initdata() {
-        meet_title.setTextColor(Color.BLUE);
-        //VISIBLE  显示
-        meet_thread.setVisibility(View.VISIBLE);
-        meet = new Meet_Fragment();
-        common = new Common_Fragment();
-
-        FragmentManager manager=getSupportFragmentManager();
-        FragmentTransaction transaction = manager.beginTransaction();
-        transaction.add(R.id.problem_show,meet);
-        transaction.commitAllowingStateLoss();
 
     }
 
@@ -56,21 +49,25 @@ class User_Activity extends BaseActivity implements View.OnClickListener {
                 finish();
             }
         });
-        meet_bt =(RelativeLayout)findViewById(R.id.meet_bt);
-        meet_bt.setOnClickListener(this);
-        meet_thread=(TextView)findViewById(R.id.meet_thread);
-        meet_thread.setOnClickListener(this);
-        meet_title =(TextView)findViewById(R.id.meet_title);
-        meet_title.setOnClickListener(this);
-        common_bt =(RelativeLayout)findViewById(R.id.common_bt);
-        common_bt.setOnClickListener(this);
-        common_thread =(TextView)findViewById(R.id.common_thread);
-        common_thread.setOnClickListener(this);
-        common_title =(TextView)findViewById(R.id.common_title);
-        common_title.setOnClickListener(this);
-        problem_show =(FrameLayout)findViewById(R.id.problem_show);
-        problem_show.setOnClickListener(this);
 
+        mViewPager = (ViewPager) findViewById(R.id.user_content_viewpager);
+        mRb_left = (RadioButton) findViewById(R.id.user_rb_left);
+        mRb_right = (RadioButton) findViewById(R.id.user_rb_right);
+
+        mRb_left.setOnClickListener(this);
+        mRb_right.setOnClickListener(this);
+
+        mRb_right.getPaint().setFakeBoldText(true);
+        mRb_left.getPaint().setFakeBoldText(true);
+
+        mListFragment = new ArrayList<Fragment>();
+        mListFragment.add(new Meet_Fragment());
+        mListFragment.add(new Common_Fragment());
+        mViewPager.setAdapter(new MyFragmentAdapter(getSupportFragmentManager()));
+        mViewPager.setOnPageChangeListener(this);
+        mViewPager.setOffscreenPageLimit(2);
+        mRb_left.setChecked(true);
+        refreshRadioButton();
 
     }
 
@@ -79,54 +76,129 @@ class User_Activity extends BaseActivity implements View.OnClickListener {
         return R.layout.user_activity;
     }
 
+    class MyFragmentAdapter extends FragmentStatePagerAdapter{
+
+        public MyFragmentAdapter(FragmentManager fm) {
+            super(fm);
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            return mListFragment.get(position);
+        }
+
+        @Override
+        public int getCount() {
+            return mListFragment.size();
+        }
+    }
+
     @Override
     public void onClick(View v) {
-        FragmentManager manager=getSupportFragmentManager();
-        FragmentTransaction transaction = manager.beginTransaction();
         switch (v.getId()){
-            case R.id.meet_bt:
-                if (meet_thread.getVisibility() == View.INVISIBLE) {
-
-                    meet_title.setTextColor(Color.BLUE);
-                    meet_thread.setVisibility(View.VISIBLE);
-
-                    common_thread.setVisibility(View.INVISIBLE);
-                    common_title.setTextColor(Color.BLACK);
-
-                    if (meet.isAdded()) {
-
-                        transaction.hide(common);
-                        transaction.show(meet);
-                        transaction.commitAllowingStateLoss();
-                    } else {
-                        transaction.hide(common);
-                        transaction.add(R.id.problem_show, meet);
-                        transaction.commitAllowingStateLoss();
-                    }
-                }
+            case R.id.user_rb_left:
+                mViewPager.setCurrentItem(0);
                 break;
-            case R.id.common_bt:
-                if (common_thread.getVisibility() == View.INVISIBLE) {
-
-                    meet_title.setTextColor(Color.BLACK);
-                    meet_thread.setVisibility(View.INVISIBLE);
-
-                    common_thread.setVisibility(View.VISIBLE);
-                    common_title.setTextColor(Color.BLUE);
-
-                    if (common.isAdded()) {
-
-                        transaction.hide(meet);
-                        transaction.show(common);
-                        transaction.commitAllowingStateLoss();
-                    } else {
-                        transaction.hide(meet);
-                        transaction.add(R.id.problem_show, common);
-                        transaction.commitAllowingStateLoss();
-                    }
-                }
+            case R.id.user_rb_right:
+                mViewPager.setCurrentItem(1);
                 break;
         }
 
     }
+
+    @Override
+    public void onPageScrollStateChanged(int state) {
+
+    }
+
+    @Override
+    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+    }
+
+    @Override
+    public void onPageSelected(int position) {
+        switch(position){
+            case 0:
+                mRb_left.setChecked(true);
+                break;
+            case 1:
+                mRb_right.setChecked(true);
+                break;
+        }
+        refreshRadioButton();
+
+    }
+
+    public void refreshRadioButton(){
+
+        Drawable bottom = getResources().getDrawable(R.drawable.custom_tab_indicator_selected2);
+        bottom.setBounds(0, 0, getResources().getDisplayMetrics().widthPixels/2, bottom.getMinimumHeight());//必须设置图片大小，否则不显示
+        if(mRb_left.isChecked())
+        {
+            mRb_left.setCompoundDrawables(null, null, null, bottom);
+            mRb_left.setTextColor(Color.parseColor("#1E539C"));
+
+            mRb_right.setCompoundDrawables(null, null, null, null);
+            mRb_right.setTextColor(Color.BLACK);
+        }
+        else
+        {
+            mRb_right.setCompoundDrawables(null, null, null, bottom);
+            mRb_right.setTextColor(Color.parseColor("#1E539C"));
+
+            mRb_left.setCompoundDrawables(null, null, null, null);
+            mRb_left.setTextColor(Color.BLACK);
+        }
+    }
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        if (ev.getAction() == MotionEvent.ACTION_DOWN) {
+            View v = getCurrentFocus();
+            if (isShouldHideKeyboard(v, ev)) {
+                hideKeyboard(v.getWindowToken());
+            }
+        }
+        return super.dispatchTouchEvent(ev);
+    }
+
+    /**
+     * 根据EditText所在坐标和用户点击的坐标相对比，来判断是否隐藏键盘，因为当用户点击EditText时则不能隐藏
+     *
+     * @param v
+     * @param event
+     * @return
+     */
+    private boolean isShouldHideKeyboard(View v, MotionEvent event) {
+        if (v != null && (v instanceof EditText)) {
+            int[] l = {0, 0};
+            v.getLocationInWindow(l);
+            int left = l[0],
+                    top = l[1],
+                    bottom = top + v.getHeight(),
+                    right = left + v.getWidth();
+            if (event.getX() > left && event.getX() < right
+                    && event.getY() > top && event.getY() < bottom) {
+                // 点击EditText的事件，忽略它。
+                return false;
+            } else {
+                return true;
+            }
+        }
+        // 如果焦点不是EditText则忽略，这个发生在视图刚绘制完，第一个焦点不在EditText上，和用户用轨迹球选择其他的焦点
+        return false;
+    }
+
+    /**
+     * 获取InputMethodManager，隐藏软键盘
+     * @param token
+     */
+    private void hideKeyboard(IBinder token) {
+        if (token != null) {
+            InputMethodManager im = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            im.hideSoftInputFromWindow(token, InputMethodManager.HIDE_NOT_ALWAYS);
+        }
+    }
+
 }

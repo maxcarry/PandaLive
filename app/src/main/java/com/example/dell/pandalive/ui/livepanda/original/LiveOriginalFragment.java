@@ -69,7 +69,7 @@ public class LiveOriginalFragment extends BaseFragment implements ILivePerformFr
         });
     }
 
-    private void  geturls() {
+    private void geturls() {
         DialogUtil.instance().Showdialog(Myapp.activity);
         liveOriginalPresenter.ShowPerform();
         DialogUtil.instance().Hidedialog();
@@ -114,11 +114,20 @@ public class LiveOriginalFragment extends BaseFragment implements ILivePerformFr
                     live.putExtra("title", video.get(position).getT());
                     live.putExtra("path", video.get(position).getVsid());
                     live.putExtra("path", "2");
+                    live.putExtra("path", video.get(position).getUrl());
+                    live.putExtra("type","2");
                     startActivity(live);
 
                     /*play.putExtra("title", chinalist.get(position).getTitle());
                 play.putExtra("path",  "http://vdn.live.cntv.cn/api2/live.do?channel=pa://cctv_p2p_hd"+chinalist.get(position).getId()+"&client=androidapp");
                 play.putExtra("type", "1");*/
+
+
+
+                    /*  play.putExtra("title", chinalist.get(position).getTitle());
+                play.putExtra("path",  "http://vdn.live.cntv.cn/api2/live.do?channel=pa://cctv_p2p_hd"+chinalist.get(position).getId()+"&client=androidapp");
+                play.putExtra("type", "1");
+                startActivity(play);*/
                 }
             });
 
