@@ -8,6 +8,7 @@ import android.widget.ListView;
 
 import com.example.dell.pandalive.R;
 import com.example.dell.pandalive.adapter.LivePerformAdapter;
+import com.example.dell.pandalive.app.DatabaseReady;
 import com.example.dell.pandalive.app.Myapp;
 import com.example.dell.pandalive.base.BaseFragment;
 import com.example.dell.pandalive.ui.livepanda.LiveVideoAdapter;
@@ -106,31 +107,20 @@ public class LiveUnusualFragment extends BaseFragment implements ILivePerformFra
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     Intent live = new Intent(Myapp.activity, PlayActivityUtil.class);
+                    DatabaseReady databaseReady=new DatabaseReady();
 
-                    live.putExtra("title", video.get(position).getT());
+                    databaseReady.add1(video.get(position).getT(),video.get(position).getPtime(),video.get(position).getLen(),video.get(position).getImg());
+                    databaseReady.add2(video.get(position).getT(),video.get(position).getPtime(),video.get(position).getLen(),video.get(position).getImg(),video.get(position).getVid(),"2");
 
-                    live.putExtra("path", video.get(position).getUrl());
-//                    live.putExtra("title", performBeen.get(position).getT());
-//                    live.putExtra("path", performBeen.get(position).getUrl());
+                  live.putExtra("title", video.get(position).getT());
+                    live.putExtra("path", video.get(position).getVid());
+                    live.putExtra("type", "2");
                     startActivity(live);
+
                 }
             });
         }
-/*
-        live_splendid_customlistview.setSelector(new ColorDrawable(Color.TRANSPARENT));
-        //适配器
-        LiveVideoAdapter liveVideoAdapter=new LiveVideoAdapter(Myapp.activity,performBeen);
-        live_splendid_customlistview.setAdapter(liveVideoAdapter);
 
-        live_splendid_customlistview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent live = new Intent(Myapp.activity, PlayActivityUtil.class);
-                live.putExtra("title", performBeen.get(position).getT());
-                live.putExtra("path", performBeen.get(position).getUrl());
-                startActivity(live);
-            }
-        });*/
     }
 
     public void geturls() {

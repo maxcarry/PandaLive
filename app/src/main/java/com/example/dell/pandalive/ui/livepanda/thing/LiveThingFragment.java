@@ -7,6 +7,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.dell.pandalive.R;
+import com.example.dell.pandalive.app.DatabaseReady;
 import com.example.dell.pandalive.app.Myapp;
 import com.example.dell.pandalive.base.BaseFragment;
 import com.example.dell.pandalive.ui.livepanda.LiveVideoAdapter;
@@ -93,28 +94,6 @@ public class LiveThingFragment extends BaseFragment implements ILivePerformFragm
         live_smartrefreshlayout.setRefreshHeader(new ClassicsHeader(Myapp.activity));
         live_smartrefreshlayout.setRefreshFooter(new ClassicsFooter(Myapp.activity));
 
-
-
-
-      /*  view = LayoutInflater.from(Myapp.activity).inflate(R.layout.fragment_jingcai, null);
-        liveThingPresenter = new LiveThingPresenter(this);
-        live_splendid_xrecycler = (XRecyclerView) view.findViewById(R.id.live_splendid_xrecycler);
-        //瀑布流
-        live_splendid_xrecycler.setLayoutManager(new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL));
-        live_splendid_xrecycler.setLoadingListener(new XRecyclerView.LoadingListener() {
-            @Override
-            public void onRefresh() {
-
-
-
-                live_splendid_xrecycler.refreshComplete();
-            }
-
-            @Override
-            public void onLoadMore() {
-                live_splendid_xrecycler.refreshComplete();
-            }
-        });*/
     }
 
     @Override
@@ -132,14 +111,20 @@ public class LiveThingFragment extends BaseFragment implements ILivePerformFragm
             live_splendid_customlistview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    DatabaseReady databaseReady=new DatabaseReady();
+
+                    databaseReady.add1(video.get(position).getT(),video.get(position).getPtime(),video.get(position).getLen(),video.get(position).getImg());
+                    databaseReady.add2(video.get(position).getT(),video.get(position).getPtime(),video.get(position).getLen(),video.get(position).getImg(),video.get(position).getVid(),"2");
+
+
+
                     Intent live = new Intent(Myapp.activity, PlayActivityUtil.class);
-
                     live.putExtra("title", video.get(position).getT());
-
-                    live.putExtra("path", video.get(position).getUrl());
-//                    live.putExtra("title", performBeen.get(position).getT());
-//                    live.putExtra("path", performBeen.get(position).getUrl());
+                    live.putExtra("path", video.get(position).getVid());
+                    live.putExtra("type", "2");
                     startActivity(live);
+
+
                 }
             });
 

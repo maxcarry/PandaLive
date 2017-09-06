@@ -67,6 +67,9 @@ public class HistoryAdapters extends BaseAdapter {
             holder.checkboxOperateData = (CheckBox) convertView.findViewById(R.id.checkbox_operate_data);
             holder.material_item_img=(ImageView) convertView.findViewById(R.id.material_item_img);
             holder.textTitle = (TextView) convertView.findViewById(R.id.text_title);
+
+
+
             holder.textDesc = (TextView) convertView.findViewById(R.id.text_desc);
             holder.time = (TextView) convertView.findViewById(R.id.time);
             convertView.setTag(holder);
@@ -85,6 +88,7 @@ public class HistoryAdapters extends BaseAdapter {
             //名字
             holder.textTitle.setText(dataBean.historytitle);
             //简介
+            holder.textDesc.setText(dataBean.getHistorydesc());
             //播放时间
             holder.time.setText(dataBean.historytimes);
 
@@ -118,9 +122,13 @@ public class HistoryAdapters extends BaseAdapter {
 
         public TextView textTitle;
 
+        public TextView text_desc;
         public TextView textDesc;
         public TextView time;
         public ImageView material_item_img;
+
+
+
     }
 }
 

@@ -7,6 +7,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.dell.pandalive.R;
+import com.example.dell.pandalive.app.DatabaseReady;
 import com.example.dell.pandalive.app.Myapp;
 import com.example.dell.pandalive.base.BaseFragment;
 import com.example.dell.pandalive.ui.livepanda.LiveVideoAdapter;
@@ -108,10 +109,16 @@ public class LiveOriginalFragment extends BaseFragment implements ILivePerformFr
             live_splendid_customlistview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    DatabaseReady databaseReady=new DatabaseReady();
 
-                                                            //PlayActivityUtil
+                    databaseReady.add1(video.get(position).getT(),video.get(position).getPtime(),video.get(position).getLen(),video.get(position).getImg());
+
+                    databaseReady.add2(video.get(position).getT(),video.get(position).getPtime(),video.get(position).getLen(),video.get(position).getImg(),video.get(position).getVid(),"2");
+
                     Intent live = new Intent(Myapp.activity, PlayActivityUtil.class);
                     live.putExtra("title", video.get(position).getT());
+                    live.putExtra("path", video.get(position).getVid());
+                    live.putExtra("type", "2");
                     live.putExtra("path", video.get(position).getVsid());
                     live.putExtra("path", "2");
                     live.putExtra("path", video.get(position).getUrl());

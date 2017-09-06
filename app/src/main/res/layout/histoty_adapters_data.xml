@@ -36,22 +36,6 @@
                 android:src="@mipmap/ic_launcher" />
 
 
-
-
-
-            <!--
-
-            <TextView
-                android:id="@+id/time"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="时间"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true" />
-
--->
-
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="70px"
@@ -100,7 +84,7 @@
 
 
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
@@ -112,13 +96,16 @@
                 android:gravity="center_vertical"
                 android:text="标题"
                 android:textColor="#555555"
-                android:textSize="16sp" />
+                android:textSize="13sp" />
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
-                android:gravity="center_vertical">
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginBottom="5dp">
 
                 <TextView
                     android:id="@+id/text_desc"
@@ -127,10 +114,10 @@
                     android:layout_gravity="bottom"
                     android:text="描述描述描述描述描述描述"
                     android:textColor="#aaaaaa"
-                    android:textSize="14sp" />
+                    android:textSize="10sp" />
 
             </LinearLayout>
-        </LinearLayout>
+        </RelativeLayout>
     </LinearLayout>
 
 
