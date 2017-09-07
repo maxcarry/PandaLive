@@ -6,9 +6,11 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.net.Uri;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.dell.pandalive.R;
@@ -46,13 +48,13 @@ public class Install_Activity extends BaseActivity implements View.OnClickListen
     @Override
     protected void initview() {
         install_back_imageview = (ImageView) findViewById(R.id.install_back_imageview);
-        install_user_linearlayout =(LinearLayout)findViewById(R.id.install_user_linearlayout);
-        install_video_linearlayout =(LinearLayout)findViewById(R.id.install_video_linearlayout);
-        install_test_linearlayout =(LinearLayout)findViewById(R.id.install_test_linearlayout);
-        install_ping_linearlayout =(LinearLayout)findViewById(R.id.install_ping_linearlayout);
-        install_push_imageview =(ImageView)findViewById(R.id.install_push_imageview);
-        install_play_imageview =(ImageView)findViewById(R.id.install_play_imageview);
-        install_set_delete_cache_linearlayout =(LinearLayout)findViewById(R.id.install_set_delete_cache_linearlayout);
+        install_user_linearlayout = (LinearLayout) findViewById(R.id.install_user_linearlayout);
+        install_video_linearlayout = (LinearLayout) findViewById(R.id.install_video_linearlayout);
+        install_test_linearlayout = (LinearLayout) findViewById(R.id.install_test_linearlayout);
+        install_ping_linearlayout = (LinearLayout) findViewById(R.id.install_ping_linearlayout);
+        install_push_imageview = (ImageView) findViewById(R.id.install_push_imageview);
+        install_play_imageview = (ImageView) findViewById(R.id.install_play_imageview);
+        install_set_delete_cache_linearlayout = (LinearLayout) findViewById(R.id.install_set_delete_cache_linearlayout);
         install_back_imageview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -97,14 +99,35 @@ public class Install_Activity extends BaseActivity implements View.OnClickListen
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.install_set_delete_cache_linearlayout:
 
-                showDialog(CLEAN_CACHE_CODE);
+                View viewDialog = (View) LayoutInflater.from(this).inflate(
+                        R.layout.update_dialog, null);
+                final Dialog dialog = new Dialog(this, R.style.loginDialogTheme);
+
+                TextView login_left_cancel, login_right_sure;
+                login_left_cancel = (TextView) viewDialog.findViewById(R.id.login_left_cancel);
+                login_right_sure = (TextView) viewDialog.findViewById(R.id.login_right_sure);
+                login_left_cancel.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
+                login_right_sure.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        showDialog(CLEAN_CACHE_CODE);
+                        dialog.dismiss();
+                    }
+                });
+                dialog.setContentView(viewDialog);
+                dialog.show();
 
                 break;
             case R.id.install_user_linearlayout:
-                startActivity(new Intent(Myapp.activity,User_Activity.class));
+                startActivity(new Intent(Myapp.activity, User_Activity.class));
                 break;
             case R.id.install_test_linearlayout:
 
@@ -112,7 +135,7 @@ public class Install_Activity extends BaseActivity implements View.OnClickListen
 
                 break;
             case R.id.install_video_linearlayout:
-                startActivity(new Intent(Myapp.activity,Video_Activity.class));
+                startActivity(new Intent(Myapp.activity, Video_Activity.class));
                 break;
             case R.id.install_ping_linearlayout:
                 Uri uri = Uri.parse("market://details?id=cn.cntv.app.ipanda");
@@ -120,7 +143,7 @@ public class Install_Activity extends BaseActivity implements View.OnClickListen
                 try {
                     startActivity(goToMarket);
                 } catch (Exception e) {
-                    Toast.makeText(Myapp.activity,"没有找到可用的应用市场",
+                    Toast.makeText(Myapp.activity, "没有找到可用的应用市场",
                             Toast.LENGTH_LONG).show();
                 }
                 break;
