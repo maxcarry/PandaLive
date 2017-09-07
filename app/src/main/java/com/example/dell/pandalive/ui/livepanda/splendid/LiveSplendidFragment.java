@@ -120,7 +120,7 @@ public class LiveSplendidFragment extends BaseFragment implements ILivePerformFr
                     Intent live = new Intent(Myapp.activity, PlayActivityUtil.class);
                     live.putExtra("title", video.get(position).getT());
                     live.putExtra("path", video.get(position).getVid());
-                    live.putExtra("type", "2");
+                    live.putExtra("type", "1");
                     startActivity(live);
 
 

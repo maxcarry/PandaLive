@@ -14,7 +14,6 @@ import com.yancy.gallerypick.widget.GalleryImageView;
 public class GlideImageLoader implements ImageLoader {
 
 
-
     private final static String TAG = "GlideImageLoader";
 
 

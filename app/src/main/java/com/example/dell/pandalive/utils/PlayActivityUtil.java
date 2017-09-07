@@ -78,7 +78,6 @@ public class PlayActivityUtil extends AppCompatActivity implements MediaPlayer.O
             public void onSubscribe(Disposable d) {
 
             }
-
             @Override
             public void onNext(Object value) {
 
@@ -144,6 +143,7 @@ public class PlayActivityUtil extends AppCompatActivity implements MediaPlayer.O
     private void initData() {
         uri = Uri.parse(path);
         mVideoView.setVideoURI(uri);//设置视频播放地址
+        Log.e("------------",uri.toString());
         mCustomMediaController.show(5000);
         mVideoView.setMediaController(mCustomMediaController);
         mVideoView.setVideoQuality(MediaPlayer.VIDEOQUALITY_HIGH);//高画质

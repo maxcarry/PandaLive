@@ -31,6 +31,7 @@
 
 
             <ImageView
+                android:id="@+id/details_share_weibo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
@@ -58,6 +59,7 @@
                 android:textSize="45px" />
 
             <TextView
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"

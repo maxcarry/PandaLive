@@ -21,8 +21,8 @@ public class HDPersenter implements IHDpersenter{
     }
 
     @Override
-    public void videodetailsshowrecycler() {
-        hdModel.videodetailsrecycl(this);
+    public void videodetailsshowrecycler(String url) {
+        hdModel.videodetailsrecycl(this,url);
     }
 
     @Override

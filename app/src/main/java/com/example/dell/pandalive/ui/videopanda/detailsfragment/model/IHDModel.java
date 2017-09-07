@@ -8,5 +8,5 @@ import com.example.dell.pandalive.ui.videopanda.detailsfragment.persenter.IHDper
 
 public interface IHDModel {
 
-    void videodetailsrecycl(IHDpersenter ihDpersenter);
+    void videodetailsrecycl(IHDpersenter ihDpersenter,String url);
 }

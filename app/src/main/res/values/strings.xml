@@ -8,4 +8,6 @@
     <string name="home_tv">"精彩一刻"</string>
     <string name="home_video">"滚滚视频"</string>
     <string name="home_china">"直播中国"</string>
+
+    <string name="weibosdk_demo_toast_share_failed">分享失败</string>
 </resources>

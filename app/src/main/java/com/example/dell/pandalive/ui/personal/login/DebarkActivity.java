@@ -2,7 +2,9 @@ package com.example.dell.pandalive.ui.personal.login;
 
 import android.content.Intent;
 import android.graphics.Paint;
+import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,6 +19,14 @@ import com.example.dell.pandalive.ui.personal.login.presenter.LoginPresenter;
 import com.example.dell.pandalive.ui.personal.register.RegisterActivity;
 import com.example.dell.pandalive.utils.DialogUtil;
 import com.example.dell.pandalive.utils.Netwoke;
+import com.example.dell.pandalive.ui.videopanda.Constants;
+import com.sina.weibo.sdk.WbSdk;
+import com.sina.weibo.sdk.auth.AccessTokenKeeper;
+import com.sina.weibo.sdk.auth.AuthInfo;
+import com.sina.weibo.sdk.auth.Oauth2AccessToken;
+import com.sina.weibo.sdk.auth.WbAuthListener;
+import com.sina.weibo.sdk.auth.WbConnectErrorMessage;
+import com.sina.weibo.sdk.auth.sso.SsoHandler;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -34,6 +44,9 @@ public class DebarkActivity extends BaseActivity implements View.OnClickListener
     private Button debark_landing;
     private TextView debark_ped_sky;
     private LoginPresenter loginPresenter;
+    private SsoHandler mSsoHandler;
+    private Oauth2AccessToken accesstokn;
+
 
     @Override
     protected void initdata() {
@@ -69,6 +82,7 @@ public class DebarkActivity extends BaseActivity implements View.OnClickListener
         debark_landing.setOnClickListener(this);
         debark_enroll.setOnClickListener(this);
         debark_return_img.setOnClickListener(this);
+        debark_thirdly_weibo.setOnClickListener(this);
     }
 
     @Override
@@ -112,6 +126,61 @@ public class DebarkActivity extends BaseActivity implements View.OnClickListener
 
                 finish();
                 break;
+            case R.id.debark_thirdly_weibo:
+                WbSdk.install(Myapp.activity,new AuthInfo(Myapp.activity, Constants.APP_KEY, Constants.REDIRECT_URL,
+                        Constants.SCOPE));
+
+                mSsoHandler = new SsoHandler(DebarkActivity.this);
+                mSsoHandler.authorize(new SelfWbAuthListener());
+
+                break;
+        }
+    }
+
+
+    private class SelfWbAuthListener implements WbAuthListener {
+        @Override
+        public void onSuccess(final Oauth2AccessToken token) {
+            DebarkActivity.this.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    accesstokn = token;
+                    String name = token.getPhoneNum();
+                    String token1 = token.getToken();
+                    Bundle bundle = token.getBundle();
+                    String token2 = token.getRefreshToken();
+                    long time = token.getExpiresTime();
+                    String uid = token.getUid();
+                    Log.e("login", "name==" + name + "----time==" + time + "----uid==" + uid);
+                    Log.e("login", "name==" + token1 + "----time==" + bundle + "----uid==" + token2);
+                    if(accesstokn.isSessionValid()) {
+                        AccessTokenKeeper.writeAccessToken(DebarkActivity.this, accesstokn);
+                        Toast.makeText(DebarkActivity.this,
+                                "name==" + name + "----time==" + time + "----uid==" + uid, Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+        }
+
+        @Override
+        public void cancel() {
+            Toast.makeText(DebarkActivity.this,
+                    "取消了", Toast.LENGTH_LONG).show();
+
+        }
+
+        @Override
+        public void onFailure(WbConnectErrorMessage wbConnectErrorMessage) {
+            Toast.makeText(DebarkActivity.this, wbConnectErrorMessage.getErrorMessage(), Toast.LENGTH_LONG).show();
+
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(mSsoHandler!=null) {
+            mSsoHandler.authorizeCallBack(requestCode,resultCode,data);
         }
     }
 

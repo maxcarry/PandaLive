@@ -74,13 +74,14 @@
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
                     android:background="@drawable/lpanda_show" />
+
                 <ImageView
                     android:id="@+id/video_details_upimage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
-                    android:visibility="gone"
-                    android:background="@drawable/com_facebook_tooltip_blue_topnub" />
+                    android:background="@drawable/com_facebook_tooltip_blue_topnub"
+                    android:visibility="gone" />
             </RelativeLayout>
 
         </LinearLayout>
@@ -97,17 +98,48 @@
             android:text="这是一档每周五更新的盘点类节目，每周盘点近期最萌、最酷、最搞笑的直播精彩画面"
             android:visibility="gone" />
 
-        <android.support.design.widget.TabLayout
-            android:id="@+id/video_details_tablayout"
+        <RelativeLayout
+            android:id="@+id/details_relat"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/details_content_show"></android.support.design.widget.TabLayout>
+            android:layout_height="100px"
+            android:layout_below="@+id/details_content_show"
+            android:background="@color/colorWhite">
 
-        <android.support.v4.view.ViewPager
-            android:id="@+id/video_details_viewpager"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="高清完整"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="40px"
+                android:textSize="50px" />
+
+        </RelativeLayout>
+
+        <com.scwang.smartrefresh.layout.SmartRefreshLayout
+            android:id="@+id/hdrefrelayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/video_details_tablayout"></android.support.v4.view.ViewPager>
+            android:layout_below="@+id/details_relat">
+
+            <ListView
+                android:id="@+id/video_hdcomplete_recyclerview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></ListView>
+
+
+        </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+        <!--<android.support.design.widget.TabLayout-->
+        <!--android:id="@+id/video_details_tablayout"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@+id/details_content_show"></android.support.design.widget.TabLayout>-->
+
+        <!--<android.support.v4.view.ViewPager-->
+        <!--android:id="@+id/video_details_viewpager"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_below="@+id/video_details_tablayout"></android.support.v4.view.ViewPager>-->
 
 
     </RelativeLayout>
@@ -129,21 +161,29 @@
             android:layout_centerVertical="true"
             android:orientation="horizontal">
 
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:button="@null"
-                android:layout_weight="1"
-                android:layout_centerVertical="true"
+
+            <CheckBox
+                android:id="@+id/details_checkbox_collection"
+                android:layout_width="100px"
+                android:layout_height="100px"
                 android:background="@drawable/video_detaila_shpe"
-                android:id="@+id/details_image_collection"
-                />
+                android:button="@null" />
+
+            <!--<RadioButton-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:button="@null"-->
+            <!--android:layout_weight="1"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:background="@drawable/video_detaila_shpe"-->
+            <!--android:id="@+id/details_image_collection"-->
+            <!--/>-->
             <!--<ImageView-->
-                <!--android:id="@+id/details_image_collection"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_centerVertical="true"-->
-                <!--android:src="@drawable/personal_shoucang_img" />-->
+            <!--android:id="@+id/details_image_collection"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:src="@drawable/personal_shoucang_img" />-->
 
             <ImageView
                 android:id="@+id/details_image_share"

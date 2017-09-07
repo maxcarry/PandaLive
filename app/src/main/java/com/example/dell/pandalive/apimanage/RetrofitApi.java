@@ -139,8 +139,8 @@ public interface RetrofitApi {
 
     //滚滚视频详情
 
-    @GET("http://api.cntv.cn/video/videolistById?p=1&serviceId=panda&n=150&vsid=VSET100284428835")
-    Observable<VideoDetailsHDBean> getvideodetailsrecycler();
+    @GET
+    Observable<VideoDetailsHDBean> getvideodetailsrecycler(@Url String url);
     //直播中国
 //    http://www.ipanda.com/kehuduan/PAGE14501775094142282/index.json
     @GET("kehuduan/PAGE14501775094142282/index.json")

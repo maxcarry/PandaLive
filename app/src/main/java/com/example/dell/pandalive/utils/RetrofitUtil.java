@@ -286,8 +286,8 @@ public class RetrofitUtil {
     }
 //    http://36.102.235.55/vod.cntv.lxdns.com/flash/mp4video61/TMS/2017/08/28/32a08c5f6c3f4f34becaf960d5a47538_h264418000nero_aac32.mp4?wshc_tag=0&wsts_tag=59a62116&wsid_tag=73ab217c&wsiphost=ipdbm
     //滚滚视频详情
-    public void videodetailsrecycler(Observer observer){
-        Observable<VideoDetailsHDBean> videoshowrecy=api.getvideodetailsrecycler();
+    public void videodetailsrecycler(String url,Observer observer){
+        Observable<VideoDetailsHDBean> videoshowrecy=api.getvideodetailsrecycler(url);
         videoshowrecy.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(observer);

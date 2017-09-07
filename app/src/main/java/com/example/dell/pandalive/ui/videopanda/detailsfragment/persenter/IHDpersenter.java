@@ -9,6 +9,6 @@ import java.util.List;
  */
 
 public interface IHDpersenter {
-    void videodetailsshowrecycler();
+    void videodetailsshowrecycler(String url);
     void videodetailsperrecycler(List<VideoDetailsHDBean.VideoBean> arrayList);
 }

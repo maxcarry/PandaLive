@@ -96,12 +96,6 @@ public class Eye_Personal_Activity extends BaseActivity implements View.OnClickL
 
                 break;
 
-
-
-
-
-
-
         }
     }
 

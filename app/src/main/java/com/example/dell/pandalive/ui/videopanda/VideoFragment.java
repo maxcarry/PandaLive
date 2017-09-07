@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.example.dell.pandalive.R;
@@ -13,6 +14,7 @@ import com.example.dell.pandalive.base.BaseFragment;
 import com.example.dell.pandalive.entity.VideoBanner;
 import com.example.dell.pandalive.entity.VideoRVBean;
 import com.example.dell.pandalive.loaderutils.BannerGlideImageLoader;
+import com.example.dell.pandalive.ui.personal.Eye_Personal_Activity;
 import com.example.dell.pandalive.ui.videopanda.presenter.Videopersenter;
 import com.example.dell.pandalive.utils.DialogUtil;
 import com.example.dell.pandalive.utils.PlayActivityUtil;
@@ -34,18 +36,19 @@ import static com.example.dell.pandalive.R.id.refreshlayout;
  * Created by dell on 2017/8/23.
  */
 
-public class VideoFragment extends BaseFragment implements IVideoView {
+public class VideoFragment extends BaseFragment implements IVideoView, View.OnClickListener {
 
     //贾成昆
     private View view;
     private Intent intent = new Intent(Myapp.activity, PlayActivityUtil.class);
-    ListView videolistView;
+    private ListView videolistView;
 
 
-    SmartRefreshLayout refreshLayout;
-    Videopersenter videopersenter;
+    private SmartRefreshLayout refreshLayout;
+    private Videopersenter videopersenter;
     private VideoRecyclerAdapter videoRecyclerAdapter;
     private Banner videobanner;
+    private ImageView videoperson;
 
     @Override
     protected void restartdata() {
@@ -62,7 +65,6 @@ public class VideoFragment extends BaseFragment implements IVideoView {
                 refreshLayout();
             }
         });
-
     }
 
     private void refreshLayout() {
@@ -81,6 +83,8 @@ public class VideoFragment extends BaseFragment implements IVideoView {
         view = LayoutInflater.from(Myapp.activity).inflate(R.layout.video_fragment, null);
 
         videopersenter = new Videopersenter(this);
+        videoperson = (ImageView) view.findViewById(R.id.video_person);
+        videoperson.setOnClickListener(this);
         refreshLayout= (SmartRefreshLayout) view.findViewById(refreshlayout);
         videolistView = (ListView) view.findViewById(R.id.video_list_view);
         videobanner = (Banner) view.findViewById(R.id.video_banner);
@@ -122,6 +126,7 @@ public class VideoFragment extends BaseFragment implements IVideoView {
                 intent.putExtra("title", bigImg.get(position).getTitle());
                 intent.putExtra("path", bigImg.get(position).getPid());
                 intent.putExtra("type", bigImg.get(position).getType());
+                intent.putExtra("type","2");
                 startActivity(intent);
 
             }
@@ -133,7 +138,6 @@ public class VideoFragment extends BaseFragment implements IVideoView {
     @Override
     public void ShowRecycler(final List<VideoRVBean.ListBean> arrayList) {
 
-//        Toast.makeText(Myapp.activity,""+arrayList.get(0).getTitle(),Toast.LENGTH_SHORT).show();
 
         videoRecyclerAdapter = new VideoRecyclerAdapter(getActivity(), arrayList);
         videolistView.setAdapter(videoRecyclerAdapter);
@@ -143,12 +147,18 @@ public class VideoFragment extends BaseFragment implements IVideoView {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent detailintent=new Intent(getActivity(),VideoDetailsActivity.class);
-                detailintent.putExtra("title", arrayList.get(position).getTitle());
+                detailintent.putExtra("title",arrayList.get(position).getTitle());
                 detailintent.putExtra("path", arrayList.get(position).getId());
                 detailintent.putExtra("type", arrayList.get(position).getType());
                 startActivity(detailintent);
             }
         });
         DialogUtil.instance().Hidedialog();
+    }
+
+    @Override
+    public void onClick(View v) {
+        Intent intent=new Intent(getActivity(), Eye_Personal_Activity.class);
+        startActivity(intent);
     }
 }

@@ -7,8 +7,6 @@ import com.example.dell.pandalive.entity.VideoDetailsHDBean;
 import com.example.dell.pandalive.ui.videopanda.detailsfragment.persenter.IHDpersenter;
 import com.example.dell.pandalive.utils.RetrofitUtil;
 
-import java.util.List;
-
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 
@@ -17,9 +15,10 @@ import io.reactivex.disposables.Disposable;
  */
 
 public class HDModel implements IHDModel {
+
     @Override
-    public void videodetailsrecycl(final IHDpersenter ihDpersenter) {
-        RetrofitUtil.instance("http://api.cntv.cn").videodetailsrecycler(new Observer() {
+    public void videodetailsrecycl(final IHDpersenter ihDpersenter,String url) {
+        RetrofitUtil.instance("").videodetailsrecycler(url,new Observer() {
             @Override
             public void onSubscribe(Disposable d) {
 
@@ -28,9 +27,9 @@ public class HDModel implements IHDModel {
             @Override
             public void onNext(Object value) {
                 VideoDetailsHDBean detailsHDBean= (VideoDetailsHDBean) value;
-                List<VideoDetailsHDBean.VideoBean> hdbean=detailsHDBean.getVideo();
+//                List<VideoDetailsHDBean.VideoBean> hdbean=detailsHDBean.getVideo();
 
-                ihDpersenter.videodetailsperrecycler(hdbean);
+                ihDpersenter.videodetailsperrecycler(detailsHDBean.getVideo());
 
             }
 
@@ -46,4 +45,6 @@ public class HDModel implements IHDModel {
             }
         });
     }
+
+
 }
