@@ -3,7 +3,7 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ScrollView
+    <com.example.dell.pandalive.custom_view.MyScrollview
         android:id="@+id/column_scroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -92,5 +92,5 @@
                 ></android.support.v7.widget.RecyclerView>
 
         </RelativeLayout>
-    </ScrollView>
+    </com.example.dell.pandalive.custom_view.MyScrollview>
 </LinearLayout>

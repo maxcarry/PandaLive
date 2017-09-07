@@ -6,5 +6,7 @@ package com.example.dell.pandalive.ui.personal.register.emilsregister.presenter;
 
 public interface IEmilPresenter {
 
-    void SendEmil(String emailString,String passwordString,String mCaptchaEditTextString);
+    void SendEmil(String emailString, String passwordString, String mCaptchaEditTextString, String JSESSIONID);
+
+    void SendSuucer(String msg);
 }

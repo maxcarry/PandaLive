@@ -8,7 +8,6 @@ import com.example.dell.pandalive.entity.EyeListBean;
 import com.example.dell.pandalive.entity.HomeBean;
 import com.example.dell.pandalive.entity.InteractListViewBean;
 import com.example.dell.pandalive.entity.LoginUserBean;
-import com.example.dell.pandalive.entity.SendEmilBase;
 import com.example.dell.pandalive.entity.TvBean;
 import com.example.dell.pandalive.entity.UserinfoBean;
 import com.example.dell.pandalive.entity.VideoBanner;
@@ -23,6 +22,7 @@ import com.example.dell.pandalive.ui.livepanda.perform.LivePerformBean;
 import java.util.Map;
 
 import io.reactivex.Observable;
+import okhttp3.ResponseBody;
 import retrofit2.http.GET;
 import retrofit2.http.QueryMap;
 import retrofit2.http.Url;
@@ -166,7 +166,7 @@ public interface RetrofitApi {
     @GET("http://my.cntv.cn/intf/napi/api.php")
     Observable<UserinfoBean> getuserinfo(@QueryMap Map<String,String> map);
 
-    //发送邮箱
-    @GET
-    Observable<SendEmilBase> sendemils(@Url String url);
+    //注册
+    @GET("https://reg.cntv.cn/regist/mobileRegist.do")
+    Observable<ResponseBody> register(@QueryMap Map<String,String> map);
 }

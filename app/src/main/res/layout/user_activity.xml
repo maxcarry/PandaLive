@@ -28,68 +28,6 @@
             android:textSize="60px" />
     </RelativeLayout>
 
-    <!--<LinearLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="150px"-->
-        <!--android:layout_marginTop="20px"-->
-        <!--android:weightSum="2"-->
-        <!--&gt;-->
-        <!--<RelativeLayout-->
-            <!--android:id="@+id/meet_bt"-->
-            <!--android:layout_weight="1"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="match_parent">-->
-
-            <!--<TextView-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="5px"-->
-                <!--android:background="@color/colorPrimary"-->
-                <!--android:layout_alignParentBottom="true"-->
-                <!--android:id="@+id/meet_thread"-->
-                <!--android:visibility="invisible"-->
-                <!--/>-->
-            <!--<TextView-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:text="遇到的问题"-->
-                <!--android:textColor="@color/colorBlack"-->
-                <!--android:layout_centerInParent="true"-->
-                <!--android:textSize="45px"-->
-                <!--android:id="@+id/meet_title"-->
-                <!--/>-->
-        <!--</RelativeLayout>-->
-        <!--<RelativeLayout-->
-            <!--android:id="@+id/common_bt"-->
-            <!--android:layout_weight="1"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="match_parent">-->
-
-            <!--<TextView-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="5px"-->
-                <!--android:background="@color/colorPrimary"-->
-                <!--android:layout_alignParentBottom="true"-->
-                <!--android:id="@+id/common_thread"-->
-                <!--android:visibility="invisible"-->
-                <!--/>-->
-            <!--<TextView-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:text="常见问题"-->
-                <!--android:textColor="@color/colorBlack"-->
-                <!--android:layout_centerInParent="true"-->
-                <!--android:textSize="45px"-->
-                <!--android:id="@+id/common_title"-->
-                <!--/>-->
-        <!--</RelativeLayout>-->
-    <!--</LinearLayout>-->
-
-    <!--<FrameLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:id="@+id/problem_show"-->
-        <!--&gt;</FrameLayout>-->
-
     <RadioGroup
         android:layout_width="fill_parent"
         android:layout_height="150px"

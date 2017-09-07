@@ -50,7 +50,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private FragmentManager fm;
     // 所需的全部权限
     static final String[] PERMISSION = new String[]{
-            Manifest.permission.WRITE_EXTERNAL_STORAGE
+            Manifest.permission.WRITE_EXTERNAL_STORAGE,
+            Manifest.permission.VIBRATE
     };
 
 
@@ -261,9 +262,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     private void setPermissions() {
 
-        if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+        if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED
+                ||ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.VIBRATE) != PackageManager.PERMISSION_GRANTED
+                ) {
             //Android 6.0申请权限
             ActivityCompat.requestPermissions(this,PERMISSION,1);
+            ActivityCompat.requestPermissions(this,PERMISSION,2);
         }else{
 
         }

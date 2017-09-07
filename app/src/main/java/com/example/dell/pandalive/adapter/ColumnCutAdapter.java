@@ -3,7 +3,6 @@ package com.example.dell.pandalive.adapter;
 import android.content.Context;
 import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -16,8 +15,6 @@ import com.example.dell.pandalive.R;
 import com.example.dell.pandalive.entity.ChinaBean;
 
 import java.util.List;
-
-import static android.content.ContentValues.TAG;
 
 /**
  * Created by dell on 2017/8/29.
@@ -50,11 +47,16 @@ public class ColumnCutAdapter extends RecyclerView.Adapter{
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
 
-        Log.e(TAG, "onBindViewHolder: "+list.get(position).getTitle() );
         final Myholder ho = (Myholder) holder;
         ho.position = position;
+        if (position >= list.size()) {
+
+            return;
+        }
+        ho.cut_te_item.setVisibility(View.VISIBLE);
         ho.cut_te_item.setText(list.get(position).getTitle());
         ho.cut_te_item.setTextColor(Color.BLACK);
+        ho.cut_te_item.setBackgroundColor(Color.WHITE);
 
         ho.cut_te_item.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
@@ -78,7 +80,7 @@ public class ColumnCutAdapter extends RecyclerView.Adapter{
 
     @Override
     public int getItemCount() {
-        return list.size();
+        return list.size()+1;
     }
 
     class Myholder extends RecyclerView.ViewHolder {

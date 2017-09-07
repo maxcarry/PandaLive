@@ -30,6 +30,7 @@ public class LoginModel implements ILoginModel {
     public void GainUser(String userName, String password, final ILoginPresenter iLoginPresenter) {
 
         Log.e(TAG, "onNext: 开始请求" );
+
         Map<String, String> map = new HashMap<>();
         map.put("Referer", LOGIN_URL);
         map.put("User-Agent", USER_AGENT);
@@ -71,12 +72,13 @@ public class LoginModel implements ILoginModel {
         });
     }
 
-    private void getuserinfo(String user_seq_id, final ILoginPresenter iLoginPresenter) {
+    private void getuserinfo(final String user_seq_id, final ILoginPresenter iLoginPresenter) {
 
         Map<String, String> map = new HashMap<>();
         map.put("client", "ipanda_mobile");
         map.put("method", "user.getNickNameAndFace");
         map.put("userid", user_seq_id);
+
         RetrofitUtil.instance("").Webuserinfo(map, new Observer() {
             @Override
             public void onSubscribe(Disposable d) {
@@ -96,6 +98,7 @@ public class LoginModel implements ILoginModel {
                     SharedUtil instance = SharedUtil.instance();
                     instance.saveNickName(nickname);
                     instance.saveUserFace(userface);
+                    instance.saveUserId(user_seq_id);
 
                     iLoginPresenter.SendUser("成功");
                 }

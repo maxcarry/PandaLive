@@ -9,7 +9,6 @@ import com.example.dell.pandalive.entity.EyeListBean;
 import com.example.dell.pandalive.entity.HomeBean;
 import com.example.dell.pandalive.entity.InteractListViewBean;
 import com.example.dell.pandalive.entity.LoginUserBean;
-import com.example.dell.pandalive.entity.SendEmilBase;
 import com.example.dell.pandalive.entity.TvBean;
 import com.example.dell.pandalive.entity.UserinfoBean;
 import com.example.dell.pandalive.entity.VideoBanner;
@@ -34,6 +33,7 @@ import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+import okhttp3.ResponseBody;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -59,9 +59,8 @@ public class RetrofitUtil {
                     public Response intercept(Chain chain) throws IOException {
                         Request request = chain.request()
                                 .newBuilder()
-                                .addHeader("Referer", URLEncoder.encode("iPanda.Android", "UTF-8"))
+                                .addHeader("Referer", URLEncoder.encode("http://cbox_mobile.regclientuser.cntv.cn", "UTF-8"))
                                 .addHeader("User-Agent", URLEncoder.encode("CNTV_APP_CLIENT_CNTV_MOBILE", "UTF-8"))
-                                .addHeader("Cookie", "JSESSIONID=" + JSESSIONID)
                                 .build();
                         return chain.proceed(request);
                     }
@@ -326,13 +325,11 @@ public class RetrofitUtil {
 
     }
 
-    public void SendEmil(String url, Observer observer) {
+    public void Webregister(Map<String, String> map, Observer observer) {
 
-        Observable<SendEmilBase> sendemils = api.sendemils(url);
-        sendemils.subscribeOn(Schedulers.io())
+        Observable<ResponseBody> register = api.register(map);
+        register.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(observer);
     }
-
-
 }

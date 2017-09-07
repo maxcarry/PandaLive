@@ -2,7 +2,8 @@ package com.example.dell.pandalive.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.view.PagerAdapter;
 
 import java.util.ArrayList;
 
@@ -10,7 +11,7 @@ import java.util.ArrayList;
  * Created by dell on 2017/8/28.
  */
 
-public class ChinaPage extends FragmentPagerAdapter{
+public class ChinaPage extends FragmentStatePagerAdapter{
 
     ArrayList<Fragment> fragments;
     ArrayList<String> tabtitle;
@@ -34,5 +35,10 @@ public class ChinaPage extends FragmentPagerAdapter{
     @Override
     public CharSequence getPageTitle(int position) {
         return tabtitle.get(position);
+    }
+
+    @Override
+    public int getItemPosition(Object object) {
+        return PagerAdapter.POSITION_NONE;
     }
 }

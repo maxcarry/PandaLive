@@ -4,7 +4,7 @@ import android.util.Log;
 
 import com.example.dell.pandalive.entity.SendEmilBase;
 import com.example.dell.pandalive.ui.personal.register.emilsregister.presenter.IEmilPresenter;
-import com.example.dell.pandalive.utils.RetrofitUtil;
+import com.example.dell.pandalive.utils.LoginorRegister;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -20,7 +20,7 @@ import static android.content.ContentValues.TAG;
 
 public class EmilModel implements IEmilModel {
     @Override
-    public void GainEmil(IEmilPresenter iEmilPresenter,String emailString,String passwordString,String mCaptchaEditTextString) {
+    public void GainEmil(final IEmilPresenter iEmilPresenter, String emailString, String passwordString, String mCaptchaEditTextString, String JSESSIONID) {
 
         try {
             String from = "iPanda.Android";
@@ -30,7 +30,7 @@ public class EmilModel implements IEmilModel {
                     + URLEncoder.encode(from, "UTF-8");
 
             Log.e(TAG, "GainEmil: "+url );
-            RetrofitUtil.instance("").SendEmil(url, new Observer() {
+            LoginorRegister.instance(JSESSIONID).SendEmil(url, new Observer() {
                 @Override
                 public void onSubscribe(Disposable d) {
 
@@ -42,6 +42,7 @@ public class EmilModel implements IEmilModel {
                     SendEmilBase base = (SendEmilBase) value;
                     Log.e(TAG, "onNext: "+base.getEmail()+base.getMsg() );
                     Log.e(TAG, "onNext: "+base.getErrtype() );
+                    iEmilPresenter.SendSuucer(base.getMsg());
                 }
 
                 @Override

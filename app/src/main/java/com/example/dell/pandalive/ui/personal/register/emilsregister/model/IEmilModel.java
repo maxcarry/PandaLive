@@ -8,5 +8,5 @@ import com.example.dell.pandalive.ui.personal.register.emilsregister.presenter.I
 
 public interface IEmilModel {
 
-    void GainEmil(IEmilPresenter iEmilPresenter,String emailString,String passwordString,String mCaptchaEditTextString);
+    void GainEmil(IEmilPresenter iEmilPresenter,String emailString,String passwordString,String mCaptchaEditTextString, String JSESSIONID);
 }

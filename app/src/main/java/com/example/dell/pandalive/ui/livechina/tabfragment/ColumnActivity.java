@@ -3,9 +3,11 @@ package com.example.dell.pandalive.ui.livechina.tabfragment;
 import android.animation.Animator;
 import android.animation.ValueAnimator;
 import android.app.Activity;
+import android.app.Service;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -21,7 +23,6 @@ import android.widget.TextView;
 import com.example.dell.pandalive.R;
 import com.example.dell.pandalive.adapter.ColumnCutAdapter;
 import com.example.dell.pandalive.adapter.ColumnMoreAdapter;
-import com.example.dell.pandalive.app.Myapp;
 import com.example.dell.pandalive.entity.ChinaBean;
 import com.example.dell.pandalive.entity.Point;
 import com.example.dell.pandalive.eventbus.ChinaEvent;
@@ -32,6 +33,8 @@ import org.greenrobot.eventbus.EventBus;
 
 import java.util.Collections;
 import java.util.List;
+
+import static com.example.dell.pandalive.app.Myapp.activity;
 
 /**
  * Created by dell on 2017/8/29.
@@ -135,7 +138,7 @@ public class ColumnActivity extends Activity implements  ColumnCutAdapter.cut_If
         more_recycler.setHasFixedSize(true);
         morelayout = new GridLayoutManager(this, 3);
         more_recycler.setLayoutManager(morelayout);
-        moreAdapter = new ColumnMoreAdapter(Myapp.activity,alllist);
+        moreAdapter = new ColumnMoreAdapter(activity,alllist);
         moreAdapter.getmore(this);
         more_recycler.addItemDecoration(new SpaceItemDecoration(50));
         more_recycler.setAdapter(moreAdapter);
@@ -147,7 +150,7 @@ public class ColumnActivity extends Activity implements  ColumnCutAdapter.cut_If
         cut_recycler.setHasFixedSize(true);
         gridLayoutManager = new GridLayoutManager(this, 3);
         cut_recycler.setLayoutManager(gridLayoutManager);
-        cutAdapter = new ColumnCutAdapter(Myapp.activity,tablist);
+        cutAdapter = new ColumnCutAdapter(activity,tablist);
         cutAdapter.getIface(this);
         cut_recycler.addItemDecoration(new SpaceItemDecoration(50));
         cut_recycler.setAdapter(cutAdapter);
@@ -182,13 +185,19 @@ public class ColumnActivity extends Activity implements  ColumnCutAdapter.cut_If
                 //拿到当前拖拽到的item的viewHolder
                 int toPosition = target.getAdapterPosition();
                 if (fromPosition < toPosition) {
-                    for (int i = fromPosition; i < toPosition; i++) {
-                        Collections.swap(tablist, i, i + 1);
+
+                    if (toPosition >= tablist.size()) {
+                        return false;
                     }
+                        for (int i = fromPosition; i < toPosition; i++) {
+                            Collections.swap(tablist, i, i + 1);
+                        }
+
                 } else {
-                    for (int i = fromPosition; i > toPosition; i--) {
-                        Collections.swap(tablist, i, i - 1);
-                    }
+
+                        for (int i = fromPosition; i > toPosition; i--) {
+                            Collections.swap(tablist, i, i - 1);
+                        }
                 }
                 cutAdapter.notifyItemMoved(fromPosition, toPosition);
                 return true;
@@ -220,6 +229,10 @@ public class ColumnActivity extends Activity implements  ColumnCutAdapter.cut_If
             public void onSelectedChanged(RecyclerView.ViewHolder viewHolder, int actionState) {
                 if (actionState != ItemTouchHelper.ACTION_STATE_IDLE) {
                     viewHolder.itemView.setBackgroundColor(Color.LTGRAY);
+                    //获取系统震动服务
+                    Vibrator vib = (Vibrator) activity.getSystemService(Service.VIBRATOR_SERVICE);
+                    //震动70毫秒
+                    vib.vibrate(70);
                 }
                 super.onSelectedChanged(viewHolder, actionState);
             }
@@ -261,7 +274,7 @@ public class ColumnActivity extends Activity implements  ColumnCutAdapter.cut_If
         moreAdapter.notifyDataSetChanged();
         int last = morelayout.findLastVisibleItemPosition();
         View childAt = more_recycler.getChildAt(last);
-        childAt.getLocationOnScreen(end);
+        childAt.getLocationInWindow(end);
 
         view.getLocationInWindow(start);
 
@@ -333,7 +346,7 @@ public class ColumnActivity extends Activity implements  ColumnCutAdapter.cut_If
         cutAdapter.notifyDataSetChanged();
         int last = gridLayoutManager.findLastVisibleItemPosition();
         View childAt = cut_recycler.getChildAt(last);
-        childAt.getLocationOnScreen(end);
+        childAt.getLocationInWindow(end);
 
         view.getLocationInWindow(start);
 

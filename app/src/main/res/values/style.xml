@@ -13,7 +13,7 @@
     </style>
 
     <!-- 透明dialog -->
-    <style name="dialog" parent="@android:style/Theme.Dialog">
+    <style name="aadialog" parent="@android:style/Theme.Dialog">
         <item name="android:windowIsFloating">true</item>
         <!-- 设置未浮动窗口 -->
         <item name="android:windowFrame">@null</item>

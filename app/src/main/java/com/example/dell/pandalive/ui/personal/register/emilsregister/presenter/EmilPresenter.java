@@ -19,8 +19,14 @@ public class EmilPresenter implements IEmilPresenter {
     }
 
     @Override
-    public void SendEmil(String emailString,String passwordString,String mCaptchaEditTextString) {
+    public void SendEmil(String emailString,String passwordString,String mCaptchaEditTextString, String JSESSIONID) {
 
-        emilModel.GainEmil(this,emailString,passwordString,mCaptchaEditTextString);
+        emilModel.GainEmil(this,emailString,passwordString,mCaptchaEditTextString,JSESSIONID);
+    }
+
+    @Override
+    public void SendSuucer(String msg) {
+
+        iEmilView.SendSuccess(msg);
     }
 }

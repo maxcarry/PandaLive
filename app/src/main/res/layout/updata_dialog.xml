@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:gravity="center"
+    android:background="@drawable/corners_bg"
+    android:orientation="vertical" android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:background="@drawable/corners_bg_top"
+        android:layout_width="700px"
+        android:layout_height="350px"
+        android:gravity="center"
+        android:id="@+id/dialog_te"
+        android:text="阿斯利康打飞机撒两顿饭"
+        android:textSize="45px"
+        />
+    <TextView
+        android:layout_width="700px"
+        android:layout_height="1px"
+        android:background="@color/colorGray"
+        />
+    <TextView
+        android:background="@drawable/corners_bg_bottom"
+        android:layout_width="700px"
+        android:layout_height="150px"
+        android:text="我知道啦"
+        android:gravity="center"
+        android:id="@+id/sure_bt"
+        android:textSize="50px"
+        android:textColor="@color/colorBlue"
+        />
+</LinearLayout>

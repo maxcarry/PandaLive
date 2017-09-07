@@ -1,14 +1,19 @@
 package com.example.dell.pandalive.ui.personal.register.emilsregister;
 
+import android.app.Dialog;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.dell.pandalive.R;
@@ -19,14 +24,24 @@ import com.example.dell.pandalive.utils.DialogUtil;
 import com.example.dell.pandalive.utils.Netwoke;
 
 import java.io.IOException;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import okhttp3.Call;
 import okhttp3.Callback;
+import okhttp3.Cookie;
+import okhttp3.CookieJar;
+import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+
+import static android.content.ContentValues.TAG;
 
 /**
  * Created by 贾成昆 on 2017/8/28.
@@ -44,6 +59,7 @@ public class EmilsRegistFragment extends BaseFragment implements View.OnClickLis
     private CheckBox emils_check;
     private Button emils_regist;
     private EmilPresenter emilPresenter;
+    public String JSESSIONID;
 
     @Override
     protected void restartdata() {
@@ -78,13 +94,42 @@ public class EmilsRegistFragment extends BaseFragment implements View.OnClickLis
         emils_regist = (Button) view.findViewById(R.id.emils_regist);
 
         emils_regist.setOnClickListener(this);
+        emils_image_custcode.setScaleType(ImageView.ScaleType.FIT_XY);
         emils_image_custcode.setOnClickListener(this);
     }
 
     private void getimacode() {
 
         DialogUtil.instance().Showdialog(Myapp.activity);
-        OkHttpClient client = new OkHttpClient();
+
+        CookieJar cookieJar = new CookieJar() {
+
+            List<Cookie> cookies_c = new ArrayList<Cookie>();
+
+            @Override
+            public void saveFromResponse(HttpUrl url, List<Cookie> cookies) {
+                cookies_c = cookies;
+
+                for (Cookie cookie : cookies_c) {
+                    Log.e(TAG, "saveFromResponse: 这是cookieName====="+cookie.name() );
+                    Log.e(TAG, "saveFromResponse: 这是cookieValue====="+cookie.value() );
+
+                    if ("JSESSIONID".equals(cookie.name())) {
+                        JSESSIONID = cookie.value();
+                        Log.e(TAG, "---------------------------------------------");
+                    }
+                }
+
+            }
+
+            @Override
+            public List<Cookie> loadForRequest(HttpUrl url) {
+                return cookies_c;
+            }
+        };
+
+        OkHttpClient client= new  OkHttpClient.Builder().cookieJar(cookieJar).build();
+
         Request build = new Request.Builder().url("http://reg.cntv.cn/simple/verificationCode.action").build();
 
         client.newCall(build).enqueue(new Callback() {
@@ -145,7 +190,7 @@ public class EmilsRegistFragment extends BaseFragment implements View.OnClickLis
                 String emailString = emils_username.getText().toString().trim();
                 String passwordString = emils_pwd.getText().toString();
                 String mCaptchaEditTextString = emils_image_code.getText().toString().trim();
-                emilPresenter.SendEmil(emailString,passwordString,mCaptchaEditTextString);
+                emilPresenter.SendEmil(emailString,passwordString,mCaptchaEditTextString,JSESSIONID);
 
                 break;
 
@@ -261,7 +306,104 @@ public class EmilsRegistFragment extends BaseFragment implements View.OnClickLis
     }
 
     @Override
-    public void SendSuccess() {
+    public void SendSuccess(String msg) {
 
+        if (msg.equals("成功")) {
+
+            Activation();
+        } else {
+
+            Toast.makeText(Myapp.activity, msg, Toast.LENGTH_SHORT).show();
+            emils_image_code.setText("");
+            getimacode();
+        }
+    }
+
+    private void Activation() {
+
+        final String key = emils_username.getText().toString().trim().split("@")[1].toLowerCase();
+        if (mEmailAddress.getmEmailAddress().containsKey(key)) {
+            View tview = View
+                    .inflate(getActivity(), R.layout.dialog_internet_tishi, null);
+            TextView tishiContent = (TextView) tview
+                    .findViewById(R.id.play_continue_content);
+            tishiContent.setText("请到您的邮箱激活账号后登录，是否现在去邮箱激活");
+            TextView tishiCancel = (TextView) tview
+                    .findViewById(R.id.play_continue_cancel);
+            TextView tishiSure = (TextView) tview
+                    .findViewById(R.id.play_continue_sure);
+            final Dialog registerDialog = new Dialog(getActivity(), R.style.aadialog);
+            tishiSure.setText("确定");
+            tishiCancel.setText("取消");
+
+            registerDialog.setContentView(tview);
+            registerDialog.setCanceledOnTouchOutside(true);
+
+            tishiCancel.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    registerDialog.dismiss();
+
+                }
+            });
+            tishiSure.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    registerDialog.dismiss();
+                    String mEmailAdd = mEmailAddress.getmEmailAddress().get(key);
+                    Uri uri = Uri.parse(mEmailAdd);
+                    Intent it = new Intent();
+                    it.setAction("android.intent.action.VIEW");
+                    it.setData(uri);
+                    startActivity(it);
+                    getActivity().finish();
+                }
+            });
+            registerDialog.show();
+
+        } else {
+            Toast.makeText(Myapp.activity, "通行证需激活后才可登录", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private static mEmailAddressMap mEmailAddress;
+
+    public static class mEmailAddressMap implements Serializable {
+        private Map<String, String> mEmailAddress;
+
+        public Map<String, String> getmEmailAddress() {
+            return mEmailAddress;
+        }
+
+        public void setmEmailAddress(Map<String, String> mEmailAddress) {
+            this.mEmailAddress = mEmailAddress;
+        }
+
+    }
+
+    static {
+        mEmailAddress = new mEmailAddressMap();
+        mEmailAddress.setmEmailAddress(new HashMap<String, String>());
+        mEmailAddress.getmEmailAddress().put("qq.com", "http://mail.qq.com");
+        mEmailAddress.getmEmailAddress().put("gmail.com", "http://mail.google.com");
+        mEmailAddress.getmEmailAddress().put("sina.com", "http://mail.sina.com.cn");
+        mEmailAddress.getmEmailAddress().put("163.com", "http://mail.163.com");
+        mEmailAddress.getmEmailAddress().put("126.com", "http://mail.126.com");
+        mEmailAddress.getmEmailAddress().put("yeah.net", "http://www.yeah.net/");
+        mEmailAddress.getmEmailAddress().put("sohu.com", "http://mail.sohu.com/");
+        mEmailAddress.getmEmailAddress().put("tom.com", "http://mail.tom.com/");
+        mEmailAddress.getmEmailAddress().put("sogou.com", "http://mail.sogou.com/");
+        mEmailAddress.getmEmailAddress().put("139.com", "http://mail.10086.cn/");
+        mEmailAddress.getmEmailAddress().put("hotmail.com", "http://www.hotmail.com");
+        mEmailAddress.getmEmailAddress().put("live.com", "http://login.live.com/");
+        mEmailAddress.getmEmailAddress().put("live.cn", "http://login.live.cn/");
+        mEmailAddress.getmEmailAddress().put("live.com.cn", "http://login.live.com.cn");
+        mEmailAddress.getmEmailAddress().put("189.com", "http://webmail16.189.cn/webmail/");
+        mEmailAddress.getmEmailAddress().put("yahoo.com.cn", "http://mail.cn.yahoo.com/");
+        mEmailAddress.getmEmailAddress().put("yahoo.cn", "http://mail.cn.yahoo.com/");
+        mEmailAddress.getmEmailAddress().put("eyou.com", "http://www.eyou.com/");
+        mEmailAddress.getmEmailAddress().put("21cn.com", "http://mail.21cn.com/");
+        mEmailAddress.getmEmailAddress().put("188.com", "http://www.188.com/");
+        mEmailAddress.getmEmailAddress().put("foxmail.coom", "http://www.foxmail.com");
     }
 }

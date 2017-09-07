@@ -31,41 +31,48 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="40px"/>
+
     <LinearLayout
         android:layout_width="1020px"
         android:layout_height="230px"
-        android:orientation="horizontal"
         android:layout_gravity="center"
-        android:background="@color/colorWhite">
+        android:id="@+id/updata_icon"
+        android:background="@color/colorWhite"
+        android:orientation="horizontal">
+
         <TextView
-            android:layout_marginLeft="40px"
-            android:layout_gravity="center_vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="40px"
             android:text="头像"
-            android:textSize="45px"/>
+            android:textSize="45px" />
+
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            >
-            <ImageView
-                android:src="@drawable/about_sign"
-                android:layout_centerVertical="true"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="160px"
+            android:layout_gravity="center_vertical">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:layout_width="150px"
                 android:layout_height="150px"
-                />
-            <ImageView
+                android:id="@+id/user_icon"
+                android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="30px"
+                android:layout_marginRight="160px"
+                android:src="@drawable/about_sign" />
+
+            <ImageView
                 android:layout_width="100px"
                 android:layout_height="80px"
                 android:layout_alignParentRight="true"
-                android:src="@drawable/personal_enter_img"/>
+                android:layout_centerVertical="true"
+                android:layout_marginRight="30px"
+                android:src="@drawable/personal_enter_img" />
         </RelativeLayout>
     </LinearLayout>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="40px"/>
@@ -93,6 +100,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="160px"
                 android:textSize="45px"
+                android:id="@+id/user_id"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="央视网友815888"
@@ -113,6 +121,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="600px"
         android:text="退出登录"
+        android:id="@+id/logoff_bt"
         android:textColor="@color/colorWhite"
         android:textSize="45px"
         android:background="@drawable/user_button"/>

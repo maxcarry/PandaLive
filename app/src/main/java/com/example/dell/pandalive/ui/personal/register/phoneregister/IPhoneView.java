@@ -7,4 +7,6 @@ package com.example.dell.pandalive.ui.personal.register.phoneregister;
 public interface IPhoneView {
 
     void SendCode(String msg);
+
+    void RegisterSuccer(String msg);
 }

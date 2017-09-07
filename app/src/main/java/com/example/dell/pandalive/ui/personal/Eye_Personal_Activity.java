@@ -7,11 +7,14 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.dell.pandalive.R;
 import com.example.dell.pandalive.app.Myapp;
 import com.example.dell.pandalive.base.BaseActivity;
 import com.example.dell.pandalive.ui.personal.history.History_Activity;
 import com.example.dell.pandalive.ui.personal.login.DebarkActivity;
+import com.example.dell.pandalive.ui.personal.setuser.Information_Activity;
+import com.example.dell.pandalive.ui.personal.user.Install_Activity;
 import com.example.dell.pandalive.ui.personal.user.ShouCangActivity;
 import com.example.dell.pandalive.utils.SharedUtil;
 
@@ -76,7 +79,7 @@ public class Eye_Personal_Activity extends BaseActivity implements View.OnClickL
         switch (v.getId()) {
             case R.id.personal_one_linearlayout:
 
-                startActivity(new Intent(Myapp.activity,DebarkActivity.class));
+
                 break;
             case R.id.personal_four_linearlayout:
 
@@ -110,9 +113,25 @@ public class Eye_Personal_Activity extends BaseActivity implements View.OnClickL
         String userFace = instance.getUserFace();
         if (nickName == null||nickName.equals("")) {
 
+            pers_user_icon.setImageResource(R.drawable.personal_login_head);
+            pers_user_name.setText("点击登录");
+            personal_one_linearlayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startActivity(new Intent(Myapp.activity,DebarkActivity.class));
+                }
+            });
+
         } else {
-            Glide.with(Myapp.activity).load(userFace).into(pers_user_icon);
+            Glide.with(Myapp.activity).load(userFace).diskCacheStrategy(DiskCacheStrategy.NONE).into(pers_user_icon);
             pers_user_name.setText(nickName);
+
+            personal_one_linearlayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startActivity(new Intent(Myapp.activity,Information_Activity.class));
+                }
+            });
         }
     }
 }

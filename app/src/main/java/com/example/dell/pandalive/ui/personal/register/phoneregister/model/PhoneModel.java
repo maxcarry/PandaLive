@@ -3,14 +3,16 @@ package com.example.dell.pandalive.ui.personal.register.phoneregister.model;
 import android.util.Log;
 
 import com.example.dell.pandalive.ui.personal.register.phoneregister.presenter.IPhonePresenter;
+import com.example.dell.pandalive.utils.LoginorRegister;
+import com.example.dell.pandalive.utils.RetrofitUtil;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
+import io.reactivex.Observer;
+import io.reactivex.disposables.Disposable;
+import okhttp3.ResponseBody;
 
 import static android.content.ContentValues.TAG;
 
@@ -20,41 +22,84 @@ import static android.content.ContentValues.TAG;
 
 public class PhoneModel implements IPhoneModel {
 
-    private String JSESSIONID = null;
+    private static final int MAXTIME = 50;
 
     @Override
-    public void GainCode(final IPhonePresenter iPhonePresenter, String phoneString, String phoneyanzhengma) {
+    public void GainCode(final IPhonePresenter iPhonePresenter, String phoneString, String phoneyanzhengma, final String JSESSIONID) {
 
-//
-//        Map<String, String> map = new HashMap<>();
-//        map.put("Referer", URLEncoder.encode("http://cbox_mobile.regclientuser.cntv.cn", "UTF-8"));
-//        map.put("User-Agent", URLEncoder.encode("CNTV_APP_CLIENT_CBOX_MOBILE", "UTF-8"));
-//        map.put("Cookie", "JSESSIONID=");
-//
-//        map.put("method", "getRequestVerifiCodeM");
-//        map.put("mobile", phoneString);
-//        map.put("verfiCodeType", "1");
-//        map.put("verificationCode", phoneyanzhengma);
+        Map<String, String> map = new HashMap<>();
 
-        String url = "http://reg.cntv.cn/regist/getVerifiCode.action?Referer=http://cbox_mobile.regclientuser.cntv.cn&User-Agent=CNTV_APP_CLIENT_CBOX_MOBILE&Cookie=JSESSIONID=&method=getRequestVerifiCodeM&";
+        map.put("method", "getRequestVerifiCodeM");
+        map.put("mobile", phoneString);
+        map.put("verfiCodeType", "1");
+        map.put("verificationCode", phoneyanzhengma);
 
-        OkHttpClient client = new OkHttpClient();
-        Request build = new Request.Builder().url(url+"mobile="+phoneString+"&verfiCodeType=1&verificationCode="+phoneyanzhengma).build();
-
-        Log.e(TAG, "短信验证网址: "+ url+"mobile="+phoneString+"&verfiCodeType=1&verificationCode="+phoneyanzhengma);
-        client.newCall(build).enqueue(new Callback() {
+        LoginorRegister.instance(JSESSIONID).WebPhoneCode(map, new Observer() {
             @Override
-            public void onFailure(Call call, IOException e) {
+            public void onSubscribe(Disposable d) {
 
-                Log.e(TAG, "短信验证码失败: "+e.toString());
             }
 
             @Override
-            public void onResponse(Call call, Response response) throws IOException {
+            public void onNext(Object value) {
 
-                Log.e(TAG, "短信验证码: "+response.body().string() );
+                ResponseBody responseBody = (ResponseBody) value;
+                try {
+
+                    String msg = responseBody.string();
+                    Log.e(TAG, "------------onNext: "+msg );
+                    iPhonePresenter.SendCode(msg);
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onComplete() {
+
             }
         });
 
     }
+
+    @Override
+    public void GainRegister(Map<String, String> map, final IPhonePresenter iPhonePresenter) {
+
+        RetrofitUtil.instance("").Webregister(map, new Observer() {
+            @Override
+            public void onSubscribe(Disposable d) {
+
+            }
+
+            @Override
+            public void onNext(Object value) {
+
+                ResponseBody responseBody = (ResponseBody) value;
+                try {
+                    String string = responseBody.string();
+                    Log.e(TAG, "onNext: ==================="+string );
+                    iPhonePresenter.Sendfruit(string);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onComplete() {
+
+            }
+        });
+    }
+
 }

@@ -19,6 +19,7 @@ import com.example.dell.pandalive.eventbus.ChinaEvent;
 import com.example.dell.pandalive.ui.livechina.presenter.ChinaPresenter;
 import com.example.dell.pandalive.ui.livechina.tabfragment.ColumnActivity;
 import com.example.dell.pandalive.ui.livechina.tabfragment.ColumnFragment;
+import com.example.dell.pandalive.ui.personal.Eye_Personal_Activity;
 import com.example.dell.pandalive.utils.DialogUtil;
 
 import org.greenrobot.eventbus.EventBus;
@@ -33,7 +34,7 @@ import java.util.List;
  * Created by dell on 2017/8/23.
  */
 
-public class ChinaFragment extends BaseFragment implements IChinaView{
+public class ChinaFragment extends BaseFragment implements IChinaView, View.OnClickListener {
 
     private View view;
     private ImageView china_person;
@@ -79,18 +80,8 @@ public class ChinaFragment extends BaseFragment implements IChinaView{
         china_viewpager = (NoScrollViewPager) view.findViewById(R.id.china_viewpager);
         china_re = (RelativeLayout) view.findViewById(R.id.china_re);
 
-        china_add_ima.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent intent = new Intent(Myapp.activity, ColumnActivity.class);
-                Bundle bundle=new Bundle();
-                bundle.putSerializable("key1", (Serializable) tablist);
-                bundle.putSerializable("key2", (Serializable) alllist);
-                intent.putExtras(bundle);
-                startActivity(intent);
-            }
-        });
+        china_person.setOnClickListener(this);
+        china_add_ima.setOnClickListener(this);
 
         //设置viewpager不可滑动
         china_viewpager.setNoScroll(true);
@@ -138,6 +129,7 @@ public class ChinaFragment extends BaseFragment implements IChinaView{
         DialogUtil.instance().Showdialog(Myapp.activity);
         fragments.clear();
         tabtitle.clear();
+        alllist.clear();
         tablist = event.getTablist();
         alllist = event.getAlllist();
 
@@ -152,5 +144,23 @@ public class ChinaFragment extends BaseFragment implements IChinaView{
         chinaPage.notifyDataSetChanged();
 
         DialogUtil.instance().Hidedialog();
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.china_add_ima:
+                Intent intent = new Intent(Myapp.activity, ColumnActivity.class);
+                Bundle bundle=new Bundle();
+                bundle.putSerializable("key1", (Serializable) tablist);
+                bundle.putSerializable("key2", (Serializable) alllist);
+                intent.putExtras(bundle);
+                startActivity(intent);
+                break;
+            case R.id.china_person:
+
+                startActivity(new Intent(Myapp.activity, Eye_Personal_Activity.class));
+                break;
+        }
     }
 }

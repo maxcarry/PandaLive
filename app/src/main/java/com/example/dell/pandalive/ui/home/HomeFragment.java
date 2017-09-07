@@ -78,7 +78,10 @@ public class HomeFragment extends BaseFragment implements IHomeView, View.OnClic
     @Override
     protected void initdata() {
 
-        refreshview();
+        DialogUtil.instance().Showdialog(Myapp.activity);
+        homePresenter.ShowView();
+        homePresenter.ShowTv();
+        homePresenter.ShowVideo();
 
         refreshlayout.setOnRefreshListener(new OnRefreshListener() {
             @Override
@@ -93,7 +96,6 @@ public class HomeFragment extends BaseFragment implements IHomeView, View.OnClic
 
     private void refreshview() {
 
-        DialogUtil.instance().Showdialog(Myapp.activity);
         homePresenter.ShowView();
         homePresenter.ShowTv();
         homePresenter.ShowVideo();
@@ -278,7 +280,9 @@ public class HomeFragment extends BaseFragment implements IHomeView, View.OnClic
             }
         });
 
-        DialogUtil.instance().Hidedialog();
+        if (DialogUtil.instance().dialog.isShowing()) {
+            DialogUtil.instance().Hidedialog();
+        }
     }
 
     @Override

@@ -47,6 +47,7 @@ public class ColumnMoreAdapter extends RecyclerView.Adapter{
 
         final Myholder ho = (Myholder) holder;
         ho.position = position;
+        ho.more_te_item.setVisibility(View.VISIBLE);
         ho.more_te_item.setText(list.get(position).getTitle());
         ho.more_te_item.setTextColor(Color.BLACK);
     }

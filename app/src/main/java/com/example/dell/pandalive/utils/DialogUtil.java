@@ -12,7 +12,7 @@ import com.example.dell.pandalive.custom_view.CustomDialog;
 public class DialogUtil {
 
     private static DialogUtil dialogUtil;
-    private CustomDialog dialog;
+    public CustomDialog dialog;
 
     private DialogUtil() {
 
@@ -35,7 +35,6 @@ public class DialogUtil {
 
         dialog = new CustomDialog(context, R.style.CustomDialog);
         dialog.show();
-
     }
 
     //隐藏等待

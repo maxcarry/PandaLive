@@ -6,5 +6,5 @@ package com.example.dell.pandalive.ui.personal.register.emilsregister;
 
 public interface IEmilView {
 
-    void SendSuccess();
+    void SendSuccess(String msg);
 }

@@ -56,4 +56,22 @@ public class SharedUtil {
 
         return userface;
     }
+
+    public void saveUserId(String id){
+
+        prefs.edit().putString("userid", id).commit();
+    }
+
+    public String getUserId(){
+
+        String userface = prefs.getString("userid", "");
+
+        return userface;
+    }
+
+    public void logoff(){
+
+        prefs.edit().remove("userid").remove("userface").remove("nickName").commit();
+    }
+
 }
