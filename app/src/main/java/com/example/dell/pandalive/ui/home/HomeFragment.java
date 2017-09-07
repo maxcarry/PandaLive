@@ -170,6 +170,9 @@ public class HomeFragment extends BaseFragment implements IHomeView, View.OnClic
                 play.putExtra("title", titlelist.get(position));
                 play.putExtra("path", bigImg.get(position).getPid());
                 play.putExtra("type", bigImg.get(position).getType());
+                play.putExtra("date", "");
+                play.putExtra("tim", "");
+                play.putExtra("img", bigImg.get(position).getImage());
                 startActivity(play);
             }
         });

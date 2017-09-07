@@ -130,8 +130,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
-        builder.setIcon(R.mipmap.ic_launcher);
-
         builder.setTitle("无法连接网络");
 
         builder.setMessage("网络不可用，如果继续，请先设置网络！");

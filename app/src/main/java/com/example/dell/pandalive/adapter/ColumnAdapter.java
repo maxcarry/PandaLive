@@ -74,7 +74,6 @@ public class ColumnAdapter extends BaseAdapter {
 
         if (list.get(position).getId() != null) {
 
-            Log.e(TAG, "getView: "+list.get(position).getId() );
             pathid = "pa://cctv_p2p_hd" + list.get(position).getId();
             RetrofitUtil.instance("").Webchinaplay(new Observer() {
                 @Override

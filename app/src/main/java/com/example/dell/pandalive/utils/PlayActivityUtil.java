@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.dell.pandalive.R;
+import com.example.dell.pandalive.app.DatabaseReady;
 import com.example.dell.pandalive.custom_view.CustomMediaController;
 import com.example.dell.pandalive.entity.ChinaUriBean;
 import com.example.dell.pandalive.entity.VideoPlayBean;
@@ -40,6 +41,9 @@ public class PlayActivityUtil extends AppCompatActivity implements MediaPlayer.O
     private ImageView loding_bg;
     private Netwoke netwoke;
     private String type;
+    private String date;
+    private String tim;
+    private String img;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +52,12 @@ public class PlayActivityUtil extends AppCompatActivity implements MediaPlayer.O
         title = getIntent().getStringExtra("title");
         path = getIntent().getStringExtra("path");
         type = getIntent().getStringExtra("type");
+        date = getIntent().getStringExtra("date");
+        tim = getIntent().getStringExtra("tim");
+        img = getIntent().getStringExtra("img");
+
+        DatabaseReady databaseReady = new DatabaseReady();
+        databaseReady.add2(title, date, tim, img,path,type);
 
         if (type.equals("2")) {
 
