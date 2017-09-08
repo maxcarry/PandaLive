@@ -170,6 +170,7 @@ public class VideoDetailsActivity extends BaseActivity implements View.OnClickLi
                 detailsupimage.setVisibility(View.GONE);
                 detailsdownimage.setVisibility(View.VISIBLE);
 
+
                 break;
             case R.id.details_checkbox_collection:
                 if (imagecollection.isChecked()) {
