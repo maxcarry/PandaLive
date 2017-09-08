@@ -72,7 +72,7 @@ public class VideoModel implements IVideomodel {
 
             @Override
             public void onComplete() {
-                Toast.makeText(Myapp.activity, "请求成功", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(Myapp.activity, "请求成功", Toast.LENGTH_SHORT).show();
             }
         });
     }

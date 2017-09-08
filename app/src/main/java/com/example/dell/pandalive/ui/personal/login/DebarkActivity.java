@@ -17,9 +17,9 @@ import com.example.dell.pandalive.app.Myapp;
 import com.example.dell.pandalive.base.BaseActivity;
 import com.example.dell.pandalive.ui.personal.login.presenter.LoginPresenter;
 import com.example.dell.pandalive.ui.personal.register.RegisterActivity;
+import com.example.dell.pandalive.ui.videopanda.Constants;
 import com.example.dell.pandalive.utils.DialogUtil;
 import com.example.dell.pandalive.utils.Netwoke;
-import com.example.dell.pandalive.ui.videopanda.Constants;
 import com.sina.weibo.sdk.WbSdk;
 import com.sina.weibo.sdk.auth.AccessTokenKeeper;
 import com.sina.weibo.sdk.auth.AuthInfo;
@@ -27,7 +27,11 @@ import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 import com.sina.weibo.sdk.auth.WbAuthListener;
 import com.sina.weibo.sdk.auth.WbConnectErrorMessage;
 import com.sina.weibo.sdk.auth.sso.SsoHandler;
+import com.umeng.socialize.UMAuthListener;
+import com.umeng.socialize.UMShareAPI;
+import com.umeng.socialize.bean.SHARE_MEDIA;
 
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -137,6 +141,34 @@ public class DebarkActivity extends BaseActivity implements View.OnClickListener
         }
     }
 
+    UMAuthListener umAuthListener=new UMAuthListener() {
+        @Override
+        public void onStart(SHARE_MEDIA share_media) {
+
+        }
+
+        @Override
+        public void onComplete(SHARE_MEDIA share_media, int i, Map<String, String> map) {
+            Toast.makeText(getApplicationContext(), "Authorize succeed", Toast.LENGTH_SHORT).show();
+        }
+
+        @Override
+        public void onError(SHARE_MEDIA share_media, int i, Throwable throwable) {
+            Toast.makeText( getApplicationContext(), " 失败", Toast.LENGTH_SHORT).show();
+        }
+
+        @Override
+        public void onCancel(SHARE_MEDIA share_media, int i) {
+            Toast.makeText( getApplicationContext(), "Authorize cancel", Toast.LENGTH_SHORT).show();
+        }
+    };
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//        UMShareAPI.get(this).onActivityResult(requestCode, resultCode, data);
+//    }
+
+
 
     private class SelfWbAuthListener implements WbAuthListener {
         @Override
@@ -182,6 +214,7 @@ public class DebarkActivity extends BaseActivity implements View.OnClickListener
         if(mSsoHandler!=null) {
             mSsoHandler.authorizeCallBack(requestCode,resultCode,data);
         }
+        UMShareAPI.get(this).onActivityResult(requestCode, resultCode, data);
     }
 
     //判断网络状态

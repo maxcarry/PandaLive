@@ -92,7 +92,12 @@ public class PlayActivityUtil extends AppCompatActivity implements MediaPlayer.O
             public void onNext(Object value) {
 
                 VideoPlayBean bean = (VideoPlayBean) value;
-                path = bean.getHls_url();
+                if (path.equals("3138164066cf49ad88b8a236545996fb")) {
+                    path = bean.getVideo().getChapters3().get(0).getUrl();
+                } else {
+                    path = bean.getHls_url();
+                }
+                Log.e("视频地址", path);
 
                 getnetwoke();
             }

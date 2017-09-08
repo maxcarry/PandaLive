@@ -42,8 +42,8 @@ import java.util.List;
 
 import fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard;
 
-public class VideoDetailsActivity extends BaseActivity implements View.OnClickListener, WbShareCallback,IHDcomView {
-    String url="http://api.cntv.cn/video/videolistById?p=1&serviceId=panda&n=150&vsid=VSET100284428835&page=";
+public class VideoDetailsActivity extends BaseActivity implements View.OnClickListener, WbShareCallback, IHDcomView {
+    String url = "http://api.cntv.cn/video/videolistById?p=1&serviceId=panda&n=150&vsid=VSET100284428835&page=" ;
 
     TextView title;
     ImageView detailsdownimage, imagebackout, detailsupimage;
@@ -53,8 +53,8 @@ public class VideoDetailsActivity extends BaseActivity implements View.OnClickLi
     LinearLayout linearLayout;
     private PopupWindow pw;
 
-    private int page=1;
-    String string=url+page;
+    private int page = 1;
+    String string = url + page;
 
     private Button detailssharebtncancel;
 
@@ -75,8 +75,6 @@ public class VideoDetailsActivity extends BaseActivity implements View.OnClickLi
 
     @Override
     protected void initdata() {
-
-
 
 
         Intent intent = getIntent();
@@ -112,7 +110,7 @@ public class VideoDetailsActivity extends BaseActivity implements View.OnClickLi
     }
 
     private void refreshLayout() {
-        hdPersenter.videodetailsshowrecycler(url+page);
+        hdPersenter.videodetailsshowrecycler(url + page);
 
         page++;
     }
@@ -144,7 +142,7 @@ public class VideoDetailsActivity extends BaseActivity implements View.OnClickLi
         textViewshow = (TextView) findViewById(R.id.details_content_show);
 
 
-        hdPersenter=new HDPersenter(this);
+        hdPersenter = new HDPersenter(this);
         smartRefreshLayout = (SmartRefreshLayout) findViewById(R.id.hdrefrelayout);
         listView = (ListView) findViewById(R.id.video_hdcomplete_recyclerview);
 
@@ -156,7 +154,6 @@ public class VideoDetailsActivity extends BaseActivity implements View.OnClickLi
         imagecollection = (CheckBox) findViewById(R.id.details_checkbox_collection);
         imageshare = (ImageView) findViewById(R.id.details_image_share);
         imagecollection.setOnClickListener(this);
-
 
     }
 
@@ -175,9 +172,9 @@ public class VideoDetailsActivity extends BaseActivity implements View.OnClickLi
 
                 break;
             case R.id.details_checkbox_collection:
-                if (imagecollection != null) {
+                if (imagecollection.isChecked()) {
                     Toast.makeText(this, "已收藏,请到[我的收藏]中查看", Toast.LENGTH_SHORT).show();
-                } else if (imagecollection == null) {
+                } else  {
                     Toast.makeText(this, "已取消收藏", Toast.LENGTH_SHORT).show();
                 }
                 break;
@@ -194,19 +191,39 @@ public class VideoDetailsActivity extends BaseActivity implements View.OnClickLi
                 pw.setBackgroundDrawable(new ColorDrawable());
                 pw.showAtLocation(linearLayout, Gravity.BOTTOM, 100, 0);
 
-
-                detailssharebtncancel = (Button) view.findViewById(R.id.details_share_btn_cancel);
-
-
-                detailssharebtncancel.setOnClickListener(new View.OnClickListener() {
+               view.findViewById(R.id.details_share_btn_cancel).setOnClickListener(new View.OnClickListener() {
+                   @Override
+                   public void onClick(View v) {
+                       pw.dismiss();
+                   }
+               });
+                view.findViewById(R.id.facebook).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        pw.dismiss();
+                        Toast.makeText(VideoDetailsActivity.this,"未安装程序",Toast.LENGTH_SHORT).show();
                     }
                 });
-                detailsweibo = (ImageView) view.findViewById(R.id.details_share_weibo);
+//                Twitter
+                view.findViewById(R.id.Twitter).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Toast.makeText(VideoDetailsActivity.this,"未安装程序",Toast.LENGTH_SHORT).show();
+                    }
+                });
+                view.findViewById(R.id.image_wechat).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Toast.makeText(VideoDetailsActivity.this,"未安装程序",Toast.LENGTH_SHORT).show();
+                    }
+                });
+                view.findViewById(R.id.image_moments).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Toast.makeText(VideoDetailsActivity.this,"未安装程序",Toast.LENGTH_SHORT).show();
+                    }
+                });
 
-                detailsweibo.setOnClickListener(new View.OnClickListener() {
+               view.findViewById(R.id.details_share_weibo).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
 
@@ -261,13 +278,15 @@ public class VideoDetailsActivity extends BaseActivity implements View.OnClickLi
 
     @Override
     public void detailsshowrecycler(List<VideoDetailsHDBean.VideoBean> arrayList) {
-
-        xRecyclerAdapter = new VideoDetailsXRecyclerAdapter(Myapp.activity,arrayList);
+ 
+        xRecyclerAdapter = new VideoDetailsXRecyclerAdapter(Myapp.activity, arrayList);
         listView.setAdapter(xRecyclerAdapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
+//                jcVideoPlayerStandard.setUp("http://cntv.vod.cdn.myqcloud.com/flash/mp4video61/TMS/2017/09/04/3138164066cf49ad88b8a236545996fb_h264418000nero_aac32.mp4"
+//                        , JCVideoPlayerStandard.SCREEN_LAYOUT_NORMAL, mytitle);
 
             }
         });

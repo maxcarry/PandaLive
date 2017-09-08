@@ -126,9 +126,10 @@ public class VideoFragment extends BaseFragment implements IVideoView, View.OnCl
                 intent.putExtra("title", bigImg.get(position).getTitle());
                 intent.putExtra("path", bigImg.get(position).getPid());
                 intent.putExtra("type", bigImg.get(position).getType());
-                intent.putExtra("type","2");
+                intent.putExtra("date", "");
+                intent.putExtra("tim", "");
+                intent.putExtra("img", bigImg.get(position).getImage());
                 startActivity(intent);
-
             }
         });
         //banner设置方法全部调用完毕时最后调用
