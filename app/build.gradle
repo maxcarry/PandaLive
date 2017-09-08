@@ -24,23 +24,7 @@ android {
         daoPackage 'com.example.dell.pandalive.greendaoutils'
         targetGenDir 'src/main/java'
     }
-    sourceSets {
-        main {
-            jniLibs.srcDirs = ['libs']
-        }
-    }
-    repositories {
-        flatDir {
-            dirs 'libs'
-        }
-    signingConfigs {
-        debug {
-            storeFile file('debug.keystore')
-            storePassword "android"
-            keyAlias "androiddebugkey"
-            keyPassword "android"
-        }
-    }
+
 }
 
 dependencies {
@@ -97,8 +81,6 @@ dependencies {
 
     compile 'com.sina.weibo.sdk:core:4.1.0:openDefaultRelease@aar'
 
-    }
+
 }
-dependencies {
-    compile files('libs/SocialSDK_WeChat_Simplify.jar')
-}
+

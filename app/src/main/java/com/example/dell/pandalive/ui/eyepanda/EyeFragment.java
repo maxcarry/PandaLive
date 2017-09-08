@@ -59,6 +59,7 @@ String url="http://api.cntv.cn/apicommon/index?path=iphoneInterface/general/getA
 
     @Override
     protected void initdata() {
+        DialogUtil.instance().Showdialog(Myapp.activity);
         refreshview();
 
         eye_refreshlayout.setOnRefreshListener(new OnRefreshListener() {
@@ -79,7 +80,7 @@ String url="http://api.cntv.cn/apicommon/index?path=iphoneInterface/general/getA
     }
 
     private void refreshview() {
-        DialogUtil.instance().Showdialog(Myapp.activity);
+
 
         eyePresenter.ShowBigImg();
 
@@ -156,6 +157,10 @@ String url="http://api.cntv.cn/apicommon/index?path=iphoneInterface/general/getA
                 intent.putExtra("title", titlelist.get(position));
                 intent.putExtra("path", bigImg.get(position).getPid());
                 intent.putExtra("type",bigImg.get(position).getType());
+
+                intent.putExtra("date","");
+                intent.putExtra("tim","00:00");
+                intent.putExtra("img",bigImg.get(position).getImage());
                 startActivity(intent);
             }
         });
