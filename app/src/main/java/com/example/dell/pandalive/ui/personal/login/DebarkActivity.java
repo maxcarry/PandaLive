@@ -131,7 +131,8 @@ public class DebarkActivity extends BaseActivity implements View.OnClickListener
                 finish();
                 break;
             case R.id.debark_thirdly_weibo:
-                //微博
+
+                //
                 WbSdk.install(Myapp.activity,new AuthInfo(Myapp.activity, Constants.APP_KEY, Constants.REDIRECT_URL,
                         Constants.SCOPE));
 
