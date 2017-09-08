@@ -285,6 +285,8 @@ public class VideoDetailsActivity extends BaseActivity implements View.OnClickLi
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
+
+
 //                jcVideoPlayerStandard.setUp("http://cntv.vod.cdn.myqcloud.com/flash/mp4video61/TMS/2017/09/04/3138164066cf49ad88b8a236545996fb_h264418000nero_aac32.mp4"
 //                        , JCVideoPlayerStandard.SCREEN_LAYOUT_NORMAL, mytitle);
 

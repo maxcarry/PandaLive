@@ -75,6 +75,7 @@ public class VideoFragment extends BaseFragment implements IVideoView, View.OnCl
     @Override
     protected View initlayout() {
 
+
         return view;
     }
 
