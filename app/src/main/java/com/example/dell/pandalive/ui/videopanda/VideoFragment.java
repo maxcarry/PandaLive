@@ -156,8 +156,6 @@ public class VideoFragment extends BaseFragment implements IVideoView, View.OnCl
             }
         });
         DialogUtil.instance().Hidedialog();
-
-
         //
 
     }

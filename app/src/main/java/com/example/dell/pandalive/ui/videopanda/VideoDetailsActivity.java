@@ -155,7 +155,6 @@ public class VideoDetailsActivity extends BaseActivity implements View.OnClickLi
         imageshare = (ImageView) findViewById(R.id.details_image_share);
         imagecollection.setOnClickListener(this);
 
-
         //
     }
 
